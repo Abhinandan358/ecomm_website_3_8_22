@@ -1,0 +1,3 @@
+signup - https://demo50.gowebbi.us/api/RegisterApi/UserRegister
+login - https://demo50.gowebbi.us/api/RegisterApi/Login
+forgot - https://demo50.gowebbi.us/api/RegisterApi/ForgetPassword
