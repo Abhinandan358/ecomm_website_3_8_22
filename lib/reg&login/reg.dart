@@ -143,7 +143,8 @@ class _RegState extends State<Reg> {
                         );
                       }
                     }, 'SignUp'),
-                    TextButton(onPressed: (){Get.to(()=>Login());}, child: Text('If you have already an account go to Login'))
+                    TextButton(onPressed: (){Get.to(()=>Login());}, child: Text('If you have already an account go to Login')),
+                    TextButton(onPressed: (){Get.to(()=>BottomNavPage());}, child: Text('Skip'))
                   ],
                 ),
               ),

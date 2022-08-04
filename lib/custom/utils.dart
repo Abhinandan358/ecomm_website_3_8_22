@@ -8,6 +8,7 @@ const black = Color.fromARGB(146, 97, 107, 4);
 const green = Colors.green;
 const red = Colors.red;
 const black1 = Colors.black;
+const red2 = Color.fromARGB(255, 245, 158, 100);
 
 //buttons-----
 
