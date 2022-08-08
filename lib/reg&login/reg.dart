@@ -47,105 +47,110 @@ class _RegState extends State<Reg> {
       ),
       body: Form(
           key: formkey,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: 0.80.sh,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text('Registration', style: TextStyle(fontSize: 30)),
-                    TextFormField(
-                      controller: nameCtrl,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please provide your name";
-                        }
-                      },
-                      decoration: InputDecoration(
-                          hintText: 'Write Name', border: OutlineInputBorder()),
-                    ),
-                    TextFormField(
-                      controller: emailCtrl,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please provide your Email";
-                        }
-                      },
-                      decoration: InputDecoration(
-                          hintText: 'Write Email',
-                          border: OutlineInputBorder()),
-                    ),
-                    TextFormField(
-                      controller: phoneCtrl,
-                      keyboardType: TextInputType.phone,
-                      maxLength: 10,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please provide your Phone Number";
-                        } else if (value.length < 10) {
-                          return "Atleast 10 digit required";
-                        }
-                      },
-                      decoration: InputDecoration(
-                          counterText: "",
-                          hintText: 'Write Phone Number',
-                          border: OutlineInputBorder()),
-                    ),
-                    TextFormField(
-                        controller: passCtrl,
-                        obscureText: _obsecureText,
+          child: Container(
+             decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [white1,red],begin: Alignment.topCenter,end: Alignment.bottomCenter)
+              ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: 0.87.sh,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text('Registration', style: TextStyle(fontSize: 30)),
+                      TextFormField(
+                        controller: nameCtrl,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Please provide your Password";
+                            return "Please provide your name";
                           }
                         },
                         decoration: InputDecoration(
+                            hintText: 'Write Name', border: OutlineInputBorder()),
+                      ),
+                      TextFormField(
+                        controller: emailCtrl,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Please provide your Email";
+                          }
+                        },
+                        decoration: InputDecoration(
+                            hintText: 'Write Email',
+                            border: OutlineInputBorder()),
+                      ),
+                      TextFormField(
+                        controller: phoneCtrl,
+                        keyboardType: TextInputType.phone,
+                        maxLength: 10,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Please provide your Phone Number";
+                          } else if (value.length < 10) {
+                            return "Atleast 10 digit required";
+                          }
+                        },
+                        decoration: InputDecoration(
+                            counterText: "",
+                            hintText: 'Write Phone Number',
+                            border: OutlineInputBorder()),
+                      ),
+                      TextFormField(
+                          controller: passCtrl,
+                          obscureText: _obsecureText,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "Please provide your Password";
+                            }
+                          },
+                          decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _obsecureText = !_obsecureText;
+                                    });
+                                  },
+                                  icon: Icon(_obsecureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off)),
+                              hintText: 'Write Password',
+                              border: OutlineInputBorder())),
+                      TextFormField(
+                        controller: cpassCtrl,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        obscureText: _cobsecureText,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Confirm Password',
                             suffixIcon: IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    _obsecureText = !_obsecureText;
+                                    _cobsecureText = !_cobsecureText;
                                   });
                                 },
-                                icon: Icon(_obsecureText
+                                icon: Icon(_cobsecureText
                                     ? Icons.visibility
-                                    : Icons.visibility_off)),
-                            hintText: 'Write Password',
-                            border: OutlineInputBorder())),
-                    TextFormField(
-                      controller: cpassCtrl,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      obscureText: _cobsecureText,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Confirm Password',
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _cobsecureText = !_cobsecureText;
-                                });
-                              },
-                              icon: Icon(_cobsecureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off))),
-                    ),
-                    custombtn(() {
-                      if (formkey.currentState!.validate()) {
-                        postData(nameCtrl.text, emailCtrl.text, phoneCtrl.text,
-                            passCtrl.text, cpassCtrl.text);
-                        CupertinoActivityIndicator(
-                          color: green,
-                        );
-                      }
-                    }, 'SignUp'),
-                    TextButton(onPressed: (){Get.to(()=>Login());}, child: Text('If you have already an account go to Login')),
-                    TextButton(onPressed: (){Get.to(()=>BottomNavPage());}, child: Text('Skip'))
-                  ],
+                                    : Icons.visibility_off))),
+                      ),
+                      custombtn(() {
+                        if (formkey.currentState!.validate()) {
+                          postData(nameCtrl.text, emailCtrl.text, phoneCtrl.text,
+                              passCtrl.text, cpassCtrl.text);
+                          CupertinoActivityIndicator(
+                            color: green,
+                          );
+                        }
+                      }, 'SignUp'),
+                      TextButton(onPressed: (){Get.to(()=>Login());}, child: Text('If you have already an account go to Login',style: TextStyle(color: white1),)),
+                      TextButton(onPressed: (){Get.to(()=>BottomNavPage());}, child: Text('Skip',style: TextStyle(color: white1),))
+                    ],
+                  ),
                 ),
               ),
             ),

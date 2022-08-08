@@ -17,49 +17,59 @@ class _ForgotPassState extends State<ForgotPass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Forgot Password')),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Form(
-          key: formkey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextFormField(
-                controller: emailCtrl,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: ((value) {
-                  if(value!.isEmpty){
-                    return "Write only Registered EmailId";
-                  }
-                }),
-                decoration: InputDecoration(
-                  labelText: 'Registered Email',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              custombtn((){
-                postData(emailCtrl.text);
-              }, 'Get OTP')
-            ],
-          )),
+      appBar: AppBar(
+          iconTheme: IconThemeData(color: black1),
+          elevation: 0,
+          backgroundColor: white,
+          title: Text('Forgot Password', style: TextStyle(color: brown))),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [white1, red],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Form(
+              key: formkey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextFormField(
+                    controller: emailCtrl,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: ((value) {
+                      if (value!.isEmpty) {
+                        return "Write only Registered EmailId";
+                      }
+                    }),
+                    decoration: InputDecoration(
+                      labelText: 'Registered Email',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  custombtn(() {
+                    postData(emailCtrl.text);
+                  }, 'Get OTP')
+                ],
+              )),
+        ),
       ),
     );
   }
-  postData(String Email1)async{
+
+  postData(String Email1) async {
     String url = 'https://demo50.gowebbi.us/api/RegisterApi/ForgetPassword';
-    Map<String,dynamic> param = {
-      "Email":emailCtrl.text
-    };
-    var result = await post(Uri.parse(url),body: param);
+    Map<String, dynamic> param = {"Email": emailCtrl.text};
+    var result = await post(Uri.parse(url), body: param);
     var data = jsonDecode(result.body);
-    if(result.statusCode==200){
+    if (result.statusCode == 200) {
       print(result.body);
     }
-    if(data['status']=='success'){
+    if (data['status'] == 'success') {
       var snackbar = SnackBar(content: Text('OTP send'));
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
-    }else{
+    } else {
       var snackbar = SnackBar(content: Text(data['msg']));
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }

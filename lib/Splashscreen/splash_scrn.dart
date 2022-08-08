@@ -20,33 +20,40 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), ()=>Get.off(()=>Reg()));
+    Timer(Duration(seconds: 3), () => Get.off(() => Reg()));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black,
-      body: SafeArea(
-          child: Center(
-              child: ClipOval(
-                  child: Stack(
-                    children: [
-                          Image.asset(
-                            'assets/a2.jpg',
-                            fit: BoxFit.fill,
-                            width: 0.4.sh,
-                            height: 0.4.sh,
-                          ),
-                          Positioned(
-                            left:110,
-                            top: 110,
-                            child: CupertinoActivityIndicator(
-                              radius: 30,
-                              color: white,
-                            ),
-                          )
-                        ],
-                  )))),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [white1, red],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
+        child: SafeArea(
+            child: Center(
+                child: ClipOval(
+                    child: Stack(
+          children: [
+            Image.asset(
+              'assets/a2.jpg',
+              fit: BoxFit.fill,
+              width: 0.4.sh,
+              height: 0.4.sh,
+            ),
+            Positioned(
+              left: 110,
+              top: 110,
+              child: CupertinoActivityIndicator(
+                radius: 30,
+                color: white,
+              ),
+            )
+          ],
+        )))),
+      ),
     );
   }
 }
