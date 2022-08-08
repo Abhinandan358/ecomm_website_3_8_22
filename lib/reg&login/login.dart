@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
+import 'package:ecommerce_website_logo3_8_22/reg&login/forgotpass.dart';
 import 'package:ecommerce_website_logo3_8_22/reg&login/reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -84,7 +85,8 @@ class _LoginState extends State<Login> {
                     }, 'Login'),
                     TextButton(
                         onPressed: () {Get.to(()=>Reg());},
-                        child: Text('If You no account then go to SignUp'))
+                        child: Text('If You no account then go to SignUp')),
+                    TextButton(onPressed: (){Get.to(()=>ForgotPass());}, child: Text('Forgot Password'))    
                   ],
                 ),
               ),

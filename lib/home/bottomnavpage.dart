@@ -1,6 +1,7 @@
+import 'package:ecommerce_website_logo3_8_22/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:card_swiper/card_swiper.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNavPage extends StatefulWidget {
@@ -11,61 +12,73 @@ class BottomNavPage extends StatefulWidget {
 }
 
 class _BottomNavPageState extends State<BottomNavPage> {
+  int _SelectIndex = 0;
+  List<Widget> _mywidget = [Home(), Text('1'), Text('2'), Text('3')];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          iconTheme: IconThemeData(color: black1),
-          backgroundColor: white,
-          title: Text('Logo', style: TextStyle(color: brown)),
-          actions: [
-            SizedBox(
-              width: 0.4.sw,
-              child: TextFormField(
-                decoration: InputDecoration(
-                    hintText: 'Search',
-                    border: OutlineInputBorder(),
-                    suffixIcon:
-                        IconButton(onPressed: () {}, icon: Icon(Icons.search))),
-              ),
+      appBar: AppBar(
+        elevation: 0,
+        iconTheme: IconThemeData(color: black1),
+        backgroundColor: white,
+        title: Text('Logo', style: TextStyle(color: brown)),
+        actions: [
+          SizedBox(
+            width: 0.4.sw,
+            child: TextFormField(
+              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
+                  isDense: true,
+                  hintText: 'Search',
+                  border: OutlineInputBorder(),
+                  suffixIcon:
+                      IconButton(onPressed: () {}, icon: Icon(Icons.search))),
             ),
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.shopping_cart_checkout))
-          ],
-        ),
-        body: Column(children: [
-          SizedBox(
-            height: 0.25.sh,
-            child: Swiper(
-                autoplay: true,
-                itemCount: imageswiperList.length,
-                itemBuilder: (context, index) {
-                  return Image.asset(
-                    'assets/${imageswiperList[index]}',
-                    fit: BoxFit.cover,
-                    width: 1.sw,
-                  );
-                }),
           ),
-          SizedBox(
-            height: 0.5.sh,
-            child: ListView.builder(
-                padding: EdgeInsets.all(10),
-                itemCount: textList.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, index) {
-                  return Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(10),
-                          color: red2),
-                      child: Text(textList[index]));
-                }),
-          )
-        ]));
+          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_checkout))
+        ],
+      ),
+      drawer: Drawer(),
+      bottomNavigationBar: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation: 5,
+          backgroundColor: white,
+          currentIndex: _SelectIndex,
+          selectedItemColor: red,
+          type: BottomNavigationBarType.fixed,
+          onTap: ((value) {
+            _SelectIndex = value;
+            setState(() {});
+          }),
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  size: 30,
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shopping_cart,
+                  size: 30,
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.help,
+                  size: 30,
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  size: 30,
+                ),
+                label: '')
+          ]),
+      body: _mywidget[_SelectIndex],
+    );
   }
 }
-
-List imageswiperList = ['1.jpg', '2.jpg', '3.jpg'];
-List textList = ['All', 'Dresses', 'Watches', 'Shoes', 'Beauty'];

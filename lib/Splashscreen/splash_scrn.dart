@@ -38,8 +38,8 @@ class _SplashScreenState extends State<SplashScreen> {
                             height: 0.4.sh,
                           ),
                           Positioned(
-                            left:125,
-                            top: 120,
+                            left:110,
+                            top: 110,
                             child: CupertinoActivityIndicator(
                               radius: 30,
                               color: white,
