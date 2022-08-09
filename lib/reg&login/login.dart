@@ -6,6 +6,7 @@ import 'package:ecommerce_website_logo3_8_22/reg&login/forgotpass.dart';
 import 'package:ecommerce_website_logo3_8_22/reg&login/reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 
@@ -46,7 +47,7 @@ class _LoginState extends State<Login> {
               child: Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                        colors: [white1, red],
+                        colors: [white1, green3],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter)),
                 child: Padding(
@@ -132,13 +133,24 @@ class _LoginState extends State<Login> {
       print(result.body);
     }
     if (data['status'] == 'success') {
-      var snackbar = SnackBar(
-          backgroundColor: green, content: Text('Login Successfully Done'));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      Fluttertoast.showToast(
+          msg: "Login Succesfull",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
       Get.to(() => BottomNavPage());
     } else {
-      var snackbar = SnackBar(backgroundColor: red, content: Text(data['msg']));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      Fluttertoast.showToast(
+          msg: data['msg'],
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
     }
   }
 }

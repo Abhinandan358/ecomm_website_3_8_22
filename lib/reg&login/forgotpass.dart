@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart';
 
 class ForgotPass extends StatefulWidget {
@@ -25,7 +26,7 @@ class _ForgotPassState extends State<ForgotPass> {
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [white1, red],
+                colors: [white1, green3],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
         child: Padding(
@@ -67,11 +68,24 @@ class _ForgotPassState extends State<ForgotPass> {
       print(result.body);
     }
     if (data['status'] == 'success') {
-      var snackbar = SnackBar(content: Text('OTP send'));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      Fluttertoast.showToast(
+          msg: "Message Send To Your Mail",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+      
     } else {
-      var snackbar = SnackBar(content: Text(data['msg']));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      Fluttertoast.showToast(
+          msg: data['msg'],
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
     }
   }
 }

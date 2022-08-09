@@ -19,6 +19,7 @@ const black2 = Colors.black;
 const red5 = Color.fromARGB(255, 233, 77, 66);
 const green1 = Color.fromARGB(255, 228, 250, 129);
 const blue2 = Colors.cyan;
+const green3 = Color.fromARGB(255, 114, 68, 240);
 
 //buttons-----
 
@@ -30,7 +31,7 @@ custombtn(Function()? onPressed, btntxt) {
              decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
                     gradient: LinearGradient(
-                        colors: [green1, blue2],
+                        colors: [white1, green3],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter)),
         child: ElevatedButton(

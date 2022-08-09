@@ -11,16 +11,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<productModel> _productList = [];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _productList.add(productModel('https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', 'T-Shirts', '\$10'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', 'Watches', '\$30'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'T-Shirts', '\$51'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', 'Shoes', '\$100'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'T-Shirts', '\$200'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Makeup', '\$300'));
+     _productList.add(productModel('https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', 'Shoes', '\$100'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'T-Shirts', '\$200'));
+    _productList.add(productModel('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Makeup', '\$300'));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [white1, red],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [white1, red],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter)),
           child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
             SizedBox(
               height: 0.25.sh,
@@ -53,14 +68,17 @@ class _HomeState extends State<Home> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                         )),
-                        child: Text(
-                          textList[index],
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15),
+                        child: InkWell(
+                          onTap: (){},
+                          child: Text(
+                            textList[index],
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
                         ));
                   }),
             ),
-
+      
             //Gridview1=================================
             TextButton.icon(
                 onPressed: () {},
@@ -74,8 +92,8 @@ class _HomeState extends State<Home> {
               height: 0.4.sh,
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
-                  // physics: NeverScrollableScrollPhysics(),
-                  itemCount: imagegridList.length,
+                  //physics: NeverScrollableScrollPhysics(),
+                  itemCount: _productList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: 5,
@@ -93,7 +111,7 @@ class _HomeState extends State<Home> {
                             Stack(
                               children: [
                                 Image.network(
-                                  imagegridList[index],
+                                  _productList[index].image,
                                   height: 0.2.sh,
                                   width: 0.3.sw,
                                   fit: BoxFit.fill,
@@ -131,11 +149,11 @@ class _HomeState extends State<Home> {
                               ],
                             ),
                             Text(
-                              textList2[index],
+                              _productList[index].name,
                               style: TextStyle(color: black1, fontSize: 18),
                             ),
                             Text(
-                              textListpriceList[index],
+                              _productList[index].price,
                               style: TextStyle(color: red, fontSize: 15),
                             ),
                           ],
@@ -144,7 +162,7 @@ class _HomeState extends State<Home> {
                     );
                   }),
             ),
-
+      
             //gridview2----------------------------
             Align(
               alignment: Alignment.topLeft,
@@ -154,10 +172,10 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(
-              height: 0.2.sh,
+              height: 0.1.sh,
               child: GridView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: imagegridList.length,
+                  //physics: NeverScrollableScrollPhysics(),
+                  itemCount: _productList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 5,
@@ -173,7 +191,7 @@ class _HomeState extends State<Home> {
                             Stack(
                               children: [
                                 Image.network(
-                                  imagegridList[index],
+                                  _productList[index].image,
                                   height: 0.2.sh,
                                   width: 0.5.sw,
                                   fit: BoxFit.fill,
@@ -201,12 +219,12 @@ class _HomeState extends State<Home> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          textList2[index],
+                                          _productList[index].name,
                                           style: TextStyle(
                                               color: white1, fontSize: 18),
                                         ),
                                         Text(
-                                          textListpriceList[index],
+                                          _productList[index].price,
                                           style: TextStyle(
                                               color: slightOrange1,
                                               fontSize: 15),
@@ -239,6 +257,12 @@ List imagegridList = [
   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
 ];
 List textList2 = [
   'T-Shirts',
@@ -246,6 +270,18 @@ List textList2 = [
   'T-Shirts',
   'Shoes',
   'T-Shirts',
+  'Makeup',
+  'Shoes',
+  'T-Shirts',
+  'Makeup',
+  'Shoes',
+  'T-Shirts',
   'Makeup'
 ];
-List textListpriceList = ['\$10', '\$30', '\$51', '\$100', '\$200', '\$300'];
+List textListpriceList = ['\$10', '\$30', '\$51', '\$100', '\$200', '\$300','\$100', '\$200', '\$300','\$100', '\$200', '\$300'];
+
+class productModel{
+ final String image,name,price;
+
+  productModel(this.image, this.name, this.price);
+}

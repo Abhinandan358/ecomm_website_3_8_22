@@ -6,6 +6,7 @@ import 'package:ecommerce_website_logo3_8_22/reg&login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 
@@ -49,7 +50,7 @@ class _RegState extends State<Reg> {
           key: formkey,
           child: Container(
              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [white1,red],begin: Alignment.topCenter,end: Alignment.bottomCenter)
+                gradient: LinearGradient(colors: [white1,green3],begin: Alignment.topCenter,end: Alignment.bottomCenter)
               ),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -174,14 +175,24 @@ class _RegState extends State<Reg> {
       print(result.body);
     }
     if (data["status"] == "success") {
-      var snackbar = SnackBar(
-          backgroundColor: green,
-          content: Text('Registration Successfully Done'));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+     Fluttertoast.showToast(
+          msg: "Registration succesfull",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
       Get.to(() => Login());
     } else {
-      var snackbar = SnackBar(backgroundColor: red, content: Text(data['msg']));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+     Fluttertoast.showToast(
+          msg: data['msg'],
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
     }
   }
 }
