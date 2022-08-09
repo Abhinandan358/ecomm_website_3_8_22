@@ -11,21 +11,86 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  double productitemHeight = 0.326.sh;
   List<productModel> _productList = [];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _productList.add(productModel('https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', 'T-Shirts', '\$10'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', 'Watches', '\$30'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'T-Shirts', '\$51'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', 'Shoes', '\$100'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'T-Shirts', '\$200'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Makeup', '\$300'));
-     _productList.add(productModel('https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', 'Shoes', '\$100'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'T-Shirts', '\$200'));
-    _productList.add(productModel('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Makeup', '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+        'T-Shirts',
+        '\$10'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+        'Watches',
+        '\$30'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'T-Shirts',
+        '\$51'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+        'Shoes',
+        '\$100'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'T-Shirts',
+        '\$200'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+        'Shoes',
+        '\$100'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'T-Shirts',
+        '\$200'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+        'Shoes',
+        '\$100'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'T-Shirts',
+        '\$200'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+        'Shoes',
+        '\$100'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'T-Shirts',
+        '\$200'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
+    _productList.add(productModel(
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+        'Makeup',
+        '\$300'));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +134,7 @@ class _HomeState extends State<Home> {
                           end: Alignment.bottomCenter,
                         )),
                         child: InkWell(
-                          onTap: (){},
+                          onTap: () {},
                           child: Text(
                             textList[index],
                             style: TextStyle(
@@ -78,7 +143,7 @@ class _HomeState extends State<Home> {
                         ));
                   }),
             ),
-      
+
             //Gridview1=================================
             TextButton.icon(
                 onPressed: () {},
@@ -89,80 +154,75 @@ class _HomeState extends State<Home> {
                 ),
                 label: Icon(Icons.arrow_forward, color: black2)),
             SizedBox(
-              height: 0.4.sh,
+              height: productitemHeight * _productList.length / 3,
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
-                  //physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: _productList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    crossAxisSpacing: 5,
-                    mainAxisSpacing: 30,
-                    childAspectRatio: 0.7,
+                    // crossAxisSpacing: 5,
+                    // mainAxisSpacing: 30,
+                    childAspectRatio: 0.6,
                   ),
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        decoration: BoxDecoration(color: Colors.white),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Stack(
-                              children: [
-                                Image.network(
-                                  _productList[index].image,
-                                  height: 0.2.sh,
-                                  width: 0.3.sw,
-                                  fit: BoxFit.fill,
+                    return Card(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              Image.network(
+                                _productList[index].image,
+                                height: productitemHeight / 1.5,
+                                width: 0.50.sw,
+                                fit: BoxFit.fill,
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            color: white),
+                                        child: Icon(
+                                          Icons.favorite_border_outlined,
+                                        )),
+                                    Container(
+                                        decoration: BoxDecoration(
+                                          color: white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Icon(Icons.shopping_cart)),
+                                    Container(
+                                        decoration: BoxDecoration(
+                                          color: white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Icon(Icons.visibility_outlined)),
+                                  ],
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                              color: white),
-                                          child: Icon(
-                                            Icons.favorite_border_outlined,
-                                          )),
-                                      Container(
-                                          decoration: BoxDecoration(
-                                            color: white,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          child: Icon(Icons.shopping_cart)),
-                                      Container(
-                                          decoration: BoxDecoration(
-                                            color: white,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          child:
-                                              Icon(Icons.visibility_outlined)),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            Text(
-                              _productList[index].name,
-                              style: TextStyle(color: black1, fontSize: 18),
-                            ),
-                            Text(
-                              _productList[index].price,
-                              style: TextStyle(color: red, fontSize: 15),
-                            ),
-                          ],
-                        ),
+                              )
+                            ],
+                          ),
+                          Text(
+                            _productList[index].name,
+                            style: TextStyle(color: black1, fontSize: 18),
+                          ),
+                          Text(
+                            _productList[index].price,
+                            style: TextStyle(color: red, fontSize: 15),
+                          ),
+                        ],
                       ),
                     );
                   }),
             ),
-      
+
             //gridview2----------------------------
             Align(
               alignment: Alignment.topLeft,
@@ -172,9 +232,9 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(
-              height: 0.1.sh,
+              height: 1.5.sh,
               child: GridView.builder(
-                  //physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: _productList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -257,10 +317,10 @@ List imagegridList = [
   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
 ];
@@ -278,10 +338,23 @@ List textList2 = [
   'T-Shirts',
   'Makeup'
 ];
-List textListpriceList = ['\$10', '\$30', '\$51', '\$100', '\$200', '\$300','\$100', '\$200', '\$300','\$100', '\$200', '\$300'];
+List textListpriceList = [
+  '\$10',
+  '\$30',
+  '\$51',
+  '\$100',
+  '\$200',
+  '\$300',
+  '\$100',
+  '\$200',
+  '\$300',
+  '\$100',
+  '\$200',
+  '\$300'
+];
 
-class productModel{
- final String image,name,price;
+class productModel {
+  final String image, name, price;
 
   productModel(this.image, this.name, this.price);
 }

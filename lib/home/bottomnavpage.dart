@@ -1,7 +1,8 @@
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:ecommerce_website_logo3_8_22/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +14,27 @@ class BottomNavPage extends StatefulWidget {
 }
 
 class _BottomNavPageState extends State<BottomNavPage> {
+  //--------------------------Image Pickeer start--------------------------
+File? image;
+Future pickImageCamera() async{
+  final image = await ImagePicker().pickImage(source: ImageSource.camera);
+  if(image==null)return;
+  final T1 = File(image.path);
+  setState(() {
+    this.image = T1;
+  });
+}
+
+Future pickImageGallery() async{
+  final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  if(image==null)return;
+  final T2 = File(image.path);
+  setState(() {
+    this.image = T2;
+  }); 
+}  
+// Image picker end----------------------------------------------
+
   int _SelectIndex = 0;
   List<Widget> _mywidget = [Home(), Text('1'), Text('2'), Text('3')];
   @override
@@ -36,7 +58,13 @@ class _BottomNavPageState extends State<BottomNavPage> {
                       IconButton(onPressed: () {}, icon: Icon(Icons.search))),
             ),
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined))
+          IconButton(onPressed: () {
+            showModalBottomSheet(context: context, builder: (context){
+                return AlertDialog(
+                  content: Text('data'),
+                );
+            });
+          }, icon: Icon(Icons.shopping_cart_outlined))
         ],
       ),
       drawer: SafeArea(
@@ -64,17 +92,36 @@ class _BottomNavPageState extends State<BottomNavPage> {
                                                   Icons.close,
                                                   color: white1,
                                                 ))),
-                                        content: Image.network(
-                                            'https://images.unsplash.com/photo-1599566147214-ce487862ea4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29uJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'),
+                                        content: image!=null?Image.file(image!,fit: BoxFit.cover,):IconButton(onPressed: (){}, icon: ClipOval(child: Image.network('https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',fit: BoxFit.cover))),
                                       );
                                     });
                               },
-                              child: Image.network(
-                                'https://images.unsplash.com/photo-1599566147214-ce487862ea4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29uJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                fit: BoxFit.cover,
-                              ))),
-                      accountName: Text('Abhi'),
-                      accountEmail: Text('abhi@gmail.com')),
+                              child: image!=null?Image.file(image!,fit: BoxFit.cover,):IconButton(onPressed: (){}, icon:InkWell(
+                                onTap: (){
+                                  showDialog(context: context, builder: (context){
+                                    return AlertDialog(
+                                      content: image!=null?Image.file(image!,fit: BoxFit.cover,):IconButton(onPressed: (){}, icon: ClipOval(child: Image.network('https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',fit: BoxFit.cover,))),
+                                    );
+                                  });
+                                },
+                                child: ClipOval(child: Image.network('https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',fit: BoxFit.cover)))))),
+                      accountName: Text('Abhi',style: TextStyle(fontSize: 20),),
+                      accountEmail: Text('abhi@gmail.com',style: TextStyle(fontSize: 20))),
+
+                      custombtn((){
+                      showModalBottomSheet(context: context, builder: (context){
+                         return AlertDialog(
+                            content: Column(
+                              children: [
+                                TextButton(onPressed: (){pickImageCamera();}, child: Text('data')),
+                                TextButton(onPressed: (){pickImageGallery();}, child: Text('data'))
+                              ],
+                            ),
+                          );
+                      });
+                      }, 'Change Profile'),
+
+                     
                 ],
               ),
             )),
