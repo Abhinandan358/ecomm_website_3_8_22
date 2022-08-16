@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //colors-----
-const white = Color.fromARGB(220, 228, 222, 222);
+const white = Color.fromARGB(220, 255, 249, 249);
 const brown = Colors.brown;
 const black = Color.fromARGB(146, 97, 107, 4);
 const green = Colors.green;
@@ -20,6 +20,9 @@ const red5 = Color.fromARGB(255, 233, 77, 66);
 const green1 = Color.fromARGB(255, 228, 250, 129);
 const blue2 = Colors.cyan;
 const green3 = Color.fromARGB(255, 114, 68, 240);
+const grey = Color.fromARGB(239, 143, 141, 141);
+const grey1 = Color.fromARGB(255, 109, 108, 108);
+ 
 
 //buttons-----
 

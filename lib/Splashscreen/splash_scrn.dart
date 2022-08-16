@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
+import 'package:ecommerce_website_logo3_8_22/reg&login/login_reg.dart';
 import 'package:ecommerce_website_logo3_8_22/reg&login/reg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), () => Get.off(() => Reg()));
+    Timer(Duration(seconds: 3), () => Get.off(() => LoginReg()));
   }
 
   @override
@@ -44,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 0.4.sh,
             ),
             Positioned(
-              left: 110,
+              left: 130,
               top: 110,
               child: CupertinoActivityIndicator(
                 radius: 30,

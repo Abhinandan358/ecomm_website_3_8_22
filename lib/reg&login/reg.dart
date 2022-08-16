@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
 import 'package:ecommerce_website_logo3_8_22/reg&login/login.dart';
@@ -46,15 +45,17 @@ class _RegState extends State<Reg> {
           )
         ],
       ),
-      body: Form(
-          key: formkey,
-          child: Container(
-             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [white1,green3],begin: Alignment.topCenter,end: Alignment.bottomCenter)
-              ),
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Form(
+            key: formkey,
+            child: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [white1, green3],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter)),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
                 child: SizedBox(
                   height: 0.87.sh,
                   child: Column(
@@ -70,7 +71,8 @@ class _RegState extends State<Reg> {
                           }
                         },
                         decoration: InputDecoration(
-                            hintText: 'Write Name', border: OutlineInputBorder()),
+                            hintText: 'Write Name',
+                            border: OutlineInputBorder()),
                       ),
                       TextFormField(
                         controller: emailCtrl,
@@ -141,21 +143,35 @@ class _RegState extends State<Reg> {
                       ),
                       custombtn(() {
                         if (formkey.currentState!.validate()) {
-                          postData(nameCtrl.text, emailCtrl.text, phoneCtrl.text,
-                              passCtrl.text, cpassCtrl.text);
+                          postData(nameCtrl.text, emailCtrl.text,
+                              phoneCtrl.text, passCtrl.text, cpassCtrl.text);
                           CupertinoActivityIndicator(
                             color: green,
                           );
                         }
                       }, 'SignUp'),
-                      TextButton(onPressed: (){Get.to(()=>Login());}, child: Text('If you have already an account go to Login',style: TextStyle(color: white1),)),
-                      TextButton(onPressed: (){Get.to(()=>BottomNavPage());}, child: Text('Skip',style: TextStyle(color: white1),))
+                      TextButton(
+                          onPressed: () {
+                            Get.to(() => Login());
+                          },
+                          child: Text(
+                            'If you have already an account go to Login',
+                            style: TextStyle(color: white1),
+                          )),
+                      TextButton(
+                          onPressed: () {
+                            Get.to(() => BottomNavPage());
+                          },
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(color: white1),
+                          ))
                     ],
                   ),
                 ),
               ),
-            ),
-          )),
+            )),
+      ),
     );
   }
 
@@ -175,7 +191,7 @@ class _RegState extends State<Reg> {
       print(result.body);
     }
     if (data["status"] == "success") {
-     Fluttertoast.showToast(
+      Fluttertoast.showToast(
           msg: "Registration succesfull",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
@@ -185,7 +201,7 @@ class _RegState extends State<Reg> {
           fontSize: 16.0);
       Get.to(() => Login());
     } else {
-     Fluttertoast.showToast(
+      Fluttertoast.showToast(
           msg: data['msg'],
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,

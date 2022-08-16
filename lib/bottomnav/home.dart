@@ -1,7 +1,9 @@
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/details/homedetails.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,6 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   double productitemHeight = 0.326.sh;
+  double secprodHeight = 0.526.sh;
   List<productModel> _productList = [];
   @override
   void initState() {
@@ -20,75 +23,48 @@ class _HomeState extends State<Home> {
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
         'T-Shirts',
-        '\$10'));
+        '\$10',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
         'Watches',
-        '\$30'));
+        '\$30',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'T-Shirts',
-        '\$51'));
+        '\$51',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
         'Shoes',
-        '\$100'));
+        '\$100',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'T-Shirts',
-        '\$200'));
+        '\$200',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'Makeup',
-        '\$300'));
+        '\$300',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
         'Shoes',
-        '\$100'));
+        '\$100',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'T-Shirts',
-        '\$200'));
+        '\$200',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
     _productList.add(productModel(
         'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'Makeup',
-        '\$300'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
-        'Shoes',
-        '\$100'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'T-Shirts',
-        '\$200'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'Makeup',
-        '\$300'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'Makeup',
-        '\$300'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
-        'Shoes',
-        '\$100'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'T-Shirts',
-        '\$200'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'Makeup',
-        '\$300'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'Makeup',
-        '\$300'));
-    _productList.add(productModel(
-        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-        'Makeup',
-        '\$300'));
+        '\$300',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
   }
 
   @override
@@ -105,7 +81,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 0.25.sh,
               child: Swiper(
-                  autoplay: true,
+                  //autoplay: true,
                   itemCount: imageswiperList.length,
                   itemBuilder: (context, index) {
                     return Image.asset(
@@ -161,9 +137,7 @@ class _HomeState extends State<Home> {
                   itemCount: _productList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    // crossAxisSpacing: 5,
-                    // mainAxisSpacing: 30,
-                    childAspectRatio: 0.6,
+                    childAspectRatio: 0.5,
                   ),
                   itemBuilder: (context, index) {
                     return Card(
@@ -172,11 +146,17 @@ class _HomeState extends State<Home> {
                         children: [
                           Stack(
                             children: [
-                              Image.network(
-                                _productList[index].image,
-                                height: productitemHeight / 1.5,
-                                width: 0.50.sw,
-                                fit: BoxFit.fill,
+                              InkWell(
+                                onTap: () {
+                                  Get.to(() =>
+                                      Homedetails(item: _productList[index]));
+                                },
+                                child: Image.network(
+                                  _productList[index].image,
+                                  height: productitemHeight / 1.5,
+                                  width: 0.50.sw,
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                               Align(
                                 alignment: Alignment.topRight,
@@ -232,71 +212,67 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(
-              height: 1.5.sh,
+              height: secprodHeight * _productList.length / 2,
               child: GridView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: _productList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 5,
-                  ),
+                      crossAxisCount: 2, childAspectRatio: 0.8),
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        decoration: BoxDecoration(color: transperant),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Stack(
-                              children: [
-                                Image.network(
-                                  _productList[index].image,
-                                  height: 0.2.sh,
-                                  width: 0.5.sw,
-                                  fit: BoxFit.fill,
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              Image.network(
+                                _productList[index].image,
+                                height: secprodHeight / 2,
+                                width: 0.5.sw,
+                                fit: BoxFit.fill,
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            color: black),
+                                        child: Icon(
+                                          Icons.favorite_border_outlined,
+                                        )),
+                                  ],
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: Container(
+                                  height: 0.09.sh,
+                                  width: 0.5.sw,
+                                  decoration: BoxDecoration(color: black1),
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                              color: black),
-                                          child: Icon(
-                                            Icons.favorite_border_outlined,
-                                          )),
+                                      Text(
+                                        _productList[index].name,
+                                        style: TextStyle(
+                                            color: white1, fontSize: 18),
+                                      ),
+                                      Text(
+                                        _productList[index].price,
+                                        style: TextStyle(
+                                            color: slightOrange1, fontSize: 15),
+                                      ),
                                     ],
                                   ),
                                 ),
-                                Positioned(
-                                  top: 100,
-                                  child: Container(
-                                    width: 0.5.sw,
-                                    decoration: BoxDecoration(color: black1),
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          _productList[index].name,
-                                          style: TextStyle(
-                                              color: white1, fontSize: 18),
-                                        ),
-                                        Text(
-                                          _productList[index].price,
-                                          style: TextStyle(
-                                              color: slightOrange1,
-                                              fontSize: 15),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     );
                   }),
@@ -323,6 +299,8 @@ List imagegridList = [
   'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
   'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
 ];
 List textList2 = [
   'T-Shirts',
@@ -336,7 +314,9 @@ List textList2 = [
   'Makeup',
   'Shoes',
   'T-Shirts',
-  'Makeup'
+  'Makeup',
+  'T-Shirts',
+  'Makeup',
 ];
 List textListpriceList = [
   '\$10',
@@ -350,11 +330,17 @@ List textListpriceList = [
   '\$300',
   '\$100',
   '\$200',
-  '\$300'
+  '\$300',
+  '\$200',
+  '\$300',
+];
+
+List detailsList = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'
 ];
 
 class productModel {
-  final String image, name, price;
+  final String image, name, price, detailsList;
 
-  productModel(this.image, this.name, this.price);
+  productModel(this.image, this.name, this.price, this.detailsList);
 }
