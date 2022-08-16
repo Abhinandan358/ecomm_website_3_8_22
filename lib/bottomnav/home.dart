@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 0.25.sh,
               child: Swiper(
-                  //autoplay: true,
+                  autoplay: true,
                   itemCount: imageswiperList.length,
                   itemBuilder: (context, index) {
                     return Image.asset(
