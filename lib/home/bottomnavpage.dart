@@ -19,12 +19,13 @@ class BottomNavPage extends StatefulWidget {
 
 class _BottomNavPageState extends State<BottomNavPage> {
   int count = 0;
-  StreamController<int> _streamController = StreamController();
+  final StreamController<int> _streamController = StreamController();
   //--------------------------Image Pickeer start--------------------------
   File? image;
   Future pickImageCamera() async {
     final image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image == null) return;
+    // ignore: non_constant_identifier_names
     final T1 = File(image.path);
     setState(() {
       this.image = T1;
@@ -34,6 +35,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
   Future pickImageGallery() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image == null) return;
+    // ignore: non_constant_identifier_names
     final T2 = File(image.path);
     setState(() {
       this.image = T2;
@@ -41,20 +43,21 @@ class _BottomNavPageState extends State<BottomNavPage> {
   }
 // Image picker end----------------------------------------------
 
+  // ignore: non_constant_identifier_names
   int _SelectIndex = 0;
-  List<Widget> _mywidget = [Home(), Cart(), Help(), Profile()];
+  final List<Widget> _mywidget = [const Home(), const Cart(), const Help(), const Profile()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
-          iconTheme: IconThemeData(color: black1),
+          iconTheme: const IconThemeData(color: black1),
           backgroundColor: white,
-          title: Text('Logo', style: TextStyle(color: brown)),
+          title: const Text('Logo', style: TextStyle(color: brown)),
           actions: [
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
+              margin: const EdgeInsets.symmetric(vertical: 10),
               width: 0.37.sw,
               child: TextFormField(
                 keyboardType: TextInputType.multiline,
@@ -62,29 +65,29 @@ class _BottomNavPageState extends State<BottomNavPage> {
                     contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
                     isDense: true,
                     hintText: 'Search',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     suffixIcon:
-                        IconButton(onPressed: () {}, icon: Icon(Icons.search))),
+                        IconButton(onPressed: () {}, icon: const Icon(Icons.search))),
               ),
             ),
             Stack(
               children: [
                 IconButton(
                     onPressed: () {
-                      Get.to(() => Cart());
+                      Get.to(() => const Cart());
                     },
-                    icon: Icon(Icons.shopping_cart_outlined)),
+                    icon: const Icon(Icons.shopping_cart_outlined)),
                 StreamBuilder<int>(
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
                         return Text(
                           '${snapshot.data}',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         );
                       } else {
-                        return Text(
+                        return const Text(
                           '0',
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
@@ -117,7 +120,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
                                                 onPressed: () {
                                                   Get.back();
                                                 },
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons.close,
                                                   color: white1,
                                                 ))),
@@ -168,11 +171,11 @@ class _BottomNavPageState extends State<BottomNavPage> {
                                               child: Image.network(
                                                   'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
                                                   fit: BoxFit.cover)))))),
-                      accountName: Text(
+                      accountName: const Text(
                         'Abhi',
                         style: TextStyle(fontSize: 20),
                       ),
-                      accountEmail: Text('abhi@gmail.com',
+                      accountEmail: const Text('abhi@gmail.com',
                           style: TextStyle(fontSize: 20))),
                   custombtn(() {
                     showModalBottomSheet(
@@ -185,12 +188,12 @@ class _BottomNavPageState extends State<BottomNavPage> {
                                     onPressed: () {
                                       pickImageCamera();
                                     },
-                                    child: Text('data')),
+                                    child: const Text('data')),
                                 TextButton(
                                     onPressed: () {
                                       pickImageGallery();
                                     },
-                                    child: Text('data'))
+                                    child: const Text('data'))
                               ],
                             ),
                           );
@@ -198,11 +201,11 @@ class _BottomNavPageState extends State<BottomNavPage> {
                   }, 'Change Profile'),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.logout,
                         color: red,
                       ),
-                      label: Text(
+                      label: const Text(
                         'Logout',
                         style: TextStyle(color: red),
                       ))
@@ -222,7 +225,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
             _SelectIndex = value;
             setState(() {});
           }),
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_outlined,

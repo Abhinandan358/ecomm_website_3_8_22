@@ -18,7 +18,7 @@ class _LoginRegState extends State<LoginReg> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                       colors: [white1, red2],
                       begin: Alignment.topCenter,
@@ -28,9 +28,9 @@ class _LoginRegState extends State<LoginReg> {
             children: [
               Image.network('https://media.istockphoto.com/photos/identity-theft-concept-on-mobile-phone-picture-id1409102261?b=1&k=20&m=1409102261&s=170667a&w=0&h=jbLFjjfHbbhM72iA3C29fVBFSqO9EJwz5UBXrULqh5U=',height: 0.5.sh,width: 1.sw,fit: BoxFit.cover,),
               SizedBox(height: .09.sh),
-              custombtn((){Get.to(()=>Reg());}, 'Registration'),
+              custombtn((){Get.to(()=>const Reg());}, 'Registration'),
               SizedBox(height: .05.sh),
-              custombtn((){Get.to(()=>Login());}, 'Login')
+              custombtn((){Get.to(()=>const Login());}, 'Login')
             ],
           ),
         ),

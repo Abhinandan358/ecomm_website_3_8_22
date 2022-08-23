@@ -33,7 +33,7 @@ custombtn(Function()? onPressed, btntxt) {
       child: Container(
              decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                         colors: [white1, green3],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter)),

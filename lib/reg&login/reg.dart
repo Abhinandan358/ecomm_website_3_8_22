@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
@@ -29,17 +31,17 @@ class _RegState extends State<Reg> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: black1),
+        iconTheme: const IconThemeData(color: black1),
         elevation: 0,
         backgroundColor: white,
-        title: Text('Ecommerce Website', style: TextStyle(color: brown)),
+        title: const Text('Ecommerce Website', style: TextStyle(color: brown)),
         actions: [
           IconButton(
               onPressed: () {
-                Get.to(() => Login());
+                Get.to(() => const Login());
               },
-              icon: Icon(Icons.login)),
-          Text(
+              icon: const Icon(Icons.login)),
+          const Text(
             'Login',
             style: TextStyle(color: black1),
           )
@@ -49,7 +51,7 @@ class _RegState extends State<Reg> {
         child: Form(
             key: formkey,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       colors: [white1, green3],
                       begin: Alignment.topCenter,
@@ -61,7 +63,7 @@ class _RegState extends State<Reg> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text('Registration', style: TextStyle(fontSize: 30)),
+                      const Text('Registration', style: TextStyle(fontSize: 30)),
                       TextFormField(
                         controller: nameCtrl,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -69,8 +71,9 @@ class _RegState extends State<Reg> {
                           if (value!.isEmpty) {
                             return "Please provide your name";
                           }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: 'Write Name',
                             border: OutlineInputBorder()),
                       ),
@@ -81,8 +84,9 @@ class _RegState extends State<Reg> {
                           if (value!.isEmpty) {
                             return "Please provide your Email";
                           }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: 'Write Email',
                             border: OutlineInputBorder()),
                       ),
@@ -97,8 +101,9 @@ class _RegState extends State<Reg> {
                           } else if (value.length < 10) {
                             return "Atleast 10 digit required";
                           }
+                          return null;
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             counterText: "",
                             hintText: 'Write Phone Number',
                             border: OutlineInputBorder()),
@@ -111,6 +116,7 @@ class _RegState extends State<Reg> {
                             if (value!.isEmpty) {
                               return "Please provide your Password";
                             }
+                            return null;
                           },
                           decoration: InputDecoration(
                               suffixIcon: IconButton(
@@ -123,13 +129,13 @@ class _RegState extends State<Reg> {
                                       ? Icons.visibility
                                       : Icons.visibility_off)),
                               hintText: 'Write Password',
-                              border: OutlineInputBorder())),
+                              border: const OutlineInputBorder())),
                       TextFormField(
                         controller: cpassCtrl,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         obscureText: _cobsecureText,
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                             hintText: 'Confirm Password',
                             suffixIcon: IconButton(
                                 onPressed: () {
@@ -145,24 +151,24 @@ class _RegState extends State<Reg> {
                         if (formkey.currentState!.validate()) {
                           postData(nameCtrl.text, emailCtrl.text,
                               phoneCtrl.text, passCtrl.text, cpassCtrl.text);
-                          CupertinoActivityIndicator(
+                          const CupertinoActivityIndicator(
                             color: green,
                           );
                         }
                       }, 'SignUp'),
                       TextButton(
                           onPressed: () {
-                            Get.to(() => Login());
+                            Get.to(() => const Login());
                           },
-                          child: Text(
+                          child: const Text(
                             'If you have already an account go to Login',
                             style: TextStyle(color: white1),
                           )),
                       TextButton(
                           onPressed: () {
-                            Get.to(() => BottomNavPage());
+                            Get.to(() => const BottomNavPage());
                           },
-                          child: Text(
+                          child: const Text(
                             'Skip',
                             style: TextStyle(color: white1),
                           ))
@@ -175,8 +181,7 @@ class _RegState extends State<Reg> {
     );
   }
 
-  postData(
-      String Name1, Email1, PhoneNumber, Password1, confirmPassword) async {
+  postData(String Name1,Email1,PhoneNo1,Password1,ConfirmPassword1) async {
     String url = 'https://demo50.gowebbi.us/api/RegisterApi/UserRegister';
     Map<String, dynamic> param = {
       "Name": nameCtrl.text,
@@ -188,27 +193,29 @@ class _RegState extends State<Reg> {
     var result = await post(Uri.parse(url), body: param);
     var data = jsonDecode(result.body);
     if (result.statusCode == 200) {
+      // ignore: avoid_print
       print(result.body);
     }
-    if (data["status"] == "success") {
+    if (data['status'] == 'success') {
       Fluttertoast.showToast(
-          msg: "Registration succesfull",
+          msg: "Login Succesfull",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
-      Get.to(() => Login());
+      Get.to(() => const BottomNavPage());
     } else {
       Fluttertoast.showToast(
-          msg: data['msg'],
+          msg:data['msg'],
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
+      Get.to(() => const BottomNavPage());
     }
   }
 }

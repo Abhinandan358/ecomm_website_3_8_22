@@ -15,52 +15,51 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   double productitemHeight = 0.326.sh;
   double secprodHeight = 0.526.sh;
-  List<productModel> _productList = [];
+  final List<ProductModel> _productList = [];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
         'T-Shirts',
         '\$10',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
         'Watches',
         '\$30',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'T-Shirts',
         '\$51',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
         'Shoes',
         '\$100',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'T-Shirts',
         '\$200',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'Makeup',
         '\$300',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
         'Shoes',
         '\$100',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'T-Shirts',
         '\$200',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'));
-    _productList.add(productModel(
+    _productList.add(ProductModel(
         'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
         'Makeup',
         '\$300',
@@ -72,7 +71,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               gradient: LinearGradient(
                   colors: [white1, red],
                   begin: Alignment.topCenter,
@@ -91,16 +90,16 @@ class _HomeState extends State<Home> {
                     );
                   }),
             ),
-            Container(
+            SizedBox(
               height: 65,
               child: ListView.builder(
                   itemCount: textList.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, index) {
                     return Container(
-                        margin: EdgeInsets.all(15),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
+                        margin: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
                             gradient: LinearGradient(
                           colors: [
                             Color.fromARGB(255, 238, 232, 230),
@@ -113,7 +112,7 @@ class _HomeState extends State<Home> {
                           onTap: () {},
                           child: Text(
                             textList[index],
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                         ));
@@ -123,19 +122,19 @@ class _HomeState extends State<Home> {
             //Gridview1=================================
             TextButton.icon(
                 onPressed: () {},
-                icon: Text(
+                icon: const Text(
                   'View All',
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 18, color: black2),
                 ),
-                label: Icon(Icons.arrow_forward, color: black2)),
+                label: const Icon(Icons.arrow_forward, color: black2)),
             SizedBox(
               height: productitemHeight * _productList.length / 3,
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: _productList.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 0.5,
                   ),
@@ -167,7 +166,7 @@ class _HomeState extends State<Home> {
                                             borderRadius:
                                                 BorderRadius.circular(20),
                                             color: white),
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.favorite_border_outlined,
                                         )),
                                     Container(
@@ -176,14 +175,14 @@ class _HomeState extends State<Home> {
                                           borderRadius:
                                               BorderRadius.circular(20),
                                         ),
-                                        child: Icon(Icons.shopping_cart)),
+                                        child: const Icon(Icons.shopping_cart)),
                                     Container(
                                         decoration: BoxDecoration(
                                           color: white,
                                           borderRadius:
                                               BorderRadius.circular(20),
                                         ),
-                                        child: Icon(Icons.visibility_outlined)),
+                                        child: const Icon(Icons.visibility_outlined)),
                                   ],
                                 ),
                               )
@@ -191,11 +190,11 @@ class _HomeState extends State<Home> {
                           ),
                           Text(
                             _productList[index].name,
-                            style: TextStyle(color: black1, fontSize: 18),
+                            style: const TextStyle(color: black1, fontSize: 18),
                           ),
                           Text(
                             _productList[index].price,
-                            style: TextStyle(color: red, fontSize: 15),
+                            style: const TextStyle(color: red, fontSize: 15),
                           ),
                         ],
                       ),
@@ -204,7 +203,7 @@ class _HomeState extends State<Home> {
             ),
 
             //gridview2----------------------------
-            Align(
+            const Align(
               alignment: Alignment.topLeft,
               child: Text(
                 'Recently Viewed---',
@@ -212,11 +211,11 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(
-              height: secprodHeight * _productList.length / 2,
+              height: secprodHeight * _productList.length / 1.5,
               child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: _productList.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, childAspectRatio: 0.8),
                   itemBuilder: (context, index) {
                     return Padding(
@@ -241,7 +240,7 @@ class _HomeState extends State<Home> {
                                             borderRadius:
                                                 BorderRadius.circular(20),
                                             color: black),
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.favorite_border_outlined,
                                         )),
                                   ],
@@ -252,18 +251,18 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                   height: 0.09.sh,
                                   width: 0.5.sw,
-                                  decoration: BoxDecoration(color: black1),
+                                  decoration: const BoxDecoration(color: black1),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
                                         _productList[index].name,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: white1, fontSize: 18),
                                       ),
                                       Text(
                                         _productList[index].price,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: slightOrange1, fontSize: 15),
                                       ),
                                     ],
@@ -339,8 +338,9 @@ List detailsList = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'
 ];
 
-class productModel {
+// ignore: camel_case_types
+class ProductModel {
   final String image, name, price, detailsList;
 
-  productModel(this.image, this.name, this.price, this.detailsList);
+  ProductModel(this.image, this.name, this.price, this.detailsList);
 }

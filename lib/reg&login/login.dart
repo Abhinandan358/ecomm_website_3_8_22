@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
@@ -25,17 +27,17 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: black1),
+        iconTheme: const IconThemeData(color: black1),
         elevation: 0,
         backgroundColor: white,
-        title: Text('Ecommerce Website', style: TextStyle(color: brown)),
+        title: const Text('Ecommerce Website', style: TextStyle(color: brown)),
         actions: [
           IconButton(
               onPressed: () {
-                Get.to(() => Reg());
+                Get.to(() => const Reg());
               },
-              icon: Icon(Icons.app_registration)),
-          Text('Signup', style: TextStyle(color: black1))
+              icon: const Icon(Icons.app_registration)),
+          const Text('Signup', style: TextStyle(color: black1))
         ],
       ),
       body: Form(
@@ -44,7 +46,7 @@ class _LoginState extends State<Login> {
             child: SizedBox(
               height: 0.90.sh,
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         colors: [white1, green3],
                         begin: Alignment.topCenter,
@@ -54,15 +56,16 @@ class _LoginState extends State<Login> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text('SignIn', style: TextStyle(fontSize: 30)),
+                      const Text('SignIn', style: TextStyle(fontSize: 30)),
                       TextFormField(
                         controller: emailCtrl,
                         validator: ((value) {
                           if (value!.isEmpty) {
                             return "Please provide only your registered emailid";
                           }
+                          return null;
                         }),
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Write Email'),
                       ),
@@ -73,10 +76,11 @@ class _LoginState extends State<Login> {
                           if (value!.isEmpty) {
                             return "give your password";
                           }
+                          return null;
                         }),
                         decoration: InputDecoration(
                             hintText: 'Write Password',
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                             suffixIcon: IconButton(
                                 onPressed: () {
                                   setState(() {
@@ -97,17 +101,17 @@ class _LoginState extends State<Login> {
                       }, 'Login'),
                       TextButton(
                           onPressed: () {
-                            Get.to(() => Reg());
+                            Get.to(() => const Reg());
                           },
-                          child: Text(
+                          child: const Text(
                             'If You no account then go to SignUp',
                             style: TextStyle(color: white1),
                           )),
                       TextButton(
                           onPressed: () {
-                            Get.to(() => ForgotPass());
+                            Get.to(() => const ForgotPass());
                           },
-                          child: Text(
+                          child: const Text(
                             'Forgot Password',
                             style: TextStyle(color: white1),
                           ))
@@ -129,6 +133,7 @@ class _LoginState extends State<Login> {
     var result = await post(Uri.parse(url), body: param);
     var data = jsonDecode(result.body);
     if (result.statusCode == 200) {
+      // ignore: avoid_print
       print(result.body);
     }
     if (data['status'] == 'success') {
@@ -140,7 +145,7 @@ class _LoginState extends State<Login> {
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
-      Get.to(() => BottomNavPage());
+      Get.to(() => const BottomNavPage());
     } else {
       Fluttertoast.showToast(
           msg: data['msg'],

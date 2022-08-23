@@ -1,4 +1,3 @@
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -14,7 +13,7 @@ class _CartState extends State<Cart> {
     return Scaffold(
       body: SafeArea(
           child: Column(
-        children: [
+        children: const [
           Text(
             'Cart Page',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),

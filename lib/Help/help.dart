@@ -19,7 +19,7 @@ class _HelpState extends State<Help> {
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
-          height: 0.5.sh,
+          height: 0.9.sh,
           child: Form(
               key: formkey,
               child: Padding(
@@ -27,11 +27,12 @@ class _HelpState extends State<Help> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
+                    const Text(
                       'Help',
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
+                    Image.network('https://media.istockphoto.com/photos/speech-bubble-with-question-mark-icon-picture-id1395757572?b=1&k=20&m=1395757572&s=170667a&w=0&h=Q70tELhVZfgp0FGLmKWN-3sxOaPRp8ZLy-n9--YTL6c='),
                     TextFormField(
                       controller: nameCtrl,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -39,6 +40,7 @@ class _HelpState extends State<Help> {
                         if(value==null||value.isEmpty){
                           return "Required";
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                           labelText: 'Name',
@@ -52,6 +54,7 @@ class _HelpState extends State<Help> {
                         if(value==null||value.isEmpty){
                           return "Required";
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                           labelText: 'Profession',
@@ -66,6 +69,7 @@ class _HelpState extends State<Help> {
                         if(value==null||value.isEmpty){
                           return "Required";
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                           labelText: 'Comments',
@@ -74,7 +78,7 @@ class _HelpState extends State<Help> {
                     ),
                     custombtn(() {
                       if(formkey.currentState!.validate()){
-                        var snackbar = SnackBar(content: Text('We are contact with you very soon'));
+                        var snackbar = const SnackBar(content: Text('We are contact with you very soon'));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       }
                     }, 'Help')

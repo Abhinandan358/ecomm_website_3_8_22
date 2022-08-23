@@ -19,12 +19,12 @@ class _ForgotPassState extends State<ForgotPass> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          iconTheme: IconThemeData(color: black1),
+          iconTheme: const IconThemeData(color: black1),
           elevation: 0,
           backgroundColor: white,
-          title: Text('Forgot Password', style: TextStyle(color: brown))),
+          title: const Text('Forgot Password', style: TextStyle(color: brown))),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [white1, green3],
                 begin: Alignment.topCenter,
@@ -43,8 +43,9 @@ class _ForgotPassState extends State<ForgotPass> {
                       if (value!.isEmpty) {
                         return "Write only Registered EmailId";
                       }
+                      return null;
                     }),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Registered Email',
                       border: OutlineInputBorder(),
                     ),
@@ -59,12 +60,14 @@ class _ForgotPassState extends State<ForgotPass> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   postData(String Email1) async {
     String url = 'https://demo50.gowebbi.us/api/RegisterApi/ForgetPassword';
     Map<String, dynamic> param = {"Email": emailCtrl.text};
     var result = await post(Uri.parse(url), body: param);
     var data = jsonDecode(result.body);
     if (result.statusCode == 200) {
+      // ignore: avoid_print
       print(result.body);
     }
     if (data['status'] == 'success') {
