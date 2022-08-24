@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   double productitemHeight = 0.326.sh;
-  double secprodHeight = 0.526.sh;
+  double secprodHeight = 300;
   final List<ProductModel> _productList = [];
   @override
   void initState() {
@@ -70,6 +70,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
         child: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -90,34 +92,69 @@ class _HomeState extends State<Home> {
                     );
                   }),
             ),
-            SizedBox(
-              height: 65,
-              child: ListView.builder(
-                  itemCount: textList.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, index) {
-                    return Container(
-                        margin: const EdgeInsets.all(15),
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(255, 238, 232, 230),
-                            Color.fromARGB(255, 241, 113, 104),
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        )),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Text(
-                            textList[index],
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+            // SizedBox(
+            //   height: 0.09.sh,
+            //   child: ListView.builder(
+            //       itemCount: textList.length,
+            //       scrollDirection: Axis.horizontal,
+            //       itemBuilder: (BuildContext context, index) {
+            //         return Container(
+            //             margin: const EdgeInsets.all(15),
+            //             padding: const EdgeInsets.all(10),
+            //             decoration: const BoxDecoration(
+            //                 gradient: LinearGradient(
+            //               colors: [
+            //                 Color.fromARGB(255, 238, 232, 230),
+            //                 Color.fromARGB(255, 241, 113, 104),
+            //               ],
+            //               begin: Alignment.topCenter,
+            //               end: Alignment.bottomCenter,
+            //             )),
+            //             child: InkWell(
+            //               onTap: () {},
+            //               child: Text(
+            //                 textList[index],
+            //                 style: const TextStyle(
+            //                     fontWeight: FontWeight.bold, fontSize: 15),
+            //               ),
+            //             ));
+            //       }),
+            // ),
+            DefaultTabController(
+                length: 4,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 0.35.sh,
+                      child: RotatedBox(
+                        quarterTurns: 1,
+                        child: TabBar(labelColor: black2, tabs: [
+                          Tab(
+                            text: 'Dress',
                           ),
-                        ));
-                  }),
-            ),
+                          Tab(
+                            text: 'Watches',
+                          ),
+                          Tab(
+                            text: 'Shoes',
+                          ),
+                          Tab(
+                            text: 'Personal Care',
+                          )
+                        ]),
+                      ),
+                    ),
+                    // SizedBox(
+                    //   height: 200,
+                    //   child: TabBarView(children: [
+                    //     Text('1'),
+                    //     Text('1'),
+                    //     Text('1'),
+                    //     Text('1'),
+                    //   ]),
+                    // )
+                  ],
+                )),
 
             //Gridview1=================================
             TextButton.icon(
@@ -182,7 +219,8 @@ class _HomeState extends State<Home> {
                                           borderRadius:
                                               BorderRadius.circular(20),
                                         ),
-                                        child: const Icon(Icons.visibility_outlined)),
+                                        child: const Icon(
+                                            Icons.visibility_outlined)),
                                   ],
                                 ),
                               )
@@ -203,6 +241,9 @@ class _HomeState extends State<Home> {
             ),
 
             //gridview2----------------------------
+            SizedBox(
+              height: 0.07.sh,
+            ),
             const Align(
               alignment: Alignment.topLeft,
               child: Text(
@@ -211,12 +252,13 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(
-              height: secprodHeight * _productList.length / 1.5,
+              height: secprodHeight * _productList.length / 2,
               child: GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: _productList.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, childAspectRatio: 0.8),
+                    crossAxisCount: 2,
+                  ),
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -251,7 +293,8 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                   height: 0.09.sh,
                                   width: 0.5.sw,
-                                  decoration: const BoxDecoration(color: black1),
+                                  decoration:
+                                      const BoxDecoration(color: black1),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -285,60 +328,7 @@ class _HomeState extends State<Home> {
 
 List imageswiperList = ['1.jpg', '2.jpg', '3.jpg'];
 List textList = ['All', 'Dresses', 'Watches', 'Shoes', 'Beauty'];
-List imagegridList = [
-  'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFrZXVwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
-];
-List textList2 = [
-  'T-Shirts',
-  'Watches',
-  'T-Shirts',
-  'Shoes',
-  'T-Shirts',
-  'Makeup',
-  'Shoes',
-  'T-Shirts',
-  'Makeup',
-  'Shoes',
-  'T-Shirts',
-  'Makeup',
-  'T-Shirts',
-  'Makeup',
-];
-List textListpriceList = [
-  '\$10',
-  '\$30',
-  '\$51',
-  '\$100',
-  '\$200',
-  '\$300',
-  '\$100',
-  '\$200',
-  '\$300',
-  '\$100',
-  '\$200',
-  '\$300',
-  '\$200',
-  '\$300',
-];
 
-List detailsList = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus nulla, condimentum ut enim non, fringilla blandit nibh. Aenean volutpat arcu sit amet interdum ultrices. Nullam rutrum, est sed scelerisque tristique, mi nunc feugiat nulla, eu venenatis metus massa nec erat. Praesent vel risus eget nunc mollis varius. Cras mauris libero, suscipit ac odio ut, gravida volutpat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris vel tristique leo. Aliquam erat volutpat.'
-];
-
-// ignore: camel_case_types
 class ProductModel {
   final String image, name, price, detailsList;
 

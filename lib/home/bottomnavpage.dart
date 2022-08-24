@@ -45,7 +45,12 @@ class _BottomNavPageState extends State<BottomNavPage> {
 
   // ignore: non_constant_identifier_names
   int _SelectIndex = 0;
-  final List<Widget> _mywidget = [const Home(), const Cart(), const Help(), const Profile()];
+  final List<Widget> _mywidget = [
+    const Home(),
+    const Cart(),
+    const Help(),
+    const Profile()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,8 +71,8 @@ class _BottomNavPageState extends State<BottomNavPage> {
                     isDense: true,
                     hintText: 'Search',
                     border: const OutlineInputBorder(),
-                    suffixIcon:
-                        IconButton(onPressed: () {}, icon: const Icon(Icons.search))),
+                    suffixIcon: IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.search))),
               ),
             ),
             Stack(
@@ -162,7 +167,8 @@ class _BottomNavPageState extends State<BottomNavPage> {
                                                                 child: Image
                                                                     .network(
                                                               'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                              fit: BoxFit.cover,
+                                                              fit: BoxFit
+                                                                  .cover,
                                                             ))),
                                                   );
                                                 });
