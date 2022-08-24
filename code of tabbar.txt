@@ -1,0 +1,63 @@
+// SizedBox(
+            //   height: 0.09.sh,
+            //   child: ListView.builder(
+            //       itemCount: textList.length,
+            //       scrollDirection: Axis.horizontal,
+            //       itemBuilder: (BuildContext context, index) {
+            //         return Container(
+            //             margin: const EdgeInsets.all(15),
+            //             padding: const EdgeInsets.all(10),
+            //             decoration: const BoxDecoration(
+            //                 gradient: LinearGradient(
+            //               colors: [
+            //                 Color.fromARGB(255, 238, 232, 230),
+            //                 Color.fromARGB(255, 241, 113, 104),
+            //               ],
+            //               begin: Alignment.topCenter,
+            //               end: Alignment.bottomCenter,
+            //             )),
+            //             child: InkWell(
+            //               onTap: () {},
+            //               child: Text(
+            //                 textList[index],
+            //                 style: const TextStyle(
+            //                     fontWeight: FontWeight.bold, fontSize: 15),
+            //               ),
+            //             ));
+            //       }),
+            // ),
+            // DefaultTabController(
+            //     length: 4,
+            //     child: Row(
+            //       children: [
+            //         SizedBox(
+            //           height: 0.35.sh,
+            //           child: RotatedBox(
+            //             quarterTurns: 1,
+            //             child: TabBar(labelColor: black2, tabs: [
+            //               Tab(
+            //                 text: 'Dress',
+            //               ),
+            //               Tab(
+            //                 text: 'Watches',
+            //               ),
+            //               Tab(
+            //                 text: 'Shoes',
+            //               ),
+            //               Tab(
+            //                 text: 'Personal Care',
+            //               )
+            //             ]),
+            //           ),
+            //         ),
+            //         // SizedBox(
+            //         //   height: 200,
+            //         //   child: TabBarView(children: [
+            //         //     Text('1'),
+            //         //     Text('1'),
+            //         //     Text('1'),
+            //         //     Text('1'),
+            //         //   ]),
+            //         // )
+            //       ],
+            //     )),
