@@ -50,38 +50,41 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commonback,
-      body: SizedBox(
-        height: productitemHeight * _categoryList.length / 3,
-        child: GridView.builder(
-            itemCount: _categoryList.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: 0.7,
-            ),
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: white,
-                      borderRadius: BorderRadius.circular(10)
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          height: productitemHeight * _categoryList.length / 3,
+          child: GridView.builder(
+              itemCount: _categoryList.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 0.7,
+              ),
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: white,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      margin: const EdgeInsets.all(10),
+                      child: CircleAvatar(
+                          radius: 50,
+                          child: ClipOval(
+                              child: Image.asset(
+                            _categoryList[index].image,
+                            height: 0.13.sh,
+                            width: 0.32.sw,
+                            fit: BoxFit.cover,
+                          ))),
                     ),
-                    margin: const EdgeInsets.all(10),
-                    child: CircleAvatar(
-                        radius: 50,
-                        child: ClipOval(
-                            child: Image.asset(
-                          _categoryList[index].image,
-                          height: 0.13.sh,
-                          width: 0.32.sw,
-                          fit: BoxFit.cover,
-                        ))),
-                  ),
-                  Text(_categoryList[index].pname,style: const TextStyle(color: grey))
-                ],
-              );
-            }),
+                    Text(_categoryList[index].pname,style: const TextStyle(color: grey))
+                  ],
+                );
+              }),
+        ),
       ),
     );
   }

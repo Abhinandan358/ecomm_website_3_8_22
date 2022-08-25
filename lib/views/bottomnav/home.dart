@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  double productitemHeight = 0.326.sh;
+  double productitemHeight = 0.42.sh;
   double secprodHeight = 300;
 
   @override
@@ -315,7 +315,7 @@ class _HomeState extends State<Home> {
   }
 }
 
-List imageswiperList = ['1.jpg', '2.jpg', '3.jpg'];
+List imageswiperList = ['sli1.png', 'sli2.png', 'sli3.png'];
 List textList = ['All', 'Dresses', 'Watches', 'Shoes', 'Beauty'];
 
 class ProductModel {
