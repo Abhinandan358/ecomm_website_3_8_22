@@ -2,8 +2,10 @@
 
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
-import 'package:ecommerce_website_logo3_8_22/reg&login/login.dart';
+
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
+import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,7 +65,8 @@ class _RegState extends State<Reg> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text('Registration', style: TextStyle(fontSize: 30)),
+                      const Text('Registration',
+                          style: TextStyle(fontSize: 30)),
                       TextFormField(
                         controller: nameCtrl,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -166,7 +169,7 @@ class _RegState extends State<Reg> {
                           )),
                       TextButton(
                           onPressed: () {
-                            Get.to(() => const BottomNavPage());
+                            Get.to(() => const DashBoardPage());
                           },
                           child: const Text(
                             'Skip',
@@ -181,7 +184,7 @@ class _RegState extends State<Reg> {
     );
   }
 
-  postData(String Name1,Email1,PhoneNo1,Password1,ConfirmPassword1) async {
+  postData(String Name1, Email1, PhoneNo1, Password1, ConfirmPassword1) async {
     String url = 'https://demo50.gowebbi.us/api/RegisterApi/UserRegister';
     Map<String, dynamic> param = {
       "Name": nameCtrl.text,
@@ -205,17 +208,17 @@ class _RegState extends State<Reg> {
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
-      Get.to(() => const BottomNavPage());
+      Get.to(() => const DashBoardPage());
     } else {
       Fluttertoast.showToast(
-          msg:data['msg'],
+          msg: data['msg'],
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
-      Get.to(() => const BottomNavPage());
+      Get.to(() => const DashBoardPage());
     }
   }
 }

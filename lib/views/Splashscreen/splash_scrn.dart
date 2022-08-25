@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/reg&login/login_reg.dart';
+
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/reg&login/login_reg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +19,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    
     super.initState();
     Timer(const Duration(seconds: 3), () => Get.off(() => const LoginReg()));
   }

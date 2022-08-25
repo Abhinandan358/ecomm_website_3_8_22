@@ -1,23 +1,27 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:ecommerce_website_logo3_8_22/Cart/cart.dart';
-import 'package:ecommerce_website_logo3_8_22/Help/help.dart';
-import 'package:ecommerce_website_logo3_8_22/Profile/profile.dart';
+
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:ecommerce_website_logo3_8_22/bottomnav/home.dart';
+
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BottomNavPage extends StatefulWidget {
-  const BottomNavPage({Key? key}) : super(key: key);
+import '../bottomnav/help.dart';
+import '../bottomnav/profile.dart';
+
+class DashBoardPage extends StatefulWidget {
+  const DashBoardPage({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavPage> createState() => _BottomNavPageState();
+  State<DashBoardPage> createState() => _DashBoardPageState();
 }
 
-class _BottomNavPageState extends State<BottomNavPage> {
+class _DashBoardPageState extends State<DashBoardPage> {
   int count = 0;
   final StreamController<int> _streamController = StreamController();
   //--------------------------Image Pickeer start--------------------------
@@ -167,8 +171,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
                                                                 child: Image
                                                                     .network(
                                                               'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                              fit: BoxFit
-                                                                  .cover,
+                                                              fit: BoxFit.cover,
                                                             ))),
                                                   );
                                                 });

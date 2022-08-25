@@ -1,5 +1,6 @@
-import 'package:ecommerce_website_logo3_8_22/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class _ProfileState extends State<Profile> {
   //final List<coverimageModel> _clist=[];
   @override
   // void initState() {
-  //   
+  //
   //   super.initState();
   //   _clist.add(coverimageModel('https://images.unsplash.com/photo-1526498460520-4c246339dccb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29kZSUyMGltYWdlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'));
   // }
@@ -23,7 +24,6 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          
           children: [
             Stack(
               children: [
@@ -83,28 +83,28 @@ class _ProfileState extends State<Profile> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Image.asset(
                     'assets/f.jpg',
                     height: 40,
                   ),
                 ),
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Image.asset(
                     'assets/l.jpg',
                     height: 40,
                   ),
                 ),
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Image.asset(
                     'assets/g.jpg',
                     height: 40,
                   ),
                 ),
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Image.asset(
                     'assets/t.jpg',
                     height: 40,
@@ -112,48 +112,68 @@ class _ProfileState extends State<Profile> {
                 )
               ],
             ),
-            const Divider(thickness: 2,),
+            const Divider(
+              thickness: 2,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: (){
-                    Get.to(()=>const Home());
+                  onTap: () {
+                    Get.to(() => const Home());
                   },
                   child: Column(
                     children: const [
-                      Text('40',style: TextStyle(fontSize: 25),),
-                      Text('Projects',style: TextStyle(fontSize: 22),),
+                      Text(
+                        '40',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      Text(
+                        'Projects',
+                        style: TextStyle(fontSize: 22),
+                      ),
                     ],
                   ),
                 ),
                 InkWell(
-                  onTap: (){
-
-                  },
+                  onTap: () {},
                   child: Column(
                     children: const [
-                      Text('529',style: TextStyle(fontSize: 25),),
-                      Text('Following',style: TextStyle(fontSize: 22),),
+                      Text(
+                        '529',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      Text(
+                        'Following',
+                        style: TextStyle(fontSize: 22),
+                      ),
                     ],
                   ),
                 ),
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Column(
                     children: const [
-                      Text('5834',style: TextStyle(fontSize: 25),),
-                      Text('Followers',style: TextStyle(fontSize: 22),),
+                      Text(
+                        '5834',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      Text(
+                        'Followers',
+                        style: TextStyle(fontSize: 22),
+                      ),
                     ],
                   ),
                 ),
-                
               ],
             ),
             const Divider(thickness: 2),
-            const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-            
-            const Text('Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',style: TextStyle(fontSize: 20,color: grey1),)
+            const Text('About',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text(
+              'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
+              style: TextStyle(fontSize: 20, color: grey1),
+            )
           ],
         ),
       ),

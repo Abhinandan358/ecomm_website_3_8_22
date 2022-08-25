@@ -2,9 +2,11 @@
 
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/home/bottomnavpage.dart';
-import 'package:ecommerce_website_logo3_8_22/reg&login/forgotpass.dart';
-import 'package:ecommerce_website_logo3_8_22/reg&login/reg.dart';
+
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
+import 'package:ecommerce_website_logo3_8_22/views/reg&login/forgotpass.dart';
+import 'package:ecommerce_website_logo3_8_22/views/reg&login/reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -145,7 +147,7 @@ class _LoginState extends State<Login> {
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
-      Get.to(() => const BottomNavPage());
+      Get.to(() => const DashBoardPage());
     } else {
       Fluttertoast.showToast(
           msg: data['msg'],

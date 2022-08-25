@@ -1,5 +1,7 @@
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/details/homedetails.dart';
+
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/details/homedetails.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -92,7 +94,12 @@ class _HomeState extends State<Home> {
                     );
                   }),
             ),
-            
+            const Align(
+                alignment: Alignment.bottomLeft,
+                child: Text('Extra Offers to Make you Happy:)',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+
             //Gridview1=================================
             TextButton.icon(
                 onPressed: () {},
