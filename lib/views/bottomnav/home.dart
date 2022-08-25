@@ -68,19 +68,19 @@ class _HomeState extends State<Home> {
 
   static final List<OfferModel> _offerproductList = [
     OfferModel(
-        'https://rukminim1.flixcart.com/image/495/594/kll7bm80/shirt/c/w/c/xl-h2-finivo-fashion-original-imagyzfc9x9ws9fn.jpeg?q=50',
+        'assets/of1.png',
         'Shirts',
         'From 199'),
     OfferModel(
-        'https://rukminim1.flixcart.com/image/495/594/k6l2vm80/watch/r/z/n/arrow-black-daniel-jubile-original-imafjyyhwkedgeja.jpeg?q=50',
+        'assets/of2.png',
         'Watches',
         'Upto 80% Off'),
     OfferModel(
-        'https://rukminim1.flixcart.com/image/495/594/xif0q/shoe/q/u/b/5-au-brd-406-gry-5-birde-grey-original-imag5ccyzzwrwwfh-bb.jpeg?q=50',
+        'assets/of3.png',
         'Footwears',
         'Upto 50% Off'),
     OfferModel(
-        'https://rukminim1.flixcart.com/image/612/612/l44hyfk0/combo-kit/b/h/d/instaweddings-combo-fitme-foundation-115-colossal-waterproof-original-imagf3bk78p9gpfb.jpeg?q=70',
+        'assets/of4.png',
         'Makeup Items',
         'Sale is Live')
   ];
@@ -118,7 +118,7 @@ class _HomeState extends State<Home> {
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
             SizedBox(
-              height: 0.16.sh,
+              height: 0.18.sh,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: _offerproductList.length,
@@ -126,9 +126,9 @@ class _HomeState extends State<Home> {
                     return Card(
                       child: Column(
                         children: [
-                          Image.network(
+                          Image.asset(
                             _offerproductList[index].offerImageList,
-                            height: 0.08.sh,
+                            height: 0.095.sh,
                             width: 0.25.sw,
                             fit: BoxFit.cover,
                           ),
