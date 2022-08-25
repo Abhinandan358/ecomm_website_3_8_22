@@ -1,4 +1,3 @@
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,12 +32,13 @@ class _HelpState extends State<Help> {
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
-                    Image.network('https://media.istockphoto.com/photos/speech-bubble-with-question-mark-icon-picture-id1395757572?b=1&k=20&m=1395757572&s=170667a&w=0&h=Q70tELhVZfgp0FGLmKWN-3sxOaPRp8ZLy-n9--YTL6c='),
+                    Image.network(
+                        'https://media.istockphoto.com/photos/speech-bubble-with-question-mark-icon-picture-id1395757572?b=1&k=20&m=1395757572&s=170667a&w=0&h=Q70tELhVZfgp0FGLmKWN-3sxOaPRp8ZLy-n9--YTL6c='),
                     TextFormField(
                       controller: nameCtrl,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
-                        if(value==null||value.isEmpty){
+                        if (value == null || value.isEmpty) {
                           return "Required";
                         }
                         return null;
@@ -52,7 +52,7 @@ class _HelpState extends State<Help> {
                       controller: proffCtrl,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
-                        if(value==null||value.isEmpty){
+                        if (value == null || value.isEmpty) {
                           return "Required";
                         }
                         return null;
@@ -67,7 +67,7 @@ class _HelpState extends State<Help> {
                       keyboardType: TextInputType.multiline,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
-                        if(value==null||value.isEmpty){
+                        if (value == null || value.isEmpty) {
                           return "Required";
                         }
                         return null;
@@ -78,8 +78,9 @@ class _HelpState extends State<Help> {
                               borderRadius: BorderRadius.circular(20))),
                     ),
                     custombtn(() {
-                      if(formkey.currentState!.validate()){
-                        var snackbar = const SnackBar(content: Text('We are contact with you very soon'));
+                      if (formkey.currentState!.validate()) {
+                        var snackbar = const SnackBar(
+                            content: Text('We are contact with you very soon'));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       }
                     }, 'Help')

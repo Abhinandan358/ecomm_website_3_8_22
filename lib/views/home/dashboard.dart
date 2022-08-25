@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/category.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -51,6 +51,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
   int _SelectIndex = 0;
   final List<Widget> _mywidget = [
     const Home(),
+    const Category(),
     const Cart(),
     const Help(),
     const Profile()
@@ -238,6 +239,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_outlined,
+                  size: 30,
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.category_sharp,
                   size: 30,
                 ),
                 label: ''),

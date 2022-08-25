@@ -1,5 +1,3 @@
-
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
@@ -47,19 +45,19 @@ class _HomedetailsState extends State<Homedetails> {
               elevation: 5,
               child: Text(
                 'Details- ${widget.item.detailsList}',
-                style: const TextStyle(fontSize: 20, height: 1.2, letterSpacing: 1.0,fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    fontSize: 20,
+                    height: 1.2,
+                    letterSpacing: 1.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            
           ],
         ),
       ),
       bottomNavigationBar: Row(
-        children: [
-          custombtn((){}, 'Add To Cart')
-        ],
+        children: [custombtn(() {}, 'Add To Cart')],
       ),
     );
   }
 }
-
