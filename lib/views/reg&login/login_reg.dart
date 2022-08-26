@@ -32,7 +32,7 @@ class _LoginRegState extends State<LoginReg> {
                   custombtn(() {
                     Get.to(() => const Reg());
                   }, 'Registration'),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   custombtn(() {
                     Get.to(() => const Login());
                   }, 'Login')

@@ -26,6 +26,10 @@ const Color grey1 = Color.fromARGB(255, 109, 108, 108);
 const Color commoncolor = Color.fromRGBO(255, 239, 229, 1);
 const Color grey2 = Color.fromRGBO(93, 93, 93, 1);
 const Color white2 = Colors.white;
+const Color appbar = Color.fromRGBO(255, 255, 255, 1);
+const Color appbarSearch = Color.fromRGBO(243, 243, 243, 1);
+const Color orange = Color.fromRGBO(237, 85, 0, 1);
+const Color orange1 = Color.fromRGBO(250, 226, 212, 1);
 
 //buttons-----
 

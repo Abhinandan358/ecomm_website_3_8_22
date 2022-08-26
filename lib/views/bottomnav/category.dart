@@ -1,9 +1,22 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/baby_care.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/footwear.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/home_kitchecn.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/household.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/makeup.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/personal_care.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/snacks.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/watches.dart';
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -39,18 +52,21 @@ class _CategoryState extends State<Category> {
             children: [
               iconbtntext(
                   () {},
-                  Icon(
+                  const Icon(
                     Icons.arrow_back,
                     color: black2,
                   ),
-                  Text(
+                  const Text(
                     'All Categories',
-                    style: TextStyle(color: black2),
+                    style: TextStyle(
+                        color: black2,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
                   )),
               SizedBox(
                 child: GridView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: _categoryList.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -60,24 +76,29 @@ class _CategoryState extends State<Category> {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          Container(
-                            height: 0.26.sw,
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                color: white2,
-                                borderRadius: BorderRadius.circular(20)),
-                            margin: const EdgeInsets.all(10),
-                            child: CircleAvatar(
-                                radius: 50,
-                                child: ClipOval(
-                                    child: Image.asset(
-                                  _categoryList[index].image,
-                                  height: 0.13.sh,
-                                  width: 0.4.sw,
-                                  fit: BoxFit.cover,
-                                ))),
+                          GestureDetector(
+                            onTap: (){
+                              Get.to(()=>screenList[index]);
+                            },
+                            child: Container(
+                              height: 0.26.sw,
+                              padding: const EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                  color: white2,
+                                  borderRadius: BorderRadius.circular(20)),
+                              margin: const EdgeInsets.all(10),
+                              child: CircleAvatar(
+                                  radius: 50,
+                                  child: ClipOval(
+                                      child: Image.asset(
+                                        _categoryList[index].image,
+                                        height: 0.13.sh,
+                                        width: 0.4.sw,
+                                        fit: BoxFit.cover,
+                                      ))),
+                            ),
                           ),
-                          Text(_categoryList[index].pname,
+                          Text(_categoryList[index].pname,textAlign: TextAlign.center,
                               style: const TextStyle(color: grey2))
                         ],
                       );
@@ -93,6 +114,18 @@ class _CategoryState extends State<Category> {
 
 class CategoryModel {
   final image, pname;
-
   CategoryModel(this.image, this.pname);
 }
+
+List<Widget> screenList = [
+  const OfferZone(),
+  const Fashion(),
+  const Footwear(),
+  const Watches(),
+  const Makeup(),
+  const PersonalCare(),
+  const household(),
+  const HomeKitchen(),
+  const BabyCare(),
+  const Snacks()
+];

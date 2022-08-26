@@ -13,9 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  double productitemHeight = 0.324.sh;
-  double secprodHeight = 300;
-
   @override
   // ignore: override_on_non_overriding_member
   static final List<ProductModel> _productList = [
@@ -117,6 +114,11 @@ class _HomeState extends State<Home> {
     OfferModel('assets/of3.png', 'Footwears', 'Upto 50% Off'),
     OfferModel('assets/of4.png', 'Makeup Items', 'Sale is Live')
   ];
+  static final List<SlideProductModel> _slideproductList = [
+    SlideProductModel('sli1.png'),
+    SlideProductModel('sli2.png'),
+    SlideProductModel('sli3.png'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -135,10 +137,10 @@ class _HomeState extends State<Home> {
               height: 0.25.sh,
               child: Swiper(
                   autoplay: true,
-                  itemCount: imageswiperList.length,
+                  itemCount: _slideproductList.length,
                   itemBuilder: (context, index) {
                     return Image.asset(
-                      'assets/${imageswiperList[index]}',
+                      'assets/${_slideproductList[index].image}',
                       fit: BoxFit.cover,
                       width: 1.sw,
                     );
@@ -185,13 +187,12 @@ class _HomeState extends State<Home> {
                         }),
                   ),
                   //Gridview1=================================
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             'Popular Products',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 18),
@@ -226,7 +227,8 @@ class _HomeState extends State<Home> {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
-                          childAspectRatio: 0.5,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 0.68,
                         ),
                         itemBuilder: (context, index) {
                           return Card(
@@ -242,8 +244,8 @@ class _HomeState extends State<Home> {
                                       },
                                       child: Image.network(
                                         _productList[index].image,
-                                        height: productitemHeight / 1.5,
-                                        width: 0.3.sw,
+                                        height: 0.16.sh,
+                                        width: 0.4.sw,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -295,14 +297,13 @@ class _HomeState extends State<Home> {
                           );
                         }),
                   ),
-
                   //gridview2----------------------------
                   SizedBox(
                     height: 0.07.sh,
                   ),
                   Row(
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Recently Viewed',
@@ -318,7 +319,6 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                   SizedBox(
-                    // height: secprodHeight * _productList.length / 2,
                     child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
@@ -337,7 +337,7 @@ class _HomeState extends State<Home> {
                                   children: [
                                     Image.network(
                                       _productList[index].image,
-                                      height: secprodHeight / 2,
+                                      height: 0.2.sh,
                                       width: 0.5.sw,
                                       fit: BoxFit.fill,
                                     ),
@@ -399,8 +399,12 @@ class _HomeState extends State<Home> {
   }
 }
 
-List imageswiperList = ['sli1.png', 'sli2.png', 'sli3.png'];
-List textList = ['All', 'Dresses', 'Watches', 'Shoes', 'Beauty'];
+class SlideProductModel {
+  // ignore: prefer_typing_uninitialized_variables
+  final image;
+
+  SlideProductModel(this.image);
+}
 
 class ProductModel {
   final String image, name, price, detailsList;
