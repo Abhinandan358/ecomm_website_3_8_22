@@ -51,6 +51,12 @@ class _OfferZoneState extends State<OfferZone> {
     OfferZoneModel('assets/o8.jpg', 'Upto 60% Off', 'Women Kurtas'),
     OfferZoneModel('assets/o9.jpg', 'Upto 40% Off', 'Casual Shoes'),
   ];
+
+  static final List<BudgetModel> _budgetList = [
+    BudgetModel('Under', '₹199'),
+    BudgetModel('Under', '₹399'),
+    BudgetModel('Under', '₹599')
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -229,24 +235,49 @@ class _OfferZoneState extends State<OfferZone> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              iconbtntext((){}, Icon(Icons.arrow_back), Text('Offer Zone')),
+              iconbtntext(
+                  () {},
+                  const Icon(
+                    Icons.arrow_back,
+                    color: black2,
+                  ),
+                  const Text(
+                    'Offer Zone',
+                    style:
+                        TextStyle(color: black2, fontWeight: FontWeight.bold),
+                  )),
+              const Text(
+                'Grab Before\nIt’s Gone',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: orange,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
               SizedBox(
                 child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: _offerList.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      childAspectRatio: 0.55,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 0.5,
                     ),
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
                           Container(
-                            margin: EdgeInsets.all(5),
-                            padding: EdgeInsets.all(8),
+                            height: 170,
+                            width: 170,
+                            margin: const EdgeInsets.all(2),
+                            //padding: EdgeInsets.only(top: 5, ),
                             color: orange1,
                             child: Column(
                               children: [
@@ -255,20 +286,18 @@ class _OfferZoneState extends State<OfferZone> {
                                     _offerList[index].image,
                                     height: 0.2.sh,
                                     width: 0.38.sw,
-                                    fit: BoxFit.cover,
+                                    // fit: BoxFit.cover,
                                   ),
                                   Positioned(
                                     bottom: 0,
-                                    left: 5,
-                                    right: 5,
+                                    left: 8,
                                     child: Container(
-                                      
-                                      padding: EdgeInsets.all(2),
-                                      decoration: BoxDecoration(color: orange),
+                                      padding: const EdgeInsets.all(2),
+                                      decoration: const BoxDecoration(color: orange),
                                       child: Text(
                                         _offerList[index].off,
-                                        style: TextStyle(
-                                            fontSize: 15,
+                                        style: const TextStyle(
+                                            // fontSize: 15,
                                             fontWeight: FontWeight.bold,
                                             color: white2),
                                       ),
@@ -278,11 +307,68 @@ class _OfferZoneState extends State<OfferZone> {
                               ],
                             ),
                           ),
-                          Text(_offerList[index].pname,textAlign: TextAlign.center,style: TextStyle(color: grey2,fontSize: 16,fontWeight: FontWeight.bold),)
+                          Text(
+                            _offerList[index].pname,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: grey2,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          )
                         ],
                       );
                     }),
               ),
+              const Text(
+                'under budget\nbest products',
+                style: TextStyle(
+                    color: orange, fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Container(
+                height: 0.2.sh,
+                padding: const EdgeInsets.all(5),
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [gradienttop, gradientbottom],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                  ),
+                ),
+                child: ListView.builder(
+                    itemCount: _budgetList.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [gradienttop, gradientbottom],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            border: Border.all()),
+                        child: CircleAvatar(
+                          backgroundColor: orange,
+                          radius: 60,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                _budgetList[index].under,
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                              Text(
+                                _budgetList[index].price,
+                                style: const TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              )
             ],
           ),
         ),
@@ -295,4 +381,10 @@ class OfferZoneModel {
   final String image, off, pname;
 
   OfferZoneModel(this.image, this.off, this.pname);
+}
+
+class BudgetModel {
+  final String under, price;
+
+  BudgetModel(this.under, this.price);
 }

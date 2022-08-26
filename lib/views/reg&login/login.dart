@@ -109,7 +109,7 @@ class _LoginState extends State<Login> {
                         },
                         child: const Text(
                           'Forgot Password',
-                          style: TextStyle(color: white1),
+                          style: TextStyle(color: black2),
                         ))
                   ],
                 ),

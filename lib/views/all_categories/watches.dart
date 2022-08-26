@@ -10,6 +10,6 @@ class Watches extends StatefulWidget {
 class _WatchesState extends State<Watches> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

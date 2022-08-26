@@ -11,9 +11,7 @@ import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dar
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/personal_care.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/snacks.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/watches.dart';
-import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -124,7 +122,7 @@ List<Widget> screenList = [
   const Watches(),
   const Makeup(),
   const PersonalCare(),
-  const household(),
+  const Household(),
   const HomeKitchen(),
   const BabyCare(),
   const Snacks()

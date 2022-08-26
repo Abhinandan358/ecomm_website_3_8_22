@@ -10,6 +10,6 @@ class PersonalCare extends StatefulWidget {
 class _PersonalCareState extends State<PersonalCare> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

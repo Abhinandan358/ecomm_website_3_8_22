@@ -10,6 +10,6 @@ class Snacks extends StatefulWidget {
 class _SnacksState extends State<Snacks> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

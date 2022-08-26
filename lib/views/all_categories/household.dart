@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class household extends StatefulWidget {
-  const household({Key? key}) : super(key: key);
+class Household extends StatefulWidget {
+  const Household({Key? key}) : super(key: key);
 
   @override
-  State<household> createState() => _householdState();
+  State<Household> createState() => _HouseholdState();
 }
 
-class _householdState extends State<household> {
+class _HouseholdState extends State<Household> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
