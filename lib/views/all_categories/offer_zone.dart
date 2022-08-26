@@ -235,7 +235,8 @@ class _OfferZoneState extends State<OfferZone> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -247,8 +248,10 @@ class _OfferZoneState extends State<OfferZone> {
                   ),
                   const Text(
                     'Offer Zone',
-                    style:
-                        TextStyle(color: black2, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: black2,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
                   )),
               const Text(
                 'Grab Before\nIt’s Gone',
@@ -293,7 +296,8 @@ class _OfferZoneState extends State<OfferZone> {
                                     left: 8,
                                     child: Container(
                                       padding: const EdgeInsets.all(2),
-                                      decoration: const BoxDecoration(color: orange),
+                                      decoration:
+                                          const BoxDecoration(color: orange),
                                       child: Text(
                                         _offerList[index].off,
                                         style: const TextStyle(
@@ -324,16 +328,8 @@ class _OfferZoneState extends State<OfferZone> {
                 style: TextStyle(
                     color: orange, fontWeight: FontWeight.bold, fontSize: 20),
               ),
-              Container(
+              SizedBox(
                 height: 0.2.sh,
-                padding: const EdgeInsets.all(5),
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [gradienttop, gradientbottom],
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                  ),
-                ),
                 child: ListView.builder(
                     itemCount: _budgetList.length,
                     scrollDirection: Axis.horizontal,
@@ -341,13 +337,13 @@ class _OfferZoneState extends State<OfferZone> {
                       return Container(
                         padding: const EdgeInsets.all(10),
                         margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(
+                        decoration: const BoxDecoration(
+                            gradient: LinearGradient(
                               colors: [gradienttop, gradientbottom],
                               begin: Alignment.topRight,
                               end: Alignment.bottomLeft,
                             ),
-                            border: Border.all()),
+                           ),
                         child: CircleAvatar(
                           backgroundColor: orange,
                           radius: 60,
