@@ -24,34 +24,28 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                colors: [white1, green3],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
-        child: SafeArea(
-            child: Center(
-                child: ClipOval(
-                    child: Stack(
-          children: [
-            Image.asset(
-              'assets/a2.jpg',
-              fit: BoxFit.fill,
-              width: 0.4.sh,
-              height: 0.4.sh,
+      backgroundColor: commoncolor,
+      body: SafeArea(
+          child: Center(
+              child: ClipOval(
+                  child: Stack(
+        children: [
+          Image.asset(
+            'assets/a2.jpg',
+            fit: BoxFit.fill,
+            width: 0.4.sh,
+            height: 0.4.sh,
+          ),
+          const Positioned(
+            left: 130,
+            top: 110,
+            child: CupertinoActivityIndicator(
+              radius: 30,
+              color: white,
             ),
-            const Positioned(
-              left: 130,
-              top: 110,
-              child: CupertinoActivityIndicator(
-                radius: 30,
-                color: white,
-              ),
-            )
-          ],
-        )))),
-      ),
+          )
+        ],
+      )))),
     );
   }
 }

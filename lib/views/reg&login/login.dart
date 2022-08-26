@@ -27,6 +27,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: commoncolor,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: black1),
         elevation: 0,
@@ -46,78 +47,71 @@ class _LoginState extends State<Login> {
           child: SingleChildScrollView(
             child: SizedBox(
               height: 0.90.sh,
-              child: Container(
-                decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [white1, green3],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter)),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Text('SignIn', style: TextStyle(fontSize: 30)),
-                      TextFormField(
-                        controller: emailCtrl,
-                        validator: ((value) {
-                          if (value!.isEmpty) {
-                            return "Please provide only your registered emailid";
-                          }
-                          return null;
-                        }),
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Write Email'),
-                      ),
-                      TextFormField(
-                        obscureText: _obsecureText,
-                        controller: passCtrl,
-                        validator: ((value) {
-                          if (value!.isEmpty) {
-                            return "give your password";
-                          }
-                          return null;
-                        }),
-                        decoration: InputDecoration(
-                            hintText: 'Write Password',
-                            border: const OutlineInputBorder(),
-                            suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _obsecureText = !_obsecureText;
-                                  });
-                                },
-                                icon: Icon(_obsecureText
-                                    ? Icons.visibility
-                                    : Icons.visibility_off))),
-                      ),
-                      SizedBox(
-                        height: 0.1.sh,
-                      ),
-                      custombtn(() {
-                        if (formkey.currentState!.validate()) {
-                          postData(emailCtrl.text, passCtrl.text);
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const Text('SignIn', style: TextStyle(fontSize: 30)),
+                    TextFormField(
+                      controller: emailCtrl,
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return "Please provide only your registered emailid";
                         }
-                      }, 'Login'),
-                      TextButton(
-                          onPressed: () {
-                            Get.to(() => const Reg());
-                          },
-                          child: const Text(
-                            'If You no account then go to SignUp',
-                            style: TextStyle(color: white1),
-                          )),
-                      TextButton(
-                          onPressed: () {
-                            Get.to(() => const ForgotPass());
-                          },
-                          child: const Text(
-                            'Forgot Password',
-                            style: TextStyle(color: white1),
-                          ))
-                    ],
-                  ),
+                        return null;
+                      }),
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Write Email'),
+                    ),
+                    TextFormField(
+                      obscureText: _obsecureText,
+                      controller: passCtrl,
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return "give your password";
+                        }
+                        return null;
+                      }),
+                      decoration: InputDecoration(
+                          hintText: 'Write Password',
+                          border: const OutlineInputBorder(),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _obsecureText = !_obsecureText;
+                                });
+                              },
+                              icon: Icon(_obsecureText
+                                  ? Icons.visibility
+                                  : Icons.visibility_off))),
+                    ),
+                    SizedBox(
+                      height: 0.1.sh,
+                    ),
+                    custombtn(() {
+                      if (formkey.currentState!.validate()) {
+                        postData(emailCtrl.text, passCtrl.text);
+                      }
+                    }, 'Login'),
+                    TextButton(
+                        onPressed: () {
+                          Get.to(() => const Reg());
+                        },
+                        child: const Text(
+                          'If You no account then go to SignUp',
+                          style: TextStyle(color: black2),
+                        )),
+                    TextButton(
+                        onPressed: () {
+                          Get.to(() => const ForgotPass());
+                        },
+                        child: const Text(
+                          'Forgot Password',
+                          style: TextStyle(color: white1),
+                        ))
+                  ],
                 ),
               ),
             ),
