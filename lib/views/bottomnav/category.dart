@@ -49,7 +49,9 @@ class _CategoryState extends State<Category> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               iconbtntext(
-                  () {},
+                  () {
+                    Get.back();
+                  },
                   const Icon(
                     Icons.arrow_back,
                     color: black2,
@@ -69,7 +71,7 @@ class _CategoryState extends State<Category> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      childAspectRatio: 0.66,
+                      childAspectRatio: 0.7,
                     ),
                     itemBuilder: (context, index) {
                       return Column(

@@ -240,7 +240,9 @@ class _OfferZoneState extends State<OfferZone> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               iconbtntext(
-                  () {},
+                  () {
+                    Get.back();
+                  },
                   const Icon(
                     Icons.arrow_back,
                     color: black2,
@@ -323,7 +325,7 @@ class _OfferZoneState extends State<OfferZone> {
                     }),
               ),
               const Text(
-                'under budget\nbest products',
+                'Under Budget\nBest Products',
                 style: TextStyle(
                     color: orange, fontWeight: FontWeight.bold, fontSize: 20),
               ),
