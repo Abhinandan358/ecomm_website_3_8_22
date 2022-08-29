@@ -24,7 +24,14 @@ class _LoginState extends State<Login> {
   var formkey = GlobalKey<FormState>();
   TextEditingController emailCtrl = TextEditingController();
   TextEditingController passCtrl = TextEditingController();
+  //TextEditingController textEditingController = TextEditingController();
   @override
+  //  void dispose() {
+  //   emailCtrl.dispose();
+  //   // ignore: avoid_print
+  //   print('Dispose used');
+  //   super.dispose();
+  // }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commoncolor,

@@ -255,7 +255,7 @@ class _OfferZoneState extends State<OfferZone> {
                         fontSize: 20),
                   )),
               const Text(
-                'Grab Before\nIt’s Gone',
+                'Grab Before It’s Gone',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color: orange,
@@ -294,17 +294,22 @@ class _OfferZoneState extends State<OfferZone> {
                                   ),
                                   Positioned(
                                     bottom: 0,
-                                    left: 8,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(2),
-                                      decoration:
-                                          const BoxDecoration(color: orange),
-                                      child: Text(
-                                        _offerList[index].off,
-                                        style: const TextStyle(
-                                            // fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                            color: white2),
+                                    left: 14,
+                                    right: 14,
+                                    child: Center(
+                                      child: Container(
+                                        padding: const EdgeInsets.all(3),
+                                        decoration:
+                                             BoxDecoration(color: orange,
+                                            borderRadius: BorderRadius.circular(5)
+                                            ),
+                                        child: Text(
+                                          _offerList[index].off,
+                                          style: const TextStyle(
+                                               fontSize: 13,
+                                              fontWeight: FontWeight.bold,
+                                              color: white2),
+                                        ),
                                       ),
                                     ),
                                   )
@@ -325,7 +330,7 @@ class _OfferZoneState extends State<OfferZone> {
                     }),
               ),
               const Text(
-                'Under Budget\nBest Products',
+                'Under Budget Best Products',
                 style: TextStyle(
                     color: orange, fontWeight: FontWeight.bold, fontSize: 20),
               ),

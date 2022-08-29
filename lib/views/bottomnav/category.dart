@@ -50,7 +50,7 @@ class _CategoryState extends State<Category> {
             children: [
               iconbtntext(
                   () {
-                    Get.back();
+                    Navigator.of(context).pop();
                   },
                   const Icon(
                     Icons.arrow_back,

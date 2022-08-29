@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
             parent: AlwaysScrollableScrollPhysics()),
         child: Column(children: [
           SizedBox(
-            height: 0.25.sh,
+            height: 0.2.sh,
             child: Swiper(
                 autoplay: true,
                 itemCount: _slideproductList.length,
@@ -353,6 +353,8 @@ class _HomeState extends State<Home> {
                                   ),
                                   Positioned(
                                     bottom: 0,
+                                    right: 1,
+                                    left: 1,
                                     child: Container(
                                       height: 0.09.sh,
                                       width: 0.5.sw,
