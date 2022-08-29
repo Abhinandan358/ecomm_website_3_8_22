@@ -239,10 +239,9 @@ class _OfferZoneState extends State<OfferZone> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              iconbtntext(
-                  () {
-                    Get.back();
-                  },
+              iconbtntext(() {
+                Get.back();
+              },
                   const Icon(
                     Icons.arrow_back,
                     color: black2,
@@ -271,7 +270,7 @@ class _OfferZoneState extends State<OfferZone> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      crossAxisSpacing: 10,
+                      crossAxisSpacing: 5,
                       childAspectRatio: 0.5,
                     ),
                     itemBuilder: (context, index) {
@@ -281,7 +280,6 @@ class _OfferZoneState extends State<OfferZone> {
                             height: 170,
                             width: 170,
                             margin: const EdgeInsets.all(2),
-                            //padding: EdgeInsets.only(top: 5, ),
                             color: orange1,
                             child: Column(
                               children: [
@@ -294,19 +292,19 @@ class _OfferZoneState extends State<OfferZone> {
                                   ),
                                   Positioned(
                                     bottom: 0,
-                                    left: 14,
-                                    right: 14,
+                                    left: 10,
+                                    right: 10,
                                     child: Center(
                                       child: Container(
                                         padding: const EdgeInsets.all(3),
-                                        decoration:
-                                             BoxDecoration(color: orange,
-                                            borderRadius: BorderRadius.circular(5)
-                                            ),
+                                        decoration: BoxDecoration(
+                                            color: orange,
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
                                         child: Text(
                                           _offerList[index].off,
                                           style: const TextStyle(
-                                               fontSize: 13,
+                                              fontSize: 13,
                                               fontWeight: FontWeight.bold,
                                               color: white2),
                                         ),
@@ -343,13 +341,14 @@ class _OfferZoneState extends State<OfferZone> {
                       return Container(
                         padding: const EdgeInsets.all(10),
                         margin: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [gradienttop, gradientbottom],
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                            ),
-                           ),
+                        decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: const LinearGradient(
+                            colors: [gradienttop, gradientbottom],
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                          ),
+                        ),
                         child: CircleAvatar(
                           backgroundColor: orange,
                           radius: 60,

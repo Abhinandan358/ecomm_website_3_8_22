@@ -15,6 +15,7 @@ class _HomedetailsState extends State<Homedetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: commoncolor,
       appBar: AppBar(
           iconTheme: const IconThemeData(color: black2),
           backgroundColor: white,
@@ -23,6 +24,7 @@ class _HomedetailsState extends State<Homedetails> {
             style: TextStyle(color: black2),
           )),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
         child: Column(
           children: [
             Image.network(

@@ -17,7 +17,9 @@ class _HelpState extends State<Help> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: commoncolor,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
         child: SizedBox(
           height: 0.9.sh,
           child: Form(

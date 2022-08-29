@@ -356,7 +356,7 @@ class _HomeState extends State<Home> {
                                     right: 1,
                                     left: 1,
                                     child: Container(
-                                      height: 0.09.sh,
+                                      height: 0.07.sh,
                                       width: 0.5.sw,
                                       decoration:
                                           const BoxDecoration(color: black1),

@@ -1,3 +1,4 @@
+import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -11,6 +12,7 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: commonback,
       body: SafeArea(
           child: Column(
         children: const [

@@ -21,7 +21,9 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: commoncolor,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
         child: Column(
           children: [
             Stack(

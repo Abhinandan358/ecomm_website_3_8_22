@@ -45,6 +45,7 @@ class _CategoryState extends State<Category> {
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
