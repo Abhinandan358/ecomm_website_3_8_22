@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login_reg.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -25,27 +23,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commoncolor,
-      body: SafeArea(
-          child: Center(
-              child: ClipOval(
-                  child: Stack(
-        children: [
-          Image.asset(
-            'assets/a2.jpg',
-            fit: BoxFit.fill,
-            width: 0.4.sh,
-            height: 0.4.sh,
-          ),
-          const Positioned(
-            left: 130,
-            top: 110,
-            child: CupertinoActivityIndicator(
-              radius: 30,
-              color: white,
-            ),
-          )
-        ],
-      )))),
+      body: Center(
+        child: Image.asset(
+          'assets/splash.jpg',
+          fit: BoxFit.fill,
+          width: 0.4.sh,
+          height: 0.4.sh,
+        ),
+      ),
     );
   }
 }
