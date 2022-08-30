@@ -121,7 +121,7 @@ class _CategoryState extends State<Category> {
                                   ),
                                   Text(_categoryList1[index].Cat_Name,
                                       textAlign: TextAlign.center,
-                                      style: const TextStyle(color: grey2)),
+                                      style: const TextStyle(color: grey2,fontWeight: FontWeight.bold,fontSize: 17)),
                                 ],
                               );
                             }),

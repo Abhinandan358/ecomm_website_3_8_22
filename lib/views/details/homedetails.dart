@@ -78,24 +78,29 @@ class _HomedetailsState extends State<Homedetails> {
                       style: const TextStyle(
                           fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Container(
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(5),
-                          color: red),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          for (var i = 0; i < _categorycolorList.length; i++)
-                            Text(
-                              _categorycolorList[i].Color_Name,
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        for (var i = 0; i < _categorycolorList.length; i++)
+                          Container(
+                            margin: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                border: Border.all(),
+                                borderRadius: BorderRadius.circular(5),
+                                color: colorList[i]),
+                            child: InkWell(
+                              onTap: () {},
+                              child: Text(
+                                _categorycolorList[i].Color_Name,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: colorList2[i]),
+                              ),
                             ),
-                        ],
-                      ),
+                          ),
+                      ],
                     )
                   ],
                 ),
@@ -127,3 +132,6 @@ class _HomedetailsState extends State<Homedetails> {
     );
   }
 }
+
+List colorList = [red6, black6, white6];
+List colorList2 = [black6, white6, black6];

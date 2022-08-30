@@ -31,6 +31,9 @@ const Color orange = Color.fromRGBO(237, 85, 0, 1);
 const Color orange1 = Color.fromRGBO(250, 226, 212, 1);
 const Color gradienttop = Color.fromRGBO(233, 233, 233, 1);
 const Color gradientbottom = Color.fromRGBO(255, 200, 167, 1);
+const Color red6 = Colors.red;
+const Color black6 = Colors.black;
+const Color white6 = Colors.white;
 
 //buttons-----
 
