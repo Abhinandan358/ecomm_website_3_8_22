@@ -6,7 +6,7 @@ const Color white = Color.fromARGB(220, 255, 249, 249);
 const Color brown = Color.fromARGB(255, 187, 133, 113);
 const Color black = Color.fromARGB(146, 97, 107, 4);
 const Color green = Colors.green;
-const Color red = Colors.red;
+const Color red = Color.fromARGB(255, 189, 81, 73);
 const Color black1 = Color.fromARGB(179, 54, 51, 51);
 const Color red2 = Color.fromARGB(255, 248, 188, 177);
 const Color red3 = Color.fromARGB(255, 252, 148, 129);
@@ -22,7 +22,6 @@ const Color blue2 = Colors.cyan;
 const Color green3 = Color.fromARGB(255, 114, 68, 240);
 const Color grey = Color.fromARGB(239, 143, 141, 141);
 const Color grey1 = Color.fromARGB(255, 109, 108, 108);
-
 const Color commoncolor = Color.fromRGBO(255, 239, 229, 1);
 const Color grey2 = Color.fromRGBO(93, 93, 93, 1);
 const Color white2 = Colors.white;

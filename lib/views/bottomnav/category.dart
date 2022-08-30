@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'dart:convert';
-
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/models/category_model.dart';
+import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/electronic.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/sports.dart';
@@ -29,40 +29,29 @@ class Category extends StatefulWidget {
 
 class _CategoryState extends State<Category> {
   List<CategoryData> _categoryList1 = [];
-  double productitemHeight = 0.4.sh;
-  final List<CategoryModel> _categoryList = [
-    // CategoryModel('assets/OFFER ZONE.png', 'Offer Zone'),
-    // CategoryModel('assets/watch.png', 'Fashion'),
-    // CategoryModel('assets/saree.png', 'Electronic'),
-    // CategoryModel('assets/shoe.png', 'Sports'),
-    // CategoryModel('assets/makeup.png', 'Makeup'),
-    // CategoryModel('assets/care.png', 'Personal Care'),
-    // CategoryModel('assets/sprey.png', 'Household & Cleaning'),
-    // CategoryModel('assets/kitchen.png', 'Home & Kitchen'),
-    // CategoryModel('assets/baby care.png', 'Baby Care'),
-    // CategoryModel('assets/snacks.png', 'Snacks & Packaged Food'),
-  ];
+  late Future<List<CategoryData>> _future;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    getPost();
+    _future = _getPost();
   }
 
-  void getPost() async {
-    String Url = 'https://demo50.gowebbi.us/api/MasterApi/FetchCategory';
-    var result = await get(Uri.parse(Url));
+  Future<List<CategoryData>> _getPost() async {
+    String url = 'https://demo50.gowebbi.us/api/MasterApi/FetchCategory';
+    var result = await get(Uri.parse(url));
     if (result.statusCode == 200) {
       var response = CategoryApiModel.formJson(jsonDecode(result.body));
       if (response.status == 'success') {
         _categoryList1 = response.dataList;
-        setState(() {});
       }
-
+      // ignore: avoid_print
       print(result.body);
     } else {
+      // ignore: avoid_print
       print('Api error ${result.statusCode}');
     }
+    return [];
   }
 
   @override
@@ -77,9 +66,8 @@ class _CategoryState extends State<Category> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              iconbtntext(() {
-                Navigator.of(context).pop();
-              },
+              iconbtntext(
+                  () {},
                   const Icon(
                     Icons.arrow_back,
                     color: black2,
@@ -91,48 +79,75 @@ class _CategoryState extends State<Category> {
                         fontWeight: FontWeight.bold,
                         fontSize: 18),
                   )),
-              SizedBox(
-                child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: _categoryList1.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio: 0.7,
-                    ),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(() => screenList[index]);
-                            },
-                            child: Container(
-                              height: 0.14.sh,
-                              padding: const EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                  color: white2,
-                                  borderRadius: BorderRadius.circular(20)),
-                              margin: const EdgeInsets.all(10),
-                              child: CircleAvatar(
-                                  radius: 50,
-                                  child: ClipOval(
-                                      child: Image.network(
-                                    _categoryList1[index].ImgUrl,
-                                    height: 0.13.sh,
-                                    width: 0.4.sw,
-                                    fit: BoxFit.fill,
-                                  ))),
+              FutureBuilder<List<CategoryData>>(
+                  future: _future,
+                  builder: ((context, snapshot) {
+                    if (snapshot.hasData) {
+                      return SizedBox(
+                        child: GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: _categoryList1.length,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              childAspectRatio: 0.7,
                             ),
-                          ),
-                          Text('${_categoryList1[index].Cat_Name}',
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(color: grey2))
-                        ],
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(() => screenList[index]);
+                                    },
+                                    child: Container(
+                                      height: 0.14.sh,
+                                      padding: const EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                          color: white2,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      margin: const EdgeInsets.all(10),
+                                      child: CircleAvatar(
+                                          radius: 50,
+                                          child: ClipOval(
+                                              child: Image.network(
+                                            _categoryList1[index].ImgUrl,
+                                            height: 0.13.sh,
+                                            width: 0.4.sw,
+                                            fit: BoxFit.fill,
+                                          ))),
+                                    ),
+                                  ),
+                                  Text(_categoryList1[index].Cat_Name,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(color: grey2)),
+                                ],
+                              );
+                            }),
                       );
-                    }),
-              ),
+                    } else if (snapshot.hasError) {
+                      return const Center(
+                          child: Text(
+                        '404 Page Not Found',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ));
+                    } else {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 200),
+                        child: Center(
+                            child: SizedBox(
+                          height: 0.09.sh,
+                          child: const LoadingIndicator(
+                              indicatorType: Indicator.ballPulseRise,
+                              colors: [red5, green1, blue2],
+                              strokeWidth: 3.0,
+                              pathBackgroundColor: Colors.black),
+                        )),
+                      );
+                    }
+                  }))
             ],
           ),
         ),
@@ -141,14 +156,9 @@ class _CategoryState extends State<Category> {
   }
 }
 
-class CategoryModel {
-  final image, pname;
-  CategoryModel(this.image, this.pname);
-}
-
 List<Widget> screenList = [
   const Makeup(),
-  const Fashion(), 
+  const Fashion(),
   const Electronic(),
   const Sports(),
   const OfferZone(),
@@ -156,6 +166,5 @@ List<Widget> screenList = [
   const PersonalCare(),
   const Household(),
   const HomeKitchen(),
-
   const Snacks()
 ];

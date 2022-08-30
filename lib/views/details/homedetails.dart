@@ -1,7 +1,11 @@
+import 'dart:convert';
+import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
 class Homedetails extends StatefulWidget {
   final ProductModel item;
@@ -12,6 +16,32 @@ class Homedetails extends StatefulWidget {
 }
 
 class _HomedetailsState extends State<Homedetails> {
+  List<CategoryColorData> _categorycolorList = [];
+  late Future<List<CategoryColorData>> _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = _getPost();
+  }
+
+  Future<List<CategoryColorData>> _getPost() async {
+    String url = 'https://demo50.gowebbi.us/api/MasterApi/FetchColor';
+    var result = await get(Uri.parse(url));
+    if (result.statusCode == 200) {
+      var response = CategoryColorModel.formJson(jsonDecode(result.body));
+      if (response.status == 'success') {
+        _categorycolorList = response.dataList1;
+      }
+      // ignore: avoid_print
+      print(result.body);
+    } else {
+      // ignore: avoid_print
+      print('Api error ${result.statusCode}');
+    }
+    return [];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,40 +53,74 @@ class _HomedetailsState extends State<Homedetails> {
             'Homedetails',
             style: TextStyle(color: black2),
           )),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
-        child: Column(
-          children: [
-            Image.network(
-              widget.item.image,
-              fit: BoxFit.cover,
-              height: 0.5.sh,
-              width: 1.sw,
-            ),
-            Text(
-              'Product Name- ${widget.item.name}',
-              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'Product Price- ${widget.item.price}',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Card(
-              color: slightOrange,
-              margin: const EdgeInsets.all(20),
-              elevation: 5,
-              child: Text(
-                'Details- ${widget.item.detailsList}',
-                style: const TextStyle(
-                    fontSize: 20,
-                    height: 1.2,
-                    letterSpacing: 1.0,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: FutureBuilder<List<CategoryColorData>>(
+          future: _future,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(
+                    parent: BouncingScrollPhysics()),
+                child: Column(
+                  children: [
+                    Image.network(
+                      widget.item.image,
+                      fit: BoxFit.cover,
+                      height: 0.5.sh,
+                      width: 1.sw,
+                    ),
+                    Text(
+                      'Product Name- ${widget.item.name}',
+                      style: const TextStyle(
+                          fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Product Price- ${widget.item.price}',
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(5),
+                          color: red),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          for (var i = 0; i < _categorycolorList.length; i++)
+                            Text(
+                              _categorycolorList[i].Color_Name,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
+            } else if (snapshot.hasError) {
+              return const Center(
+                  child: Text(
+                '404 Page Not Found',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ));
+            } else {
+              return Padding(
+                padding: const EdgeInsets.only(top: 200),
+                child: Center(
+                    child: SizedBox(
+                  height: 0.09.sh,
+                  child: const LoadingIndicator(
+                      indicatorType: Indicator.ballPulseRise,
+                      colors: [red5, green1, blue2],
+                      strokeWidth: 3.0,
+                      pathBackgroundColor: Colors.black),
+                )),
+              );
+            }
+          }),
       bottomNavigationBar: Row(
         children: [custombtn(() {}, 'Add To Cart')],
       ),
