@@ -1,0 +1,21 @@
+class CategoryApiModel {
+  final String status, msg;
+  final List<CategoryData> dataList;
+
+  CategoryApiModel(this.status, this.msg, this.dataList);
+  
+  factory CategoryApiModel.formJson(Map<String,dynamic> myjson){
+    List _list = myjson['data'];
+    return CategoryApiModel(myjson['status'], myjson['msg'], List<CategoryData>.from(_list.map((e) => CategoryData.formJson(e))));
+  }
+}
+
+class CategoryData {
+  final int Cat_Id;
+  final String Cat_Name,ImgUrl;
+
+  CategoryData(this.Cat_Id, this.Cat_Name, this.ImgUrl);
+  factory CategoryData.formJson(Map<String, dynamic> myjson) {
+    return CategoryData(myjson['Cat_Id'], myjson['Cat_Name'],myjson['ImgUrl']);
+  }
+}
