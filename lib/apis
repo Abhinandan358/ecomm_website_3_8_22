@@ -1,3 +1,5 @@
 signup - https://demo50.gowebbi.us/api/RegisterApi/UserRegister
 login - https://demo50.gowebbi.us/api/RegisterApi/Login
 forgot - https://demo50.gowebbi.us/api/RegisterApi/ForgetPassword
+FetchCategory - https://demo50.gowebbi.us/api/MasterApi/FetchCategory
+FetchColor - https://demo50.gowebbi.us/api/MasterApi/FetchColor

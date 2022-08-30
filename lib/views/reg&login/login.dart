@@ -1,7 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
-
 import 'dart:convert';
-
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/forgotpass.dart';
@@ -24,14 +22,8 @@ class _LoginState extends State<Login> {
   var formkey = GlobalKey<FormState>();
   TextEditingController emailCtrl = TextEditingController();
   TextEditingController passCtrl = TextEditingController();
-  //TextEditingController textEditingController = TextEditingController();
+
   @override
-  //  void dispose() {
-  //   emailCtrl.dispose();
-  //   // ignore: avoid_print
-  //   print('Dispose used');
-  //   super.dispose();
-  // }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commoncolor,
