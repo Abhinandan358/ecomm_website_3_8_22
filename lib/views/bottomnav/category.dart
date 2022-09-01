@@ -9,7 +9,6 @@ import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/sports.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/home_kitchecn.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/household.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/makeup.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/personal_care.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/snacks.dart';
@@ -157,7 +156,7 @@ class _CategoryState extends State<Category> {
 }
 
 List<Widget> screenList = [
-  const Makeup(),
+  const OfferZone(),
   const Fashion(),
   const Electronic(),
   const Sports(),

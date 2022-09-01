@@ -56,6 +56,14 @@ class _OfferZoneState extends State<OfferZone> {
     BudgetModel('Under', '₹399'),
     BudgetModel('Under', '₹599')
   ];
+
+  static final List<OffersForyouModel> _offerforyouList = [
+    OffersForyouModel(
+        'assets/saree1.png', 'Women’s Sarees', 'buy 3 get 10% off'),
+    OffersForyouModel('assets/watch1.png', 'Smartwatches', 'min. 40% off'),
+    OffersForyouModel('assets/shoe1.png', 'Shoes', 'Under ₹ 499'),
+    OffersForyouModel('assets/lt.png', 'Ladies T-Shirt', 'buy 2 get 1 free'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,120 +125,7 @@ class _OfferZoneState extends State<OfferZone> {
           ],
         ),
       ),
-      drawer: SafeArea(
-        child: SizedBox(
-            height: 0.96.sh,
-            child: Drawer(
-              child: Column(
-                children: [
-                  UserAccountsDrawerHeader(
-                      currentAccountPicture: ClipOval(
-                          child: InkWell(
-                              onTap: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return AlertDialog(
-                                        backgroundColor: transperant,
-                                        title: Align(
-                                            alignment: Alignment.topRight,
-                                            child: IconButton(
-                                                onPressed: () {
-                                                  Get.back();
-                                                },
-                                                icon: const Icon(
-                                                  Icons.close,
-                                                  color: white1,
-                                                ))),
-                                        content: image != null
-                                            ? Image.file(
-                                                image!,
-                                                fit: BoxFit.cover,
-                                              )
-                                            : IconButton(
-                                                onPressed: () {},
-                                                icon: ClipOval(
-                                                    child: Image.network(
-                                                        'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                        fit: BoxFit.cover))),
-                                      );
-                                    });
-                              },
-                              child: image != null
-                                  ? Image.file(
-                                      image!,
-                                      fit: BoxFit.cover,
-                                    )
-                                  : IconButton(
-                                      onPressed: () {},
-                                      icon: InkWell(
-                                          onTap: () {
-                                            showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return AlertDialog(
-                                                    content: image != null
-                                                        ? Image.file(
-                                                            image!,
-                                                            fit: BoxFit.cover,
-                                                          )
-                                                        : IconButton(
-                                                            onPressed: () {},
-                                                            icon: ClipOval(
-                                                                child: Image
-                                                                    .network(
-                                                              'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                              fit: BoxFit.cover,
-                                                            ))),
-                                                  );
-                                                });
-                                          },
-                                          child: ClipOval(
-                                              child: Image.network(
-                                                  'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                  fit: BoxFit.cover)))))),
-                      accountName: const Text(
-                        'Abhi',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      accountEmail: const Text('abhi@gmail.com',
-                          style: TextStyle(fontSize: 20))),
-                  custombtn(() {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Column(
-                              children: [
-                                TextButton(
-                                    onPressed: () {
-                                      pickImageCamera();
-                                    },
-                                    child: const Text('data')),
-                                TextButton(
-                                    onPressed: () {
-                                      pickImageGallery();
-                                    },
-                                    child: const Text('data'))
-                              ],
-                            ),
-                          );
-                        });
-                  }, 'Change Profile'),
-                  TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.logout,
-                        color: red,
-                      ),
-                      label: const Text(
-                        'Logout',
-                        style: TextStyle(color: red),
-                      ))
-                ],
-              ),
-            )),
-      ),
+      drawer: const Drawer(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -341,7 +236,7 @@ class _OfferZoneState extends State<OfferZone> {
                       return Container(
                         padding: const EdgeInsets.all(10),
                         margin: const EdgeInsets.all(10),
-                        decoration:  BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           gradient: const LinearGradient(
                             colors: [gradienttop, gradientbottom],
@@ -369,6 +264,65 @@ class _OfferZoneState extends State<OfferZone> {
                         ),
                       );
                     }),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Offers For You',
+                    style: TextStyle(
+                        color: orange,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  iconbtntext(
+                      () {},
+                      const Text(
+                        'View All',
+                        style: TextStyle(color: black2, fontSize: 18),
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                        color: black2,
+                      ))
+                ],
+              ),
+              SizedBox(
+                child: GridView.builder(
+                    itemCount: _offerforyouList.length,
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 2,
+                      mainAxisSpacing: 2,
+                      childAspectRatio: 0.99,
+                    ),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: const EdgeInsets.all(20),
+                        color: white7,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              _offerforyouList[index].img,
+                              height: 0.13.sh,
+                              width: 0.29.sw,
+                              fit: BoxFit.fill,
+                            ),
+                            Text(
+                              _offerforyouList[index].name,
+                              style: const TextStyle(color: grey2, fontSize: 15),
+                            ),
+                            Text(
+                              _offerforyouList[index].uptooff,
+                              style: const TextStyle(fontSize: 18, color: green),
+                            )
+                          ],
+                        ),
+                      );
+                    }),
               )
             ],
           ),
@@ -388,4 +342,10 @@ class BudgetModel {
   final String under, price;
 
   BudgetModel(this.under, this.price);
+}
+
+class OffersForyouModel {
+  final String img, name, uptooff;
+
+  OffersForyouModel(this.img, this.name, this.uptooff);
 }

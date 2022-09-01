@@ -34,6 +34,7 @@ const Color gradientbottom = Color.fromRGBO(255, 200, 167, 1);
 const Color red6 = Colors.red;
 const Color black6 = Colors.black;
 const Color white6 = Colors.white;
+const Color white7 = Color.fromRGBO(255, 255, 255, 1);
 
 //buttons-----
 

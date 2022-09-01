@@ -1,0 +1,114 @@
+ // drawer: SafeArea(
+      //   child: SizedBox(
+      //       height: 0.96.sh,
+      //       child: Drawer(
+      //         child: Column(
+      //           children: [
+      //             UserAccountsDrawerHeader(
+      //                 currentAccountPicture: ClipOval(
+      //                     child: InkWell(
+      //                         onTap: () {
+      //                           showDialog(
+      //                               context: context,
+      //                               builder: (context) {
+      //                                 return AlertDialog(
+      //                                   backgroundColor: transperant,
+      //                                   title: Align(
+      //                                       alignment: Alignment.topRight,
+      //                                       child: IconButton(
+      //                                           onPressed: () {
+      //                                             Get.back();
+      //                                           },
+      //                                           icon: const Icon(
+      //                                             Icons.close,
+      //                                             color: white1,
+      //                                           ))),
+      //                                   content: image != null
+      //                                       ? Image.file(
+      //                                           image!,
+      //                                           fit: BoxFit.cover,
+      //                                         )
+      //                                       : IconButton(
+      //                                           onPressed: () {},
+      //                                           icon: ClipOval(
+      //                                               child: Image.network(
+      //                                                   'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+      //                                                   fit: BoxFit.cover))),
+      //                                 );
+      //                               });
+      //                         },
+      //                         child: image != null
+      //                             ? Image.file(
+      //                                 image!,
+      //                                 fit: BoxFit.cover,
+      //                               )
+      //                             : IconButton(
+      //                                 onPressed: () {},
+      //                                 icon: InkWell(
+      //                                     onTap: () {
+      //                                       showDialog(
+      //                                           context: context,
+      //                                           builder: (context) {
+      //                                             return AlertDialog(
+      //                                               content: image != null
+      //                                                   ? Image.file(
+      //                                                       image!,
+      //                                                       fit: BoxFit.cover,
+      //                                                     )
+      //                                                   : IconButton(
+      //                                                       onPressed: () {},
+      //                                                       icon: ClipOval(
+      //                                                           child: Image
+      //                                                               .network(
+      //                                                         'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+      //                                                         fit: BoxFit.cover,
+      //                                                       ))),
+      //                                             );
+      //                                           });
+      //                                     },
+      //                                     child: ClipOval(
+      //                                         child: Image.network(
+      //                                             'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+      //                                             fit: BoxFit.cover)))))),
+      //                 accountName: const Text(
+      //                   'Abhi',
+      //                   style: TextStyle(fontSize: 20),
+      //                 ),
+      //                 accountEmail: const Text('abhi@gmail.com',
+      //                     style: TextStyle(fontSize: 20))),
+      //             custombtn(() {
+      //               showModalBottomSheet(
+      //                   context: context,
+      //                   builder: (context) {
+      //                     return AlertDialog(
+      //                       content: Column(
+      //                         children: [
+      //                           TextButton(
+      //                               onPressed: () {
+      //                                 pickImageCamera();
+      //                               },
+      //                               child: const Text('data')),
+      //                           TextButton(
+      //                               onPressed: () {
+      //                                 pickImageGallery();
+      //                               },
+      //                               child: const Text('data'))
+      //                         ],
+      //                       ),
+      //                     );
+      //                   });
+      //             }, 'Change Profile'),
+      //             TextButton.icon(
+      //                 onPressed: () {},
+      //                 icon: const Icon(
+      //                   Icons.logout,
+      //                   color: red,
+      //                 ),
+      //                 label: const Text(
+      //                   'Logout',
+      //                   style: TextStyle(color: red),
+      //                 ))
+      //           ],
+      //         ),
+      //       )),
+      // ),
