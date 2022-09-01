@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+String? dropdownValue;
+//dropdown end------------------------------------------
 //colors-----
 const Color white = Color.fromARGB(220, 255, 249, 249);
 const Color brown = Color.fromARGB(255, 187, 133, 113);
@@ -52,10 +54,12 @@ SizedBox custombtn(Function()? onPressed, btntxt) {
           child: Text(btntxt)));
 }
 
-SizedBox iconbtntext(Function()? onPressed,Widget icon,Widget label){
-  return SizedBox(child: TextButton.icon(
-    style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(commoncolor)
-    ),
-    onPressed: onPressed, icon: icon, label: label));
+SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label) {
+  return SizedBox(
+      child: TextButton.icon(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(commoncolor)),
+          onPressed: onPressed,
+          icon: icon,
+          label: label));
 }
