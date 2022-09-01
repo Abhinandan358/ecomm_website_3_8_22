@@ -317,7 +317,7 @@ class _OfferZoneState extends State<OfferZone> {
                             ),
                             Text(
                               _offerforyouList[index].uptooff,
-                              style: const TextStyle(fontSize: 18, color: green),
+                              style: const TextStyle(fontSize: 17, color: green),
                             )
                           ],
                         ),
