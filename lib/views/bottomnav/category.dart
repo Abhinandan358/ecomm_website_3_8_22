@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/makeup.dart';
+import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
@@ -17,7 +18,6 @@ import 'package:ecommerce_website_logo3_8_22/views/all_categories/watches.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 class Category extends StatefulWidget {
@@ -98,7 +98,7 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      
+                                      Get.to(() => screenList[index]);
                                     },
                                     child: Container(
                                       height: 0.14.sh,
@@ -121,7 +121,10 @@ class _CategoryState extends State<Category> {
                                   ),
                                   Text(_categoryList1[index].Cat_Name,
                                       textAlign: TextAlign.center,
-                                      style: const TextStyle(color: grey2,fontWeight: FontWeight.bold,fontSize: 17)),
+                                      style: const TextStyle(
+                                          color: grey2,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 17)),
                                 ],
                               );
                             }),

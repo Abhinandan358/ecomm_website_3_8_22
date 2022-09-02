@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
-import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 class Makeup extends StatefulWidget {
@@ -14,6 +14,7 @@ class Makeup extends StatefulWidget {
 
 class _MakeupState extends State<Makeup> {
   List<CategoryList> categoryList1 = [];
+  final List<Welcome> item = [];
   // late Future<List<Welcome>> _future;
   @override
   void initState() {
@@ -53,17 +54,16 @@ class _MakeupState extends State<Makeup> {
               itemBuilder: (context, i) {
                 return Column(
                   children: [
-                    InkWell(
-                      onTap: (){
-                        // Text(subcategorylistModelList[index].subId);
-                      },
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundColor: red6,
-                        child: Text(categoryList1[i].catId,style: TextStyle(color: white6,fontWeight: FontWeight.bold),),
-                      ),
-                    ),
-                    Text(categoryList1[i].catName),
+                    // CircleAvatar(
+                    //   radius: 30,
+                    //   backgroundColor: red6,
+                    //   child: Text(
+                    //     categoryList1[i].catId,
+                    //     style: const TextStyle(
+                    //         color: white6, fontWeight: FontWeight.bold),
+                    //   ),
+                    // ),
+                    //Text(categoryList1[i].catName),
                     for (var i = 0;
                         i < categoryList1[i].subcategorylist.length;
                         i++)
