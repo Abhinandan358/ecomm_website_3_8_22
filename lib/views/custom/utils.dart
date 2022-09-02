@@ -38,6 +38,7 @@ const Color black6 = Colors.black;
 const Color white6 = Colors.white;
 const Color white7 = Color.fromRGBO(255, 255, 255, 1);
 const Color screenColor = Color.fromRGBO(255, 239, 229, 1);
+const Color blue = Color.fromRGBO(3, 82, 201, 1);
 //buttons-----
 
 SizedBox custombtn(Function()? onPressed, btntxt) {

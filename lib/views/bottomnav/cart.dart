@@ -1,10 +1,9 @@
-import 'dart:ui';
-
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Cart extends StatefulWidget {
   const Cart({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class _CartState extends State<Cart> {
   static final List<MycartModel> _MycartList = [
     for (var i = 0; i < 6; i++)
       MycartModel('assets/shoe2.png', 'Casual Shoes', 'size : M, white',
-          'delivery by sun sep 10 | ₹50', 'Only 5 Left')
+          'delivery by\nsun sep 10 | ₹50', 'Only 5 Left')
   ];
   String? dropdownValue;
 //dropdown end------------------------------------------
@@ -73,169 +72,219 @@ class _CartState extends State<Cart> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.all(2),
+                        padding: const EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(5),
                         color: white2,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Row(
                           children: [
-                            ListTile(
-                              leading: Image.asset(_MycartList[index].img),
-                              title: const Text(
-                                'Casuel Shoes',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    _MycartList[index].size,
-                                    style: TextStyle(fontSize: 18),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    showModalBottomSheet(
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: const EdgeInsets.all(15.0),
+                                            child: Column(
+                                              children: [
+                                                Align(
+                                                    alignment:
+                                                        Alignment.bottomRight,
+                                                    child: IconButton(
+                                                        onPressed: () {
+                                                          Get.back();
+                                                        },
+                                                        icon:
+                                                            const Icon(Icons.close))),
+                                                Image.asset(
+                                                  _MycartList[index].img,
+                                                  height: 0.35.sh,
+                                                  width: 0.6.sw,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                                Text(_MycartList[index].pname),
+                                                SizedBox(
+                                                  width: 0.85.sw,
+                                                  child: ElevatedButton(
+                                                      onPressed: () {},
+                                                      style: ButtonStyle(
+                                                          backgroundColor:
+                                                              MaterialStateProperty
+                                                                  .all(white2)),
+                                                      child: const Text(
+                                                        'More About Product',
+                                                        style: TextStyle(
+                                                            color: blue),
+                                                      )),
+                                                )
+                                              ],
+                                            ),
+                                          );
+                                        });
+                                  },
+                                  child: Image.asset(
+                                    _MycartList[index].img,
                                   ),
-                                  RatingBar.builder(
-                                    itemSize: 15,
-                                    initialRating: 3,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemPadding:
-                                        EdgeInsets.symmetric(horizontal: 4.0),
-                                    itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.green,
-                                    ),
-                                    onRatingUpdate: (rating) {
-                                      print(rating);
-                                    },
+                                ),
+                                DropdownButton(
+                                  isDense: true,
+                                  isExpanded: false,
+                                    value: dropdownValue,
+                                    hint: const Text('Qty:1',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Color.fromARGB(255, 5, 4, 4))),
+                                    items: const [
+                                      DropdownMenuItem(
+                                          value: 'first',
+                                          child: Text(
+                                            'Qty:1',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold,
+                                                color: Color.fromARGB(
+                                                    255, 5, 4, 4)),
+                                          )),
+                                      DropdownMenuItem(
+                                          value: 'second',
+                                          child: Text('Qty:2',
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromARGB(
+                                                      255, 5, 4, 4)))),
+                                      DropdownMenuItem(
+                                          value: 'third',
+                                          child: Text('Qty:3',
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromARGB(
+                                                      255, 5, 4, 4)))),
+                                      DropdownMenuItem(
+                                          value: 'fourth',
+                                          child: Text('Qty:4',
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromARGB(
+                                                      255, 5, 4, 4)))),
+                                      DropdownMenuItem(
+                                          value: 'fifth',
+                                          child: Text('Qty:5',
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromARGB(
+                                                      255, 5, 4, 4)))),
+                                      DropdownMenuItem(
+                                          value: 'sixth',
+                                          child: Text('Qty:6',
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromARGB(
+                                                      255, 5, 4, 4)))),
+                                    ],
+                                    onChanged: (value) {
+                                      setState(() {
+                                        dropdownValue = value as String;
+                                      });
+                                    }),
+                                Text(_MycartList[index].pleft,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: red6))
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  _MycartList[index].pname,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: grey2),
+                                ),
+                                Text(
+                                  _MycartList[index].size,
+                                  style: const TextStyle(fontSize: 17),
+                                ),
+                                RatingBar.builder(
+                                  itemSize: 14,
+                                  initialRating: 3,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemPadding:
+                                      const EdgeInsets.symmetric(horizontal: 4.0),
+                                  itemBuilder: (context, _) => const Icon(
+                                    Icons.star,
+                                    color: green,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '₹1499',
+                                  onRatingUpdate: (rating) {
+                                    // ignore: avoid_print
+                                    print(rating);
+                                  },
+                                ),
+                                Row(
+                                  children: const [
+                                    Text('₹1499',
                                         style: TextStyle(
                                             decoration:
                                                 TextDecoration.lineThrough,
-                                            fontSize: 18),
-                                      ),
-                                      Text(
-                                        '₹499',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(_MycartList[index].deltime),
-                                ],
-                              ),
-                              trailing: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                      width: 100,
-                                      color: screenColor,
-                                      child: Center(
-                                          child: Text(
-                                        'Save Later',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ))),
-                                      SizedBox(height: 5,),
-                                  Container(
-                                      width: 100,
-                                      color: screenColor,
-                                      child: Center(
-                                          child: Text(
-                                        'Remove',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ))),
-                                  Container(
-                                      width: 100,
-                                      color: screenColor,
-                                      child: Center(
-                                          child: Text(
-                                        'Buy Now',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ))),
-                                ],
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.bottomLeft,
-                              child: DropdownButton(
-                                  value: dropdownValue,
-                                  hint: const Text('Qty: 1',
+                                            color: grey2,
+                                            fontSize: 17)),
+                                    Text(
+                                      '₹499',
                                       style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          color: Color.fromARGB(255, 5, 4, 4))),
-                                  items: const [
-                                    DropdownMenuItem(
-                                        child: Text(
-                                          'Qty: 1',
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                              color:
-                                                  Color.fromARGB(255, 5, 4, 4)),
-                                        ),
-                                        value: 'first'),
-                                    DropdownMenuItem(
-                                        child: Text('Second',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 5, 4, 4))),
-                                        value: 'second'),
-                                    DropdownMenuItem(
-                                        child: Text('Third',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 5, 4, 4))),
-                                        value: 'third'),
-                                    DropdownMenuItem(
-                                        child: Text('Fourth',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 5, 4, 4))),
-                                        value: 'fourth'),
-                                    DropdownMenuItem(
-                                        child: Text('Fifth',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 5, 4, 4))),
-                                        value: 'fifth'),
-                                    DropdownMenuItem(
-                                        child: Text('Sixth',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 5, 4, 4))),
-                                        value: 'sixth'),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    )
                                   ],
-                                  onChanged: (value) {
-                                    setState(() {
-                                      dropdownValue = value as String;
-                                    });
-                                  }),
+                                ),
+                                Text(
+                                  _MycartList[index].deltime,
+                                  style: const TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
                             ),
-                            Align(
-                              alignment: Alignment.bottomLeft,
-                              child: Text(_MycartList[index].pleft,style: TextStyle(color: red6,fontWeight: FontWeight.bold),))
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                iconbtntext(
+                                    () {},
+                                    const Icon(Icons.save),
+                                    const Text(
+                                      'Save Later',
+                                      style: TextStyle(fontSize: 12),
+                                    )),
+                                iconbtntext(
+                                    () {},
+                                    const Icon(Icons.remove),
+                                    const Text(
+                                      'Remove',
+                                      style: TextStyle(fontSize: 12),
+                                    )),
+                                iconbtntext(
+                                    () {},
+                                    const Icon(Icons.shopping_bag),
+                                    const Text(
+                                      'Buy Now',
+                                      style: TextStyle(fontSize: 12),
+                                    )),
+                              ],
+                            ),
                           ],
                         ),
                       );
