@@ -289,6 +289,7 @@ class _OfferZoneState extends State<OfferZone> {
               ),
               SizedBox(
                 child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                     itemCount: _offerforyouList.length,
                     shrinkWrap: true,
                     gridDelegate:

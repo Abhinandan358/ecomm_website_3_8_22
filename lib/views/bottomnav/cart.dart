@@ -89,6 +89,7 @@ class _CartState extends State<Cart> {
                                           return Padding(
                                             padding: const EdgeInsets.all(15.0),
                                             child: Column(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Align(
                                                     alignment:
@@ -131,6 +132,7 @@ class _CartState extends State<Cart> {
                                 ),
                                 DropdownButton(
                                   isDense: true,
+                                  icon: const Icon(Icons.keyboard_arrow_down),
                                   isExpanded: false,
                                     value: dropdownValue,
                                     hint: const Text('Qty:1',
@@ -219,7 +221,7 @@ class _CartState extends State<Cart> {
                                 ),
                                 RatingBar.builder(
                                   itemSize: 14,
-                                  initialRating: 3,
+                                  initialRating: 0,
                                   minRating: 1,
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
@@ -264,24 +266,24 @@ class _CartState extends State<Cart> {
                               children: [
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.save),
+                                    const Icon(Icons.download_sharp,color: black6,),
                                     const Text(
                                       'Save Later',
-                                      style: TextStyle(fontSize: 12),
+                                      style: TextStyle(fontSize: 12,color: black6),
                                     )),
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.remove),
+                                    const Icon(Icons.delete_outline,color: black6),
                                     const Text(
                                       'Remove',
-                                      style: TextStyle(fontSize: 12),
+                                      style: TextStyle(fontSize: 12,color: black6),
                                     )),
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.shopping_bag),
+                                    const Icon(Icons.shopping_bag_outlined,color: black6),
                                     const Text(
                                       'Buy Now',
-                                      style: TextStyle(fontSize: 12),
+                                      style: TextStyle(fontSize: 12,color: black6),
                                     )),
                               ],
                             ),
