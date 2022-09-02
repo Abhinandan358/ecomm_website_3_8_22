@@ -37,6 +37,7 @@ class _FashionState extends State<Fashion> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  iconbtntext((){}, Icon(Icons.arrow_back,color: black6,), Text('Fashion',style: TextStyle(color: black6,fontWeight: FontWeight.bold),)),
                   SizedBox(
                     height: 0.18.sh,
                     child: ListView.builder(
@@ -47,18 +48,20 @@ class _FashionState extends State<Fashion> {
                           return Container(
                             margin: EdgeInsets.all(10),
                             child: CircleAvatar(
-                                radius: 50,
-                                child: Image.asset(
-                                  _list[index].img,
-                                  height: 0.13.sh,
-                                  width: 0.28.sw,
-                                  fit: BoxFit.cover,
-                                )),
+                              backgroundColor: orange2,
+                              radius: 40,
+                              child: Image.asset(
+                                _list[index].img,
+                                 height: 0.1.sh,
+                                // width: 0.2.sw,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           );
                         }),
                   ),
                   Container(
-                    color: grey2,
+                    color: grey3,
                     child: Column(
                       children: [
                         Image.asset(
@@ -94,7 +97,7 @@ class _FashionState extends State<Fashion> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'favourite to all!',
+                        'Favourite To All!',
                         style: TextStyle(
                             color: orange,
                             fontWeight: FontWeight.bold,
