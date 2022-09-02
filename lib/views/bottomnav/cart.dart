@@ -98,8 +98,8 @@ class _CartState extends State<Cart> {
                                                         onPressed: () {
                                                           Get.back();
                                                         },
-                                                        icon:
-                                                            const Icon(Icons.close))),
+                                                        icon: const Icon(
+                                                            Icons.close))),
                                                 Image.asset(
                                                   _MycartList[index].img,
                                                   height: 0.35.sh,
@@ -131,9 +131,9 @@ class _CartState extends State<Cart> {
                                   ),
                                 ),
                                 DropdownButton(
-                                  isDense: true,
-                                  icon: const Icon(Icons.keyboard_arrow_down),
-                                  isExpanded: false,
+                                    isDense: true,
+                                    icon: const Icon(Icons.keyboard_arrow_down),
+                                    isExpanded: false,
                                     value: dropdownValue,
                                     hint: const Text('Qty:1',
                                         style: TextStyle(
@@ -226,8 +226,8 @@ class _CartState extends State<Cart> {
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
                                   itemCount: 5,
-                                  itemPadding:
-                                      const EdgeInsets.symmetric(horizontal: 4.0),
+                                  itemPadding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
                                   itemBuilder: (context, _) => const Icon(
                                     Icons.star,
                                     color: green,
@@ -266,24 +266,32 @@ class _CartState extends State<Cart> {
                               children: [
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.download_sharp,color: black6,),
+                                    const Icon(
+                                      Icons.download_sharp,
+                                      color: black6,
+                                    ),
                                     const Text(
                                       'Save Later',
-                                      style: TextStyle(fontSize: 12,color: black6),
+                                      style: TextStyle(
+                                          fontSize: 12, color: black6),
                                     )),
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.delete_outline,color: black6),
+                                    const Icon(Icons.delete_outline,
+                                        color: black6),
                                     const Text(
                                       'Remove',
-                                      style: TextStyle(fontSize: 12,color: black6),
+                                      style: TextStyle(
+                                          fontSize: 12, color: black6),
                                     )),
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.shopping_bag_outlined,color: black6),
+                                    const Icon(Icons.shopping_bag_outlined,
+                                        color: black6),
                                     const Text(
                                       'Buy Now',
-                                      style: TextStyle(fontSize: 12,color: black6),
+                                      style: TextStyle(
+                                          fontSize: 12, color: black6),
                                     )),
                               ],
                             ),

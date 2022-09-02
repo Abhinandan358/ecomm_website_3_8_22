@@ -289,7 +289,7 @@ class _OfferZoneState extends State<OfferZone> {
               ),
               SizedBox(
                 child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: _offerforyouList.length,
                     shrinkWrap: true,
                     gridDelegate:
@@ -314,11 +314,13 @@ class _OfferZoneState extends State<OfferZone> {
                             ),
                             Text(
                               _offerforyouList[index].name,
-                              style: const TextStyle(color: grey2, fontSize: 15),
+                              style:
+                                  const TextStyle(color: grey2, fontSize: 15),
                             ),
                             Text(
                               _offerforyouList[index].uptooff,
-                              style: const TextStyle(fontSize: 17, color: green),
+                              style:
+                                  const TextStyle(fontSize: 17, color: green),
                             )
                           ],
                         ),
