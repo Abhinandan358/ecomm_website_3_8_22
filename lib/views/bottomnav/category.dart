@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'dart:convert';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/makeup.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
@@ -97,7 +98,7 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      Get.to(() => screenList[index]);
+                                      
                                     },
                                     child: Container(
                                       height: 0.14.sh,
@@ -156,7 +157,7 @@ class _CategoryState extends State<Category> {
 }
 
 List<Widget> screenList = [
-  const OfferZone(),
+  const Makeup(),
   const Fashion(),
   const Electronic(),
   const Sports(),

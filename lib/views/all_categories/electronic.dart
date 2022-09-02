@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
+import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart';
@@ -12,7 +13,7 @@ class Electronic extends StatefulWidget {
 }
 
 class _ElectronicState extends State<Electronic> {
-  List<Subcategorylist> subcategorylistModelList = [];
+  // List<Subcategorylist> subcategorylistModelList = [];
   List<CategoryList> categoryList1 = [];
   // late Future<List<Welcome>> _future;
   @override
@@ -53,8 +54,19 @@ class _ElectronicState extends State<Electronic> {
               itemBuilder: (context, index) {
                 return Column(
                   children: [
-                    Text(categoryList1[index].catId),
+                    InkWell(
+                      onTap: (){
+                        // Text(subcategorylistModelList[index].subId);
+                      },
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: red6,
+                        child: Text(categoryList1[index].catId,style: const TextStyle(color: white6,fontWeight: FontWeight.bold),),
+                      ),
+                    ),
                     Text(categoryList1[index].catName),
+                    for(var i=0; i<categoryList1[index].subcategorylist.length; i++)
+                    Text(categoryList1[index].subcategorylist[i].subName)
                   ],
                 );
               }),
