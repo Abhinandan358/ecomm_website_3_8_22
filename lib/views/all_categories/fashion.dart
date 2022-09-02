@@ -30,14 +30,14 @@ class _FashionState extends State<Fashion> {
     return Scaffold(
         backgroundColor: commonback,
         body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(parent: BouncingScrollPhysics()),
+          physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  iconbtntext((){}, Icon(Icons.arrow_back,color: black6,), Text('Fashion',style: TextStyle(color: black6,fontWeight: FontWeight.bold),)),
+                  iconbtntext((){}, const Icon(Icons.arrow_back,color: black6,), const Text('Fashion',style: TextStyle(color: black6,fontWeight: FontWeight.bold),)),
                   SizedBox(
                     height: 0.18.sh,
                     child: ListView.builder(
@@ -46,7 +46,7 @@ class _FashionState extends State<Fashion> {
                         itemCount: _list.length,
                         itemBuilder: (context, index) {
                           return Container(
-                            margin: EdgeInsets.all(10),
+                            margin: const EdgeInsets.all(10),
                             child: CircleAvatar(
                               backgroundColor: orange2,
                               radius: 40,
@@ -75,7 +75,7 @@ class _FashionState extends State<Fashion> {
                             color: white6,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text(
                                   'sports shoes, sneakers...',
                                   style: TextStyle(fontSize: 18),
