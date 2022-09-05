@@ -20,7 +20,7 @@ class FetchCompanyController extends GetxController {
       print(result.body);
     } else {
       // ignore: avoid_print
-      print('Api Result ${result.statusCode}');
+      print('Api error ${result.statusCode}');
     }
     return [];
   }
