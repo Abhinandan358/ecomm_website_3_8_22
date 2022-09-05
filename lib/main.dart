@@ -1,4 +1,4 @@
-
+import 'package:ecommerce_website_logo3_8_22/controller/fetch_company_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/views/Splashscreen/splash_scrn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,14 +20,16 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'First Method',
-          theme: ThemeData(
-            primarySwatch: Colors.green,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          ),
-          home: child,
-        );
+            debugShowCheckedModeBanner: false,
+            title: 'First Method',
+            theme: ThemeData(
+              primarySwatch: Colors.green,
+              textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            ),
+            home: child,
+            initialBinding: BindingsBuilder(() {
+              Get.put(FetchCompanyController());
+            }));
       },
       child: const SplashScreen(),
       //child: const Reg(),
