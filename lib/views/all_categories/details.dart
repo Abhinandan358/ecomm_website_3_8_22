@@ -19,7 +19,9 @@ class _DetailsPageState extends State<DetailsPage> {
         return Column(
           children: [
             for(var i=0;i<widget.item.subcategorylist.length; i++)
-            Text(widget.item.subcategorylist[i].subName)
+            CircleAvatar(
+              backgroundColor: Colors.red,
+              child: Text(widget.item.subcategorylist[i].subId,style: const TextStyle(color: Colors.white),))
           ],
         );
       }),

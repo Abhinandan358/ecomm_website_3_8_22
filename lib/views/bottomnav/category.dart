@@ -1,20 +1,11 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'dart:convert';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/makeup.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/details.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/electronic.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/sports.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/home_kitchecn.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/household.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/personal_care.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/snacks.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/watches.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -117,7 +108,8 @@ class _CategoryState extends State<Category> {
                                   GestureDetector(
                                     onTap: () {
                                       // Get.to(() => screenList[index]);
-                                      Get.to(()=>DetailsPage(item: categoryList1[index]));
+                                      Get.to(() => DetailsPage(
+                                          item: categoryList1[index]));
                                     },
                                     child: Container(
                                       height: 0.14.sh,
