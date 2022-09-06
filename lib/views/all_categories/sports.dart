@@ -23,26 +23,23 @@ class _SportsState extends State<Sports> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SizedBox(
-                    height: 300,
-                    child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount:
-                            _controllerFetchCompany.FetchCompanyList.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          childAspectRatio: 0.7,
-                        ),
-                        itemBuilder: (context, index) {
-                          return Text(_controllerFetchCompany
-                              .FetchCompanyList[index].Company_Name);
-                        }))
-            );
+            height: 300,
+            child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: _controllerFetchCompany.FetchCompanyList.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.7,
+                ),
+                itemBuilder: (context, index) {
+                  return Text(_controllerFetchCompany
+                      .FetchCompanyList[index].Company_Name);
+                })));
   }
 
   void getPost() async {
-   await _controllerFetchCompany.getPost();
+    await _controllerFetchCompany.getPost();
     setState(() {});
-   }
+  }
 }

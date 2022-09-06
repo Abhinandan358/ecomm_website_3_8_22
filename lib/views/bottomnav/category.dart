@@ -30,11 +30,29 @@ class Category extends StatefulWidget {
 class _CategoryState extends State<Category> {
   List<CategoryData> _categoryList1 = [];
   late Future<List<CategoryData>> _future;
-
+  List<CategoryList> categoryList1 = [];
   @override
   void initState() {
     super.initState();
     _future = _getPost();
+    _getData();
+  }
+
+  _getData() async {
+    String url =
+        'https://demo50.gowebbi.us/api/MasterApi/CategoryAginstSubcategory';
+    var result = await get(Uri.parse(url));
+    if (result.statusCode == 200) {
+      var response = Welcome.fromJson(jsonDecode(result.body));
+      categoryList1 = response.categoryList;
+      // ignore: avoid_print
+      setState(() {});
+      // ignore: avoid_print
+      print(result.body);
+    } else {
+      // ignore: avoid_print
+      print('Api error ${result.statusCode}');
+    }
   }
 
   Future<List<CategoryData>> _getPost() async {
@@ -98,7 +116,8 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      Get.to(() => screenList[index]);
+                                      // Get.to(() => screenList[index]);
+                                      Get.to(()=>DetailsPage(item: categoryList1[index]));
                                     },
                                     child: Container(
                                       height: 0.14.sh,
@@ -159,15 +178,15 @@ class _CategoryState extends State<Category> {
   }
 }
 
-List<Widget> screenList = [
-  const Makeup(),
-  const Fashion(),
-  const Electronic(),
-  const Sports(),
-  const OfferZone(),
-  const Watches(),
-  const PersonalCare(),
-  const Household(),
-  const HomeKitchen(),
-  const Snacks()
-];
+// List<Widget> screenList = [
+//   const Makeup(),
+//   const Fashion(),
+//   const Electronic(),
+//   const Sports(),
+//   const OfferZone(),
+//   const Watches(),
+//   const PersonalCare(),
+//   const Household(),
+//   const HomeKitchen(),
+//   const Snacks()
+// ];
