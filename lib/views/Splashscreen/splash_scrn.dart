@@ -24,11 +24,13 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: commoncolor,
       body: Center(
-        child: Image.asset(
-          'assets/splash.jpg',
-          fit: BoxFit.fill,
-          width: 0.4.sh,
-          height: 0.4.sh,
+        child: ClipOval(
+          child: Image.network(
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd0slgUlzxIds_ooQN1yV4BoQJP4M6EY7E0LBV3cGcFRKhJ54nRINul3CuKFQoGRWUYpQ&usqp=CAU',
+            fit: BoxFit.cover,
+            width: 0.4.sh,
+            height: 0.4.sh,
+          ),
         ),
       ),
     );

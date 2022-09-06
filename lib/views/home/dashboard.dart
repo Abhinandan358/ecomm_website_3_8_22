@@ -75,11 +75,15 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
                     isDense: true,
-                    hintText: 'Search',
                     fillColor: appbarSearch,
                     filled: true,
                     suffixIcon: IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.search,color: grey2,size: 25,))),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.search,
+                          color: grey2,
+                          size: 25,
+                        ))),
               ),
             ),
             Stack(

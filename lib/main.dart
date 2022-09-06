@@ -1,6 +1,5 @@
 import 'package:ecommerce_website_logo3_8_22/controller/fetch_company_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/views/Splashscreen/splash_scrn.dart';
-import 'package:ecommerce_website_logo3_8_22/views/reg&login/login_reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.green,
               textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             ),
-            home: const LoginReg(),
+            home: const SplashScreen(),
             initialBinding: BindingsBuilder(() {
               Get.put(FetchCompanyController());
             }));
