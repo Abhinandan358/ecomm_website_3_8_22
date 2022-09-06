@@ -8,7 +8,7 @@ class FetchCompanyController extends GetxController {
   // ignore: non_constant_identifier_names
   List<FetchCompanyData> FetchCompanyList = [];
 
-  Future<List<FetchCompanyData>> getData() async {
+  Future<List<FetchCompanyData>> getPost() async {
     String url = 'https://demo50.gowebbi.us/api/MasterApi/FetchCompany';
     var result = await get(Uri.parse(url));
     if (result.statusCode == 200) {
