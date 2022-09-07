@@ -11,13 +11,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  //final List<coverimageModel> _clist=[];
   @override
-  // void initState() {
-  //
-  //   super.initState();
-  //   _clist.add(coverimageModel('https://images.unsplash.com/photo-1526498460520-4c246339dccb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29kZSUyMGltYWdlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'));
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +35,6 @@ class _ProfileState extends State<Profile> {
                 SizedBox(
                   height: 300,
                   width: 500,
-                  //color: Color.fromARGB(255, 98, 244, 54),
                   child: Center(
                       child: Align(
                     alignment: Alignment.bottomCenter,
@@ -72,14 +65,11 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            const Text('Abhinandan Mandal',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            const Text('Flutter Software Engineer',
-                style: TextStyle(color: grey, fontSize: 25)),
-            const Text(
-              'Follow Me',
-              style: TextStyle(fontSize: 20),
-            ),
+            mytext('Abhinandan Mandal', null, null, 25, FontWeight.bold, null,
+                null, null),
+            mytext('Flutter Software Engineer', grey, null, 25, null, null,
+                null, null),
+            mytext('Follow Me', null, null, 20, null, null, null, null),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -124,57 +114,46 @@ class _ProfileState extends State<Profile> {
                     Get.to(() => const Home());
                   },
                   child: Column(
-                    children: const [
-                      Text(
-                        '40',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                      Text(
-                        'Projects',
-                        style: TextStyle(fontSize: 22),
-                      ),
+                    children: [
+                      mytext('40', null, null, 25, null, null, null, null),
+                      mytext(
+                          'Projects', null, null, 22, null, null, null, null),
                     ],
                   ),
                 ),
                 InkWell(
                   onTap: () {},
                   child: Column(
-                    children: const [
-                      Text(
-                        '529',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                      Text(
-                        'Following',
-                        style: TextStyle(fontSize: 22),
-                      ),
+                    children: [
+                      mytext('529', null, null, 25, null, null, null, null),
+                      mytext(
+                          'Following', null, null, 22, null, null, null, null),
                     ],
                   ),
                 ),
                 InkWell(
                   onTap: () {},
                   child: Column(
-                    children: const [
-                      Text(
-                        '5834',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                      Text(
-                        'Followers',
-                        style: TextStyle(fontSize: 22),
-                      ),
+                    children: [
+                      mytext('5834', null, null, 25, null, null, null, null),
+                      mytext(
+                          'Followers', null, null, 22, null, null, null, null),
                     ],
                   ),
                 ),
               ],
             ),
             const Divider(thickness: 2),
-            const Text('About',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            const Text(
-              'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
-              style: TextStyle(fontSize: 20, color: grey1),
-            )
+            mytext('About', null, null, 20, null, null, null, null),
+            mytext(
+                'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
+                grey1,
+                null,
+                20,
+                null,
+                null,
+                null,
+                null),
           ],
         ),
       ),
@@ -182,30 +161,5 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-// class CustomClipPath extends CustomClipper<Path> {
-//   Path getClip(Size size) {
-//     double w = size.width;
-//     double h = size.height;
-//     final path = Path();
-//     //path.moveTo(2, 100);
-//     path.lineTo(2, h);
-//     path.quadraticBezierTo(w * 0.5, h - 100, w, h);
-//     path.lineTo(w, 0);
-//     path.moveTo(2, 280);
-//     path..close();
-//     return path;
-//   }
-
-//   bool shouldReclip(CustomClipper<Path> oldClipper) {
-//     return false;
-//   }
-//}
-
 Widget buildCoverImage() => Image.network(
     'https://images.unsplash.com/photo-1526498460520-4c246339dccb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29kZSUyMGltYWdlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
-
-// class coverimageModel{
-//   final image;
-
-//   coverimageModel(this.image);
-// }

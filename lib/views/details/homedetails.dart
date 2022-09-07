@@ -49,10 +49,8 @@ class _HomedetailsState extends State<Homedetails> {
       appBar: AppBar(
           iconTheme: const IconThemeData(color: black2),
           backgroundColor: white,
-          title: const Text(
-            'Homedetails',
-            style: TextStyle(color: black2),
-          )),
+          title: mytext(
+              'Homedetails', black2, null, null, null, null, null, null)),
       body: FutureBuilder<List<CategoryColorData>>(
           future: _future,
           builder: (context, snapshot) {
@@ -68,16 +66,10 @@ class _HomedetailsState extends State<Homedetails> {
                       height: 0.5.sh,
                       width: 1.sw,
                     ),
-                    Text(
-                      'Product Name- ${widget.item.name}',
-                      style: const TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'Product Price- ${widget.item.price}',
-                      style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                    mytext('Product Name- ${widget.item.name}', black2, null,
+                        25, FontWeight.bold, null, null, null),
+                    mytext('Product Price- ${widget.item.price}', black2, null,
+                        20, FontWeight.bold, null, null, null),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -91,13 +83,7 @@ class _HomedetailsState extends State<Homedetails> {
                                 color: colorList[i]),
                             child: InkWell(
                               onTap: () {},
-                              child: Text(
-                                _categorycolorList[i].Color_Name,
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: colorList2[i]),
-                              ),
+                              child: mytext(_categorycolorList[i].Color_Name, colorList2[i], null, 20, FontWeight.bold, null, null,null),
                             ),
                           ),
                       ],
@@ -106,11 +92,8 @@ class _HomedetailsState extends State<Homedetails> {
                 ),
               );
             } else if (snapshot.hasError) {
-              return const Center(
-                  child: Text(
-                '404 Page Not Found',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ));
+              return  Center(
+                  child: mytext('404 Page Not Found', null, null, 20, FontWeight.bold, null, null, null));
             } else {
               return Padding(
                 padding: const EdgeInsets.only(top: 200),

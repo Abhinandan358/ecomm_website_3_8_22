@@ -37,28 +37,18 @@ class _CartState extends State<Cart> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: const Text(
-                        'Deliver to : ',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      title: const Text(
-                        'Customer Name',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
+                      leading: mytext('Deliver to : ', null, null, 18, null,
+                          null, null, null),
+                      title: mytext('Customer Name', null, null, 18,
+                          FontWeight.bold, null, null, null),
                       trailing: IconButton(
                           onPressed: () {}, icon: const Icon(Icons.more_vert)),
                     ),
-                    const ListTile(
-                      leading: Text(
-                        'Address : ',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      title: Text(
-                        'Customer’s Full Address',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
+                    ListTile(
+                      leading: mytext(
+                          'Address : ', null, null, 18, null, null, null, null),
+                      title: mytext('Customer’s Full Address', null, null, 18,
+                          FontWeight.bold, null, null, null),
                     )
                   ],
                 ),
@@ -107,6 +97,15 @@ class _CartState extends State<Cart> {
                                                   fit: BoxFit.cover,
                                                 ),
                                                 Text(_MycartList[index].pname),
+                                                mytext(
+                                                    _MycartList[index].pname,
+                                                    null,
+                                                    null,
+                                                    null,
+                                                    null,
+                                                    null,
+                                                    null,
+                                                    null),
                                                 SizedBox(
                                                   width: 0.85.sw,
                                                   child: ElevatedButton(
@@ -115,11 +114,15 @@ class _CartState extends State<Cart> {
                                                           backgroundColor:
                                                               MaterialStateProperty
                                                                   .all(white2)),
-                                                      child: const Text(
-                                                        'More About Product',
-                                                        style: TextStyle(
-                                                            color: blue),
-                                                      )),
+                                                      child: mytext(
+                                                          'More About Product',
+                                                          blue,
+                                                          null,
+                                                          null,
+                                                          null,
+                                                          null,
+                                                          null,
+                                                          null)),
                                                 )
                                               ],
                                             ),
@@ -135,90 +138,106 @@ class _CartState extends State<Cart> {
                                     icon: const Icon(Icons.keyboard_arrow_down),
                                     isExpanded: false,
                                     value: dropdownValue,
-                                    hint: const Text('Qty:1',
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                            color:
-                                                Color.fromARGB(255, 5, 4, 4))),
-                                    items: const [
+                                    hint: mytext(
+                                        'Qty:1',
+                                        Color.fromARGB(255, 5, 4, 4),
+                                        null,
+                                        15,
+                                        FontWeight.bold,
+                                        null,
+                                        null,
+                                        null),
+                                    items: [
                                       DropdownMenuItem(
-                                          value: 'first',
-                                          child: Text(
+                                        value: 'first',
+                                        child: mytext(
                                             'Qty:1',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 5, 4, 4)),
-                                          )),
+                                            Color.fromARGB(255, 5, 4, 4),
+                                            null,
+                                            15,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
+                                      ),
                                       DropdownMenuItem(
-                                          value: 'second',
-                                          child: Text('Qty:2',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(
-                                                      255, 5, 4, 4)))),
+                                        value: 'second',
+                                        child: mytext(
+                                            'Qty:2',
+                                            Color.fromARGB(255, 5, 4, 4),
+                                            null,
+                                            15,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
+                                      ),
                                       DropdownMenuItem(
-                                          value: 'third',
-                                          child: Text('Qty:3',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(
-                                                      255, 5, 4, 4)))),
+                                        value: 'third',
+                                        child: mytext(
+                                            'Qty:3',
+                                            Color.fromARGB(255, 5, 4, 4),
+                                            null,
+                                            15,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
+                                      ),
                                       DropdownMenuItem(
-                                          value: 'fourth',
-                                          child: Text('Qty:4',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(
-                                                      255, 5, 4, 4)))),
+                                        value: 'fourth',
+                                        child: mytext(
+                                            'Qty:4',
+                                            Color.fromARGB(255, 5, 4, 4),
+                                            null,
+                                            15,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
+                                      ),
                                       DropdownMenuItem(
-                                          value: 'fifth',
-                                          child: Text('Qty:5',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(
-                                                      255, 5, 4, 4)))),
+                                        value: 'fifth',
+                                        child: mytext(
+                                            'Qty:5',
+                                            Color.fromARGB(255, 5, 4, 4),
+                                            null,
+                                            15,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
+                                      ),
                                       DropdownMenuItem(
-                                          value: 'sixth',
-                                          child: Text('Qty:6',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(
-                                                      255, 5, 4, 4)))),
+                                        value: 'sixth',
+                                        child: mytext(
+                                            'Qty:6',
+                                            Color.fromARGB(255, 5, 4, 4),
+                                            null,
+                                            15,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
+                                      ),
                                     ],
                                     onChanged: (value) {
                                       setState(() {
                                         dropdownValue = value as String;
                                       });
                                     }),
-                                Text(_MycartList[index].pleft,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: red6))
+                                mytext(_MycartList[index].pleft, red6, null,
+                                    null, FontWeight.bold, null, null, null)
                               ],
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  _MycartList[index].pname,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: grey2),
-                                ),
-                                Text(
-                                  _MycartList[index].size,
-                                  style: const TextStyle(fontSize: 17),
-                                ),
+                                mytext(_MycartList[index].pname, null, null, 18,
+                                    FontWeight.bold, null, null, null),
+                                mytext(_MycartList[index].size, null, null, 17,
+                                    FontWeight.bold, null, null, null),
                                 RatingBar.builder(
                                   itemSize: 14,
                                   initialRating: 0,
@@ -238,27 +257,15 @@ class _CartState extends State<Cart> {
                                   },
                                 ),
                                 Row(
-                                  children: const [
-                                    Text('₹1499',
-                                        style: TextStyle(
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            color: grey2,
-                                            fontSize: 17)),
-                                    Text(
-                                      '₹499',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    )
+                                  children: [
+                                    mytext('₹1499', grey2, null, 17, null, null,
+                                        null, TextDecoration.lineThrough),
+                                    mytext('₹499', grey2, null, 18,
+                                        FontWeight.bold, null, null, null),
                                   ],
                                 ),
-                                Text(
-                                  _MycartList[index].deltime,
-                                  style: const TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold),
-                                )
+                                mytext(_MycartList[index].deltime, grey2, null,
+                                    17, FontWeight.bold, null, null, null),
                               ],
                             ),
                             Column(
@@ -270,29 +277,20 @@ class _CartState extends State<Cart> {
                                       Icons.download_sharp,
                                       color: black6,
                                     ),
-                                    const Text(
-                                      'Save Later',
-                                      style: TextStyle(
-                                          fontSize: 12, color: black6),
-                                    )),
+                                    mytext('Save Later', black6, null, 12, null,
+                                        null, null, null)),
                                 iconbtntext(
                                     () {},
                                     const Icon(Icons.delete_outline,
                                         color: black6),
-                                    const Text(
-                                      'Remove',
-                                      style: TextStyle(
-                                          fontSize: 12, color: black6),
-                                    )),
+                                    mytext('Remove', black6, null, 12, null,
+                                        null, null, null)),
                                 iconbtntext(
                                     () {},
                                     const Icon(Icons.shopping_bag_outlined,
                                         color: black6),
-                                    const Text(
-                                      'Buy Now',
-                                      style: TextStyle(
-                                          fontSize: 12, color: black6),
-                                    )),
+                                    mytext('Buy Now', black6, null, 12, null,
+                                        null, null, null)),
                               ],
                             ),
                           ],
