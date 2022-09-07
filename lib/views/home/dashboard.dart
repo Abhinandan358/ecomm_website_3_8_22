@@ -61,7 +61,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: const Text('Logo', style: TextStyle(color: brown)),
+          title: mytext('Logo', brown, null, null, null, null, null, null),
           actions: [
             Container(
               width: 0.37.sw,
@@ -94,17 +94,9 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
-                        return Text(
-                          '${snapshot.data}',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        );
+                        return mytext('${snapshot.data}', null, null, 20, FontWeight.bold, null, null, null);
                       } else {
-                        return const Text(
-                          '0',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        );
+                        return mytext('0', null, null, 20, FontWeight.bold, null, null, null);
                       }
                     })),
               ],
@@ -184,12 +176,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                               child: Image.network(
                                                   'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
                                                   fit: BoxFit.cover)))))),
-                      accountName: const Text(
-                        'Abhi',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      accountEmail: const Text('abhi@gmail.com',
-                          style: TextStyle(fontSize: 20))),
+                      accountName: mytext('Abhi', null, null, 20, null, null, null, null),
+                      accountEmail:mytext('abhi@gmail.com', null, null, 20, null, null, null, null)),
                   custombtn(() {
                     showModalBottomSheet(
                         context: context,
@@ -201,12 +189,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                     onPressed: () {
                                       pickImageCamera();
                                     },
-                                    child: const Text('data')),
+                                    child:mytext('data', null, null, null, null, null, null, null)),
                                 TextButton(
                                     onPressed: () {
                                       pickImageGallery();
                                     },
-                                    child: const Text('data'))
+                                    child: mytext('data', null, null, null, null, null, null, null))
                               ],
                             ),
                           );
@@ -218,10 +206,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         Icons.logout,
                         color: red,
                       ),
-                      label: const Text(
-                        'Logout',
-                        style: TextStyle(color: red),
-                      ))
+                      label:mytext('Logout', red, null, null, null, null, null, null))
                 ],
               ),
             )),

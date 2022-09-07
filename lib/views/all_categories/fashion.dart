@@ -37,7 +37,17 @@ class _FashionState extends State<Fashion> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  iconbtntext((){}, const Icon(Icons.arrow_back,color: black6,), const Text('Fashion',style: TextStyle(color: black6,fontWeight: FontWeight.bold),)),
+                  iconbtntext(
+                      () {},
+                      const Icon(
+                        Icons.arrow_back,
+                        color: black6,
+                      ),
+                      const Text(
+                        'Fashion',
+                        style: TextStyle(
+                            color: black6, fontWeight: FontWeight.bold),
+                      )),
                   SizedBox(
                     height: 0.18.sh,
                     child: ListView.builder(
@@ -52,7 +62,7 @@ class _FashionState extends State<Fashion> {
                               radius: 40,
                               child: Image.asset(
                                 _list[index].img,
-                                 height: 0.1.sh,
+                                height: 0.1.sh,
                                 // width: 0.2.sw,
                                 fit: BoxFit.cover,
                               ),
@@ -156,15 +166,24 @@ class _FashionState extends State<Fashion> {
                         }),
                   ),
                   Stack(children: [
-                    
-                    Image.network('https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
+                    Image.network(
+                        'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
                     const Positioned(
-                      bottom: 30,
-                      child: Text('Little Girls Dresses',style: TextStyle(color: white6,fontWeight: FontWeight.bold,fontSize: 20),)),
-                      const Positioned(
-                      bottom: 0,
-                      child: Text('Bright color to make your little bright',style: TextStyle(color: commonback,fontSize: 19),)),
-                    ])
+                        bottom: 30,
+                        child: Text(
+                          'Little Girls Dresses',
+                          style: TextStyle(
+                              color: white6,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        )),
+                    const Positioned(
+                        bottom: 0,
+                        child: Text(
+                          'Bright color to make your little bright',
+                          style: TextStyle(color: commonback, fontSize: 19),
+                        )),
+                  ]),
                 ],
               ),
             ),

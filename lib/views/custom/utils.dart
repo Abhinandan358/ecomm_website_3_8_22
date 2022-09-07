@@ -66,3 +66,7 @@ SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label) {
           icon: icon,
           label: label));
 }
+
+Text mytext(final String data, Color? color,Color? backgroundColor,double? fontSize,FontWeight? fontWeight,double? letterSpacing,double? wordSpacing, TextDecoration? decoration,){
+  return Text(data,style:  TextStyle(color: color,backgroundColor: backgroundColor,fontSize: fontSize,fontWeight: fontWeight,letterSpacing: letterSpacing,wordSpacing: wordSpacing,decoration: decoration),);
+}

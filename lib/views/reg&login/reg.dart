@@ -36,17 +36,16 @@ class _RegState extends State<Reg> {
         iconTheme: const IconThemeData(color: black1),
         elevation: 0,
         backgroundColor: white,
-        title: const Text('Ecommerce Website', style: TextStyle(color: brown)),
+        title: mytext(
+            'Ecommerce Website', brown, null, null, null, null, null, null),
         actions: [
           IconButton(
               onPressed: () {
                 Get.to(() => const Login());
               },
               icon: const Icon(Icons.login)),
-          const Text(
-            'Login',
-            style: TextStyle(color: black1),
-          )
+          mytext(
+              'Login', black1, null, null, null, null, null, null),
         ],
       ),
       body: SingleChildScrollView(
@@ -59,7 +58,8 @@ class _RegState extends State<Reg> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('Registration', style: TextStyle(fontSize: 30)),
+                    mytext('Registration', black1, null, 30, null, null, null,
+                        null),
                     TextFormField(
                       controller: nameCtrl,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -155,18 +155,21 @@ class _RegState extends State<Reg> {
                         onPressed: () {
                           Get.to(() => const Login());
                         },
-                        child: const Text(
-                          'If you have already an account go to Login',
-                          style: TextStyle(color: black2),
-                        )),
+                        child: mytext(
+                            'If you have already an account go to Login',
+                            black2,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null)),
                     TextButton(
                         onPressed: () {
                           Get.to(() => const DashBoardPage());
                         },
-                        child: const Text(
-                          'Skip',
-                          style: TextStyle(color: black2),
-                        ))
+                        child: mytext(
+                            'Skip', black2, null, null, null, null, null, null))
                   ],
                 ),
               ),

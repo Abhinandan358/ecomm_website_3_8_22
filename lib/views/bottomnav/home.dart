@@ -148,11 +148,10 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const Align(
+                Align(
                     alignment: Alignment.bottomLeft,
-                    child: Text('Extra Offers to Make you Happy 😊',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold))),
+                    child: mytext('Extra Offers to Make you Happy 😊', null,
+                        null, 18, FontWeight.bold, null, null, null)),
                 SizedBox(
                   height: 0.18.sh,
                   child: ListView.builder(
@@ -168,15 +167,17 @@ class _HomeState extends State<Home> {
                                 width: 0.25.sw,
                                 fit: BoxFit.cover,
                               ),
-                              Text(
-                                _offerproductList[index].offerpname,
-                                style: const TextStyle(color: grey),
-                              ),
-                              Text(
-                                _offerproductList[index].offersList,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold),
-                              )
+                              mytext(_offerproductList[index].offerpname, grey,
+                                  null, null, null, null, null, null),
+                              mytext(
+                                  _offerproductList[index].offersList,
+                                  null,
+                                  null,
+                                  null,
+                                  FontWeight.bold,
+                                  null,
+                                  null,
+                                  null),
                             ],
                           ),
                         );
@@ -188,11 +189,8 @@ class _HomeState extends State<Home> {
                   children: [
                     Row(
                       children: [
-                        const Text(
-                          'Popular Products',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
+                        mytext('Popular Products', null, null, 18,
+                            FontWeight.bold, null, null, null),
                         Container(
                           height: 0.003.sh,
                           width: 0.099.sw,
@@ -202,21 +200,15 @@ class _HomeState extends State<Home> {
                     ),
                     iconbtntext(
                       () {
-                        Get.to(()=>const Fashion());
+                        Get.to(() => const Fashion());
                       },
-                      const Text(
-                        'View All',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: black2),
-                      ),
+                      mytext('View All', black2, null, 18, FontWeight.bold,
+                          null, null, null),
                       const Icon(Icons.arrow_forward, color: black2),
                     ),
                   ],
                 ),
                 SizedBox(
-                  // height: productitemHeight * _productList.length / 3,
                   child: GridView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
@@ -280,16 +272,10 @@ class _HomeState extends State<Home> {
                                   )
                                 ],
                               ),
-                              Text(
-                                _productList[index].name,
-                                style: const TextStyle(
-                                    color: black1, fontSize: 18),
-                              ),
-                              Text(
-                                _productList[index].price,
-                                style:
-                                    const TextStyle(color: red, fontSize: 15),
-                              ),
+                              mytext(_productList[index].name, black1, null, 18,
+                                  null, null, null, null),
+                              mytext(_productList[index].price, red, null, 15,
+                                  null, null, null, null),
                             ],
                           ),
                         );
@@ -301,13 +287,10 @@ class _HomeState extends State<Home> {
                 ),
                 Row(
                   children: [
-                    const Align(
+                    Align(
                       alignment: Alignment.topLeft,
-                      child: Text(
-                        'Recently Viewed',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
+                      child: mytext('Recently Viewed', null, null, 18,
+                          FontWeight.bold, null, null, null),
                     ),
                     Container(
                       height: 0.003.sh,
@@ -367,17 +350,24 @@ class _HomeState extends State<Home> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            _productList[index].name,
-                                            style: const TextStyle(
-                                                color: white1, fontSize: 18),
-                                          ),
-                                          Text(
-                                            _productList[index].price,
-                                            style: const TextStyle(
-                                                color: slightOrange1,
-                                                fontSize: 15),
-                                          ),
+                                          mytext(
+                                              _productList[index].name,
+                                              white1,
+                                              null,
+                                              18,
+                                              null,
+                                              null,
+                                              null,
+                                              null),
+                                          mytext(
+                                              _productList[index].price,
+                                              slightOrange1,
+                                              null,
+                                              15,
+                                              null,
+                                              null,
+                                              null,
+                                              null),
                                         ],
                                       ),
                                     ),

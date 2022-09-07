@@ -31,14 +31,15 @@ class _LoginState extends State<Login> {
         iconTheme: const IconThemeData(color: black1),
         elevation: 0,
         backgroundColor: white,
-        title: const Text('Ecommerce Website', style: TextStyle(color: brown)),
+        title: mytext(
+            'Ecommerce Website', brown, null, null, null, null, null, null),
         actions: [
           IconButton(
               onPressed: () {
                 Get.to(() => const Reg());
               },
               icon: const Icon(Icons.app_registration)),
-          const Text('Signup', style: TextStyle(color: black1))
+          mytext('Signup', black1, null, null, null, null, null, null)
         ],
       ),
       body: Form(
@@ -51,7 +52,7 @@ class _LoginState extends State<Login> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('SignIn', style: TextStyle(fontSize: 30)),
+                    mytext('SignIn', null, null, 30, null, null, null, null),
                     TextFormField(
                       controller: emailCtrl,
                       validator: ((value) {
@@ -98,18 +99,14 @@ class _LoginState extends State<Login> {
                         onPressed: () {
                           Get.to(() => const Reg());
                         },
-                        child: const Text(
-                          'If You no account then go to SignUp',
-                          style: TextStyle(color: black2),
-                        )),
+                        child: mytext('If You no account then go to SignUp',
+                            black2, null, null, null, null, null, null)),
                     TextButton(
                         onPressed: () {
                           Get.to(() => const ForgotPass());
                         },
-                        child: const Text(
-                          'Forgot Password',
-                          style: TextStyle(color: black2),
-                        ))
+                        child: mytext('Forgot Password', black2, null, null,
+                            null, null, null, null))
                   ],
                 ),
               ),

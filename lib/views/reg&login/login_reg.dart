@@ -47,7 +47,7 @@ class _LoginRegState extends State<LoginReg> {
                 onTap: (){
                   Get.to(()=>const DashBoardPage());
                 },
-                child: const Text('Skip',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)))
+                child: mytext('Skip', null, null, 18, FontWeight.bold, null, null, null)))
           ],
         ),
       ),

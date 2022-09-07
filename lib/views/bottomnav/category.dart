@@ -81,13 +81,8 @@ class _CategoryState extends State<Category> {
                     Icons.arrow_back,
                     color: black2,
                   ),
-                  const Text(
-                    'All Categories',
-                    style: TextStyle(
-                        color: black2,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                  )),
+                  mytext('All Categories', black2, null, 18, FontWeight.bold,
+                      null, null, null)),
               FutureBuilder<List<CategoryData>>(
                   future: _future,
                   builder: ((context, snapshot) {
@@ -107,7 +102,6 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      // Get.to(() => screenList[index]);
                                       Get.to(() => DetailsPage(
                                           item: categoryList1[index]));
                                     },
@@ -130,23 +124,23 @@ class _CategoryState extends State<Category> {
                                           ))),
                                     ),
                                   ),
-                                  Text(_categoryList1[index].Cat_Name,
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                          color: grey2,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 17)),
+                                  mytext(
+                                      _categoryList1[index].Cat_Name,
+                                      grey2,
+                                      null,
+                                      17,
+                                      FontWeight.bold,
+                                      null,
+                                      null,
+                                      null),
                                 ],
                               );
                             }),
                       );
                     } else if (snapshot.hasError) {
-                      return const Center(
-                          child: Text(
-                        '404 Page Not Found',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ));
+                      return Center(
+                          child: mytext('404 Page Not Found', null, null, 20,
+                              FontWeight.bold, null, null, null));
                     } else {
                       return Padding(
                         padding: const EdgeInsets.only(top: 200),
@@ -169,18 +163,3 @@ class _CategoryState extends State<Category> {
     );
   }
 }
-
-// List<Widget> screenList = [
-//   const Makeup(),
-//   const Fashion(),
-//   const Electronic(),
-//   const Sports(),
-//   const OfferZone(),
-//   const Watches(),
-//   const PersonalCare(),
-//   const Household(),
-//   const HomeKitchen(),
-//   const Snacks()
-// ];
-
-

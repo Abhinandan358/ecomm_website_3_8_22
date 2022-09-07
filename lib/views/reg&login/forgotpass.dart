@@ -22,7 +22,8 @@ class _ForgotPassState extends State<ForgotPass> {
           iconTheme: const IconThemeData(color: black1),
           elevation: 0,
           backgroundColor: white,
-          title: const Text('Forgot Password', style: TextStyle(color: brown))),
+          title:  mytext('Forgot Password', brown, null, null,
+                            null, null, null, null)),
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
