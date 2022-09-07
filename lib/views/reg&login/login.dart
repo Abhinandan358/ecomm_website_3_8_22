@@ -54,6 +54,7 @@ class _LoginState extends State<Login> {
                   children: [
                     mytext('SignIn', null, null, 30, null, null, null, null),
                     TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       controller: emailCtrl,
                       validator: ((value) {
                         if (value!.isEmpty) {
@@ -66,6 +67,7 @@ class _LoginState extends State<Login> {
                           hintText: 'Write Email'),
                     ),
                     TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       obscureText: _obsecureText,
                       controller: passCtrl,
                       validator: ((value) {

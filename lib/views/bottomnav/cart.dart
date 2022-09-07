@@ -96,7 +96,6 @@ class _CartState extends State<Cart> {
                                                   width: 0.6.sw,
                                                   fit: BoxFit.cover,
                                                 ),
-                                                Text(_MycartList[index].pname),
                                                 mytext(
                                                     _MycartList[index].pname,
                                                     null,
@@ -140,7 +139,7 @@ class _CartState extends State<Cart> {
                                     value: dropdownValue,
                                     hint: mytext(
                                         'Qty:1',
-                                        Color.fromARGB(255, 5, 4, 4),
+                                        const Color.fromARGB(255, 5, 4, 4),
                                         null,
                                         15,
                                         FontWeight.bold,
@@ -152,7 +151,7 @@ class _CartState extends State<Cart> {
                                         value: 'first',
                                         child: mytext(
                                             'Qty:1',
-                                            Color.fromARGB(255, 5, 4, 4),
+                                            const Color.fromARGB(255, 5, 4, 4),
                                             null,
                                             15,
                                             FontWeight.bold,
@@ -164,7 +163,7 @@ class _CartState extends State<Cart> {
                                         value: 'second',
                                         child: mytext(
                                             'Qty:2',
-                                            Color.fromARGB(255, 5, 4, 4),
+                                            const Color.fromARGB(255, 5, 4, 4),
                                             null,
                                             15,
                                             FontWeight.bold,
@@ -176,7 +175,7 @@ class _CartState extends State<Cart> {
                                         value: 'third',
                                         child: mytext(
                                             'Qty:3',
-                                            Color.fromARGB(255, 5, 4, 4),
+                                            const Color.fromARGB(255, 5, 4, 4),
                                             null,
                                             15,
                                             FontWeight.bold,
@@ -188,7 +187,7 @@ class _CartState extends State<Cart> {
                                         value: 'fourth',
                                         child: mytext(
                                             'Qty:4',
-                                            Color.fromARGB(255, 5, 4, 4),
+                                            const Color.fromARGB(255, 5, 4, 4),
                                             null,
                                             15,
                                             FontWeight.bold,
@@ -200,7 +199,7 @@ class _CartState extends State<Cart> {
                                         value: 'fifth',
                                         child: mytext(
                                             'Qty:5',
-                                            Color.fromARGB(255, 5, 4, 4),
+                                            const Color.fromARGB(255, 5, 4, 4),
                                             null,
                                             15,
                                             FontWeight.bold,
@@ -212,7 +211,7 @@ class _CartState extends State<Cart> {
                                         value: 'sixth',
                                         child: mytext(
                                             'Qty:6',
-                                            Color.fromARGB(255, 5, 4, 4),
+                                            const Color.fromARGB(255, 5, 4, 4),
                                             null,
                                             15,
                                             FontWeight.bold,
