@@ -1,16 +1,13 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/category.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../bottomnav/help.dart';
 import '../bottomnav/profile.dart';
 

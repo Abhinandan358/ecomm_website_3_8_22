@@ -1,4 +1,5 @@
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/reg.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,14 @@ class _LoginRegState extends State<LoginReg> {
                 ],
               ),
             ),
+            Positioned(
+              bottom: 280,
+              left: 180,
+              child: InkWell(
+                onTap: (){
+                  Get.to(()=>const DashBoardPage());
+                },
+                child: const Text('Skip',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)))
           ],
         ),
       ),

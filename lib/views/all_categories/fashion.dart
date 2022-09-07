@@ -154,7 +154,17 @@ class _FashionState extends State<Fashion> {
                             ),
                           );
                         }),
-                  )
+                  ),
+                  Stack(children: [
+                    
+                    Image.network('https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
+                    const Positioned(
+                      bottom: 30,
+                      child: Text('Little Girls Dresses',style: TextStyle(color: white6,fontWeight: FontWeight.bold,fontSize: 20),)),
+                      const Positioned(
+                      bottom: 0,
+                      child: Text('Bright color to make your little bright',style: TextStyle(color: commonback,fontSize: 19),)),
+                    ])
                 ],
               ),
             ),
