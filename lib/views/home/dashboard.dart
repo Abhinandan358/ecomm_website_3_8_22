@@ -76,22 +76,24 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     isDense: true,
                     fillColor: appbarSearch,
                     filled: true,
-                    suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                    suffixIcon: myiconbutton(
+                        () {},
+                        Icon(
                           Icons.search,
                           color: grey2,
                           size: 25,
-                        ))),
+                        ),
+                        null,
+                        null,
+                        null,
+                        null)),
               ),
             ),
             Stack(
               children: [
-                IconButton(
-                    onPressed: () {
-                      Get.to(() => const Cart());
-                    },
-                    icon: const Icon(Icons.shopping_cart_outlined)),
+                myiconbutton(() {
+                  Get.to(() => const Cart());
+                }, Icon(Icons.shopping_cart_outlined), null, null, null, null),
                 StreamBuilder<int>(
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
@@ -125,25 +127,32 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                         backgroundColor: transperant,
                                         title: Align(
                                             alignment: Alignment.topRight,
-                                            child: IconButton(
-                                                onPressed: () {
-                                                  Get.back();
-                                                },
-                                                icon: const Icon(
+                                            child: myiconbutton(() {
+                                              Get.back();
+                                            },
+                                                Icon(
                                                   Icons.close,
                                                   color: white1,
-                                                ))),
+                                                ),
+                                                null,
+                                                null,
+                                                null,
+                                                null)),
                                         content: image != null
                                             ? Image.file(
                                                 image!,
                                                 fit: BoxFit.cover,
                                               )
-                                            : IconButton(
-                                                onPressed: () {},
-                                                icon: ClipOval(
+                                            : myiconbutton(
+                                                () {},
+                                                ClipOval(
                                                     child: Image.network(
                                                         'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                        fit: BoxFit.cover))),
+                                                        fit: BoxFit.cover)),
+                                                null,
+                                                null,
+                                                null,
+                                                null),
                                       );
                                     });
                               },
@@ -152,9 +161,9 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                       image!,
                                       fit: BoxFit.cover,
                                     )
-                                  : IconButton(
-                                      onPressed: () {},
-                                      icon: InkWell(
+                                  : myiconbutton(
+                                      () {},
+                                      InkWell(
                                           onTap: () {
                                             showDialog(
                                                 context: context,
@@ -165,21 +174,28 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                                             image!,
                                                             fit: BoxFit.cover,
                                                           )
-                                                        : IconButton(
-                                                            onPressed: () {},
-                                                            icon: ClipOval(
-                                                                child: Image
-                                                                    .network(
-                                                              'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                              fit: BoxFit.cover,
-                                                            ))),
+                                                        : myiconbutton(
+                                                            () {},
+                                                            ClipOval(
+                                                                child: Image.network(
+                                                                    'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+                                                                    fit: BoxFit
+                                                                        .cover)),
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null),
                                                   );
                                                 });
                                           },
                                           child: ClipOval(
                                               child: Image.network(
                                                   'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                  fit: BoxFit.cover)))))),
+                                                  fit: BoxFit.cover))),
+                                      null,
+                                      null,
+                                      null,
+                                      null))),
                       accountName: mytext(
                           'Abhi', null, null, 20, null, null, null, null),
                       accountEmail: mytext('abhi@gmail.com', null, null, 20,
@@ -210,10 +226,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   }, 'Change Profile'),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.logout,
-                        color: red,
-                      ),
+                      icon: myicon(20, red, Icons.logout),
                       label: mytext(
                           'Logout', red, null, null, null, null, null, null))
                 ],
@@ -221,35 +234,40 @@ class _DashBoardPageState extends State<DashBoardPage> {
             )),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        height: 50,
-           buttonBackgroundColor: red,
+          height: 50,
+          buttonBackgroundColor: red,
           backgroundColor: commonback,
           index: _SelectIndex,
           onTap: ((value) {
             _SelectIndex = value;
             setState(() {});
           }),
-          items: const [
-            Icon(
+          items: [
+            myicon(
+              30,
+              null,
               Icons.home_outlined,
-              size: 30,
             ),
-            Icon(
+            myicon(
+              30,
+              null,
               Icons.category_sharp,
-              size: 30,
             ),
-            Icon(
+            myicon(
+              30,
+              null,
               Icons.shopping_cart_outlined,
-              size: 30,
             ),
-            Icon(
+            myicon(
+              30,
+              null,
               Icons.help_outline,
-              size: 30,
             ),
-            Icon(
+            myicon(
+              30,
+              null,
               Icons.person_outline,
-              size: 30,
-            ),
+            )
           ]),
       body: _mywidget[_SelectIndex],
     );

@@ -67,6 +67,40 @@ SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label) {
           label: label));
 }
 
-Text mytext(final String data, Color? color,Color? backgroundColor,double? fontSize,FontWeight? fontWeight,double? letterSpacing,double? wordSpacing, TextDecoration? decoration,){
-  return Text(data,style:  TextStyle(color: color,backgroundColor: backgroundColor,fontSize: fontSize,fontWeight: fontWeight,letterSpacing: letterSpacing,wordSpacing: wordSpacing,decoration: decoration),);
+Text mytext(
+  final String data,
+  Color? color,
+  Color? backgroundColor,
+  double? fontSize,
+  FontWeight? fontWeight,
+  double? letterSpacing,
+  double? wordSpacing,
+  TextDecoration? decoration,
+) {
+  return Text(
+    data,
+    style: TextStyle(
+        color: color,
+        backgroundColor: backgroundColor,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        letterSpacing: letterSpacing,
+        wordSpacing: wordSpacing,
+        decoration: decoration),
+  );
+}
+
+IconButton myiconbutton(
+  Function()? onPressed,
+  Widget icon,
+  double? iconSize,
+  Color? color,
+  ButtonStyle? style,
+  bool? isSelected,
+) {
+  return IconButton(onPressed: onPressed, icon: icon);
+}
+
+Widget myicon( double? size,Color? color,IconData?icon){
+  return Icon(icon,size: size,color: color,);
 }
