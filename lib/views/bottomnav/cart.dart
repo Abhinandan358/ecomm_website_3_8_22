@@ -42,7 +42,23 @@ class _CartState extends State<Cart> {
                       title: mytext('Customer Name', null, null, 18,
                           FontWeight.bold, null, null, null),
                       trailing: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.more_vert)),
+                          onPressed: () {
+                            showMenu(
+                                context: context,
+                                position:
+                                    const RelativeRect.fromLTRB(50.0, 100.0, 20.0, 0.0),
+                                items: [
+                                  const PopupMenuItem<String>(
+                                      value: '1',
+                                      child: Text('Edit',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  const PopupMenuItem<String>(
+                                      value: '2',
+                                      child: Text('Remove',style: TextStyle(fontWeight: FontWeight.bold))),
+                                ],
+                                elevation: 8.0,
+                                );
+                          },
+                          icon: const Icon(Icons.more_vert)),
                     ),
                     ListTile(
                       leading: mytext(

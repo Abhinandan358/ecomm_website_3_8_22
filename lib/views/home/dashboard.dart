@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/category.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../bottomnav/help.dart';
 import '../bottomnav/profile.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
@@ -94,9 +96,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
-                        return mytext('${snapshot.data}', null, null, 20, FontWeight.bold, null, null, null);
+                        return mytext('${snapshot.data}', null, null, 20,
+                            FontWeight.bold, null, null, null);
                       } else {
-                        return mytext('0', null, null, 20, FontWeight.bold, null, null, null);
+                        return mytext('0', null, null, 20, FontWeight.bold,
+                            null, null, null);
                       }
                     })),
               ],
@@ -176,8 +180,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                               child: Image.network(
                                                   'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
                                                   fit: BoxFit.cover)))))),
-                      accountName: mytext('Abhi', null, null, 20, null, null, null, null),
-                      accountEmail:mytext('abhi@gmail.com', null, null, 20, null, null, null, null)),
+                      accountName: mytext(
+                          'Abhi', null, null, 20, null, null, null, null),
+                      accountEmail: mytext('abhi@gmail.com', null, null, 20,
+                          null, null, null, null)),
                   custombtn(() {
                     showModalBottomSheet(
                         context: context,
@@ -189,12 +195,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                     onPressed: () {
                                       pickImageCamera();
                                     },
-                                    child:mytext('data', null, null, null, null, null, null, null)),
+                                    child: mytext('data', null, null, null,
+                                        null, null, null, null)),
                                 TextButton(
                                     onPressed: () {
                                       pickImageGallery();
                                     },
-                                    child: mytext('data', null, null, null, null, null, null, null))
+                                    child: mytext('data', null, null, null,
+                                        null, null, null, null))
                               ],
                             ),
                           );
@@ -206,54 +214,42 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         Icons.logout,
                         color: red,
                       ),
-                      label:mytext('Logout', red, null, null, null, null, null, null))
+                      label: mytext(
+                          'Logout', red, null, null, null, null, null, null))
                 ],
               ),
             )),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 5,
-          backgroundColor: white,
-          currentIndex: _SelectIndex,
-          selectedItemColor: red,
-          type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 50,
+           buttonBackgroundColor: red,
+          backgroundColor: commonback,
+          index: _SelectIndex,
           onTap: ((value) {
             _SelectIndex = value;
             setState(() {});
           }),
           items: const [
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home_outlined,
-                  size: 30,
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.category_sharp,
-                  size: 30,
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.shopping_cart_outlined,
-                  size: 30,
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.help_outline,
-                  size: 30,
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person_outline,
-                  size: 30,
-                ),
-                label: '')
+            Icon(
+              Icons.home_outlined,
+              size: 30,
+            ),
+            Icon(
+              Icons.category_sharp,
+              size: 30,
+            ),
+            Icon(
+              Icons.shopping_cart_outlined,
+              size: 30,
+            ),
+            Icon(
+              Icons.help_outline,
+              size: 30,
+            ),
+            Icon(
+              Icons.person_outline,
+              size: 30,
+            ),
           ]),
       body: _mywidget[_SelectIndex],
     );
