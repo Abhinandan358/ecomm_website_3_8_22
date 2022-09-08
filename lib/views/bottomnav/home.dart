@@ -1,4 +1,5 @@
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/details/homedetails.dart';
 import 'package:flutter/material.dart';
@@ -200,7 +201,7 @@ class _HomeState extends State<Home> {
                     ),
                     iconbtntext(
                       () {
-                        Get.to(() => const Fashion());
+                        Get.to(() => const OfferZone());
                       },
                       mytext('View All', black2, null, 18, FontWeight.bold,
                           null, null, null),

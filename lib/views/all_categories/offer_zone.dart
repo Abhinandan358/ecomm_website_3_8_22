@@ -73,7 +73,7 @@ class _OfferZoneState extends State<OfferZone> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: const Text('Logo', style: TextStyle(color: brown)),
+          title: mytext('Logo', brown, null, null, null, null, null, null),
           actions: [
             Container(
               width: 0.37.sw,
@@ -107,17 +107,11 @@ class _OfferZoneState extends State<OfferZone> {
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
-                        return Text(
-                          '${snapshot.data}',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        );
+                        return mytext('${snapshot.data}', null, null, 20,
+                            FontWeight.bold, null, null, null);
                       } else {
-                        return const Text(
-                          '0',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        );
+                        return mytext('0', null, null, 20, FontWeight.bold,
+                            null, null, null);
                       }
                     })),
               ],
@@ -141,22 +135,10 @@ class _OfferZoneState extends State<OfferZone> {
                     Icons.arrow_back,
                     color: black2,
                   ),
-                  const Text(
-                    'Offer Zone',
-                    style: TextStyle(
-                        color: black2,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  )),
-              const Text(
-                'Grab Before It’s Gone',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: orange,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
+                  mytext('Offer Zone', black2, null, 20, FontWeight.bold, null,
+                      null, null)),
+              mytext('Grab Before It’s Gone', orange, null, 20, FontWeight.bold,
+                  null, null, null),
               SizedBox(
                 child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -196,13 +178,15 @@ class _OfferZoneState extends State<OfferZone> {
                                             color: orange,
                                             borderRadius:
                                                 BorderRadius.circular(5)),
-                                        child: Text(
-                                          _offerList[index].off,
-                                          style: const TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
-                                              color: white2),
-                                        ),
+                                        child: mytext(
+                                            _offerList[index].off,
+                                            white2,
+                                            null,
+                                            13,
+                                            FontWeight.bold,
+                                            null,
+                                            null,
+                                            null),
                                       ),
                                     ),
                                   )
@@ -217,16 +201,13 @@ class _OfferZoneState extends State<OfferZone> {
                                 color: grey2,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
-                          )
+                          ),
                         ],
                       );
                     }),
               ),
-              const Text(
-                'Under Budget Best Products',
-                style: TextStyle(
-                    color: orange, fontWeight: FontWeight.bold, fontSize: 20),
-              ),
+              mytext('Under Budget Best Products', orange, null, 20,
+                  FontWeight.bold, null, null, null),
               SizedBox(
                 height: 0.2.sh,
                 child: ListView.builder(
@@ -250,15 +231,10 @@ class _OfferZoneState extends State<OfferZone> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                _budgetList[index].under,
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                              Text(
-                                _budgetList[index].price,
-                                style: const TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold),
-                              )
+                              mytext(_budgetList[index].under, null, null, 18,
+                                  null, null, null, null),
+                              mytext(_budgetList[index].price, null, null, 22,
+                                  FontWeight.bold, null, null, null),
                             ],
                           ),
                         ),
@@ -268,22 +244,16 @@ class _OfferZoneState extends State<OfferZone> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Offers For You',
-                    style: TextStyle(
-                        color: orange,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
+                  mytext('Offers For You', orange, null, 20, FontWeight.bold,
+                      null, null, null),
                   iconbtntext(
                       () {},
-                      const Text(
-                        'View All',
-                        style: TextStyle(color: black2, fontSize: 18),
-                      ),
-                      const Icon(
+                      mytext(
+                          'View All', black2, null, 18, null, null, null, null),
+                      myicon(
+                        null,
+                        black2,
                         Icons.arrow_forward_ios_outlined,
-                        color: black2,
                       ))
                 ],
               ),
@@ -312,16 +282,10 @@ class _OfferZoneState extends State<OfferZone> {
                               width: 0.29.sw,
                               fit: BoxFit.fill,
                             ),
-                            Text(
-                              _offerforyouList[index].name,
-                              style:
-                                  const TextStyle(color: grey2, fontSize: 15),
-                            ),
-                            Text(
-                              _offerforyouList[index].uptooff,
-                              style:
-                                  const TextStyle(fontSize: 17, color: green),
-                            )
+                            mytext(_offerforyouList[index].name, grey2, null,
+                                15, null, null, null, null),
+                            mytext(_offerforyouList[index].uptooff, green, null,
+                                17, null, null, null, null)
                           ],
                         ),
                       );

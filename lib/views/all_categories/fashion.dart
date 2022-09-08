@@ -39,15 +39,13 @@ class _FashionState extends State<Fashion> {
                 children: [
                   iconbtntext(
                       () {},
-                      const Icon(
+                      myicon(
+                        null,
+                        black6,
                         Icons.arrow_back,
-                        color: black6,
                       ),
-                      const Text(
-                        'Fashion',
-                        style: TextStyle(
-                            color: black6, fontWeight: FontWeight.bold),
-                      )),
+                      mytext('Fashion', black6, null, null, FontWeight.bold,
+                          null, null, null)),
                   SizedBox(
                     height: 0.18.sh,
                     child: ListView.builder(
@@ -85,17 +83,11 @@ class _FashionState extends State<Fashion> {
                             color: white6,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'sports shoes, sneakers...',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Text(
-                                  'up to 40% off',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                )
+                              children: [
+                                mytext('sports shoes, sneakers...', null, null,
+                                    18, null, null, null, null),
+                                mytext('up to 40% off', null, null, 20,
+                                    FontWeight.bold, null, null, null)
                               ],
                             ),
                           ),
@@ -106,22 +98,18 @@ class _FashionState extends State<Fashion> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        'Favourite To All!',
-                        style: TextStyle(
-                            color: orange,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
+                      mytext('Favourite To All!', orange, null, 20,
+                          FontWeight.bold, null, null, null),
                       iconbtntext(
                           () {},
                           const Text(
                             'View All',
                             style: TextStyle(color: black2, fontSize: 18),
                           ),
-                          const Icon(
+                          myicon(
+                            null,
+                            black2,
                             Icons.arrow_forward_ios_outlined,
-                            color: black2,
                           ))
                     ],
                   ),
@@ -150,16 +138,10 @@ class _FashionState extends State<Fashion> {
                                   width: 0.29.sw,
                                   fit: BoxFit.fill,
                                 ),
-                                Text(
-                                  _offerforyouList[index].name,
-                                  style: const TextStyle(
-                                      color: grey2, fontSize: 15),
-                                ),
-                                Text(
-                                  _offerforyouList[index].uptooff,
-                                  style: const TextStyle(
-                                      fontSize: 17, color: green),
-                                )
+                                mytext(_offerforyouList[index].name, grey2,
+                                    null, 15, null, null, null, null),
+                                mytext(_offerforyouList[index].uptooff, green,
+                                    null, 17, null, null, null, null)
                               ],
                             ),
                           );
@@ -168,21 +150,12 @@ class _FashionState extends State<Fashion> {
                   Stack(children: [
                     Image.network(
                         'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
-                    const Positioned(
+                     Positioned(
                         bottom: 30,
-                        child: Text(
-                          'Little Girls Dresses',
-                          style: TextStyle(
-                              color: white6,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        )),
-                    const Positioned(
+                        child: mytext('Little Girls Dresses', white6, null, 20, FontWeight.bold, null, null, null)),
+                     Positioned(
                         bottom: 0,
-                        child: Text(
-                          'Bright color to make your little bright',
-                          style: TextStyle(color: commonback, fontSize: 19),
-                        )),
+                        child: mytext('Bright color to make your little bright', commonback, null, 19, null, null, null, null)),
                   ]),
                 ],
               ),
