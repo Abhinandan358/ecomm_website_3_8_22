@@ -43,7 +43,7 @@ class _RegState extends State<Reg> {
               onPressed: () {
                 Get.to(() => const Login());
               },
-              icon: const Icon(Icons.login)),
+              icon: myicon(null, null, Icons.login)),
           mytext(
               'Login', black1, null, null, null, null, null, null),
         ],

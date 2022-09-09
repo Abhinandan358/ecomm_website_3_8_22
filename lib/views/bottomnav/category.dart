@@ -77,10 +77,7 @@ class _CategoryState extends State<Category> {
             children: [
               iconbtntext(
                   () {},
-                  const Icon(
-                    Icons.arrow_back,
-                    color: black2,
-                  ),
+                myicon(null, black2,  Icons.arrow_back,),
                   mytext('All Categories', black2, null, 18, FontWeight.bold,
                       null, null, null)),
               FutureBuilder<List<CategoryData>>(

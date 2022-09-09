@@ -87,22 +87,21 @@ class _OfferZoneState extends State<OfferZone> {
                     hintText: 'Search',
                     fillColor: appbarSearch,
                     filled: true,
-                    suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                    suffixIcon: myiconbutton(
+                        () {},
+                        const Icon(
                           Icons.search,
                           color: grey2,
-                          size: 25,
-                        ))),
+                        ),
+                        25,
+                        null,
+                        null,
+                        null)),
               ),
             ),
             Stack(
               children: [
-                IconButton(
-                    onPressed: () {
-                      Get.to(() => const Cart());
-                    },
-                    icon: const Icon(Icons.shopping_cart_outlined)),
+               myiconbutton((){ Get.to(() => const Cart());}, const Icon(Icons.shopping_cart_outlined), null, null, null, null),
                 StreamBuilder<int>(
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
@@ -131,10 +130,7 @@ class _OfferZoneState extends State<OfferZone> {
               iconbtntext(() {
                 Get.back();
               },
-                  const Icon(
-                    Icons.arrow_back,
-                    color: black2,
-                  ),
+                  myicon(null, black2, Icons.arrow_back,),
                   mytext('Offer Zone', black2, null, 20, FontWeight.bold, null,
                       null, null)),
               mytext('Grab Before It’s Gone', orange, null, 20, FontWeight.bold,

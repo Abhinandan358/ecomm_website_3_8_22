@@ -78,7 +78,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     filled: true,
                     suffixIcon: myiconbutton(
                         () {},
-                        Icon(
+                        const Icon(
                           Icons.search,
                           color: grey2,
                           size: 25,
@@ -93,7 +93,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
               children: [
                 myiconbutton(() {
                   Get.to(() => const Cart());
-                }, Icon(Icons.shopping_cart_outlined), null, null, null, null),
+                }, myicon(null, null, Icons.shopping_cart_outlined), null, null, null, null),
                 StreamBuilder<int>(
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
@@ -130,10 +130,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                             child: myiconbutton(() {
                                               Get.back();
                                             },
-                                                Icon(
-                                                  Icons.close,
-                                                  color: white1,
-                                                ),
+                                                myicon(null, white1,  Icons.close),
                                                 null,
                                                 null,
                                                 null,

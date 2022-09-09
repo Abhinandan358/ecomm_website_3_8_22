@@ -102,10 +102,7 @@ class _FashionState extends State<Fashion> {
                           FontWeight.bold, null, null, null),
                       iconbtntext(
                           () {},
-                          const Text(
-                            'View All',
-                            style: TextStyle(color: black2, fontSize: 18),
-                          ),
+                          mytext('View All', black2, null, 18, null, null, null, null),
                           myicon(
                             null,
                             black2,

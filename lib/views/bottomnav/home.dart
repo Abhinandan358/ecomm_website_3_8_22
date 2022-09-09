@@ -1,4 +1,3 @@
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/details/homedetails.dart';
@@ -205,7 +204,7 @@ class _HomeState extends State<Home> {
                       },
                       mytext('View All', black2, null, 18, FontWeight.bold,
                           null, null, null),
-                      const Icon(Icons.arrow_forward, color: black2),
+                     myicon(null, black2, Icons.arrow_forward),
                     ),
                   ],
                 ),
@@ -258,16 +257,14 @@ class _HomeState extends State<Home> {
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            child: const Icon(
-                                                Icons.shopping_cart)),
+                                            child: myicon(null, null, Icons.shopping_cart)),
                                         Container(
                                             decoration: BoxDecoration(
                                               color: white,
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            child: const Icon(
-                                                Icons.visibility_outlined)),
+                                            child: myicon(null, null, Icons.visibility_outlined)),
                                       ],
                                     ),
                                   )
@@ -332,9 +329,7 @@ class _HomeState extends State<Home> {
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                                 color: black),
-                                            child: const Icon(
-                                              Icons.favorite_border_outlined,
-                                            )),
+                                            child: myicon(null, null, Icons.favorite_border_outlined,)),
                                       ],
                                     ),
                                   ),

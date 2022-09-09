@@ -34,11 +34,7 @@ class _LoginState extends State<Login> {
         title: mytext(
             'Ecommerce Website', brown, null, null, null, null, null, null),
         actions: [
-          IconButton(
-              onPressed: () {
-                Get.to(() => const Reg());
-              },
-              icon: const Icon(Icons.app_registration)),
+         myiconbutton((){ Get.to(() => const Reg());}, myicon(null, null, Icons.app_registration), null, null, null, null),
           mytext('Signup', black1, null, null, null, null, null, null)
         ],
       ),
@@ -79,15 +75,11 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                           hintText: 'Write Password',
                           border: const OutlineInputBorder(),
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
+                          suffixIcon: myiconbutton((){setState(() {
                                   _obsecureText = !_obsecureText;
-                                });
-                              },
-                              icon: Icon(_obsecureText
+                                });}, myicon(null, null, _obsecureText
                                   ? Icons.visibility
-                                  : Icons.visibility_off))),
+                                  : Icons.visibility_off), null, null, null, null)),
                     ),
                     SizedBox(
                       height: 0.1.sh,

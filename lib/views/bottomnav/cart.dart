@@ -41,24 +41,28 @@ class _CartState extends State<Cart> {
                           null, null, null),
                       title: mytext('Customer Name', null, null, 18,
                           FontWeight.bold, null, null, null),
-                      trailing: IconButton(
-                          onPressed: () {
-                            showMenu(
-                                context: context,
-                                position:
-                                    const RelativeRect.fromLTRB(50.0, 100.0, 20.0, 0.0),
-                                items: [
-                                  const PopupMenuItem<String>(
-                                      value: '1',
-                                      child: Text('Edit',style: TextStyle(fontWeight: FontWeight.bold),)),
-                                  const PopupMenuItem<String>(
-                                      value: '2',
-                                      child: Text('Remove',style: TextStyle(fontWeight: FontWeight.bold))),
-                                ],
-                                elevation: 8.0,
-                                );
-                          },
-                          icon: const Icon(Icons.more_vert)),
+                      trailing: myiconbutton(() {
+                        showMenu(
+                          context: context,
+                          position: const RelativeRect.fromLTRB(
+                              50.0, 100.0, 20.0, 0.0),
+                          items: [
+                            const PopupMenuItem<String>(
+                                value: '1',
+                                child: Text(
+                                  'Edit',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )),
+                            const PopupMenuItem<String>(
+                                value: '2',
+                                child: Text('Remove',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold))),
+                          ],
+                          elevation: 8.0,
+                        );
+                      }, myicon(null, null, Icons.more_vert), null, null, null,
+                          null),
                     ),
                     ListTile(
                       leading: mytext(
@@ -100,12 +104,15 @@ class _CartState extends State<Cart> {
                                                 Align(
                                                     alignment:
                                                         Alignment.bottomRight,
-                                                    child: IconButton(
-                                                        onPressed: () {
-                                                          Get.back();
-                                                        },
-                                                        icon: const Icon(
-                                                            Icons.close))),
+                                                    child: myiconbutton(() {
+                                                      Get.back();
+                                                    },
+                                                        myicon(null, null,
+                                                            Icons.close),
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null)),
                                                 Image.asset(
                                                   _MycartList[index].img,
                                                   height: 0.35.sh,
@@ -150,7 +157,8 @@ class _CartState extends State<Cart> {
                                 ),
                                 DropdownButton(
                                     isDense: true,
-                                    icon: const Icon(Icons.keyboard_arrow_down),
+                                    icon: myicon(
+                                        null, null, Icons.keyboard_arrow_down),
                                     isExpanded: false,
                                     value: dropdownValue,
                                     hint: mytext(
@@ -262,9 +270,10 @@ class _CartState extends State<Cart> {
                                   itemCount: 5,
                                   itemPadding: const EdgeInsets.symmetric(
                                       horizontal: 4.0),
-                                  itemBuilder: (context, _) => const Icon(
+                                  itemBuilder: (context, _) => myicon(
+                                    null,
+                                    green,
                                     Icons.star,
-                                    color: green,
                                   ),
                                   onRatingUpdate: (rating) {
                                     // ignore: avoid_print
@@ -288,22 +297,17 @@ class _CartState extends State<Cart> {
                               children: [
                                 iconbtntext(
                                     () {},
-                                    const Icon(
-                                      Icons.download_sharp,
-                                      color: black6,
-                                    ),
+                                   myicon(null, black6,  Icons.download_sharp,),
                                     mytext('Save Later', black6, null, 12, null,
                                         null, null, null)),
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.delete_outline,
-                                        color: black6),
+                                    myicon(null, black6, Icons.delete_outline),
                                     mytext('Remove', black6, null, 12, null,
                                         null, null, null)),
                                 iconbtntext(
                                     () {},
-                                    const Icon(Icons.shopping_bag_outlined,
-                                        color: black6),
+                                    myicon(null, black6, Icons.shopping_bag_outlined),
                                     mytext('Buy Now', black6, null, 12, null,
                                         null, null, null)),
                               ],
