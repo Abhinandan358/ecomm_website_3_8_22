@@ -124,14 +124,18 @@ class Subcategorylist {
 
 //-----------------------4.FetchCompany -----------------------------------
 
-class FetchCompanyApi{
-  final String  status,msg;
+class FetchCompanyApi {
+  final String status, msg;
   final List<FetchCompanyData> FetchCompanydatalist;
 
   FetchCompanyApi(this.status, this.msg, this.FetchCompanydatalist);
-  factory FetchCompanyApi.formJson(Map<String,dynamic> myjson){
+  factory FetchCompanyApi.formJson(Map<String, dynamic> myjson) {
     List list = myjson['data'];
-    return FetchCompanyApi(myjson['status'], myjson['msg'], List<FetchCompanyData>.from(list.map((e) => FetchCompanyData.formJson(e))));
+    return FetchCompanyApi(
+        myjson['status'],
+        myjson['msg'],
+        List<FetchCompanyData>.from(
+            list.map((e) => FetchCompanyData.formJson(e))));
   }
 }
 
@@ -140,7 +144,181 @@ class FetchCompanyData {
   final String Company_Name;
 
   FetchCompanyData(this.Company_Id, this.Company_Name);
-  factory FetchCompanyData.formJson(Map<String,dynamic> myjson){
+  factory FetchCompanyData.formJson(Map<String, dynamic> myjson) {
     return FetchCompanyData(myjson['Company_Id'], myjson['Company_Name']);
   }
+}
+
+//---------------------------------4.FetchSize--------------------------------
+
+class FetchSizeApi {
+  final String status, msg;
+  final List<FetchSizeData> FetchSizeDatalist;
+
+  FetchSizeApi(this.status, this.msg, this.FetchSizeDatalist);
+  factory FetchSizeApi.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['data'];
+    return FetchSizeApi(
+        myjson['status'],
+        myjson['msg'],
+        List<FetchSizeData>.from(
+            list.map((e) => FetchCompanyData.formJson(e))));
+  }
+}
+
+class FetchSizeData {
+  final int Size_Id;
+  final String Size_Name;
+
+  FetchSizeData(this.Size_Id, this.Size_Name);
+
+  factory FetchSizeData.formJson(Map<String, dynamic> myjson) {
+    return FetchSizeData(myjson['Size_Id'], myjson['Size_Name']);
+  }
+}
+
+//-------------------------6.FetchBrand------------
+
+class FetchBrandApi {
+  final String status, msg;
+  final List<FetchBrandData> FetchBrandDatalist;
+
+  FetchBrandApi(this.status, this.msg, this.FetchBrandDatalist);
+  factory FetchBrandApi.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['data'];
+    return FetchBrandApi(myjson['status'], myjson['msg'],
+        List<FetchBrandData>.from(list.map((e) => FetchBrandData.formJson(e))));
+  }
+}
+
+class FetchBrandData {
+  final int Brand_Id;
+  final String Brand_Name;
+
+  FetchBrandData(this.Brand_Id, this.Brand_Name);
+  factory FetchBrandData.formJson(Map<String, dynamic> myjson) {
+    return FetchBrandData(myjson['Brand_Id'], myjson['Brand_Name']);
+  }
+}
+
+//--------------------------7.FetchUnit----------------------------
+
+class FetchUnitApi {
+  final String status, msg;
+  final List<FetchUnitData> FetchUnitDatalist;
+
+  FetchUnitApi(this.status, this.msg, this.FetchUnitDatalist);
+  factory FetchUnitApi.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['data'];
+    return FetchUnitApi(myjson['status'], myjson['msg'],
+        List<FetchUnitData>.from(list.map((e) => FetchUnitData.formJson(e))));
+  }
+}
+
+class FetchUnitData {
+  final int Unit_Id;
+  final String Unit_Name;
+
+  FetchUnitData(this.Unit_Id, this.Unit_Name);
+  factory FetchUnitData.formJson(Map<String, dynamic> myjson) {
+    return FetchUnitData(myjson['Unit_Id'], myjson['Unit_Name']);
+  }
+}
+
+//-------------------------8.FetchTax-------------------
+
+class FetchTaxApi {
+  final String status, msg;
+  final List<FetchTaxData> FetchTaxDatalist;
+
+  FetchTaxApi(this.status, this.msg, this.FetchTaxDatalist);
+  factory FetchTaxApi.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['data'];
+    return FetchTaxApi(myjson['status'], myjson['msg'],
+        List<FetchTaxData>.from(list.map((e) => FetchTaxData.formJson(e))));
+  }
+}
+
+class FetchTaxData {
+  final String Tax_Name, Type;
+  final int Tax_Id;
+
+  FetchTaxData(this.Tax_Name, this.Type, this.Tax_Id);
+  factory FetchTaxData.formJson(Map<String, dynamic> myjson) {
+    return FetchTaxData(myjson['Tax_Name'], myjson['Type'], myjson['Tax_Id']);
+  }
+}
+
+//-------------------------------FetchTaxcategoryand subcategory---------------
+
+class TaxCatgorySubCategory {
+  TaxCatgorySubCategory({
+    required this.taxCategoryList,
+  });
+
+  List<TaxCategoryList> taxCategoryList;
+
+  factory TaxCatgorySubCategory.fromJson(Map<String, dynamic> json) =>
+      TaxCatgorySubCategory(
+        taxCategoryList: List<TaxCategoryList>.from(
+            json["TaxCategoryList"].map((x) => TaxCategoryList.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "TaxCategoryList":
+            List<dynamic>.from(taxCategoryList.map((x) => x.toJson())),
+      };
+}
+
+class TaxCategoryList {
+  TaxCategoryList({
+    required this.taxId,
+    required this.taxName,
+    required this.subTaxcategorylist,
+  });
+
+  String taxId;
+  String taxName;
+  List<SubTaxcategorylist> subTaxcategorylist;
+
+  factory TaxCategoryList.fromJson(Map<String, dynamic> json) =>
+      TaxCategoryList(
+        taxId: json["Tax_Id"],
+        taxName: json["Tax_Name"],
+        subTaxcategorylist: List<SubTaxcategorylist>.from(
+            json["subTaxcategorylist"]
+                .map((x) => SubTaxcategorylist.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "Tax_Id": taxId,
+        "Tax_Name": taxName,
+        "subTaxcategorylist":
+            List<dynamic>.from(subTaxcategorylist.map((x) => x.toJson())),
+      };
+}
+
+class SubTaxcategorylist {
+  SubTaxcategorylist({
+    required this.subtaxId,
+    required this.subtaxName,
+    required this.value,
+  });
+
+  String subtaxId;
+  String subtaxName;
+  String value;
+
+  factory SubTaxcategorylist.fromJson(Map<String, dynamic> json) =>
+      SubTaxcategorylist(
+        subtaxId: json["Subtax_Id"],
+        subtaxName: json["Subtax_Name"],
+        value: json["Value"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "Subtax_Id": subtaxId,
+        "Subtax_Name": subtaxName,
+        "Value": value,
+      };
 }

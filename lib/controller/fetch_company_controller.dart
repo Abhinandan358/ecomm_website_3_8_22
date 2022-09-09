@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
