@@ -177,7 +177,7 @@ class FetchSizeData {
   }
 }
 
-//-------------------------6.FetchBrand------------
+//-------------------------5.FetchBrand------------
 
 class FetchBrandApi {
   final String status, msg;
@@ -201,7 +201,7 @@ class FetchBrandData {
   }
 }
 
-//--------------------------7.FetchUnit----------------------------
+//--------------------------6.FetchUnit----------------------------
 
 class FetchUnitApi {
   final String status, msg;
@@ -225,7 +225,7 @@ class FetchUnitData {
   }
 }
 
-//-------------------------8.FetchTax-------------------
+//-------------------------7.FetchTax-------------------
 
 class FetchTaxApi {
   final String status, msg;
@@ -249,7 +249,7 @@ class FetchTaxData {
   }
 }
 
-//-------------------------------FetchTaxcategoryand subcategory---------------
+//-------------------------------8.FetchTaxcategoryand subcategory---------------
 
 class TaxCatgorySubCategory {
   TaxCatgorySubCategory({
