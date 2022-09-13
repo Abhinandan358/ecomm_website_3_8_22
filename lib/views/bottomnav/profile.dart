@@ -1,3 +1,4 @@
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/fetch_size_api.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
@@ -122,7 +123,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {Get.to(()=>const FetchSizeApi());},
                   child: Column(
                     children: [
                       mytext('529', null, null, 25, null, null, null, null),

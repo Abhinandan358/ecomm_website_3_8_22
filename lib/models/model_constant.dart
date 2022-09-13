@@ -151,18 +151,44 @@ class FetchCompanyData {
 
 //---------------------------------4.FetchSize--------------------------------
 
+// class FetchSizeApi {
+//   final String status, msg;
+//   final List<FetchSizeData> FetchSizeDatalist;
+
+//   FetchSizeApi(this.status, this.msg, this.FetchSizeDatalist);
+//   factory FetchSizeApi.fromJson(Map<String, dynamic> myjson) {
+//     List list = myjson['data'];
+//     return FetchSizeApi(
+//         myjson['status'],
+//         myjson['msg'],
+//         List<FetchSizeData>.from(
+//             list.map((e) => FetchCompanyData.formJson(e))));
+//   }
+// }
+
+// class FetchSizeData {
+//   final int Size_Id;
+//   final String Size_Name;
+
+//   FetchSizeData(this.Size_Id, this.Size_Name);
+
+//   factory FetchSizeData.fromJson(Map<String, dynamic> myjson) {
+//     return FetchSizeData(myjson['Size_Id'], myjson['Size_Name']);
+//   }
+// }
+
 class FetchSizeApi {
   final String status, msg;
-  final List<FetchSizeData> FetchSizeDatalist;
+  final List<CategoryColorData> dataList1;
 
-  FetchSizeApi(this.status, this.msg, this.FetchSizeDatalist);
+  FetchSizeApi(this.status, this.msg, this.dataList1);
   factory FetchSizeApi.formJson(Map<String, dynamic> myjson) {
-    List list = myjson['data'];
+    List list1 = myjson['data'];
     return FetchSizeApi(
         myjson['status'],
         myjson['msg'],
-        List<FetchSizeData>.from(
-            list.map((e) => FetchCompanyData.formJson(e))));
+        List<CategoryColorData>.from(
+            list1.map((e) => CategoryColorData.formJson(e))));
   }
 }
 
@@ -171,12 +197,10 @@ class FetchSizeData {
   final String Size_Name;
 
   FetchSizeData(this.Size_Id, this.Size_Name);
-
   factory FetchSizeData.formJson(Map<String, dynamic> myjson) {
     return FetchSizeData(myjson['Size_Id'], myjson['Size_Name']);
   }
 }
-
 //-------------------------5.FetchBrand------------
 
 class FetchBrandApi {
