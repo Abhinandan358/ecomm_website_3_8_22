@@ -97,7 +97,7 @@ class _FashionState extends State<Fashion> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         DrawerHeader(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color.fromRGBO(245, 245, 245, 1),
                           ),
                           child: ListTile(
@@ -112,14 +112,14 @@ class _FashionState extends State<Fashion> {
                                 ),
                               ),
                             ),
-                            title: Text(
+                            title: const Text(
                               'Jenny Wilson',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text(
                                   'abcdef@gmail.com',
                                   style: TextStyle(fontSize: 14),
@@ -130,24 +130,24 @@ class _FashionState extends State<Fashion> {
                             ),
                           ),
                         ),
-                        Text(
+                        const Text(
                           'My Profile',
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.bold),
                         ),
-                        Divider(
+                        const Divider(
                           color: orange,
                         ),
-                        Text('My Account',
+                        const Text('My Account',
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.bold)),
-                        Divider(
+                        const Divider(
                           color: orange,
                         ),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Notifications',
+                               Text('Notifications',
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold)),

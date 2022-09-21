@@ -146,7 +146,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               'abcdef@gmail.com',
                               style: TextStyle(fontSize: 14),
