@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/details.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
+import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
@@ -77,7 +79,11 @@ class _CategoryState extends State<Category> {
             children: [
               iconbtntext(
                   () {},
-                myicon(null, black2,  Icons.arrow_back,),
+                  myicon(
+                    null,
+                    black2,
+                    Icons.arrow_back,
+                  ),
                   mytext('All Categories', black2, null, 18, FontWeight.bold,
                       null, null, null)),
               FutureBuilder<List<CategoryData>>(
@@ -99,8 +105,14 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      Get.to(() => DetailsPage(
-                                          item: categoryList1[index]));
+                                      if (index==0) {
+                                        Get.to(() => const OfferZone());
+                                      } else if (index==2) {
+                                        Get.to(() => const Fashion());
+                                      } else {
+                                        Get.to(() => DetailsPage(
+                                            item: categoryList1[index]));
+                                      }
                                     },
                                     child: Container(
                                       height: 0.14.sh,
@@ -110,15 +122,13 @@ class _CategoryState extends State<Category> {
                                           borderRadius:
                                               BorderRadius.circular(20)),
                                       margin: const EdgeInsets.all(10),
-                                      child: CircleAvatar(
-                                          radius: 50,
-                                          child: ClipOval(
-                                              child: Image.network(
-                                            _categoryList1[index].ImgUrl,
-                                            height: 0.13.sh,
-                                            width: 0.4.sw,
-                                            fit: BoxFit.fill,
-                                          ))),
+                                      child: ClipOval(
+                                          child: Image.network(
+                                        _categoryList1[index].ImgUrl,
+                                        height: 0.14.sh,
+                                        width: 0.45.sw,
+                                        fit: BoxFit.fill,
+                                      )),
                                     ),
                                   ),
                                   mytext(

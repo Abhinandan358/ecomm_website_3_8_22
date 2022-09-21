@@ -5,6 +5,7 @@ import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/category.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +23,7 @@ class DashBoardPage extends StatefulWidget {
 
 class _DashBoardPageState extends State<DashBoardPage> {
   int count = 0;
+  bool switchList = true;
   final StreamController<int> _streamController = StreamController();
   //--------------------------Image Pickeer start--------------------------
   File? image;
@@ -93,7 +95,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
               children: [
                 myiconbutton(() {
                   Get.to(() => const Cart());
-                }, myicon(null, null, Icons.shopping_cart_outlined), null, null, null, null),
+                }, myicon(null, null, Icons.shopping_cart_outlined), null, null,
+                    null, null),
                 StreamBuilder<int>(
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
@@ -114,119 +117,95 @@ class _DashBoardPageState extends State<DashBoardPage> {
         child: SizedBox(
             height: 0.96.sh,
             child: Drawer(
-              child: Column(
-                children: [
-                  UserAccountsDrawerHeader(
-                      currentAccountPicture: ClipOval(
-                          child: InkWell(
-                              onTap: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return AlertDialog(
-                                        backgroundColor: transperant,
-                                        title: Align(
-                                            alignment: Alignment.topRight,
-                                            child: myiconbutton(() {
-                                              Get.back();
-                                            },
-                                                myicon(null, white1,  Icons.close),
-                                                null,
-                                                null,
-                                                null,
-                                                null)),
-                                        content: image != null
-                                            ? Image.file(
-                                                image!,
-                                                fit: BoxFit.cover,
-                                              )
-                                            : myiconbutton(
-                                                () {},
-                                                ClipOval(
-                                                    child: Image.network(
-                                                        'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                        fit: BoxFit.cover)),
-                                                null,
-                                                null,
-                                                null,
-                                                null),
-                                      );
-                                    });
-                              },
-                              child: image != null
-                                  ? Image.file(
-                                      image!,
-                                      fit: BoxFit.cover,
-                                    )
-                                  : myiconbutton(
-                                      () {},
-                                      InkWell(
-                                          onTap: () {
-                                            showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return AlertDialog(
-                                                    content: image != null
-                                                        ? Image.file(
-                                                            image!,
-                                                            fit: BoxFit.cover,
-                                                          )
-                                                        : myiconbutton(
-                                                            () {},
-                                                            ClipOval(
-                                                                child: Image.network(
-                                                                    'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                                    fit: BoxFit
-                                                                        .cover)),
-                                                            null,
-                                                            null,
-                                                            null,
-                                                            null),
-                                                  );
-                                                });
-                                          },
-                                          child: ClipOval(
-                                              child: Image.network(
-                                                  'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                                                  fit: BoxFit.cover))),
-                                      null,
-                                      null,
-                                      null,
-                                      null))),
-                      accountName: mytext(
-                          'Abhi', null, null, 20, null, null, null, null),
-                      accountEmail: mytext('abhi@gmail.com', null, null, 20,
-                          null, null, null, null)),
-                  custombtn(() {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Column(
-                              children: [
-                                TextButton(
-                                    onPressed: () {
-                                      pickImageCamera();
-                                    },
-                                    child: mytext('data', null, null, null,
-                                        null, null, null, null)),
-                                TextButton(
-                                    onPressed: () {
-                                      pickImageGallery();
-                                    },
-                                    child: mytext('data', null, null, null,
-                                        null, null, null, null))
-                              ],
+              backgroundColor: commonback,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DrawerHeader(
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(245, 245, 245, 1),
+                      ),
+                      child: ListTile(
+                        leading: SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: ClipOval(
+                            child: Image.network(
+                              'https://media.istockphoto.com/photos/headshot-portrait-of-smiling-male-employee-in-office-picture-id1309328823?b=1&k=20&m=1309328823&s=170667a&w=0&h=a-f8vR5TDFnkMY5poQXfQhDSnK1iImIfgVTVpFZi_KU=',
+                              height: 70,
+                              fit: BoxFit.cover,
                             ),
-                          );
-                        });
-                  }, 'Change Profile'),
-                  TextButton.icon(
-                      onPressed: () {},
-                      icon: myicon(20, red, Icons.logout),
-                      label: mytext(
-                          'Logout', red, null, null, null, null, null, null))
-                ],
+                          ),
+                        ),
+                        title: Text(
+                          'Jenny Wilson',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'abcdef@gmail.com',
+                              style: TextStyle(fontSize: 14),
+                            ),
+                            Text('+ 000 000 0000',
+                                style: TextStyle(fontSize: 18))
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'My Profile',
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                    Divider(
+                      color: orange,
+                    ),
+                    Text('My Account',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold)),
+                    Divider(
+                      color: orange,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Notifications',
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold)),
+                          SizedBox(
+                            child: SizedBox(
+                              height: 54,
+                              width: 54,
+                              child: CupertinoSwitch(
+                                activeColor: blue,
+                                  value: switchList,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      switchList = value;
+                                    });
+                                  }),
+                            ),
+                          )
+                        ]),
+                    Divider(
+                      color: orange,
+                    ),
+                    Text('Terms & Conditions',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold)),
+                    Divider(
+                      color: orange,
+                    ),
+                    Text('Privacy Policy',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold)),
+                  ],
+                ),
               ),
             )),
       ),
