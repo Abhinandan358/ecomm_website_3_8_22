@@ -43,6 +43,7 @@ const Color grey3 = Color.fromARGB(255, 228, 225, 225);
 const Color orange2 = Color.fromRGBO(253, 221, 202, 1);
 const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
 const Color loginsignup = Color.fromRGBO(249,193,161,1);
+const Color login = Color.fromRGBO(255,224,205,1);
 //buttons-----
 
 SizedBox custombtn(Function()? onPressed, btntxt) {
@@ -112,12 +113,12 @@ Widget myicon(double? size, Color? color, IconData? icon) {
   );
 }
 
-SizedBox custombtn1(Function()? onPressed, btntxt,ButtonStyle? style,) {
+SizedBox custombtn1(Function()? onPressed, btntxt,ButtonStyle? style,Color? color) {
   return SizedBox(
       height: 0.06.sh,
       width: 0.3.sw,
       child: ElevatedButton(
           style: style,
           onPressed: onPressed,
-          child: Text(btntxt)));
+          child: Text(btntxt,style: TextStyle(color: color),)));
 }

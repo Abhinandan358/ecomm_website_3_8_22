@@ -30,80 +30,110 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: black1),
         elevation: 0,
-        backgroundColor: white,
-        title: mytext(
-            'Ecommerce Website', brown, null, null, null, null, null, null, null),
-        actions: [
-         myiconbutton((){ Get.to(() => const Reg());}, myicon(null, null, Icons.app_registration), null, null, null, null),
-          mytext('Signup', black1, null, null, null, null, null, null, null)
-        ],
+        backgroundColor: commoncolor,
       ),
       body: Form(
           key: formkey,
           child: SingleChildScrollView(
-            child: SizedBox(
-              height: 0.90.sh,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    mytext('SignIn', null, null, 30, null, null, null, null, null),
-                    TextFormField(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      controller: emailCtrl,
-                      validator: ((value) {
-                        if (value!.isEmpty) {
-                          return "Please provide only your registered emailid";
-                        }
-                        return null;
-                      }),
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Write Email'),
-                    ),
-                    TextFormField(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      obscureText: _obsecureText,
-                      controller: passCtrl,
-                      validator: ((value) {
-                        if (value!.isEmpty) {
-                          return "give your password";
-                        }
-                        return null;
-                      }),
-                      decoration: InputDecoration(
-                          hintText: 'Write Password',
-                          border: const OutlineInputBorder(),
-                          suffixIcon: myiconbutton((){setState(() {
-                                  _obsecureText = !_obsecureText;
-                                });}, myicon(null, null, _obsecureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off), null, null, null, null)),
-                    ),
-                    SizedBox(
-                      height: 0.1.sh,
-                    ),
-                    custombtn(() {
-                      if (formkey.currentState!.validate()) {
-                        postData(emailCtrl.text, passCtrl.text);
-                      }
-                    }, 'Login'),
-                    TextButton(
-                        onPressed: () {
-                          Get.to(() => const Reg());
-                        },
-                        child: mytext('If You no account then go to SignUp',
-                            black2, null, null, null, null, null, null, null)),
-                    TextButton(
-                        onPressed: () {
-                          Get.to(() => const ForgotPass());
-                        },
-                        child: mytext('Forgot Password', black2, null, null,
-                            null, null, null, null, null))
-                  ],
+            child: Column(
+              children: [
+                mytext('Login', null, null, 30, FontWeight.bold, null, null,
+                    null, null),
+                mytext('Welcome Back To your Account', null, null, 18, null,
+                    null, null, null, null),
+                SizedBox(
+                  height: 50,
                 ),
-              ),
+                Container(
+                  height: 0.76.sh,
+                  decoration: BoxDecoration(color: login),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          controller: emailCtrl,
+                          validator: ((value) {
+                            if (value!.isEmpty) {
+                              return "Please provide only your registered emailid";
+                            }
+                            return null;
+                          }),
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Write Email'),
+                        ),
+                        TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          obscureText: _obsecureText,
+                          controller: passCtrl,
+                          validator: ((value) {
+                            if (value!.isEmpty) {
+                              return "give your password";
+                            }
+                            return null;
+                          }),
+                          decoration: InputDecoration(
+                              hintText: 'Write Password',
+                              border: const OutlineInputBorder(),
+                              suffixIcon: myiconbutton(() {
+                                setState(() {
+                                  _obsecureText = !_obsecureText;
+                                });
+                              },
+                                  myicon(
+                                      null,
+                                      null,
+                                      _obsecureText
+                                          ? Icons.visibility
+                                          : Icons.visibility_off),
+                                  null,
+                                  null,
+                                  null,
+                                  null)),
+                        ),
+                        custombtn(() {
+                          if (formkey.currentState!.validate()) {
+                            postData(emailCtrl.text, passCtrl.text);
+                          }
+                        }, 'Login'),
+                        TextButton(
+                            onPressed: () {
+                              Get.to(() => const ForgotPass());
+                            },
+                            child: mytext('Forgot Password', Color.fromRGBO(6, 25, 197, 1), null, null,
+                                null, null, null, null, null)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  Get.to(() => const Reg());
+                                },
+                                child: mytext('Don\'t have account', black2,
+                                    null, 16, null, null, null, null, null)),
+                            custombtn1(
+                                () {Get.to(() => const Reg());},
+                                'Signup',
+                                ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            side: BorderSide(color: black1))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(login)),
+                                black2)
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           )),
     );

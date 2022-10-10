@@ -25,7 +25,7 @@ class _LoginRegState extends State<LoginReg> {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: const [loginsignup, white])),
+                  colors: const [loginsignup, orange2, white])),
           child: Padding(
             padding:
                 const EdgeInsets.only(top: 20, bottom: 20, left: 25, right: 25),
@@ -40,10 +40,13 @@ class _LoginRegState extends State<LoginReg> {
                         () {},
                         mytext('SKIP', black2, transperant, 20, FontWeight.bold,
                             null, null, null, null),
-                        Icon(Icons.arrow_forward_ios),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: black2,
+                        ),
                         ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(loginsignup))),
+                                MaterialStateProperty.all(transperant))),
                   ),
                   Image.asset(
                     'assets/bg1 6.jpg',
@@ -64,9 +67,10 @@ class _LoginRegState extends State<LoginReg> {
                   Row(
                     children: [
                       Expanded(
-                        child: custombtn1(
-                            () {},
-                            'Signup',
+                        child: custombtn1(() {
+                          Get.to(() => Reg());
+                        },
+                            'SIGNUP',
                             ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all(custombtncolr1),
@@ -74,23 +78,27 @@ class _LoginRegState extends State<LoginReg> {
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(5))))),
+                                            BorderRadius.circular(5)))),
+                            white1),
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Expanded(
-                        child: custombtn1(
-                            () {},
-                            'Signin',
+                        child: custombtn1(() {
+                          Get.to(() => Login());
+                        },
+                            'LOG IN',
                             ButtonStyle(
                                 backgroundColor:
-                                    MaterialStateProperty.all(Colors.red),
+                                    MaterialStateProperty.all(white2),
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
+                                        side: BorderSide(color: custombtncolr1),
                                         borderRadius:
-                                            BorderRadius.circular(5))))),
+                                            BorderRadius.circular(5)))),
+                            custombtncolr1),
                       ),
                     ],
                   ),
