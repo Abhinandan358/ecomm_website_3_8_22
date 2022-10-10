@@ -52,7 +52,7 @@ SizedBox custombtn(Function()? onPressed, btntxt) {
       width: 1.sw,
       child: ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(brown),
+              backgroundColor: MaterialStateProperty.all(custombtncolr1),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)))),

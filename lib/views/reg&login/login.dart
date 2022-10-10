@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -61,8 +61,15 @@ class _LoginState extends State<Login> {
                             }
                             return null;
                           }),
-                          decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
+                          decoration: InputDecoration(
+                              fillColor: white,
+                              filled: true,
+                              border: InputBorder.none,
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.purple),
+                              ),
+                              contentPadding: EdgeInsets.only(
+                                  left: 15, bottom: 25, top: 15, right: 15),
                               hintText: 'Write Email'),
                         ),
                         TextFormField(
@@ -76,8 +83,15 @@ class _LoginState extends State<Login> {
                             return null;
                           }),
                           decoration: InputDecoration(
+                              fillColor: white,
+                              filled: true,
                               hintText: 'Write Password',
-                              border: const OutlineInputBorder(),
+                              border: InputBorder.none,
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.purple),
+                              ),
+                              contentPadding: EdgeInsets.only(
+                                  left: 15, bottom: 25, top: 11, right: 15),
                               suffixIcon: myiconbutton(() {
                                 setState(() {
                                   _obsecureText = !_obsecureText;
@@ -103,8 +117,16 @@ class _LoginState extends State<Login> {
                             onPressed: () {
                               Get.to(() => const ForgotPass());
                             },
-                            child: mytext('Forgot Password', Color.fromRGBO(6, 25, 197, 1), null, null,
-                                null, null, null, null, null)),
+                            child: mytext(
+                                'Forgot Password?',
+                                Color.fromRGBO(6, 25, 197, 1),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -114,8 +136,9 @@ class _LoginState extends State<Login> {
                                 },
                                 child: mytext('Don\'t have account', black2,
                                     null, 16, null, null, null, null, null)),
-                            custombtn1(
-                                () {Get.to(() => const Reg());},
+                            custombtn1(() {
+                              Get.to(() => const Reg());
+                            },
                                 'Signup',
                                 ButtonStyle(
                                     shape: MaterialStateProperty.all<
