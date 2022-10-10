@@ -65,7 +65,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: mytext('Logo', brown, null, null, null, null, null, null, null),
+          title:
+              mytext('Logo', brown, null, null, null, null, null, null, null),
           actions: [
             Container(
               width: 0.37.sw,
@@ -182,7 +183,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                               height: 54,
                               width: 54,
                               child: CupertinoSwitch(
-                                activeColor: blue,
+                                  activeColor: blue,
                                   value: switchList,
                                   onChanged: (bool value) {
                                     setState(() {
@@ -209,40 +210,57 @@ class _DashBoardPageState extends State<DashBoardPage> {
               ),
             )),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-          height: 50,
-          buttonBackgroundColor: red,
-          backgroundColor: commonback,
-          index: _SelectIndex,
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _SelectIndex,
           onTap: ((value) {
             _SelectIndex = value;
             setState(() {});
           }),
           items: [
-            myicon(
-              30,
-              null,
-              Icons.home_outlined,
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                grey2,
+                Icons.home_outlined,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
             ),
-            myicon(
-              30,
-              null,
-              Icons.category_sharp,
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                grey2,
+                Icons.category_sharp,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
             ),
-            myicon(
-              30,
-              null,
-              Icons.shopping_cart_outlined,
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                grey2,
+                Icons.shopping_cart_outlined,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
             ),
-            myicon(
-              30,
-              null,
-              Icons.help_outline,
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                grey2,
+                Icons.help_outline,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
             ),
-            myicon(
-              30,
-              null,
-              Icons.person_outline,
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                grey2,
+                Icons.person_outline,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
             )
           ]),
       body: _mywidget[_SelectIndex],

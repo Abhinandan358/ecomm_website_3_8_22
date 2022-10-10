@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import
 
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/reg.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +39,9 @@ class _LoginRegState extends State<LoginReg> {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: iconbtntext(
-                        () {},
+                        () {
+                          Get.to(()=>DashBoardPage());
+                        },
                         mytext('SKIP', black2, transperant, 20, FontWeight.bold,
                             null, null, null, null),
                         Icon(
