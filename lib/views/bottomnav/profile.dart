@@ -66,11 +66,10 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            mytext('Abhinandan Mandal', null, null, 25, FontWeight.bold, null,
-                null, null, null),
-            mytext('Flutter Software Engineer', grey, null, 25, null, null,
-                null, null, null),
-            mytext('Follow Me', null, null, 20, null, null, null, null, null),
+            mytext(data:'Abhinandan Mandal',  fontSize: 25, fontWeight: FontWeight.bold, ),
+               
+            mytext(data:'Flutter Software Engineer', color: grey,  fontSize: 25, ),
+            mytext(data:'Follow Me',  fontSize: 20, ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -116,9 +115,9 @@ class _ProfileState extends State<Profile> {
                   },
                   child: Column(
                     children: [
-                      mytext('40', null, null, 25, null, null, null, null, null),
-                      mytext(
-                          'Projects', null, null, 22, null, null, null, null, null),
+                      mytext(data:'40',  fontSize: 25, ),
+                      mytext(data:
+                          'Projects',  fontSize: 22, ),
                     ],
                   ),
                 ),
@@ -126,9 +125,9 @@ class _ProfileState extends State<Profile> {
                   onTap: () {Get.to(()=>const FetchSizeApi());},
                   child: Column(
                     children: [
-                      mytext('529', null, null, 25, null, null, null, null, null),
-                      mytext(
-                          'Following', null, null, 22, null, null, null, null, null),
+                      mytext(data:'529',  fontSize: 25, ),
+                      mytext(data:
+                          'Following', fontSize:  22, ),
                     ],
                   ),
                 ),
@@ -136,25 +135,22 @@ class _ProfileState extends State<Profile> {
                   onTap: () {},
                   child: Column(
                     children: [
-                      mytext('5834', null, null, 25, null, null, null, null, null),
-                      mytext(
-                          'Followers', null, null, 22, null, null, null, null, null),
+                      mytext(data:'5834',fontSize: 25, ),
+                      mytext(data:
+                          'Followers', fontSize: 22, ),
                     ],
                   ),
                 ),
               ],
             ),
             const Divider(thickness: 2),
-            mytext('About', null, null, 20, null, null, null, null, null),
-            mytext(
+            mytext(data:'About', fontSize:  20, ),
+            mytext(data:
                 'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
-                grey1,
-                null,
-                20,
-                null,
-                null,
-                null,
-                null, null),
+                color: grey1,
+              
+                fontSize: 20,
+                ),
           ],
         ),
       ),

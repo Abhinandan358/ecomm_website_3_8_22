@@ -84,10 +84,14 @@ class _CategoryState extends State<Category> {
                     black2,
                     Icons.arrow_back,
                   ),
-                  mytext('All Categories', black2, null, 18, FontWeight.bold,
-                      null, null, null, null),
-                      ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
-                      ),
+                  mytext(
+                    data: 'All Categories',
+                    color: black2,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(commoncolor))),
               FutureBuilder<List<CategoryData>>(
                   future: _future,
                   builder: ((context, snapshot) {
@@ -107,9 +111,9 @@ class _CategoryState extends State<Category> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      if (index==0) {
+                                      if (index == 0) {
                                         Get.to(() => const OfferZone());
-                                      } else if (index==2) {
+                                      } else if (index == 2) {
                                         Get.to(() => const Fashion());
                                       } else {
                                         Get.to(() => DetailsPage(
@@ -134,22 +138,22 @@ class _CategoryState extends State<Category> {
                                     ),
                                   ),
                                   mytext(
-                                      _categoryList1[index].Cat_Name,
-                                      grey2,
-                                      null,
-                                      17,
-                                      FontWeight.bold,
-                                      null,
-                                      null,
-                                      null, null),
+                                    data: _categoryList1[index].Cat_Name,
+                                    color: grey2,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ],
                               );
                             }),
                       );
                     } else if (snapshot.hasError) {
                       return Center(
-                          child: mytext('404 Page Not Found', null, null, 20,
-                              FontWeight.bold, null, null, null, null));
+                          child: mytext(
+                        data: '404 Page Not Found',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ));
                     } else {
                       return Padding(
                         padding: const EdgeInsets.only(top: 200),

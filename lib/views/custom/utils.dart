@@ -70,7 +70,7 @@ SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label,ButtonStyl
 }
 
 Text mytext(
-  final String data,
+{  required String data,
   Color? color,
   Color? backgroundColor,
   double? fontSize,
@@ -78,7 +78,7 @@ Text mytext(
   double? letterSpacing,
   double? wordSpacing,
   TextDecoration? decoration,
-  TextAlign? textAlign,
+  TextAlign? textAlign,}
 ) {
   return Text(
     data,

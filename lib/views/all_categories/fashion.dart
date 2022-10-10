@@ -38,7 +38,10 @@ class _FashionState extends State<Fashion> {
         appBar: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: mytext('Logo', brown, null, null, null, null, null, null,null),
+          title: mytext(
+            data: 'Logo',
+            color: brown,
+          ),
           actions: [
             Container(
               width: 0.37.sw,
@@ -74,11 +77,17 @@ class _FashionState extends State<Fashion> {
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
-                        return mytext('${snapshot.data}', null, null, 20,
-                            FontWeight.bold, null, null, null,null);
+                        return mytext(
+                          data: '${snapshot.data}',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        );
                       } else {
-                        return mytext('0', null, null, 20, FontWeight.bold,
-                            null, null, null,null);
+                        return mytext(
+                          data: '0',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        );
                       }
                     })),
               ],
@@ -190,14 +199,21 @@ class _FashionState extends State<Fashion> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    
-                    iconbtntext(() {}, myicon(
+                    iconbtntext(
+                        () {},
+                        myicon(
                           null,
                           black6,
                           Icons.arrow_back,
-                        ), 
-                        mytext('Fashion', black6, null, null, FontWeight.bold,
-                            null, null, null,null), ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))),
+                        ),
+                        mytext(
+                          data: 'Fashion',
+                          color: black6,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(commoncolor))),
                     SizedBox(
                       height: 0.18.sh,
                       child: ListView.builder(
@@ -236,10 +252,15 @@ class _FashionState extends State<Fashion> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  mytext('sports shoes, sneakers...', null,
-                                      null, 18, null, null, null, null,null),
-                                  mytext('up to 40% off', null, null, 20,
-                                      FontWeight.bold, null, null, null,null)
+                                  mytext(
+                                    data: 'sports shoes, sneakers...',
+                                    fontSize: 18,
+                                  ),
+                                  mytext(
+                                    data: 'up to 40% off',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  )
                                 ],
                               ),
                             ),
@@ -250,19 +271,27 @@ class _FashionState extends State<Fashion> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        mytext('Favourite To All!', orange, null, 20,
-                            FontWeight.bold, null, null, null,null),
+                        mytext(
+                          data: 'Favourite To All!',
+                          color: orange,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                         iconbtntext(
                             () {},
-                            mytext('View All', black2, null, 18, null, null,
-                                null, null,null),
+                            mytext(
+                              data: 'View All',
+                              color: black2,
+                              fontSize: 18,
+                            ),
                             myicon(
                               null,
                               black2,
                               Icons.arrow_forward_ios_outlined,
                             ),
-                            ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
-                            )
+                            ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(commoncolor)))
                       ],
                     ),
                     SizedBox(
@@ -291,10 +320,16 @@ class _FashionState extends State<Fashion> {
                                     width: 0.29.sw,
                                     fit: BoxFit.fill,
                                   ),
-                                  mytext(_offerforyouList[index].name, grey2,
-                                      null, 15, null, null, null, null,null),
-                                  mytext(_offerforyouList[index].uptooff, green,
-                                      null, 17, null, null, null, null,null)
+                                  mytext(
+                                    data: _offerforyouList[index].name,
+                                    color: grey2,
+                                    fontSize: 15,
+                                  ),
+                                  mytext(
+                                    data: _offerforyouList[index].uptooff,
+                                    color: green,
+                                    fontSize: 17,
+                                  )
                                 ],
                               ),
                             );
@@ -305,19 +340,19 @@ class _FashionState extends State<Fashion> {
                           'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
                       Positioned(
                           bottom: 30,
-                          child: mytext('Little Girls Dresses', white6, null,
-                              20, FontWeight.bold, null, null, null,null)),
+                          child: mytext(
+                            data: 'Little Girls Dresses',
+                            color: white6,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
                       Positioned(
                           bottom: 0,
                           child: mytext(
-                              'Bright color to make your little bright',
-                              commonback,
-                              null,
-                              19,
-                              null,
-                              null,
-                              null,
-                              null,null)),
+                            data: 'Bright color to make your little bright',
+                            color: commonback,
+                            fontSize: 19,
+                          )),
                     ]),
                   ],
                 ),

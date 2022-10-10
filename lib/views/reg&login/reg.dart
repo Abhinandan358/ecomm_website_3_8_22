@@ -41,10 +41,15 @@ class _RegState extends State<Reg> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                mytext('Sign Up', null, null, 30, FontWeight.bold, null, null,
-                    null, null),
-                mytext('Access To Your Account', null, null, 18, null, null,
-                    null, null, null),
+                mytext(
+                  data: 'Sign Up',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                mytext(
+                  data: 'Access To Your Account',
+                  fontSize: 18,
+                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -194,20 +199,7 @@ class _RegState extends State<Reg> {
                                 phoneCtrl.text, passCtrl.text, cpassCtrl.text);
                           }
                         }, 'Signup'),
-                        TextButton(
-                            onPressed: () {
-                              Get.to(() => const ForgotPass());
-                            },
-                            child: mytext(
-                                'Forgot Password?',
-                                Color.fromRGBO(6, 25, 197, 1),
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null)),
+                       
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -215,8 +207,11 @@ class _RegState extends State<Reg> {
                                 onPressed: () {
                                   Get.to(() => const Reg());
                                 },
-                                child: mytext('Don\'t have account', black2,
-                                    null, 16, null, null, null, null, null)),
+                                child: mytext(
+                                  data: 'Already Have Account? ',
+                                  color: black2,
+                                  fontSize: 16,
+                                )),
                             custombtn1(() {
                               Get.to(() => const Login());
                             },

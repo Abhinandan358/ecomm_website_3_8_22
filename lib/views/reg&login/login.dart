@@ -37,10 +37,10 @@ class _LoginState extends State<Login> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                mytext('Login', null, null, 30, FontWeight.bold, null, null,
-                    null, null),
-                mytext('Welcome Back To your Account', null, null, 18, null,
-                    null, null, null, null),
+                mytext(data:'Login',  fontSize: 30, fontWeight: FontWeight.bold, 
+                    ),
+                mytext(data:'Welcome Back To your Account', fontSize:  18, 
+                    ),
                 SizedBox(
                   height: 50,
                 ),
@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -72,6 +72,8 @@ class _LoginState extends State<Login> {
                                   left: 15, bottom: 25, top: 15, right: 15),
                               hintText: 'Write Email'),
                         ),
+
+                        SizedBox(height: 20,),
                         TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _obsecureText,
@@ -108,6 +110,7 @@ class _LoginState extends State<Login> {
                                   null,
                                   null)),
                         ),
+                        SizedBox(height: 20,),
                         custombtn(() {
                           if (formkey.currentState!.validate()) {
                             postData(emailCtrl.text, passCtrl.text);
@@ -117,16 +120,12 @@ class _LoginState extends State<Login> {
                             onPressed: () {
                               Get.to(() => const ForgotPass());
                             },
-                            child: mytext(
-                                'Forgot Password?',
-                                Color.fromRGBO(6, 25, 197, 1),
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null)),
+                            child:
+                             mytext(data:
+                                'Forgot Password?',color: Color.fromRGBO(6, 25, 197, 1),
+                               )
+                               ),
+                                SizedBox(height: 180,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -134,8 +133,8 @@ class _LoginState extends State<Login> {
                                 onPressed: () {
                                   Get.to(() => const Reg());
                                 },
-                                child: mytext('Don\'t have account', black2,
-                                    null, 16, null, null, null, null, null)),
+                                child: mytext(data:'Don\'t have account', color:black2,
+                                     fontSize: 16, )),
                             custombtn1(() {
                               Get.to(() => const Reg());
                             },

@@ -38,12 +38,16 @@ class _LoginRegState extends State<LoginReg> {
                 children: [
                   Align(
                     alignment: Alignment.bottomRight,
-                    child: iconbtntext(
-                        () {
-                          Get.to(()=>DashBoardPage());
-                        },
-                        mytext('SKIP', black2, transperant, 20, FontWeight.bold,
-                            null, null, null, null),
+                    child: iconbtntext(() {
+                      Get.to(() => DashBoardPage());
+                    },
+                        mytext(
+                          data: 'SKIP',
+                          color: black2,
+                          backgroundColor: transperant,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                         Icon(
                           Icons.arrow_forward_ios,
                           color: black2,
@@ -56,18 +60,17 @@ class _LoginRegState extends State<LoginReg> {
                     'assets/bg1 6.jpg',
                     fit: BoxFit.cover,
                   ),
-                  mytext('Largest Collection of stylish Dress', black2, null,
-                      38, FontWeight.bold, null, null, null, TextAlign.center),
                   mytext(
-                      'Fashion every Women Deserves Afordable Luxury',
-                      black2,
-                      null,
-                      20,
-                      null,
-                      null,
-                      null,
-                      null,
-                      TextAlign.center),
+                      data: 'Largest Collection of stylish Dress',
+                      color: black2,
+                      fontSize: 38,
+                      fontWeight: FontWeight.bold,
+                      textAlign: TextAlign.center),
+                  mytext(
+                      data: 'Fashion every Women Deserves Afordable Luxury',
+                      color: black2,
+                      fontSize: 20,
+                      textAlign: TextAlign.center),
                   Row(
                     children: [
                       Expanded(

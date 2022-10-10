@@ -50,7 +50,9 @@ class _HomedetailsState extends State<Homedetails> {
           iconTheme: const IconThemeData(color: black2),
           backgroundColor: white,
           title: mytext(
-              'Homedetails', black2, null, null, null, null, null, null, null)),
+            data: 'Homedetails',
+            color: black2,
+          )),
       body: FutureBuilder<List<CategoryColorData>>(
           future: _future,
           builder: (context, snapshot) {
@@ -66,10 +68,18 @@ class _HomedetailsState extends State<Homedetails> {
                       height: 0.5.sh,
                       width: 1.sw,
                     ),
-                    mytext('Product Name- ${widget.item.name}', black2, null,
-                        25, FontWeight.bold, null, null, null, null),
-                    mytext('Product Price- ${widget.item.price}', black2, null,
-                        20, FontWeight.bold, null, null, null, null),
+                    mytext(
+                      data: 'Product Name- ${widget.item.name}',
+                      color: black2,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    mytext(
+                      data: 'Product Price- ${widget.item.price}',
+                      color: black2,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -83,7 +93,12 @@ class _HomedetailsState extends State<Homedetails> {
                                 color: colorList[i]),
                             child: InkWell(
                               onTap: () {},
-                              child: mytext(_categorycolorList[i].Color_Name, colorList2[i], null, 20, FontWeight.bold, null, null,null, null),
+                              child: mytext(
+                                data: _categorycolorList[i].Color_Name,
+                                color: colorList2[i],
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                       ],
@@ -92,8 +107,12 @@ class _HomedetailsState extends State<Homedetails> {
                 ),
               );
             } else if (snapshot.hasError) {
-              return  Center(
-                  child: mytext('404 Page Not Found', null, null, 20, FontWeight.bold, null, null, null, null));
+              return Center(
+                  child: mytext(
+                data: '404 Page Not Found',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ));
             } else {
               return Padding(
                 padding: const EdgeInsets.only(top: 200),

@@ -74,7 +74,7 @@ class _OfferZoneState extends State<OfferZone> {
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
           title:
-              mytext('Logo', brown, null, null, null, null, null, null, null),
+              mytext(data:'Logo', color: brown,),
           actions: [
             Container(
               width: 0.37.sw,
@@ -110,11 +110,11 @@ class _OfferZoneState extends State<OfferZone> {
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
-                        return mytext('${snapshot.data}', null, null, 20,
-                            FontWeight.bold, null, null, null, null);
+                        return mytext(data:'${snapshot.data}', fontSize:  20,
+                            fontWeight: FontWeight.bold,);
                       } else {
-                        return mytext('0', null, null, 20, FontWeight.bold,
-                            null, null, null, null);
+                        return mytext(data:'0', fontSize:  20, fontWeight: FontWeight.bold,
+                           );
                       }
                     })),
               ],
@@ -139,12 +139,12 @@ class _OfferZoneState extends State<OfferZone> {
                     black2,
                     Icons.arrow_back,
                   ),
-                  mytext('Offer Zone', black2, null, 20, FontWeight.bold, null,
-                      null, null, null),
+                  mytext(data:'Offer Zone', color: black2, fontSize:  20, fontWeight: FontWeight.bold, 
+                      ),
                   ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(commoncolor))),
-              mytext('Grab Before It’s Gone', orange, null, 20, FontWeight.bold,
-                  null, null, null, null),
+              mytext(data:'Grab Before It’s Gone', color: orange,  fontSize: 20, fontWeight: FontWeight.bold,
+                 ),
               SizedBox(
                 child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -184,16 +184,13 @@ class _OfferZoneState extends State<OfferZone> {
                                             color: orange,
                                             borderRadius:
                                                 BorderRadius.circular(5)),
-                                        child: mytext(
+                                        child: mytext(data:
                                             _offerList[index].off,
-                                            white2,
-                                            null,
-                                            13,
-                                            FontWeight.bold,
-                                            null,
-                                            null,
-                                            null,
-                                            null),
+                                            color: white2,
+                                           
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                           ),
                                       ),
                                     ),
                                   )
@@ -213,8 +210,8 @@ class _OfferZoneState extends State<OfferZone> {
                       );
                     }),
               ),
-              mytext('Under Budget Best Products', orange, null, 20,
-                  FontWeight.bold, null, null, null, null),
+              mytext(data:'Under Budget Best Products', color: orange, fontSize:  20,
+                 fontWeight:  FontWeight.bold,),
               SizedBox(
                 height: 0.2.sh,
                 child: ListView.builder(
@@ -238,10 +235,10 @@ class _OfferZoneState extends State<OfferZone> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              mytext(_budgetList[index].under, null, null, 18,
-                                  null, null, null, null, null),
-                              mytext(_budgetList[index].price, null, null, 22,
-                                  FontWeight.bold, null, null, null, null),
+                              mytext(data:_budgetList[index].under,fontSize:  18,
+                                  ),
+                              mytext(data:_budgetList[index].price,fontSize: 22,
+                                  fontWeight: FontWeight.bold, ),
                             ],
                           ),
                         ),
@@ -251,12 +248,12 @@ class _OfferZoneState extends State<OfferZone> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  mytext('Offers For You', orange, null, 20, FontWeight.bold,
-                      null, null, null, null),
+                  mytext(data:'Offers For You',color:  orange, fontSize:  20, fontWeight: FontWeight.bold,
+                      ),
                   iconbtntext(
                       () {},
-                      mytext('View All', black2, null, 18, null, null, null,
-                          null, null),
+                      mytext(data:'View All', color: black2, fontSize:  18, 
+                          ),
                       myicon(
                         null,
                         black2,
@@ -291,10 +288,10 @@ class _OfferZoneState extends State<OfferZone> {
                               width: 0.29.sw,
                               fit: BoxFit.fill,
                             ),
-                            mytext(_offerforyouList[index].name, grey2, null,
-                                15, null, null, null, null, null),
-                            mytext(_offerforyouList[index].uptooff, green, null,
-                                17, null, null, null, null, null)
+                            mytext(data:_offerforyouList[index].name, color: grey2, 
+                               fontSize:  15, ),
+                            mytext(data:_offerforyouList[index].uptooff, color: green, 
+                                fontSize: 17, )
                           ],
                         ),
                       );

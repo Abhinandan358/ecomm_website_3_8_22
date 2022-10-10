@@ -150,8 +150,11 @@ class _HomeState extends State<Home> {
               children: [
                 Align(
                     alignment: Alignment.bottomLeft,
-                    child: mytext('Extra Offers to Make you Happy 😊', null,
-                        null, 18, FontWeight.bold, null, null, null, null)),
+                    child: mytext(
+                      data: 'Extra Offers to Make you Happy 😊',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    )),
                 SizedBox(
                   height: 0.18.sh,
                   child: ListView.builder(
@@ -167,17 +170,14 @@ class _HomeState extends State<Home> {
                                 width: 0.25.sw,
                                 fit: BoxFit.cover,
                               ),
-                              mytext(_offerproductList[index].offerpname, grey,
-                                  null, null, null, null, null, null, null),
                               mytext(
-                                  _offerproductList[index].offersList,
-                                  null,
-                                  null,
-                                  null,
-                                  FontWeight.bold,
-                                  null,
-                                  null,
-                                  null, null),
+                                data: _offerproductList[index].offerpname,
+                                color: grey,
+                              ),
+                              mytext(
+                                data: _offerproductList[index].offersList,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ],
                           ),
                         );
@@ -189,8 +189,11 @@ class _HomeState extends State<Home> {
                   children: [
                     Row(
                       children: [
-                        mytext('Popular Products', null, null, 18,
-                            FontWeight.bold, null, null, null, null),
+                        mytext(
+                          data: 'Popular Products',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                         Container(
                           height: 0.003.sh,
                           width: 0.099.sw,
@@ -198,15 +201,19 @@ class _HomeState extends State<Home> {
                         )
                       ],
                     ),
-                    iconbtntext(
-                      () {
-                        Get.to(() => const OfferZone());
-                      },
-                      mytext('View All', black2, null, 18, FontWeight.bold,
-                          null, null, null, null),
-                     myicon(null, black2, Icons.arrow_forward),
-                     ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
-                    ),
+                    iconbtntext(() {
+                      Get.to(() => const OfferZone());
+                    },
+                        mytext(
+                          data: 'View All',
+                          color: black2,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        myicon(null, black2, Icons.arrow_forward),
+                        ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(commoncolor))),
                   ],
                 ),
                 SizedBox(
@@ -258,23 +265,31 @@ class _HomeState extends State<Home> {
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            child: myicon(null, null, Icons.shopping_cart)),
+                                            child: myicon(null, null,
+                                                Icons.shopping_cart)),
                                         Container(
                                             decoration: BoxDecoration(
                                               color: white,
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            child: myicon(null, null, Icons.visibility_outlined)),
+                                            child: myicon(null, null,
+                                                Icons.visibility_outlined)),
                                       ],
                                     ),
                                   )
                                 ],
                               ),
-                              mytext(_productList[index].name, black1, null, 18,
-                                  null, null, null, null, null),
-                              mytext(_productList[index].price, red, null, 15,
-                                  null, null, null, null, null),
+                              mytext(
+                                data: _productList[index].name,
+                                color: black1,
+                                fontSize: 18,
+                              ),
+                              mytext(
+                                data: _productList[index].price,
+                                color: red,
+                                fontSize: 15,
+                              ),
                             ],
                           ),
                         );
@@ -288,8 +303,11 @@ class _HomeState extends State<Home> {
                   children: [
                     Align(
                       alignment: Alignment.topLeft,
-                      child: mytext('Recently Viewed', null, null, 18,
-                          FontWeight.bold, null, null, null, null),
+                      child: mytext(
+                        data: 'Recently Viewed',
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Container(
                       height: 0.003.sh,
@@ -330,7 +348,11 @@ class _HomeState extends State<Home> {
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                                 color: black),
-                                            child: myicon(null, null, Icons.favorite_border_outlined,)),
+                                            child: myicon(
+                                              null,
+                                              null,
+                                              Icons.favorite_border_outlined,
+                                            )),
                                       ],
                                     ),
                                   ),
@@ -348,23 +370,15 @@ class _HomeState extends State<Home> {
                                             MainAxisAlignment.center,
                                         children: [
                                           mytext(
-                                              _productList[index].name,
-                                              white1,
-                                              null,
-                                              18,
-                                              null,
-                                              null,
-                                              null,
-                                              null, null),
+                                            data: _productList[index].name,
+                                            color: white1,
+                                            fontSize: 18,
+                                          ),
                                           mytext(
-                                              _productList[index].price,
-                                              slightOrange1,
-                                              null,
-                                              15,
-                                              null,
-                                              null,
-                                              null,
-                                              null, null),
+                                            data: _productList[index].price,
+                                            color: slightOrange1,
+                                            fontSize: 15,
+                                          ),
                                         ],
                                       ),
                                     ),
