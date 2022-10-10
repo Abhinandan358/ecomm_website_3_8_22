@@ -2,7 +2,6 @@
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
-import 'package:ecommerce_website_logo3_8_22/views/reg&login/forgotpass.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -199,7 +198,7 @@ class _RegState extends State<Reg> {
                                 phoneCtrl.text, passCtrl.text, cpassCtrl.text);
                           }
                         }, 'Signup'),
-                       
+                        //SizedBox(height: 0.2.sh,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

@@ -12,7 +12,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../bottomnav/help.dart';
 import '../bottomnav/profile.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
