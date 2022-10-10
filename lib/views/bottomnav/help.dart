@@ -30,7 +30,7 @@ class _HelpState extends State<Help> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     mytext('Help', black6, null, 30, FontWeight.bold, null,
-                        null, null),
+                        null, null, null),
                     Image.network(
                         'https://media.istockphoto.com/photos/speech-bubble-with-question-mark-icon-picture-id1395757572?b=1&k=20&m=1395757572&s=170667a&w=0&h=Q70tELhVZfgp0FGLmKWN-3sxOaPRp8ZLy-n9--YTL6c='),
                     TextFormField(
@@ -79,7 +79,7 @@ class _HelpState extends State<Help> {
                     custombtn(() {
                       if (formkey.currentState!.validate()) {
                         var snackbar =  SnackBar(
-                            content: mytext('We are contact with you very soon', null, null, null, null, null, null, null));
+                            content: mytext('We are contact with you very soon', null, null, null, null, null, null, null, null));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       }
                     }, 'Help')

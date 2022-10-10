@@ -37,7 +37,7 @@ class _RegState extends State<Reg> {
         elevation: 0,
         backgroundColor: white,
         title: mytext(
-            'Ecommerce Website', brown, null, null, null, null, null, null),
+            'Ecommerce Website', brown, null, null, null, null, null, null, null),
         actions: [
           IconButton(
               onPressed: () {
@@ -45,7 +45,7 @@ class _RegState extends State<Reg> {
               },
               icon: myicon(null, null, Icons.login)),
           mytext(
-              'Login', black1, null, null, null, null, null, null),
+              'Login', black1, null, null, null, null, null, null, null),
         ],
       ),
       body: SingleChildScrollView(
@@ -59,7 +59,7 @@ class _RegState extends State<Reg> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     mytext('Registration', black1, null, 30, null, null, null,
-                        null),
+                        null, null),
                     TextFormField(
                       controller: nameCtrl,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -163,13 +163,13 @@ class _RegState extends State<Reg> {
                             null,
                             null,
                             null,
-                            null)),
+                            null, null)),
                     TextButton(
                         onPressed: () {
                           Get.to(() => const DashBoardPage());
                         },
                         child: mytext(
-                            'Skip', black2, null, null, null, null, null, null))
+                            'Skip', black2, null, null, null, null, null, null, null))
                   ],
                 ),
               ),

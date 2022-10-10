@@ -73,7 +73,8 @@ class _OfferZoneState extends State<OfferZone> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: mytext('Logo', brown, null, null, null, null, null, null),
+          title:
+              mytext('Logo', brown, null, null, null, null, null, null, null),
           actions: [
             Container(
               width: 0.37.sw,
@@ -101,16 +102,19 @@ class _OfferZoneState extends State<OfferZone> {
             ),
             Stack(
               children: [
-               myiconbutton((){ Get.to(() => const Cart());}, const Icon(Icons.shopping_cart_outlined), null, null, null, null),
+                myiconbutton(() {
+                  Get.to(() => const Cart());
+                }, const Icon(Icons.shopping_cart_outlined), null, null, null,
+                    null),
                 StreamBuilder<int>(
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
                         return mytext('${snapshot.data}', null, null, 20,
-                            FontWeight.bold, null, null, null);
+                            FontWeight.bold, null, null, null, null);
                       } else {
                         return mytext('0', null, null, 20, FontWeight.bold,
-                            null, null, null);
+                            null, null, null, null);
                       }
                     })),
               ],
@@ -130,11 +134,17 @@ class _OfferZoneState extends State<OfferZone> {
               iconbtntext(() {
                 Get.back();
               },
-                  myicon(null, black2, Icons.arrow_back,),
+                  myicon(
+                    null,
+                    black2,
+                    Icons.arrow_back,
+                  ),
                   mytext('Offer Zone', black2, null, 20, FontWeight.bold, null,
-                      null, null)),
+                      null, null, null),
+                  ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(commoncolor))),
               mytext('Grab Before It’s Gone', orange, null, 20, FontWeight.bold,
-                  null, null, null),
+                  null, null, null, null),
               SizedBox(
                 child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -182,6 +192,7 @@ class _OfferZoneState extends State<OfferZone> {
                                             FontWeight.bold,
                                             null,
                                             null,
+                                            null,
                                             null),
                                       ),
                                     ),
@@ -203,7 +214,7 @@ class _OfferZoneState extends State<OfferZone> {
                     }),
               ),
               mytext('Under Budget Best Products', orange, null, 20,
-                  FontWeight.bold, null, null, null),
+                  FontWeight.bold, null, null, null, null),
               SizedBox(
                 height: 0.2.sh,
                 child: ListView.builder(
@@ -228,9 +239,9 @@ class _OfferZoneState extends State<OfferZone> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               mytext(_budgetList[index].under, null, null, 18,
-                                  null, null, null, null),
+                                  null, null, null, null, null),
                               mytext(_budgetList[index].price, null, null, 22,
-                                  FontWeight.bold, null, null, null),
+                                  FontWeight.bold, null, null, null, null),
                             ],
                           ),
                         ),
@@ -241,16 +252,18 @@ class _OfferZoneState extends State<OfferZone> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   mytext('Offers For You', orange, null, 20, FontWeight.bold,
-                      null, null, null),
+                      null, null, null, null),
                   iconbtntext(
                       () {},
-                      mytext(
-                          'View All', black2, null, 18, null, null, null, null),
+                      mytext('View All', black2, null, 18, null, null, null,
+                          null, null),
                       myicon(
                         null,
                         black2,
                         Icons.arrow_forward_ios_outlined,
-                      ))
+                      ),
+                      ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                      )
                 ],
               ),
               SizedBox(
@@ -279,9 +292,9 @@ class _OfferZoneState extends State<OfferZone> {
                               fit: BoxFit.fill,
                             ),
                             mytext(_offerforyouList[index].name, grey2, null,
-                                15, null, null, null, null),
+                                15, null, null, null, null, null),
                             mytext(_offerforyouList[index].uptooff, green, null,
-                                17, null, null, null, null)
+                                17, null, null, null, null, null)
                           ],
                         ),
                       );

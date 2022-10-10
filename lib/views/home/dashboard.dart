@@ -65,7 +65,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: mytext('Logo', brown, null, null, null, null, null, null),
+          title: mytext('Logo', brown, null, null, null, null, null, null, null),
           actions: [
             Container(
               width: 0.37.sw,
@@ -102,10 +102,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
                         return mytext('${snapshot.data}', null, null, 20,
-                            FontWeight.bold, null, null, null);
+                            FontWeight.bold, null, null, null, null);
                       } else {
                         return mytext('0', null, null, 20, FontWeight.bold,
-                            null, null, null);
+                            null, null, null, null);
                       }
                     })),
               ],

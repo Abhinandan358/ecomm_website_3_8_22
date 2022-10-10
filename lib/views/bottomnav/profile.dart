@@ -67,10 +67,10 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             mytext('Abhinandan Mandal', null, null, 25, FontWeight.bold, null,
-                null, null),
+                null, null, null),
             mytext('Flutter Software Engineer', grey, null, 25, null, null,
-                null, null),
-            mytext('Follow Me', null, null, 20, null, null, null, null),
+                null, null, null),
+            mytext('Follow Me', null, null, 20, null, null, null, null, null),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -116,9 +116,9 @@ class _ProfileState extends State<Profile> {
                   },
                   child: Column(
                     children: [
-                      mytext('40', null, null, 25, null, null, null, null),
+                      mytext('40', null, null, 25, null, null, null, null, null),
                       mytext(
-                          'Projects', null, null, 22, null, null, null, null),
+                          'Projects', null, null, 22, null, null, null, null, null),
                     ],
                   ),
                 ),
@@ -126,9 +126,9 @@ class _ProfileState extends State<Profile> {
                   onTap: () {Get.to(()=>const FetchSizeApi());},
                   child: Column(
                     children: [
-                      mytext('529', null, null, 25, null, null, null, null),
+                      mytext('529', null, null, 25, null, null, null, null, null),
                       mytext(
-                          'Following', null, null, 22, null, null, null, null),
+                          'Following', null, null, 22, null, null, null, null, null),
                     ],
                   ),
                 ),
@@ -136,16 +136,16 @@ class _ProfileState extends State<Profile> {
                   onTap: () {},
                   child: Column(
                     children: [
-                      mytext('5834', null, null, 25, null, null, null, null),
+                      mytext('5834', null, null, 25, null, null, null, null, null),
                       mytext(
-                          'Followers', null, null, 22, null, null, null, null),
+                          'Followers', null, null, 22, null, null, null, null, null),
                     ],
                   ),
                 ),
               ],
             ),
             const Divider(thickness: 2),
-            mytext('About', null, null, 20, null, null, null, null),
+            mytext('About', null, null, 20, null, null, null, null, null),
             mytext(
                 'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
                 grey1,
@@ -154,7 +154,7 @@ class _ProfileState extends State<Profile> {
                 null,
                 null,
                 null,
-                null),
+                null, null),
           ],
         ),
       ),

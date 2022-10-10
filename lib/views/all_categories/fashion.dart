@@ -38,7 +38,7 @@ class _FashionState extends State<Fashion> {
         appBar: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title: mytext('Logo', brown, null, null, null, null, null, null),
+          title: mytext('Logo', brown, null, null, null, null, null, null,null),
           actions: [
             Container(
               width: 0.37.sw,
@@ -75,10 +75,10 @@ class _FashionState extends State<Fashion> {
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
                         return mytext('${snapshot.data}', null, null, 20,
-                            FontWeight.bold, null, null, null);
+                            FontWeight.bold, null, null, null,null);
                       } else {
                         return mytext('0', null, null, 20, FontWeight.bold,
-                            null, null, null);
+                            null, null, null,null);
                       }
                     })),
               ],
@@ -190,15 +190,14 @@ class _FashionState extends State<Fashion> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    iconbtntext(
-                        () {},
-                        myicon(
+                    
+                    iconbtntext(() {}, myicon(
                           null,
                           black6,
                           Icons.arrow_back,
-                        ),
+                        ), 
                         mytext('Fashion', black6, null, null, FontWeight.bold,
-                            null, null, null)),
+                            null, null, null,null), ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))),
                     SizedBox(
                       height: 0.18.sh,
                       child: ListView.builder(
@@ -238,9 +237,9 @@ class _FashionState extends State<Fashion> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   mytext('sports shoes, sneakers...', null,
-                                      null, 18, null, null, null, null),
+                                      null, 18, null, null, null, null,null),
                                   mytext('up to 40% off', null, null, 20,
-                                      FontWeight.bold, null, null, null)
+                                      FontWeight.bold, null, null, null,null)
                                 ],
                               ),
                             ),
@@ -252,16 +251,18 @@ class _FashionState extends State<Fashion> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         mytext('Favourite To All!', orange, null, 20,
-                            FontWeight.bold, null, null, null),
+                            FontWeight.bold, null, null, null,null),
                         iconbtntext(
                             () {},
                             mytext('View All', black2, null, 18, null, null,
-                                null, null),
+                                null, null,null),
                             myicon(
                               null,
                               black2,
                               Icons.arrow_forward_ios_outlined,
-                            ))
+                            ),
+                            ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                            )
                       ],
                     ),
                     SizedBox(
@@ -291,9 +292,9 @@ class _FashionState extends State<Fashion> {
                                     fit: BoxFit.fill,
                                   ),
                                   mytext(_offerforyouList[index].name, grey2,
-                                      null, 15, null, null, null, null),
+                                      null, 15, null, null, null, null,null),
                                   mytext(_offerforyouList[index].uptooff, green,
-                                      null, 17, null, null, null, null)
+                                      null, 17, null, null, null, null,null)
                                 ],
                               ),
                             );
@@ -305,7 +306,7 @@ class _FashionState extends State<Fashion> {
                       Positioned(
                           bottom: 30,
                           child: mytext('Little Girls Dresses', white6, null,
-                              20, FontWeight.bold, null, null, null)),
+                              20, FontWeight.bold, null, null, null,null)),
                       Positioned(
                           bottom: 0,
                           child: mytext(
@@ -316,7 +317,7 @@ class _FashionState extends State<Fashion> {
                               null,
                               null,
                               null,
-                              null)),
+                              null,null)),
                     ]),
                   ],
                 ),

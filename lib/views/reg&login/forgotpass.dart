@@ -23,7 +23,7 @@ class _ForgotPassState extends State<ForgotPass> {
           elevation: 0,
           backgroundColor: white,
           title:  mytext('Forgot Password', brown, null, null,
-                            null, null, null, null)),
+                            null, null, null, null, null)),
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(

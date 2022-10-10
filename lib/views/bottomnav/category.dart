@@ -85,7 +85,9 @@ class _CategoryState extends State<Category> {
                     Icons.arrow_back,
                   ),
                   mytext('All Categories', black2, null, 18, FontWeight.bold,
-                      null, null, null)),
+                      null, null, null, null),
+                      ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                      ),
               FutureBuilder<List<CategoryData>>(
                   future: _future,
                   builder: ((context, snapshot) {
@@ -139,7 +141,7 @@ class _CategoryState extends State<Category> {
                                       FontWeight.bold,
                                       null,
                                       null,
-                                      null),
+                                      null, null),
                                 ],
                               );
                             }),
@@ -147,7 +149,7 @@ class _CategoryState extends State<Category> {
                     } else if (snapshot.hasError) {
                       return Center(
                           child: mytext('404 Page Not Found', null, null, 20,
-                              FontWeight.bold, null, null, null));
+                              FontWeight.bold, null, null, null, null));
                     } else {
                       return Padding(
                         padding: const EdgeInsets.only(top: 200),

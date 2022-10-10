@@ -38,9 +38,9 @@ class _CartState extends State<Cart> {
                   children: [
                     ListTile(
                       leading: mytext('Deliver to : ', null, null, 18, null,
-                          null, null, null),
+                          null, null, null, null),
                       title: mytext('Customer Name', null, null, 18,
-                          FontWeight.bold, null, null, null),
+                          FontWeight.bold, null, null, null, null),
                       trailing: myiconbutton(() {
                         showMenu(
                           context: context,
@@ -66,9 +66,9 @@ class _CartState extends State<Cart> {
                     ),
                     ListTile(
                       leading: mytext(
-                          'Address : ', null, null, 18, null, null, null, null),
+                          'Address : ', null, null, 18, null, null, null, null, null),
                       title: mytext('Customer’s Full Address', null, null, 18,
-                          FontWeight.bold, null, null, null),
+                          FontWeight.bold, null, null, null, null),
                     )
                   ],
                 ),
@@ -127,7 +127,7 @@ class _CartState extends State<Cart> {
                                                     null,
                                                     null,
                                                     null,
-                                                    null),
+                                                    null, null),
                                                 SizedBox(
                                                   width: 0.85.sw,
                                                   child: ElevatedButton(
@@ -144,7 +144,7 @@ class _CartState extends State<Cart> {
                                                           null,
                                                           null,
                                                           null,
-                                                          null)),
+                                                          null, null)),
                                                 )
                                               ],
                                             ),
@@ -169,7 +169,7 @@ class _CartState extends State<Cart> {
                                         FontWeight.bold,
                                         null,
                                         null,
-                                        null),
+                                        null, null),
                                     items: [
                                       DropdownMenuItem(
                                         value: 'first',
@@ -181,7 +181,7 @@ class _CartState extends State<Cart> {
                                             FontWeight.bold,
                                             null,
                                             null,
-                                            null),
+                                            null, null),
                                       ),
                                       DropdownMenuItem(
                                         value: 'second',
@@ -193,7 +193,7 @@ class _CartState extends State<Cart> {
                                             FontWeight.bold,
                                             null,
                                             null,
-                                            null),
+                                            null, null),
                                       ),
                                       DropdownMenuItem(
                                         value: 'third',
@@ -205,7 +205,7 @@ class _CartState extends State<Cart> {
                                             FontWeight.bold,
                                             null,
                                             null,
-                                            null),
+                                            null, null),
                                       ),
                                       DropdownMenuItem(
                                         value: 'fourth',
@@ -217,7 +217,7 @@ class _CartState extends State<Cart> {
                                             FontWeight.bold,
                                             null,
                                             null,
-                                            null),
+                                            null, null),
                                       ),
                                       DropdownMenuItem(
                                         value: 'fifth',
@@ -229,7 +229,7 @@ class _CartState extends State<Cart> {
                                             FontWeight.bold,
                                             null,
                                             null,
-                                            null),
+                                            null, null),
                                       ),
                                       DropdownMenuItem(
                                         value: 'sixth',
@@ -241,7 +241,7 @@ class _CartState extends State<Cart> {
                                             FontWeight.bold,
                                             null,
                                             null,
-                                            null),
+                                            null, null),
                                       ),
                                     ],
                                     onChanged: (value) {
@@ -250,7 +250,7 @@ class _CartState extends State<Cart> {
                                       });
                                     }),
                                 mytext(_MycartList[index].pleft, red6, null,
-                                    null, FontWeight.bold, null, null, null)
+                                    null, FontWeight.bold, null, null, null, null)
                               ],
                             ),
                             Column(
@@ -258,9 +258,9 @@ class _CartState extends State<Cart> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 mytext(_MycartList[index].pname, null, null, 18,
-                                    FontWeight.bold, null, null, null),
+                                    FontWeight.bold, null, null, null, null),
                                 mytext(_MycartList[index].size, null, null, 17,
-                                    FontWeight.bold, null, null, null),
+                                    FontWeight.bold, null, null, null, null),
                                 RatingBar.builder(
                                   itemSize: 14,
                                   initialRating: 0,
@@ -283,13 +283,13 @@ class _CartState extends State<Cart> {
                                 Row(
                                   children: [
                                     mytext('₹1499', grey2, null, 17, null, null,
-                                        null, TextDecoration.lineThrough),
+                                        null, TextDecoration.lineThrough, null),
                                     mytext('₹499', grey2, null, 18,
-                                        FontWeight.bold, null, null, null),
+                                        FontWeight.bold, null, null, null, null),
                                   ],
                                 ),
                                 mytext(_MycartList[index].deltime, grey2, null,
-                                    17, FontWeight.bold, null, null, null),
+                                    17, FontWeight.bold, null, null, null, null),
                               ],
                             ),
                             Column(
@@ -299,17 +299,23 @@ class _CartState extends State<Cart> {
                                     () {},
                                    myicon(null, black6,  Icons.download_sharp,),
                                     mytext('Save Later', black6, null, 12, null,
-                                        null, null, null)),
+                                        null, null, null, null),
+                                        ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                                        ),
                                 iconbtntext(
                                     () {},
                                     myicon(null, black6, Icons.delete_outline),
                                     mytext('Remove', black6, null, 12, null,
-                                        null, null, null)),
+                                        null, null, null, null),
+                                        ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                                        ),
                                 iconbtntext(
                                     () {},
                                     myicon(null, black6, Icons.shopping_bag_outlined),
                                     mytext('Buy Now', black6, null, 12, null,
-                                        null, null, null)),
+                                        null, null, null, null),
+                                        ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                                        ),
                               ],
                             ),
                           ],

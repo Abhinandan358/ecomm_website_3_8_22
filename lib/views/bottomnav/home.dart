@@ -151,7 +151,7 @@ class _HomeState extends State<Home> {
                 Align(
                     alignment: Alignment.bottomLeft,
                     child: mytext('Extra Offers to Make you Happy 😊', null,
-                        null, 18, FontWeight.bold, null, null, null)),
+                        null, 18, FontWeight.bold, null, null, null, null)),
                 SizedBox(
                   height: 0.18.sh,
                   child: ListView.builder(
@@ -168,7 +168,7 @@ class _HomeState extends State<Home> {
                                 fit: BoxFit.cover,
                               ),
                               mytext(_offerproductList[index].offerpname, grey,
-                                  null, null, null, null, null, null),
+                                  null, null, null, null, null, null, null),
                               mytext(
                                   _offerproductList[index].offersList,
                                   null,
@@ -177,7 +177,7 @@ class _HomeState extends State<Home> {
                                   FontWeight.bold,
                                   null,
                                   null,
-                                  null),
+                                  null, null),
                             ],
                           ),
                         );
@@ -190,7 +190,7 @@ class _HomeState extends State<Home> {
                     Row(
                       children: [
                         mytext('Popular Products', null, null, 18,
-                            FontWeight.bold, null, null, null),
+                            FontWeight.bold, null, null, null, null),
                         Container(
                           height: 0.003.sh,
                           width: 0.099.sw,
@@ -203,8 +203,9 @@ class _HomeState extends State<Home> {
                         Get.to(() => const OfferZone());
                       },
                       mytext('View All', black2, null, 18, FontWeight.bold,
-                          null, null, null),
+                          null, null, null, null),
                      myicon(null, black2, Icons.arrow_forward),
+                     ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
                     ),
                   ],
                 ),
@@ -271,9 +272,9 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
                               mytext(_productList[index].name, black1, null, 18,
-                                  null, null, null, null),
+                                  null, null, null, null, null),
                               mytext(_productList[index].price, red, null, 15,
-                                  null, null, null, null),
+                                  null, null, null, null, null),
                             ],
                           ),
                         );
@@ -288,7 +289,7 @@ class _HomeState extends State<Home> {
                     Align(
                       alignment: Alignment.topLeft,
                       child: mytext('Recently Viewed', null, null, 18,
-                          FontWeight.bold, null, null, null),
+                          FontWeight.bold, null, null, null, null),
                     ),
                     Container(
                       height: 0.003.sh,
@@ -354,7 +355,7 @@ class _HomeState extends State<Home> {
                                               null,
                                               null,
                                               null,
-                                              null),
+                                              null, null),
                                           mytext(
                                               _productList[index].price,
                                               slightOrange1,
@@ -363,7 +364,7 @@ class _HomeState extends State<Home> {
                                               null,
                                               null,
                                               null,
-                                              null),
+                                              null, null),
                                         ],
                                       ),
                                     ),

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/reg.dart';
@@ -15,31 +17,87 @@ class LoginReg extends StatefulWidget {
 class _LoginRegState extends State<LoginReg> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Image.network(
-              'https://media.istockphoto.com/photos/identity-theft-concept-on-mobile-phone-picture-id1409102261?b=1&k=20&m=1409102261&s=170667a&w=0&h=jbLFjjfHbbhM72iA3C29fVBFSqO9EJwz5UBXrULqh5U=',
-              height: 0.98.sh,
-              width: 1.sw,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 300, left: 10, right: 10),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: commoncolor,
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: const [loginsignup, white])),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(top: 20, bottom: 20, left: 25, right: 25),
+            child: Align(
+              alignment: Alignment.center,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  custombtn(() {
-                    Get.to(() => const Reg());
-                  }, 'Registration'),
-                  const SizedBox(height: 20),
-                  custombtn(() {
-                    Get.to(() => const Login());
-                  }, 'Login')
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: iconbtntext(
+                        () {},
+                        mytext('SKIP', black2, transperant, 20, FontWeight.bold,
+                            null, null, null, null),
+                        Icon(Icons.arrow_forward_ios),
+                        ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(loginsignup))),
+                  ),
+                  Image.asset(
+                    'assets/bg1 6.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                  mytext('Largest Collection of stylish Dress', black2, null,
+                      38, FontWeight.bold, null, null, null, TextAlign.center),
+                  mytext(
+                      'Fashion every Women Deserves Afordable Luxury',
+                      black2,
+                      null,
+                      20,
+                      null,
+                      null,
+                      null,
+                      null,
+                      TextAlign.center),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: custombtn1(
+                            () {},
+                            'Signup',
+                            ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(custombtncolr1),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5))))),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: custombtn1(
+                            () {},
+                            'Signin',
+                            ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.red),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5))))),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

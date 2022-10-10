@@ -50,7 +50,7 @@ class _HomedetailsState extends State<Homedetails> {
           iconTheme: const IconThemeData(color: black2),
           backgroundColor: white,
           title: mytext(
-              'Homedetails', black2, null, null, null, null, null, null)),
+              'Homedetails', black2, null, null, null, null, null, null, null)),
       body: FutureBuilder<List<CategoryColorData>>(
           future: _future,
           builder: (context, snapshot) {
@@ -67,9 +67,9 @@ class _HomedetailsState extends State<Homedetails> {
                       width: 1.sw,
                     ),
                     mytext('Product Name- ${widget.item.name}', black2, null,
-                        25, FontWeight.bold, null, null, null),
+                        25, FontWeight.bold, null, null, null, null),
                     mytext('Product Price- ${widget.item.price}', black2, null,
-                        20, FontWeight.bold, null, null, null),
+                        20, FontWeight.bold, null, null, null, null),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -83,7 +83,7 @@ class _HomedetailsState extends State<Homedetails> {
                                 color: colorList[i]),
                             child: InkWell(
                               onTap: () {},
-                              child: mytext(_categorycolorList[i].Color_Name, colorList2[i], null, 20, FontWeight.bold, null, null,null),
+                              child: mytext(_categorycolorList[i].Color_Name, colorList2[i], null, 20, FontWeight.bold, null, null,null, null),
                             ),
                           ),
                       ],
@@ -93,7 +93,7 @@ class _HomedetailsState extends State<Homedetails> {
               );
             } else if (snapshot.hasError) {
               return  Center(
-                  child: mytext('404 Page Not Found', null, null, 20, FontWeight.bold, null, null, null));
+                  child: mytext('404 Page Not Found', null, null, 20, FontWeight.bold, null, null, null, null));
             } else {
               return Padding(
                 padding: const EdgeInsets.only(top: 200),

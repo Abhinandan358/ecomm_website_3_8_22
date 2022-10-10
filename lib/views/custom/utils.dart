@@ -41,6 +41,8 @@ const Color screenColor = Color.fromRGBO(255, 239, 229, 1);
 const Color blue = Color.fromRGBO(3, 82, 201, 1);
 const Color grey3 = Color.fromARGB(255, 228, 225, 225);
 const Color orange2 = Color.fromRGBO(253, 221, 202, 1);
+const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
+const Color loginsignup = Color.fromRGBO(249,193,161,1);
 //buttons-----
 
 SizedBox custombtn(Function()? onPressed, btntxt) {
@@ -57,11 +59,10 @@ SizedBox custombtn(Function()? onPressed, btntxt) {
           child: Text(btntxt)));
 }
 
-SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label) {
+SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label,ButtonStyle? style,) {
   return SizedBox(
       child: TextButton.icon(
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(commoncolor)),
+          style: style,
           onPressed: onPressed,
           icon: icon,
           label: label));
@@ -76,9 +77,11 @@ Text mytext(
   double? letterSpacing,
   double? wordSpacing,
   TextDecoration? decoration,
+  TextAlign? textAlign,
 ) {
   return Text(
     data,
+    textAlign: textAlign,
     style: TextStyle(
         color: color,
         backgroundColor: backgroundColor,
@@ -101,6 +104,20 @@ IconButton myiconbutton(
   return IconButton(onPressed: onPressed, icon: icon);
 }
 
-Widget myicon( double? size,Color? color,IconData?icon){
-  return Icon(icon,size: size,color: color,);
+Widget myicon(double? size, Color? color, IconData? icon) {
+  return Icon(
+    icon,
+    size: size,
+    color: color,
+  );
+}
+
+SizedBox custombtn1(Function()? onPressed, btntxt,ButtonStyle? style,) {
+  return SizedBox(
+      height: 0.06.sh,
+      width: 0.3.sw,
+      child: ElevatedButton(
+          style: style,
+          onPressed: onPressed,
+          child: Text(btntxt)));
 }

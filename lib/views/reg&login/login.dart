@@ -32,10 +32,10 @@ class _LoginState extends State<Login> {
         elevation: 0,
         backgroundColor: white,
         title: mytext(
-            'Ecommerce Website', brown, null, null, null, null, null, null),
+            'Ecommerce Website', brown, null, null, null, null, null, null, null),
         actions: [
          myiconbutton((){ Get.to(() => const Reg());}, myicon(null, null, Icons.app_registration), null, null, null, null),
-          mytext('Signup', black1, null, null, null, null, null, null)
+          mytext('Signup', black1, null, null, null, null, null, null, null)
         ],
       ),
       body: Form(
@@ -48,7 +48,7 @@ class _LoginState extends State<Login> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    mytext('SignIn', null, null, 30, null, null, null, null),
+                    mytext('SignIn', null, null, 30, null, null, null, null, null),
                     TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       controller: emailCtrl,
@@ -94,13 +94,13 @@ class _LoginState extends State<Login> {
                           Get.to(() => const Reg());
                         },
                         child: mytext('If You no account then go to SignUp',
-                            black2, null, null, null, null, null, null)),
+                            black2, null, null, null, null, null, null, null)),
                     TextButton(
                         onPressed: () {
                           Get.to(() => const ForgotPass());
                         },
                         child: mytext('Forgot Password', black2, null, null,
-                            null, null, null, null))
+                            null, null, null, null, null))
                   ],
                 ),
               ),
