@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
@@ -240,6 +241,19 @@ class _FashionState extends State<Fashion> {
                       color: grey3,
                       child: Column(
                         children: [
+                          // SizedBox(
+                          //   height: 200,
+                          //   child: Swiper(
+                          //       autoplay: true,
+                          //       itemCount: 3,
+                          //       itemBuilder: (context, index) {
+                          //         return Image.asset(
+                          //           'assets/$newList',
+                          //           fit: BoxFit.cover,
+                          //           width: 1.sw,
+                          //         );
+                          //       }),
+                          // ),
                           Image.asset(
                               'assets/mana-akbarzadegan-Y0RB2z12F1A-unsplash (1) 1.png'),
                           Align(
@@ -372,3 +386,9 @@ class OffersForyouModel {
 
   OffersForyouModel(this.img, this.name, this.uptooff);
 }
+
+final List newList = [
+  'mana-akbarzadegan-Y0RB2z12F1A-unsplash (1) 1.png',
+  'p1.jpg',
+  'p2.jpg'
+];

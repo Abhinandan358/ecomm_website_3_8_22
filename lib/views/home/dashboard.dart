@@ -232,16 +232,16 @@ class _DashBoardPageState extends State<DashBoardPage>
                 setState(() {});
               },
               indicator: const UnderlineTabIndicator(
-                  insets: EdgeInsets.only(bottom: kBottomNavigationBarHeight),
-                  borderSide: BorderSide(color: Colors.red, width: 2)),
-              labelColor: Colors.red,
-              unselectedLabelColor: Colors.grey,
+                  insets: EdgeInsets.fromLTRB(5, 55, 5, 55),
+                  borderSide: BorderSide(color: red, width: 3)),
+              labelColor: red,
+              unselectedLabelColor: grey2,
               controller: tabController,
               tabs: const [
                 Tab(
-                  iconMargin: EdgeInsets.only(bottom: 4),
+                  iconMargin: EdgeInsets.only(bottom: 1),
                   icon: Icon(
-                    Icons.home,
+                    Icons.home_outlined,
                   ),
                   child: Text(
                     '',
@@ -249,9 +249,9 @@ class _DashBoardPageState extends State<DashBoardPage>
                   ),
                 ),
                 Tab(
-                  iconMargin: EdgeInsets.only(bottom: 4),
+                  iconMargin: EdgeInsets.only(bottom: 1),
                   icon: Icon(
-                    Icons.category_sharp,
+                    Icons.category_outlined,
                   ),
                   child: Text(
                     '',
@@ -259,7 +259,7 @@ class _DashBoardPageState extends State<DashBoardPage>
                   ),
                 ),
                 Tab(
-                  iconMargin: EdgeInsets.only(bottom: 4),
+                  iconMargin: EdgeInsets.only(bottom: 1),
                   icon: Icon(Icons.shopping_cart_outlined),
                   child: Text(
                     '',
@@ -267,7 +267,7 @@ class _DashBoardPageState extends State<DashBoardPage>
                   ),
                 ),
                 Tab(
-                  iconMargin: EdgeInsets.only(bottom: 4),
+                  iconMargin: EdgeInsets.only(bottom: 1),
                   icon: Icon(Icons.help_outline),
                   child: Text(
                     '',
@@ -275,7 +275,7 @@ class _DashBoardPageState extends State<DashBoardPage>
                   ),
                 ),
                 Tab(
-                  iconMargin: EdgeInsets.only(bottom: 4),
+                  iconMargin: EdgeInsets.only(bottom: 1),
                   icon: Icon(Icons.person_outline),
                   child: Text(
                     '',
