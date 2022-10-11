@@ -32,6 +32,21 @@ class _FashionState extends State<Fashion> {
     OffersForyouModel('assets/shoe1.png', 'Shoes', 'Under ₹ 499'),
     OffersForyouModel('assets/lt.png', 'Ladies T-Shirt', 'buy 2 get 1 free'),
   ];
+
+  static final List<SlideProductModel> _list1 = [
+    SlideProductModel('mana-akbarzadegan-Y0RB2z12F1A-unsplash (1) 1.png'),
+    SlideProductModel('p1.jpg'),
+    SlideProductModel('p2.jpg'),
+  ];
+
+  static final List<SlideProductModel1> _list2 = [
+    SlideProductModel1(
+        'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
+    SlideProductModel1(
+        'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
+    SlideProductModel1(
+        'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -230,7 +245,6 @@ class _FashionState extends State<Fashion> {
                                 child: Image.asset(
                                   _list[index].img,
                                   height: 0.1.sh,
-                                  // width: 0.2.sw,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -241,21 +255,19 @@ class _FashionState extends State<Fashion> {
                       color: grey3,
                       child: Column(
                         children: [
-                          // SizedBox(
-                          //   height: 200,
-                          //   child: Swiper(
-                          //       autoplay: true,
-                          //       itemCount: 3,
-                          //       itemBuilder: (context, index) {
-                          //         return Image.asset(
-                          //           'assets/$newList',
-                          //           fit: BoxFit.cover,
-                          //           width: 1.sw,
-                          //         );
-                          //       }),
-                          // ),
-                          Image.asset(
-                              'assets/mana-akbarzadegan-Y0RB2z12F1A-unsplash (1) 1.png'),
+                          SizedBox(
+                            height: 200,
+                            child: Swiper(
+                                autoplay: true,
+                                itemCount: _list1.length,
+                                itemBuilder: (context, index) {
+                                  return Image.asset(
+                                    'assets/${_list1[index].image}',
+                                    fit: BoxFit.fill,
+                                    width: 1.sw,
+                                  );
+                                }),
+                          ),
                           Align(
                               alignment: Alignment.topRight,
                               child: Image.asset('assets/new 1.png')),
@@ -350,8 +362,19 @@ class _FashionState extends State<Fashion> {
                           }),
                     ),
                     Stack(children: [
-                      Image.network(
-                          'https://media.istockphoto.com/photos/beautiful-child-a-girl-in-a-white-dress-with-a-wreath-of-daisies-on-picture-id1207034841?b=1&k=20&m=1207034841&s=170667a&w=0&h=BNXvQfBFF21KTVeRKMKTG8ZQ-Fk0U8ZqRaPg1gfLId0='),
+                      SizedBox(
+                        height: 200,
+                        child: Swiper(
+                            autoplay: true,
+                            itemCount: _list2.length,
+                            itemBuilder: (context, index) {
+                              return Image.network(
+                                '${_list2[index].image}',
+                                fit: BoxFit.fill,
+                                width: 1.sw,
+                              );
+                            }),
+                      ),
                       Positioned(
                           bottom: 30,
                           child: mytext(
@@ -387,8 +410,16 @@ class OffersForyouModel {
   OffersForyouModel(this.img, this.name, this.uptooff);
 }
 
-final List newList = [
-  'mana-akbarzadegan-Y0RB2z12F1A-unsplash (1) 1.png',
-  'p1.jpg',
-  'p2.jpg'
-];
+class SlideProductModel {
+  // ignore: prefer_typing_uninitialized_variables
+  final image;
+
+  SlideProductModel(this.image);
+}
+
+class SlideProductModel1 {
+  // ignore: prefer_typing_uninitialized_variables
+  final image;
+
+  SlideProductModel1(this.image);
+}
