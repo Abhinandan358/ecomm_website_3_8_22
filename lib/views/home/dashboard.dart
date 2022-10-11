@@ -20,9 +20,11 @@ class DashBoardPage extends StatefulWidget {
   State<DashBoardPage> createState() => _DashBoardPageState();
 }
 
-class _DashBoardPageState extends State<DashBoardPage> {
+class _DashBoardPageState extends State<DashBoardPage>
+    with TickerProviderStateMixin {
   int count = 0;
   bool switchList = true;
+  late TabController tabController;
   final StreamController<int> _streamController = StreamController();
   //--------------------------Image Pickeer start--------------------------
   File? image;
@@ -48,7 +50,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
 // Image picker end----------------------------------------------
 
   // ignore: non_constant_identifier_names
-  int _SelectIndex = 0;
   final List<Widget> _mywidget = [
     const Home(),
     const Category(),
@@ -56,6 +57,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
     const Help(),
     const Profile()
   ];
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 5, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -217,63 +224,71 @@ class _DashBoardPageState extends State<DashBoardPage> {
               ),
             )),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _SelectIndex,
-          selectedItemColor: red,
-          unselectedItemColor: grey2,
-          onTap: (value) {
-            setState(() {
-              _SelectIndex = value;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: myicon(
-                30,
-                null,
-                Icons.home_outlined,
-              ),
-              label: '',
-              backgroundColor: commoncolor,
-            ),
-            BottomNavigationBarItem(
-              icon: myicon(
-                30,
-                null,
-                Icons.category_sharp,
-              ),
-              label: '',
-              backgroundColor: commoncolor,
-            ),
-            BottomNavigationBarItem(
-              icon: myicon(
-                30,
-                null,
-                Icons.shopping_cart_outlined,
-              ),
-              label: '',
-              backgroundColor: commoncolor,
-            ),
-            BottomNavigationBarItem(
-              icon: myicon(
-                30,
-                null,
-                Icons.help_outline,
-              ),
-              label: '',
-              backgroundColor: commoncolor,
-            ),
-            BottomNavigationBarItem(
-              icon: myicon(
-                30,
-                null,
-                Icons.person_outline,
-              ),
-              label: '',
-              backgroundColor: commoncolor,
-            )
-          ]),
-      body: _mywidget[_SelectIndex],
+      bottomNavigationBar: SizedBox(
+        height: kBottomNavigationBarHeight,
+        child: BottomAppBar(
+          child: TabBar(
+              onTap: (index) {
+                setState(() {});
+              },
+              indicator: const UnderlineTabIndicator(
+                  insets: EdgeInsets.only(bottom: kBottomNavigationBarHeight),
+                  borderSide: BorderSide(color: Colors.red, width: 2)),
+              labelColor: Colors.red,
+              unselectedLabelColor: Colors.grey,
+              controller: tabController,
+              tabs: const [
+                Tab(
+                  iconMargin: EdgeInsets.only(bottom: 4),
+                  icon: Icon(
+                    Icons.home,
+                  ),
+                  child: Text(
+                    '',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                Tab(
+                  iconMargin: EdgeInsets.only(bottom: 4),
+                  icon: Icon(
+                    Icons.category_sharp,
+                  ),
+                  child: Text(
+                    '',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                Tab(
+                  iconMargin: EdgeInsets.only(bottom: 4),
+                  icon: Icon(Icons.shopping_cart_outlined),
+                  child: Text(
+                    '',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                Tab(
+                  iconMargin: EdgeInsets.only(bottom: 4),
+                  icon: Icon(Icons.help_outline),
+                  child: Text(
+                    '',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                Tab(
+                  iconMargin: EdgeInsets.only(bottom: 4),
+                  icon: Icon(Icons.person_outline),
+                  child: Text(
+                    '',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                )
+              ]),
+        ),
+      ),
+      body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: tabController,
+          children: _mywidget),
     );
   }
 }

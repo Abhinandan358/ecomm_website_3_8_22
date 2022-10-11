@@ -1,0 +1,56 @@
+BottomNavigationBar(
+          currentIndex: _SelectIndex,
+          selectedItemColor: red,
+          unselectedItemColor: grey2,
+          onTap: (value) {
+            setState(() {
+              _SelectIndex = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                null,
+                Icons.home_outlined,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
+            ),
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                null,
+                Icons.category_sharp,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
+            ),
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                null,
+                Icons.shopping_cart_outlined,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
+            ),
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                null,
+                Icons.help_outline,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
+            ),
+            BottomNavigationBarItem(
+              icon: myicon(
+                30,
+                null,
+                Icons.person_outline,
+              ),
+              label: '',
+              backgroundColor: commoncolor,
+            )
+          ]),
