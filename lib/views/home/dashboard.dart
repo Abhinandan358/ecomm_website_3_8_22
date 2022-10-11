@@ -64,8 +64,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black1),
           backgroundColor: appbar,
-          title:
-              mytext(data:'Logo', color: brown, ),
+          title: mytext(
+            data: 'Logo',
+            color: brown,
+          ),
           actions: [
             Container(
               width: 0.37.sw,
@@ -101,11 +103,17 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     stream: _streamController.stream,
                     builder: ((context, snapshot) {
                       if (snapshot.hasData) {
-                        return mytext(data:'${snapshot.data}',  fontSize: 20,
-                            fontWeight: FontWeight.bold, );
+                        return mytext(
+                          data: '${snapshot.data}',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        );
                       } else {
-                        return mytext(data:'0',fontSize:  20,fontWeight:  FontWeight.bold,
-                           );
+                        return mytext(
+                          data: '0',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        );
                       }
                     })),
               ],
@@ -211,15 +219,18 @@ class _DashBoardPageState extends State<DashBoardPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _SelectIndex,
-          onTap: ((value) {
-            _SelectIndex = value;
-            setState(() {});
-          }),
+          selectedItemColor: red,
+          unselectedItemColor: grey2,
+          onTap: (value) {
+            setState(() {
+              _SelectIndex = value;
+            });
+          },
           items: [
             BottomNavigationBarItem(
               icon: myicon(
                 30,
-                grey2,
+                null,
                 Icons.home_outlined,
               ),
               label: '',
@@ -228,7 +239,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
             BottomNavigationBarItem(
               icon: myicon(
                 30,
-                grey2,
+                null,
                 Icons.category_sharp,
               ),
               label: '',
@@ -237,7 +248,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
             BottomNavigationBarItem(
               icon: myicon(
                 30,
-                grey2,
+                null,
                 Icons.shopping_cart_outlined,
               ),
               label: '',
@@ -246,7 +257,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
             BottomNavigationBarItem(
               icon: myicon(
                 30,
-                grey2,
+                null,
                 Icons.help_outline,
               ),
               label: '',
@@ -255,7 +266,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
             BottomNavigationBarItem(
               icon: myicon(
                 30,
-                grey2,
+                null,
                 Icons.person_outline,
               ),
               label: '',

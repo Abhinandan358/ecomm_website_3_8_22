@@ -28,19 +28,25 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: commoncolor,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: black1),
+        iconTheme: const IconThemeData(color: black2),
         elevation: 0,
         backgroundColor: commoncolor,
+        
       ),
       body: Form(
           key: formkey,
           child: SingleChildScrollView(
             child: Column(
               children: [
-                mytext(data:'Login',  fontSize: 30, fontWeight: FontWeight.bold, 
-                    ),
-                mytext(data:'Welcome Back To your Account', fontSize:  18, 
-                    ),
+                mytext(
+                  data: 'Login',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                mytext(
+                  data: 'Welcome Back To your Account',
+                  fontSize: 18,
+                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -48,9 +54,9 @@ class _LoginState extends State<Login> {
                   height: 0.76.sh,
                   decoration: BoxDecoration(color: login),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:
+                        const EdgeInsets.only(top: 15, left: 20, right: 20),
                     child: Column(
-                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -64,16 +70,18 @@ class _LoginState extends State<Login> {
                           decoration: InputDecoration(
                               fillColor: white,
                               filled: true,
-                              border: InputBorder.none,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.purple),
                               ),
                               contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 15, right: 15),
-                              hintText: 'Write Email'),
+                                  left: 15, bottom: 25, top: 11, right: 15),
+                              labelText: 'E-mail',),
                         ),
-
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _obsecureText,
@@ -87,8 +95,9 @@ class _LoginState extends State<Login> {
                           decoration: InputDecoration(
                               fillColor: white,
                               filled: true,
-                              hintText: 'Write Password',
-                              border: InputBorder.none,
+                              labelText: 'Password',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.purple),
                               ),
@@ -110,7 +119,9 @@ class _LoginState extends State<Login> {
                                   null,
                                   null)),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         custombtn(() {
                           if (formkey.currentState!.validate()) {
                             postData(emailCtrl.text, passCtrl.text);
@@ -120,12 +131,13 @@ class _LoginState extends State<Login> {
                             onPressed: () {
                               Get.to(() => const ForgotPass());
                             },
-                            child:
-                             mytext(data:
-                                'Forgot Password?',color: Color.fromRGBO(6, 25, 197, 1),
-                               )
-                               ),
-                                SizedBox(height: 180,),
+                            child: mytext(
+                              data: 'Forgot Password?',
+                              color: Color.fromRGBO(6, 25, 197, 1),
+                            )),
+                        SizedBox(
+                          height: 180,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -133,8 +145,11 @@ class _LoginState extends State<Login> {
                                 onPressed: () {
                                   Get.to(() => const Reg());
                                 },
-                                child: mytext(data:'Don\'t have account', color:black2,
-                                     fontSize: 16, )),
+                                child: mytext(
+                                  data: 'Don\'t have an Account?',
+                                  color: black2,
+                                  fontSize: 16,
+                                )),
                             custombtn1(() {
                               Get.to(() => const Reg());
                             },

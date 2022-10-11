@@ -1,4 +1,3 @@
-
 // ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
@@ -24,7 +23,7 @@ class _ForgotPassState extends State<ForgotPass> {
     return Scaffold(
       backgroundColor: commoncolor,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: black1),
+        iconTheme: const IconThemeData(color: black2),
         elevation: 0,
         backgroundColor: commoncolor,
       ),
@@ -33,13 +32,13 @@ class _ForgotPassState extends State<ForgotPass> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                mytext(data: 
-                'Forgot Password',
+                mytext(
+                  data: 'Forgot Password',
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
-                mytext(data:
-             
+                mytext(
+                    data:
                         ' Don\'t worry we will handle this situation, please put your registered email ID to continue ',
                     fontSize: 18,
                     textAlign: TextAlign.center),
@@ -50,7 +49,7 @@ class _ForgotPassState extends State<ForgotPass> {
                   height: 0.76.sh,
                   decoration: BoxDecoration(color: login),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(top: 15, left: 20, right: 20 ),
                     child: Column(
                       children: [
                         TextFormField(
@@ -91,7 +90,6 @@ class _ForgotPassState extends State<ForgotPass> {
     );
   }
 
-  // ignore: non_constant_identifier_names
   postData(String Email1) async {
     String url = 'https://demo50.gowebbi.us/api/RegisterApi/ForgetPassword';
     Map<String, dynamic> param = {"Email": emailCtrl.text};

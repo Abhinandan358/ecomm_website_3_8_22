@@ -31,7 +31,7 @@ class _RegState extends State<Reg> {
     return Scaffold(
       backgroundColor: commoncolor,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: black1),
+        iconTheme: const IconThemeData(color: black2),
         elevation: 0,
         backgroundColor: commoncolor,
       ),
@@ -198,7 +198,6 @@ class _RegState extends State<Reg> {
                                 phoneCtrl.text, passCtrl.text, cpassCtrl.text);
                           }
                         }, 'Signup'),
-                        //SizedBox(height: 0.2.sh,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
