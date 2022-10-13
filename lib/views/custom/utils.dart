@@ -42,8 +42,8 @@ const Color blue = Color.fromRGBO(3, 82, 201, 1);
 const Color grey3 = Color.fromARGB(255, 228, 225, 225);
 const Color orange2 = Color.fromRGBO(253, 221, 202, 1);
 const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
-const Color loginsignup = Color.fromRGBO(249,193,161,1);
-const Color login = Color.fromRGBO(255,224,205,1);
+const Color loginsignup = Color.fromRGBO(249, 193, 161, 1);
+const Color login = Color.fromRGBO(255, 224, 205, 1);
 //buttons-----
 
 SizedBox custombtn(Function()? onPressed, btntxt) {
@@ -60,17 +60,19 @@ SizedBox custombtn(Function()? onPressed, btntxt) {
           child: Text(btntxt)));
 }
 
-SizedBox iconbtntext(Function()? onPressed, Widget icon, Widget label,ButtonStyle? style,) {
+SizedBox iconbtntext(
+  Function()? onPressed,
+  Widget icon,
+  Widget label,
+  ButtonStyle? style,
+) {
   return SizedBox(
       child: TextButton.icon(
-          style: style,
-          onPressed: onPressed,
-          icon: icon,
-          label: label));
+          style: style, onPressed: onPressed, icon: icon, label: label));
 }
 
-Text mytext(
-{  required String data,
+Text mytext({
+  required String data,
   Color? color,
   Color? backgroundColor,
   double? fontSize,
@@ -78,8 +80,8 @@ Text mytext(
   double? letterSpacing,
   double? wordSpacing,
   TextDecoration? decoration,
-  TextAlign? textAlign,}
-) {
+  TextAlign? textAlign,
+}) {
   return Text(
     data,
     textAlign: textAlign,
@@ -93,7 +95,7 @@ Text mytext(
         decoration: decoration),
   );
 }
-
+                                    
 IconButton myiconbutton(
   Function()? onPressed,
   Widget icon,
@@ -113,12 +115,79 @@ Widget myicon(double? size, Color? color, IconData? icon) {
   );
 }
 
-SizedBox custombtn1(Function()? onPressed, btntxt,ButtonStyle? style,Color? color) {
+SizedBox custombtn1(
+    Function()? onPressed, btntxt, ButtonStyle? style, Color? color) {
   return SizedBox(
       height: 0.06.sh,
       width: 0.3.sw,
       child: ElevatedButton(
           style: style,
           onPressed: onPressed,
-          child: Text(btntxt,style: TextStyle(color: color),)));
+          child: Text(
+            btntxt,
+            style: TextStyle(color: color),
+          )));
+}
+
+//-----------------------------Textformfield custom---------------------------
+
+TextFormField mytextformfield({
+  Key? key,
+  TextEditingController? controller,
+  String? initialValue,
+  FocusNode? focusNode,
+  InputDecoration? decoration,
+  TextInputType? keyboardType,
+  TextInputAction? textInputAction,
+  TextStyle? style,
+  void Function(String)? onChanged,
+  String? Function(String?)? validator,
+  void Function()? onTap,
+  ScrollPhysics? scrollPhysics,
+  double? cursorHeight,
+  AutovalidateMode? autovalidateMode,
+  bool obscureText = false,
+  String? hintText,
+  labelText,
+  bool? isDense,
+  Widget? suffixIcon,
+  Widget? prefixIcon,
+  Widget? prefix,
+  Widget? suffix,
+  InputBorder? focusedBorder,
+  int? maxLength,
+  EdgeInsetsGeometry? contentPadding,
+}) {
+  return TextFormField(
+    maxLength: maxLength,
+    key: key,
+    controller: controller,
+    initialValue: initialValue,
+    focusNode: focusNode,
+    decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
+        hintText: hintText,
+        labelText: labelText,
+        isDense: isDense,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        prefix: prefix,
+        suffix: suffix,
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.purple, width: 3),
+        ),
+        contentPadding: contentPadding,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    keyboardType: keyboardType,
+    style: style,
+    textInputAction: textInputAction,
+    onChanged: onChanged,
+    validator: validator,
+    onTap: onTap,
+    scrollPhysics: scrollPhysics,
+    cursorHeight: cursorHeight,
+    autovalidateMode: autovalidateMode,
+    obscureText: obscureText,
+  );
 }

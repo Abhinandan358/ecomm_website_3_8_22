@@ -31,7 +31,6 @@ class _LoginState extends State<Login> {
         iconTheme: const IconThemeData(color: black2),
         elevation: 0,
         backgroundColor: commoncolor,
-        
       ),
       body: Form(
           key: formkey,
@@ -58,7 +57,7 @@ class _LoginState extends State<Login> {
                         const EdgeInsets.only(top: 15, left: 20, right: 20),
                     child: Column(
                       children: [
-                        TextFormField(
+                        mytextformfield(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: emailCtrl,
                           validator: ((value) {
@@ -68,21 +67,22 @@ class _LoginState extends State<Login> {
                             return null;
                           }),
                           decoration: InputDecoration(
-                              fillColor: white,
-                              filled: true,
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 11, right: 15),
-                              labelText: 'E-mail',),
+                            fillColor: white,
+                            filled: true,
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.purple),
+                            ),
+                            contentPadding: EdgeInsets.only(
+                                left: 15, bottom: 25, top: 11, right: 15),
+                            labelText: 'E-mail',
+                          ),
                         ),
                         SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
+                        mytextformfield(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _obsecureText,
                           controller: passCtrl,

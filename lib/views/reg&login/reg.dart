@@ -80,27 +80,27 @@ class _RegState extends State<Reg> {
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15)),
                         ),
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          controller: emailCtrl,
-                          validator: ((value) {
-                            if (value!.isEmpty) {
-                              return "Please provide only your registered emailid";
-                            }
-                            return null;
-                          }),
-                          decoration: InputDecoration(
-                              fillColor: white,
-                              filled: true,
-                              border: InputBorder.none,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 15, right: 15),
-                              hintText: 'Write Email'),
-                        ),
-                        TextFormField(
+                        mytextformfield(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            controller: emailCtrl,
+                            validator: ((value) {
+                              if (value!.isEmpty) {
+                                return "Please provide only your registered emailid";
+                              }
+                              return null;
+                            }),
+                            decoration: InputDecoration(
+                                fillColor: white,
+                                filled: true,
+                                border: InputBorder.none,
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.purple),
+                                ),
+                                contentPadding: EdgeInsets.only(
+                                    left: 15, bottom: 25, top: 15, right: 15),
+                                hintText: 'Write Email')),
+                        mytextformfield(
                           controller: phoneCtrl,
                           keyboardType: TextInputType.phone,
                           maxLength: 10,
@@ -126,7 +126,7 @@ class _RegState extends State<Reg> {
                                 left: 15, bottom: 25, top: 15, right: 15),
                           ),
                         ),
-                        TextFormField(
+                        mytextformfield(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _obsecureText,
                           controller: passCtrl,
@@ -162,7 +162,7 @@ class _RegState extends State<Reg> {
                                   null,
                                   null)),
                         ),
-                        TextFormField(
+                        mytextformfield(
                           controller: cpassCtrl,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _cobsecureText,
