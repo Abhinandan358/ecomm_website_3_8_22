@@ -85,7 +85,7 @@ class _OfferZoneState extends State<OfferZone> {
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
                     isDense: true,
-                    hintText: 'Search',
+                    hintText: '',
                     fillColor: appbarSearch,
                     filled: true,
                     suffixIcon: myiconbutton(
