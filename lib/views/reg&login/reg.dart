@@ -1,13 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
-import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
-import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 
 class Reg extends StatefulWidget {
   const Reg({Key? key}) : super(key: key);
@@ -48,180 +44,6 @@ class _RegState extends State<Reg> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  // mytext(
-                  //   data: 'Sign Up',
-                  //   fontSize: 30,
-                  //   fontWeight: FontWeight.bold,
-                  // ),
-                  // mytext(
-                  //   data: 'Access To Your Account',
-                  //   fontSize: 18,
-                  // ),
-                  // SizedBox(
-                  //   height: 50,
-                  // ),
-                  // Container(
-                  //   height: 0.76.sh,
-                  //   decoration: BoxDecoration(color: login),
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child: Column(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //       children: [
-
-                  // mytextformfield(
-                  //     autovalidateMode:
-                  //         AutovalidateMode.onUserInteraction,
-                  //     controller: emailCtrl,
-                  //     validator: ((value) {
-                  //       if (value!.isEmpty) {
-                  //         return "Please provide only your registered emailid";
-                  //       }
-                  //       return null;
-                  //     }),
-                  //     hintText: 'Write Email',
-                  //     decoration: InputDecoration(
-                  //       fillColor: white,
-                  //       filled: true,
-                  //       border: InputBorder.none,
-                  //       focusedBorder: UnderlineInputBorder(
-                  //         borderSide: BorderSide(color: Colors.purple),
-                  //       ),
-                  //       contentPadding: EdgeInsets.only(
-                  //           left: 15, bottom: 25, top: 15, right: 15),
-                  //     )),
-                  // mytextformfield(
-                  //   controller: phoneCtrl,
-                  //   keyboardType: TextInputType.phone,
-                  //   maxLength: 10,
-                  //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  //   validator: (value) {
-                  //     if (value!.isEmpty) {
-                  //       return "Please provide your Phone Number";
-                  //     } else if (value.length < 10) {
-                  //       return "Atleast 10 digit required";
-                  //     }
-                  //     return null;
-                  //   },
-                  //   hintText: 'Write Phone Number',
-                  //   decoration: const InputDecoration(
-                  //     counterText: "",
-                  //     border: InputBorder.none,
-                  //     fillColor: white,
-                  //     filled: true,
-                  //     focusedBorder: UnderlineInputBorder(
-                  //       borderSide: BorderSide(color: Colors.purple),
-                  //     ),
-                  //     contentPadding: EdgeInsets.only(
-                  //         left: 15, bottom: 25, top: 15, right: 15),
-                  //   ),
-                  // ),
-                  // mytextformfield(
-                  //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  //   obscureText: _obsecureText,
-                  //   controller: passCtrl,
-                  //   validator: ((value) {
-                  //     if (value!.isEmpty) {
-                  //       return "give your password";
-                  //     }
-                  //     return null;
-                  //   }),
-                  //   suffixIcon: myiconbutton(() {
-                  //     setState(() {
-                  //       _obsecureText = !_obsecureText;
-                  //     });
-                  //   },
-                  //       myicon(
-                  //           null,
-                  //           null,
-                  //           _obsecureText
-                  //               ? Icons.visibility
-                  //               : Icons.visibility_off),
-                  //       null,
-                  //       null,
-                  //       null,
-                  //       null),
-                  //   hintText: 'Write Password',
-                  //   decoration: InputDecoration(
-                  //     fillColor: white,
-                  //     filled: true,
-                  //     border: InputBorder.none,
-                  //     focusedBorder: UnderlineInputBorder(
-                  //       borderSide: BorderSide(color: Colors.purple),
-                  //     ),
-                  //     contentPadding: EdgeInsets.only(
-                  //         left: 15, bottom: 25, top: 11, right: 15),
-                  //   ),
-                  // ),
-                  // mytextformfield(
-                  //   controller: cpassCtrl,
-                  //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  //   obscureText: _cobsecureText,
-                  //   validator: ((value) {
-                  //     if (value!.isEmpty) {
-                  //       return "Confirm your password";
-                  //     }
-                  //     return null;
-                  //   }),
-                  //   suffixIcon: IconButton(
-                  //       onPressed: () {
-                  //         setState(() {
-                  //           _cobsecureText = !_cobsecureText;
-                  //         });
-                  //       },
-                  //       icon: Icon(_cobsecureText
-                  //           ? Icons.visibility
-                  //           : Icons.visibility_off)),
-                  //   hintText: 'Confirm Password',
-                  //   decoration: InputDecoration(
-                  //     border: InputBorder.none,
-                  //     fillColor: white,
-                  //     filled: true,
-                  //     focusedBorder: UnderlineInputBorder(
-                  //       borderSide: BorderSide(color: Colors.purple),
-                  //     ),
-                  //     contentPadding: EdgeInsets.only(
-                  //         left: 15, bottom: 25, top: 15, right: 15),
-                  //   ),
-                  // ),
-                  //         custombtn(() {
-                  //           if (formkey.currentState!.validate()) {
-                  //             postData(nameCtrl.text, emailCtrl.text,
-                  //                 phoneCtrl.text, passCtrl.text, cpassCtrl.text);
-                  //           }
-                  //         }, 'Signup'),
-                  //         Row(
-                  //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //           children: [
-                  //             TextButton(
-                  //                 onPressed: () {
-                  //                   Get.to(() => const Reg());
-                  //                 },
-                  //                 child: mytext(
-                  //                   data: 'Already Have Account? ',
-                  //                   color: black6,
-                  //                   fontSize: 16,
-                  //                 )),
-                  //             custombtn1(() {
-                  //               Get.to(() => const Login());
-                  //             },
-                  //                 'Log In',
-                  //                 ButtonStyle(
-                  //                     shape: MaterialStateProperty.all<
-                  //                             RoundedRectangleBorder>(
-                  //                         RoundedRectangleBorder(
-                  //                             borderRadius:
-                  //                                 BorderRadius.circular(5),
-                  //                             side: BorderSide(color: black6))),
-                  //                     backgroundColor:
-                  //                         MaterialStateProperty.all(login)),
-                  //                 black6)
-                  //           ],
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                   Align(
                       alignment: Alignment.topLeft,
                       child: mytext(
@@ -428,7 +250,6 @@ class _RegState extends State<Reg> {
                           left: 15, bottom: 25, top: 11, right: 15),
                     ),
                   ),
-
                   Align(
                       alignment: Alignment.topLeft,
                       child: RichText(
@@ -639,6 +460,7 @@ class _RegState extends State<Reg> {
                         if (value!.isEmpty) {
                           return 'Zip code provide';
                         }
+                        return null;
                       }),
                   Align(
                       alignment: Alignment.topLeft,
@@ -677,12 +499,46 @@ class _RegState extends State<Reg> {
                           });
                         }),
                   ),
-                  const SizedBox(
-                    height: 5,
+                   SizedBox(
+                    height: 0.03.sh,
                   ),
                   Align(
-                      alignment: Alignment.topLeft,
-                      child: custombtn(() {}, 'Register'))
+                    alignment: Alignment.topLeft,
+                    child: custombtn(() {
+                      // if (formkey.currentState!.validate()) {
+                      //   postData(nameCtrl.text, emailCtrl.text,
+                      //       phoneCtrl.text, passCtrl.text, cpassCtrl.text);
+                      // }
+                    }, 'Signup'),
+                  ),
+                  SizedBox(height:0.03.sh),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Get.to(() => const Reg());
+                          },
+                          child: mytext(
+                            data: 'Already Have Account? ',
+                            color: black6,
+                            fontSize: 16,
+                          )),
+                      custombtn1(() {
+                        Get.to(() => const Login());
+                      },
+                          'Log In',
+                          ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      side: BorderSide(color: black6))),
+                              backgroundColor:
+                                  MaterialStateProperty.all(login)),
+                          black6)
+                    ],
+                  ),
                 ],
               ),
             ),
