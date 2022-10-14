@@ -68,7 +68,7 @@ class _ProfileState extends State<Profile> {
             ),
             mytext(data:'Abhinandan Mandal',  fontSize: 25, fontWeight: FontWeight.bold, ),
                
-            mytext(data:'Flutter Software Engineer', color: grey,  fontSize: 25, ),
+            mytext(data:'Flutter Software Engineer', color: grey4,  fontSize: 25, ),
             mytext(data:'Follow Me',  fontSize: 20, ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

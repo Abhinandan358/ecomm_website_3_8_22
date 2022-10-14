@@ -44,6 +44,9 @@ const Color orange2 = Color.fromRGBO(253, 221, 202, 1);
 const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
 const Color loginsignup = Color.fromRGBO(249, 193, 161, 1);
 const Color login = Color.fromRGBO(255, 224, 205, 1);
+const Color grey4 = Color.fromRGBO(133, 133, 133, 1);
+const Color commonback = Color.fromRGBO(255, 239, 229, 1);
+
 //buttons-----
 
 SizedBox custombtn(Function()? onPressed, btntxt) {
@@ -95,7 +98,7 @@ Text mytext({
         decoration: decoration),
   );
 }
-                                    
+
 IconButton myiconbutton(
   Function()? onPressed,
   Widget icon,
@@ -157,6 +160,13 @@ TextFormField mytextformfield({
   InputBorder? focusedBorder,
   int? maxLength,
   EdgeInsetsGeometry? contentPadding,
+  Color? color,
+  Color? backgroundColor,
+  double? fontSize,
+  FontWeight? fontWeight,
+  FontStyle? fontStyle,
+  double? letterSpacing,
+  double? wordSpacing,
 }) {
   return TextFormField(
     maxLength: maxLength,
@@ -178,9 +188,16 @@ TextFormField mytextformfield({
           borderSide: BorderSide(color: Colors.purple, width: 3),
         ),
         contentPadding: contentPadding,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+        border: const OutlineInputBorder()),
     keyboardType: keyboardType,
-    style: style,
+    style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+        backgroundColor: backgroundColor,
+        fontStyle: fontStyle,
+        letterSpacing: letterSpacing,
+        wordSpacing: wordSpacing),
     textInputAction: textInputAction,
     onChanged: onChanged,
     validator: validator,

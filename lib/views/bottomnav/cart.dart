@@ -1,4 +1,4 @@
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
+
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';

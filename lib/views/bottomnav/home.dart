@@ -172,7 +172,7 @@ class _HomeState extends State<Home> {
                               ),
                               mytext(
                                 data: _offerproductList[index].offerpname,
-                                color: grey,
+                                color: grey4,
                               ),
                               mytext(
                                 data: _offerproductList[index].offersList,

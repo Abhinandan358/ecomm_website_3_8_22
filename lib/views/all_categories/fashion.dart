@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/cupertino.dart';

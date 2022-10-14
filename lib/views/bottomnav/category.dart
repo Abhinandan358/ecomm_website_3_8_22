@@ -6,7 +6,6 @@ import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:ecommerce_website_logo3_8_22/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';

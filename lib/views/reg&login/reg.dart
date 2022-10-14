@@ -60,7 +60,7 @@ class _RegState extends State<Reg> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TextFormField(
+                        mytextformfield(
                           controller: nameCtrl,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) {
@@ -69,8 +69,8 @@ class _RegState extends State<Reg> {
                             }
                             return null;
                           },
+                          hintText: 'Write Name',
                           decoration: const InputDecoration(
-                              hintText: 'Write Name',
                               fillColor: white,
                               filled: true,
                               border: InputBorder.none,
@@ -90,16 +90,17 @@ class _RegState extends State<Reg> {
                               }
                               return null;
                             }),
+                            hintText: 'Write Email',
                             decoration: InputDecoration(
-                                fillColor: white,
-                                filled: true,
-                                border: InputBorder.none,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.purple),
-                                ),
-                                contentPadding: EdgeInsets.only(
-                                    left: 15, bottom: 25, top: 15, right: 15),
-                                hintText: 'Write Email')),
+                              fillColor: white,
+                              filled: true,
+                              border: InputBorder.none,
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.purple),
+                              ),
+                              contentPadding: EdgeInsets.only(
+                                  left: 15, bottom: 25, top: 15, right: 15),
+                            )),
                         mytextformfield(
                           controller: phoneCtrl,
                           keyboardType: TextInputType.phone,
@@ -113,9 +114,9 @@ class _RegState extends State<Reg> {
                             }
                             return null;
                           },
+                          hintText: 'Write Phone Number',
                           decoration: const InputDecoration(
                             counterText: "",
-                            hintText: 'Write Phone Number',
                             border: InputBorder.none,
                             fillColor: white,
                             filled: true,
@@ -136,31 +137,32 @@ class _RegState extends State<Reg> {
                             }
                             return null;
                           }),
+                          suffixIcon: myiconbutton(() {
+                            setState(() {
+                              _obsecureText = !_obsecureText;
+                            });
+                          },
+                              myicon(
+                                  null,
+                                  null,
+                                  _obsecureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                              null,
+                              null,
+                              null,
+                              null),
+                          hintText: 'Write Password',
                           decoration: InputDecoration(
-                              fillColor: white,
-                              filled: true,
-                              hintText: 'Write Password',
-                              border: InputBorder.none,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 11, right: 15),
-                              suffixIcon: myiconbutton(() {
-                                setState(() {
-                                  _obsecureText = !_obsecureText;
-                                });
-                              },
-                                  myicon(
-                                      null,
-                                      null,
-                                      _obsecureText
-                                          ? Icons.visibility
-                                          : Icons.visibility_off),
-                                  null,
-                                  null,
-                                  null,
-                                  null)),
+                            fillColor: white,
+                            filled: true,
+                            border: InputBorder.none,
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.purple),
+                            ),
+                            contentPadding: EdgeInsets.only(
+                                left: 15, bottom: 25, top: 11, right: 15),
+                          ),
                         ),
                         mytextformfield(
                           controller: cpassCtrl,
@@ -172,25 +174,26 @@ class _RegState extends State<Reg> {
                             }
                             return null;
                           }),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _cobsecureText = !_cobsecureText;
+                                });
+                              },
+                              icon: Icon(_cobsecureText
+                                  ? Icons.visibility
+                                  : Icons.visibility_off)),
+                          hintText: 'Confirm Password',
                           decoration: InputDecoration(
-                              border: InputBorder.none,
-                              fillColor: white,
-                              filled: true,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 15, right: 15),
-                              hintText: 'Confirm Password',
-                              suffixIcon: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _cobsecureText = !_cobsecureText;
-                                    });
-                                  },
-                                  icon: Icon(_cobsecureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off))),
+                            border: InputBorder.none,
+                            fillColor: white,
+                            filled: true,
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.purple),
+                            ),
+                            contentPadding: EdgeInsets.only(
+                                left: 15, bottom: 25, top: 15, right: 15),
+                          ),
                         ),
                         custombtn(() {
                           if (formkey.currentState!.validate()) {

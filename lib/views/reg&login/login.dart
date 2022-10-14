@@ -60,6 +60,7 @@ class _LoginState extends State<Login> {
                         mytextformfield(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: emailCtrl,
+                          hintText: 'E-Mail',
                           validator: ((value) {
                             if (value!.isEmpty) {
                               return "Please provide only your registered emailid";
@@ -86,38 +87,40 @@ class _LoginState extends State<Login> {
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _obsecureText,
                           controller: passCtrl,
+                          hintText: 'Password',
                           validator: ((value) {
                             if (value!.isEmpty) {
                               return "give your password";
                             }
                             return null;
                           }),
+                          suffixIcon: myiconbutton(() {
+                            setState(() {
+                              _obsecureText = !_obsecureText;
+                            });
+                          },
+                              myicon(
+                                  null,
+                                  null,
+                                  _obsecureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                              null,
+                              null,
+                              null,
+                              null),
                           decoration: InputDecoration(
-                              fillColor: white,
-                              filled: true,
-                              labelText: 'Password',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 11, right: 15),
-                              suffixIcon: myiconbutton(() {
-                                setState(() {
-                                  _obsecureText = !_obsecureText;
-                                });
-                              },
-                                  myicon(
-                                      null,
-                                      null,
-                                      _obsecureText
-                                          ? Icons.visibility
-                                          : Icons.visibility_off),
-                                  null,
-                                  null,
-                                  null,
-                                  null)),
+                            fillColor: white,
+                            filled: true,
+                            labelText: 'Password',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.purple),
+                            ),
+                            contentPadding: EdgeInsets.only(
+                                left: 15, bottom: 25, top: 11, right: 15),
+                          ),
                         ),
                         SizedBox(
                           height: 20,
