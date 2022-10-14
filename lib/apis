@@ -1,10 +1,14 @@
 signup - https://demo50.gowebbi.us/api/RegisterApi/UserRegister
+
 login - https://demo50.gowebbi.us/api/RegisterApi/Login
+
 forgot - https://demo50.gowebbi.us/api/RegisterApi/ForgetPassword
+
 FetchCategory - https://demo50.gowebbi.us/api/MasterApi/FetchCategory
+
 FetchColor - https://demo50.gowebbi.us/api/MasterApi/FetchColor
 
-CategoryAginstSubcategory - https://demo50.gowebbi.us/api/MasterApi/CategoryAginstSubcategory
+CategoryAginstSubcategory - https://demo50.gowebbi.us/api/MasterApi/
 
 FetchCompany- https://demo50.gowebbi.us/api/MasterApi/FetchCompany
 
@@ -16,4 +20,4 @@ FetchUnit - https://demo50.gowebbi.us/api/MasterApi/FetchUnit
 
 FetchTax - https://demo50.gowebbi.us/api/MasterApi/FetchTax
 
- TaxAginstSubtax - https://demo50.gowebbi.us/api/MasterApi/TaxAginstSubtax
+TaxAginstSubtax - https://demo50.gowebbi.us/api/MasterApi/TaxAginstSubtax

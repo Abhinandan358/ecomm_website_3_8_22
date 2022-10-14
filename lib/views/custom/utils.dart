@@ -24,9 +24,6 @@ const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
 const Color commonback = Color.fromRGBO(255, 239, 229, 1);
 const Color blacktransparnt = Color.fromARGB(255, 49, 49, 49);
 
-
-
-
 //buttons-----
 
 SizedBox custombtn({required Function()? onPressed, required btntxt,MaterialStateProperty<Color?>? overlayColor,}) {
