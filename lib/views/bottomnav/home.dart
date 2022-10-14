@@ -347,7 +347,7 @@ class _HomeState extends State<Home> {
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(20),
-                                                color: black6),
+                                                color: grey),
                                             child: myicon(
                                               null,
                                               null,

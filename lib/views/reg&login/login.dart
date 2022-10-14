@@ -20,7 +20,7 @@ class _LoginState extends State<Login> {
   bool _obsecureText = true;
   var formkey = GlobalKey<FormState>();
   String? dropdown;
-  String? dropdown1;
+  bool checkbox = false;
   TextEditingController emailCtrl = TextEditingController();
   TextEditingController passCtrl = TextEditingController();
 
@@ -36,181 +36,211 @@ class _LoginState extends State<Login> {
       body: Form(
           key: formkey,
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: mytext(
-                          data: 'Login',
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: red6)),
-                  const SizedBox(height: 20),
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: RichText(
-                          text: mytextspan(
-                              text: 'EMAIL ADDRESS',
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              children: [
-                            mytextspan(
-                                text: '*',
-                                color: red6,
-                                fontWeight: FontWeight.bold)
-                          ]))),
-                  mytextformfield(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      controller: emailCtrl,
-                      validator: ((value) {
-                        if (value!.isEmpty) {
-                          return "Please provide only your registered emailid";
-                        }
-                        return null;
-                      }),
-                      hintText: 'Write Email',
-                      decoration: const InputDecoration(
-                        fillColor: white,
-                        filled: true,
-                        border: InputBorder.none,
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.purple),
+            child: Column(
+              children: [
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: mytext(
+                        data: 'Login',
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: red6)),
+                         Align(
+                            alignment: Alignment.topLeft,
+                            child: mytext(
+                                data: 'Welcome Back To your Account',
+                                fontSize: 20,
+                                color: black6)),
+                Container(
+                  height: 0.9.sh,
+                  color: red6,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                       
+                        const SizedBox(height: 20),
+                        Align(
+                            alignment: Alignment.topLeft,
+                            child: RichText(
+                                text: mytextspan(
+                                    text: 'EMAIL ADDRESS',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    children: [
+                                  mytextspan(
+                                      text: '*',
+                                      color: red6,
+                                      fontWeight: FontWeight.bold)
+                                ]))),
+                        mytextformfield(
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            controller: emailCtrl,
+                            validator: ((value) {
+                              if (value!.isEmpty) {
+                                return "Please provide only your registered emailid";
+                              }
+                              return null;
+                            }),
+                            hintText: 'Write Email',
+                            decoration: const InputDecoration(
+                              fillColor: white,
+                              filled: true,
+                              border: InputBorder.none,
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.purple),
+                              ),
+                              contentPadding: EdgeInsets.only(
+                                  left: 15, bottom: 25, top: 15, right: 15),
+                            )),
+                        Align(
+                            alignment: Alignment.topLeft,
+                            child: RichText(
+                                text: mytextspan(
+                                    text: 'PASSWORD',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    children: [
+                                  mytextspan(
+                                      text: '*',
+                                      color: red6,
+                                      fontWeight: FontWeight.bold)
+                                ]))),
+                        mytextformfield(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          obscureText: _obsecureText,
+                          controller: passCtrl,
+                          validator: ((value) {
+                            if (value!.isEmpty) {
+                              return "give your password";
+                            }
+                            return null;
+                          }),
+                          suffixIcon: myiconbutton(() {
+                            setState(() {
+                              _obsecureText = !_obsecureText;
+                            });
+                          },
+                              myicon(
+                                  null,
+                                  null,
+                                  _obsecureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                              null,
+                              null,
+                              null,
+                              null),
+                          hintText: 'Write Password',
+                          decoration: InputDecoration(
+                            fillColor: white,
+                            filled: true,
+                            border: InputBorder.none,
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.purple),
+                            ),
+                            contentPadding: EdgeInsets.only(
+                                left: 15, bottom: 25, top: 11, right: 15),
+                          ),
                         ),
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 25, top: 15, right: 15),
-                      )),
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: RichText(
-                          text: mytextspan(
-                              text: 'PASSWORD',
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              children: [
-                            mytextspan(
-                                text: '*',
-                                color: red6,
-                                fontWeight: FontWeight.bold)
-                          ]))),
-                  mytextformfield(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    obscureText: _obsecureText,
-                    controller: passCtrl,
-                    validator: ((value) {
-                      if (value!.isEmpty) {
-                        return "give your password";
-                      }
-                      return null;
-                    }),
-                    suffixIcon: myiconbutton(() {
-                      setState(() {
-                        _obsecureText = !_obsecureText;
-                      });
-                    },
-                        myicon(
-                            null,
-                            null,
-                            _obsecureText
-                                ? Icons.visibility
-                                : Icons.visibility_off),
-                        null,
-                        null,
-                        null,
-                        null),
-                    hintText: 'Write Password',
-                    decoration: InputDecoration(
-                      fillColor: white,
-                      filled: true,
-                      border: InputBorder.none,
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.purple),
-                      ),
-                      contentPadding: EdgeInsets.only(
-                          left: 15, bottom: 25, top: 11, right: 15),
+                        Align(
+                            alignment: Alignment.topLeft,
+                            child: RichText(
+                                text: mytextspan(
+                                    text: 'USER TYPE',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    children: [
+                                  mytextspan(
+                                      text: '*',
+                                      color: red6,
+                                      fontWeight: FontWeight.bold)
+                                ]))),
+                        DropdownButtonFormField(
+                            value: dropdown,
+                            isExpanded: true,
+                            focusColor: white,
+                            icon: const SizedBox.shrink(),
+                            hint: mytext(data: 'SELECT'),
+                            decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide.none)),
+                            items: [
+                              DropdownMenuItem(
+                                  value: 'vendor', child: mytext(data: 'Vendor')),
+                              DropdownMenuItem(
+                                  value: 'buyer', child: mytext(data: 'Buyer')),
+                            ],
+                            onChanged: (value) {
+                              setState(() {
+                                dropdown = value as String;
+                              });
+                            }),
+                        SizedBox(
+                          height: 0.05.sh,
+                        ),
+                        custombtn(
+                            onPressed: () {},
+                            btntxt: 'Login',
+                            overlayColor:
+                                MaterialStateProperty.resolveWith<Color>(
+                                    (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.hovered)) {
+                                return Colors.blue;
+                              }
+                              return Colors.black;
+                            })),
+                        SizedBox(
+                          height: 0.02.sh,
+                        ),
+                        mytext(data: 'Forgot Password?', color: blue),
+                        CheckboxListTile(
+                          checkColor: blue,
+                          contentPadding: EdgeInsets.symmetric(horizontal: 85),
+                          value: checkbox,
+                          onChanged: (val) {
+                            setState(() {
+                              checkbox = val ?? false;
+                            });
+                          },
+                          title: mytext(data: 'Remember Me'),
+                          controlAffinity: ListTileControlAffinity.leading,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  Get.to(() => const Reg());
+                                },
+                                child: mytext(
+                                  data: 'Don\'t have an Account?',
+                                  color: black6,
+                                  fontSize: 16,
+                                )),
+                            custombtn1(() {
+                              Get.to(() => const Reg());
+                            },
+                                'Signup',
+                                ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            side: BorderSide(color: black6))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(login)),
+                                black6)
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: RichText(
-                          text: mytextspan(
-                              text: 'USER TYPE',
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              children: [
-                            mytextspan(
-                                text: '*',
-                                color: red6,
-                                fontWeight: FontWeight.bold)
-                          ]))),
-                  DropdownButtonFormField(
-                      value: dropdown,
-                      isExpanded: true,
-                      focusColor: white,
-                      icon: const SizedBox.shrink(),
-                      hint: mytext(data: 'SELECT'),
-                      decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:
-                              OutlineInputBorder(borderSide: BorderSide.none)),
-                      items: [
-                        DropdownMenuItem(
-                            value: 'vendor', child: mytext(data: 'Vendor')),
-                        DropdownMenuItem(
-                            value: 'buyer', child: mytext(data: 'Buyer')),
-                      ],
-                      onChanged: (value) {
-                        setState(() {
-                          dropdown = value as String;
-                        });
-                      }),
-                  SizedBox(
-                    height: 0.05.sh,
-                  ),
-                  custombtn(
-                      onPressed: () {},
-                      btntxt: 'Login',
-                      overlayColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered)) {
-                          return Colors.blue;
-                        }
-                        return Colors.black;
-                      })),
-                  SizedBox(
-                    height: 0.02.sh,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            Get.to(() => const Reg());
-                          },
-                          child: mytext(
-                            data: 'Don\'t have an Account?',
-                            color: black6,
-                            fontSize: 16,
-                          )),
-                      custombtn1(() {
-                        Get.to(() => const Reg());
-                      },
-                          'Signup',
-                          ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                      side: BorderSide(color: black6))),
-                              backgroundColor:
-                                  MaterialStateProperty.all(login)),
-                          black6)
-                    ],
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           )),
     );

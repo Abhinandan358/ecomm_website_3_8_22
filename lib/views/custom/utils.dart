@@ -22,6 +22,7 @@ const Color loginsignup = Color.fromRGBO(249, 193, 161, 1);
 const Color slightOrange1 = Color.fromARGB(255, 250, 202, 139);
 const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
 const Color commonback = Color.fromRGBO(255, 239, 229, 1);
+const Color blacktransparnt = Color.fromARGB(255, 49, 49, 49);
 
 
 
