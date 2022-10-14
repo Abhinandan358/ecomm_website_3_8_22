@@ -4,40 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 String? dropdownValue;
 //dropdown end------------------------------------------
 //colors-----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
 const Color appbar = Color.fromRGBO(255, 255, 255, 1);
 const Color grey = Color.fromARGB(239, 143, 141, 141);
 const Color transperant = Colors.transparent;
@@ -56,6 +22,7 @@ const Color loginsignup = Color.fromRGBO(249, 193, 161, 1);
 const Color slightOrange1 = Color.fromARGB(255, 250, 202, 139);
 const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
 const Color commonback = Color.fromRGBO(255, 239, 229, 1);
+
 
 
 
@@ -219,4 +186,39 @@ TextFormField mytextformfield({
     autovalidateMode: autovalidateMode,
     obscureText: obscureText,
   );
+}
+
+
+//--------------rich text-------------------
+
+RichText myrichtxt({
+  required InlineSpan text,
+}) {
+  return RichText(text: text);
+}
+
+//Textspan custom----------------------------------
+TextSpan mytextspan({
+  required String? text,
+  List<InlineSpan>? children,
+  TextStyle? style,
+  Color? color,
+  Color? backgroundColor,
+  double? fontSize,
+  FontWeight? fontWeight,
+  FontStyle? fontStyle,
+  double? letterSpacing,
+  double? wordSpacing,
+}) {
+  return TextSpan(
+      text: text,
+      children: children,
+      style: TextStyle(
+          color: color ?? black6,
+          backgroundColor: backgroundColor,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          fontStyle: fontStyle,
+          letterSpacing: letterSpacing,
+          wordSpacing: wordSpacing));
 }
