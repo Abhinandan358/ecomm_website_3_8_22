@@ -129,7 +129,7 @@ class _HomedetailsState extends State<Homedetails> {
             }
           }),
       bottomNavigationBar: Row(
-        children: [custombtn(() {}, 'Add To Cart')],
+        children: [custombtn(onPressed: (){}, btntxt: 'Add to Cart')],
       ),
     );
   }

@@ -504,12 +504,14 @@ class _RegState extends State<Reg> {
                   ),
                   Align(
                     alignment: Alignment.topLeft,
-                    child: custombtn(() {
-                      // if (formkey.currentState!.validate()) {
-                      //   postData(nameCtrl.text, emailCtrl.text,
-                      //       phoneCtrl.text, passCtrl.text, cpassCtrl.text);
-                      // }
-                    }, 'Signup'),
+                    child: custombtn(onPressed: (){}, btntxt: 'SIGN UP',
+                    overlayColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states){
+                      if(states.contains(MaterialState.hovered)) {
+                        return Colors.blue;
+                      }
+                      return Colors.black;
+                    })
+                    ),
                   ),
                   SizedBox(height:0.03.sh),
                   Row(

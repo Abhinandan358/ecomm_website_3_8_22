@@ -75,13 +75,14 @@ class _HelpState extends State<Help> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20))),
                     ),
-                    custombtn(() {
+                   
+                    custombtn(onPressed: (){
                       if (formkey.currentState!.validate()) {
                         var snackbar =  SnackBar(
                             content: mytext(data:'We are contact with you very soon', ));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       }
-                    }, 'Help')
+                    }, btntxt: 'Help')
                     
                   ],
                 ),

@@ -125,11 +125,10 @@ class _LoginState extends State<Login> {
                         SizedBox(
                           height: 20,
                         ),
-                        custombtn(() {
-                          if (formkey.currentState!.validate()) {
+                       
+                        custombtn(onPressed: (){if (formkey.currentState!.validate()) {
                             postData(emailCtrl.text, passCtrl.text);
-                          }
-                        }, 'Login'),
+                          }}, btntxt: 'Login'),
                         TextButton(
                             onPressed: () {
                               Get.to(() => const ForgotPass());

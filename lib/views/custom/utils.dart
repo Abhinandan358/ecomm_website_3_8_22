@@ -28,12 +28,13 @@ const Color commonback = Color.fromRGBO(255, 239, 229, 1);
 
 //buttons-----
 
-SizedBox custombtn(Function()? onPressed, btntxt) {
+SizedBox custombtn({required Function()? onPressed, required btntxt,MaterialStateProperty<Color?>? overlayColor,}) {
   return SizedBox(
       height: 0.07.sh,
       width: 1.sw,
       child: ElevatedButton(
           style: ButtonStyle(
+            overlayColor: overlayColor,
               backgroundColor: MaterialStateProperty.all(custombtncolr1),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(

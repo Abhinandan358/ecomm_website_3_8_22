@@ -75,11 +75,16 @@ class _ForgotPassState extends State<ForgotPass> {
                         SizedBox(
                           height: 20,
                         ),
-                        custombtn(() {
-                          if (formkey.currentState!.validate()) {
+                        // custombtn(() {
+                        //   if (formkey.currentState!.validate()) {
+                        //     postData(emailCtrl.text);
+                        //   }
+                        // }, 'SEND OTP'),
+                        custombtn(onPressed: (){
+                            if (formkey.currentState!.validate()) {
                             postData(emailCtrl.text);
                           }
-                        }, 'SEND OTP'),
+                        }, btntxt: 'SEND OTP')
                       ],
                     ),
                   ),
