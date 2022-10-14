@@ -69,11 +69,11 @@ class _DashBoardPageState extends State<DashBoardPage>
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
-          iconTheme: const IconThemeData(color: black1),
+          iconTheme: const IconThemeData(color: black6),
           backgroundColor: appbar,
           title: mytext(
             data: 'Logo',
-            color: brown,
+            color: custombtncolr1,
           ),
           actions: [
             Container(
@@ -91,7 +91,7 @@ class _DashBoardPageState extends State<DashBoardPage>
                         () {},
                         const Icon(
                           Icons.search,
-                          color: grey2,
+                          color: grey,
                           size: 25,
                         ),
                         null,
@@ -231,11 +231,11 @@ class _DashBoardPageState extends State<DashBoardPage>
               onTap: (index) {
                 setState(() {});
               },
-              indicator: const UnderlineTabIndicator(
+              indicator:  UnderlineTabIndicator(
                   insets: EdgeInsets.fromLTRB(5, 55, 5, 55),
-                  borderSide: BorderSide(color: red, width: 3)),
-              labelColor: red,
-              unselectedLabelColor: grey2,
+                  borderSide: BorderSide(color: custombtncolr1, width: 3)),
+              labelColor: red6,
+              unselectedLabelColor: grey,
               controller: tabController,
               tabs: const [
                 Tab(

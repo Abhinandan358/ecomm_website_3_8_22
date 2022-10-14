@@ -26,11 +26,11 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: black2),
+        iconTheme: const IconThemeData(color: black6),
         elevation: 0,
-        backgroundColor: commoncolor,
+        backgroundColor: commonback,
       ),
       body: Form(
           key: formkey,
@@ -150,7 +150,7 @@ class _LoginState extends State<Login> {
                                 },
                                 child: mytext(
                                   data: 'Don\'t have an Account?',
-                                  color: black2,
+                                  color: black6,
                                   fontSize: 16,
                                 )),
                             custombtn1(() {
@@ -163,10 +163,10 @@ class _LoginState extends State<Login> {
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(5),
-                                            side: BorderSide(color: black1))),
+                                            side: BorderSide(color: black6))),
                                     backgroundColor:
                                         MaterialStateProperty.all(login)),
-                                black2)
+                                black6)
                           ],
                         ),
                       ],

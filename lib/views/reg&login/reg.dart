@@ -29,11 +29,11 @@ class _RegState extends State<Reg> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: black2),
+        iconTheme: const IconThemeData(color: black6),
         elevation: 0,
-        backgroundColor: commoncolor,
+        backgroundColor: commonback,
       ),
       body: Form(
           key: formkey,
@@ -210,7 +210,7 @@ class _RegState extends State<Reg> {
                                 },
                                 child: mytext(
                                   data: 'Already Have Account? ',
-                                  color: black2,
+                                  color: black6,
                                   fontSize: 16,
                                 )),
                             custombtn1(() {
@@ -223,10 +223,10 @@ class _RegState extends State<Reg> {
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(5),
-                                            side: BorderSide(color: black1))),
+                                            side: BorderSide(color: black6))),
                                     backgroundColor:
                                         MaterialStateProperty.all(login)),
-                                black2)
+                                black6)
                           ],
                         ),
                       ],

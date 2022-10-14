@@ -80,17 +80,17 @@ class _CategoryState extends State<Category> {
                   () {},
                   myicon(
                     null,
-                    black2,
+                    black6,
                     Icons.arrow_back,
                   ),
                   mytext(
                     data: 'All Categories',
-                    color: black2,
+                    color: black6,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                   ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(commoncolor))),
+                      backgroundColor: MaterialStateProperty.all(commonback))),
               FutureBuilder<List<CategoryData>>(
                   future: _future,
                   builder: ((context, snapshot) {
@@ -123,7 +123,7 @@ class _CategoryState extends State<Category> {
                                       height: 0.14.sh,
                                       padding: const EdgeInsets.all(15),
                                       decoration: BoxDecoration(
-                                          color: white2,
+                                          color: white,
                                           borderRadius:
                                               BorderRadius.circular(20)),
                                       margin: const EdgeInsets.all(10),
@@ -138,7 +138,7 @@ class _CategoryState extends State<Category> {
                                   ),
                                   mytext(
                                     data: _categoryList1[index].Cat_Name,
-                                    color: grey2,
+                                    color: grey,
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -161,7 +161,7 @@ class _CategoryState extends State<Category> {
                           height: 0.09.sh,
                           child: const LoadingIndicator(
                               indicatorType: Indicator.ballPulseRise,
-                              colors: [red5, green1, blue2],
+                              colors: [red6, green, blue],
                               strokeWidth: 3.0,
                               pathBackgroundColor: Colors.black),
                         )),

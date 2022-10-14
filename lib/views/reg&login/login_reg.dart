@@ -21,13 +21,13 @@ class _LoginRegState extends State<LoginReg> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: commoncolor,
+        backgroundColor: commonback,
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: const [loginsignup, orange2, white])),
+                  colors: const [loginsignup, commonback, white])),
           child: Padding(
             padding:
                 const EdgeInsets.only(top: 20, bottom: 20, left: 25, right: 25),
@@ -43,14 +43,14 @@ class _LoginRegState extends State<LoginReg> {
                     },
                         mytext(
                           data: 'SKIP',
-                          color: black2,
+                          color: black6,
                           backgroundColor: transperant,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                         Icon(
                           Icons.arrow_forward_ios,
-                          color: black2,
+                          color: black6,
                         ),
                         ButtonStyle(
                             backgroundColor:
@@ -62,13 +62,13 @@ class _LoginRegState extends State<LoginReg> {
                   ),
                   mytext(
                       data: 'Largest Collection of stylish Dress',
-                      color: black2,
+                      color: black6,
                       fontSize: 38,
                       fontWeight: FontWeight.bold,
                       textAlign: TextAlign.center),
                   mytext(
                       data: 'Fashion every Women Deserves Afordable Luxury',
-                      color: black2,
+                      color: black6,
                       fontSize: 20,
                       textAlign: TextAlign.center),
                   Row(
@@ -86,7 +86,7 @@ class _LoginRegState extends State<LoginReg> {
                                     RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(5)))),
-                            white1),
+                            white),
                       ),
                       SizedBox(
                         width: 10,
@@ -98,7 +98,7 @@ class _LoginRegState extends State<LoginReg> {
                             'LOG IN',
                             ButtonStyle(
                                 backgroundColor:
-                                    MaterialStateProperty.all(white2),
+                                    MaterialStateProperty.all(white),
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(

@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       body: Center(
         child: ClipOval(
           child: Image.network(

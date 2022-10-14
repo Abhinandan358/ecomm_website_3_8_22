@@ -16,7 +16,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
         child: Column(
@@ -68,7 +68,7 @@ class _ProfileState extends State<Profile> {
             ),
             mytext(data:'Abhinandan Mandal',  fontSize: 25, fontWeight: FontWeight.bold, ),
                
-            mytext(data:'Flutter Software Engineer', color: grey4,  fontSize: 25, ),
+            mytext(data:'Flutter Software Engineer', color: grey,  fontSize: 25, ),
             mytext(data:'Follow Me',  fontSize: 20, ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -147,7 +147,7 @@ class _ProfileState extends State<Profile> {
             mytext(data:'About', fontSize:  20, ),
             mytext(data:
                 'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
-                color: grey1,
+                color: grey,
               
                 fontSize: 20,
                 ),

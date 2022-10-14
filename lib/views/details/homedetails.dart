@@ -45,13 +45,13 @@ class _HomedetailsState extends State<Homedetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       appBar: AppBar(
-          iconTheme: const IconThemeData(color: black2),
+          iconTheme: const IconThemeData(color: black6),
           backgroundColor: white,
           title: mytext(
             data: 'Homedetails',
-            color: black2,
+            color: black6,
           )),
       body: FutureBuilder<List<CategoryColorData>>(
           future: _future,
@@ -70,13 +70,13 @@ class _HomedetailsState extends State<Homedetails> {
                     ),
                     mytext(
                       data: 'Product Name- ${widget.item.name}',
-                      color: black2,
+                      color: black6,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                     mytext(
                       data: 'Product Price- ${widget.item.price}',
-                      color: black2,
+                      color: black6,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -121,7 +121,7 @@ class _HomedetailsState extends State<Homedetails> {
                   height: 0.09.sh,
                   child: const LoadingIndicator(
                       indicatorType: Indicator.ballPulseRise,
-                      colors: [red5, green1, blue2],
+                      colors: [red6, green, blue],
                       strokeWidth: 3.0,
                       pathBackgroundColor: Colors.black),
                 )),
@@ -135,5 +135,5 @@ class _HomedetailsState extends State<Homedetails> {
   }
 }
 
-List colorList = [red6, black6, white6];
-List colorList2 = [black6, white6, black6];
+List colorList = [red6, black6, white];
+List colorList2 = [black6, white, black6];

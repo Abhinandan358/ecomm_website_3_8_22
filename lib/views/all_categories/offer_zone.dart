@@ -67,14 +67,14 @@ class _OfferZoneState extends State<OfferZone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
-          iconTheme: const IconThemeData(color: black1),
+          iconTheme: const IconThemeData(color: black6),
           backgroundColor: appbar,
           title:
-              mytext(data:'Logo', color: brown,),
+              mytext(data:'Logo', color: custombtncolr1,),
           actions: [
             Container(
               width: 0.37.sw,
@@ -92,7 +92,7 @@ class _OfferZoneState extends State<OfferZone> {
                         () {},
                         const Icon(
                           Icons.search,
-                          color: grey2,
+                          color: grey,
                         ),
                         25,
                         null,
@@ -136,13 +136,13 @@ class _OfferZoneState extends State<OfferZone> {
               },
                   myicon(
                     null,
-                    black2,
+                    black6,
                     Icons.arrow_back,
                   ),
-                  mytext(data:'Offer Zone', color: black2, fontSize:  20, fontWeight: FontWeight.bold, 
+                  mytext(data:'Offer Zone', color: black6, fontSize:  20, fontWeight: FontWeight.bold, 
                       ),
                   ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(commoncolor))),
+                      backgroundColor: MaterialStateProperty.all(commonback))),
               mytext(data:'Grab Before It’s Gone', color: orange,  fontSize: 20, fontWeight: FontWeight.bold,
                  ),
               SizedBox(
@@ -186,7 +186,7 @@ class _OfferZoneState extends State<OfferZone> {
                                                 BorderRadius.circular(5)),
                                         child: mytext(data:
                                             _offerList[index].off,
-                                            color: white2,
+                                            color: white,
                                            
                                             fontSize: 13,
                                             fontWeight: FontWeight.bold,
@@ -202,7 +202,7 @@ class _OfferZoneState extends State<OfferZone> {
                             _offerList[index].pname,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                                color: grey2,
+                                color: grey,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -252,14 +252,14 @@ class _OfferZoneState extends State<OfferZone> {
                       ),
                   iconbtntext(
                       () {},
-                      mytext(data:'View All', color: black2, fontSize:  18, 
+                      mytext(data:'View All', color: black6, fontSize:  18, 
                           ),
                       myicon(
                         null,
-                        black2,
+                        black6,
                         Icons.arrow_forward_ios_outlined,
                       ),
-                      ButtonStyle(backgroundColor: MaterialStateProperty.all(commoncolor))
+                      ButtonStyle(backgroundColor: MaterialStateProperty.all(commonback))
                       )
                 ],
               ),
@@ -278,7 +278,7 @@ class _OfferZoneState extends State<OfferZone> {
                     itemBuilder: (context, index) {
                       return Container(
                         padding: const EdgeInsets.all(20),
-                        color: white7,
+                        color: white,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -288,7 +288,7 @@ class _OfferZoneState extends State<OfferZone> {
                               width: 0.29.sw,
                               fit: BoxFit.fill,
                             ),
-                            mytext(data:_offerforyouList[index].name, color: grey2, 
+                            mytext(data:_offerforyouList[index].name, color: grey, 
                                fontSize:  15, ),
                             mytext(data:_offerforyouList[index].uptooff, color: green, 
                                 fontSize: 17, )

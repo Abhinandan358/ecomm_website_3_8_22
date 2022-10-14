@@ -13,9 +13,9 @@ class Electronic extends StatefulWidget {
 }
 
 class _ElectronicState extends State<Electronic> {
-  // List<Subcategorylist> subcategorylistModelList = [];
+
   List<CategoryList> categoryList1 = [];
-  // late Future<List<Welcome>> _future;
+  
   @override
   void initState() {
     super.initState();
@@ -61,7 +61,7 @@ class _ElectronicState extends State<Electronic> {
                       child: CircleAvatar(
                         radius: 30,
                         backgroundColor: red6,
-                        child: Text(categoryList1[index].catId,style: const TextStyle(color: white6,fontWeight: FontWeight.bold),),
+                        child: Text(categoryList1[index].catId,style: const TextStyle(color: white,fontWeight: FontWeight.bold),),
                       ),
                     ),
                     Text(categoryList1[index].catName),

@@ -21,11 +21,11 @@ class _ForgotPassState extends State<ForgotPass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: black2),
+        iconTheme: const IconThemeData(color: black6),
         elevation: 0,
-        backgroundColor: commoncolor,
+        backgroundColor: commonback,
       ),
       body: Form(
           key: formkey,

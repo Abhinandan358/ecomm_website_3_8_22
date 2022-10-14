@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commoncolor,
+      backgroundColor: commonback,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(
             parent: AlwaysScrollableScrollPhysics()),
@@ -172,7 +172,7 @@ class _HomeState extends State<Home> {
                               ),
                               mytext(
                                 data: _offerproductList[index].offerpname,
-                                color: grey4,
+                                color: grey,
                               ),
                               mytext(
                                 data: _offerproductList[index].offersList,
@@ -197,7 +197,7 @@ class _HomeState extends State<Home> {
                         Container(
                           height: 0.003.sh,
                           width: 0.099.sw,
-                          color: brown,
+                          color: custombtncolr1,
                         )
                       ],
                     ),
@@ -206,14 +206,14 @@ class _HomeState extends State<Home> {
                     },
                         mytext(
                           data: 'View All',
-                          color: black2,
+                          color: black6,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
-                        myicon(null, black2, Icons.arrow_forward),
+                        myicon(null, black6, Icons.arrow_forward),
                         ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(commoncolor))),
+                                MaterialStateProperty.all(commonback))),
                   ],
                 ),
                 SizedBox(
@@ -282,12 +282,12 @@ class _HomeState extends State<Home> {
                               ),
                               mytext(
                                 data: _productList[index].name,
-                                color: black1,
+                                color: black6,
                                 fontSize: 18,
                               ),
                               mytext(
                                 data: _productList[index].price,
-                                color: red,
+                                color: red6,
                                 fontSize: 15,
                               ),
                             ],
@@ -312,7 +312,7 @@ class _HomeState extends State<Home> {
                     Container(
                       height: 0.003.sh,
                       width: 0.099.sw,
-                      color: brown,
+                      color: custombtncolr1,
                     )
                   ],
                 ),
@@ -347,7 +347,7 @@ class _HomeState extends State<Home> {
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(20),
-                                                color: black),
+                                                color: black6),
                                             child: myicon(
                                               null,
                                               null,
@@ -364,14 +364,14 @@ class _HomeState extends State<Home> {
                                       height: 0.07.sh,
                                       width: 0.5.sw,
                                       decoration:
-                                          const BoxDecoration(color: black1),
+                                          const BoxDecoration(color: black6),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
                                           mytext(
                                             data: _productList[index].name,
-                                            color: white1,
+                                            color: white,
                                             fontSize: 18,
                                           ),
                                           mytext(

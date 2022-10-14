@@ -44,7 +44,7 @@ class _FetchSizeApiState extends State<FetchSizeApi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: green1,
+        backgroundColor: green,
         appBar: AppBar(
           title: const Text('data'),
         ),
@@ -64,7 +64,7 @@ class _FetchSizeApiState extends State<FetchSizeApi> {
                                 Text('${_fetchbrandList[index].Brand_Id}'),
                                 CircleAvatar(
                                     radius: 50,
-                                    backgroundColor: red,
+                                    backgroundColor: red6,
                                     child: Text(
                                       _fetchbrandList[index].Brand_Name,
                                       style: const TextStyle(
@@ -85,7 +85,7 @@ class _FetchSizeApiState extends State<FetchSizeApi> {
                       child: LoadingIndicator(
                         indicatorType: Indicator.ballBeat,
                         strokeWidth: 3.0,
-                        colors: [red, black, blue],
+                        colors: [red6, black6, blue],
                       )),
                 );
               }

@@ -33,7 +33,7 @@ class _CartState extends State<Cart> {
           child: Column(
             children: [
               Container(
-                color: white2,
+                color: white,
                 child: Column(
                   children: [
                     ListTile(
@@ -94,7 +94,7 @@ class _CartState extends State<Cart> {
                       return Container(
                         padding: const EdgeInsets.all(5),
                         margin: const EdgeInsets.all(5),
-                        color: white2,
+                        color: white,
                         child: Row(
                           children: [
                             Column(
@@ -133,20 +133,20 @@ class _CartState extends State<Cart> {
                                                   data:
                                                       _MycartList[index].pname,
                                                 ),
-                                                SizedBox(
-                                                  width: 0.85.sw,
-                                                  child: ElevatedButton(
-                                                      onPressed: () {},
-                                                      style: ButtonStyle(
-                                                          backgroundColor:
-                                                              MaterialStateProperty
-                                                                  .all(white2)),
-                                                      child: mytext(
-                                                        data:
-                                                            'More About Product',
-                                                        color: blue,
-                                                      )),
-                                                )
+                                                // SizedBox(
+                                                //   width: 0.85.sw,
+                                                //   child: ElevatedButton(
+                                                //       onPressed: () {},
+                                                //       style: ButtonStyle(
+                                                //           backgroundColor:
+                                                //               MaterialStateProperty
+                                                //                   .all(white2)),
+                                                //       child: mytext(
+                                                //         data:
+                                                //             'More About Product',
+                                                //         color: blue,
+                                                //       )),
+                                                // )
                                               ],
                                             ),
                                           );
@@ -279,13 +279,13 @@ class _CartState extends State<Cart> {
                                   children: [
                                     mytext(
                                       data: '₹1499',
-                                      color: grey2,
+                                      color: grey,
                                       fontSize: 17,
                                       decoration: TextDecoration.lineThrough,
                                     ),
                                     mytext(
                                       data: '₹499',
-                                      color: grey2,
+                                      color: grey,
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -293,7 +293,7 @@ class _CartState extends State<Cart> {
                                 ),
                                 mytext(
                                   data: _MycartList[index].deltime,
-                                  color: grey2,
+                                  color: grey,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -317,7 +317,7 @@ class _CartState extends State<Cart> {
                                     ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all(
-                                                commoncolor))),
+                                                commonback))),
                                 iconbtntext(
                                     () {},
                                     myicon(null, black6, Icons.delete_outline),
@@ -329,7 +329,7 @@ class _CartState extends State<Cart> {
                                     ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all(
-                                                commoncolor))),
+                                                commonback))),
                                 iconbtntext(
                                     () {},
                                     myicon(null, black6,
@@ -342,7 +342,7 @@ class _CartState extends State<Cart> {
                                     ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all(
-                                                commoncolor))),
+                                                commonback))),
                               ],
                             ),
                           ],

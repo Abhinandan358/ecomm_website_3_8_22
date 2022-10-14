@@ -51,11 +51,11 @@ class _FashionState extends State<Fashion> {
     return Scaffold(
         backgroundColor: commonback,
         appBar: AppBar(
-          iconTheme: const IconThemeData(color: black1),
+          iconTheme: const IconThemeData(color: black6),
           backgroundColor: appbar,
           title: mytext(
             data: 'Logo',
-            color: brown,
+            color: custombtncolr1,
           ),
           actions: [
             Container(
@@ -67,13 +67,13 @@ class _FashionState extends State<Fashion> {
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
                     isDense: true,
-                    fillColor: appbarSearch,
+                    fillColor: white,
                     filled: true,
                     suffixIcon: myiconbutton(
                         () {},
                         const Icon(
                           Icons.search,
-                          color: grey2,
+                          color: grey,
                           size: 25,
                         ),
                         null,
@@ -159,13 +159,13 @@ class _FashionState extends State<Fashion> {
                               fontSize: 22, fontWeight: FontWeight.bold),
                         ),
                         const Divider(
-                          color: orange,
+                          color: red6,
                         ),
                         const Text('My Account',
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.bold)),
                         const Divider(
-                          color: orange,
+                          color: red6,
                         ),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -190,13 +190,13 @@ class _FashionState extends State<Fashion> {
                               )
                             ]),
                         Divider(
-                          color: orange,
+                          color: red6,
                         ),
                         Text('Terms & Conditions',
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.bold)),
                         Divider(
-                          color: orange,
+                          color: red6,
                         ),
                         Text('Privacy Policy',
                             style: TextStyle(
@@ -228,7 +228,7 @@ class _FashionState extends State<Fashion> {
                         ),
                         ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(commoncolor))),
+                                MaterialStateProperty.all(commonback))),
                     SizedBox(
                       height: 0.18.sh,
                       child: ListView.builder(
@@ -239,7 +239,7 @@ class _FashionState extends State<Fashion> {
                             return Container(
                               margin: const EdgeInsets.all(10),
                               child: CircleAvatar(
-                                backgroundColor: orange2,
+                                backgroundColor: commonback,
                                 radius: 40,
                                 child: Image.asset(
                                   _list[index].img,
@@ -250,55 +250,52 @@ class _FashionState extends State<Fashion> {
                             );
                           }),
                     ),
-                    Container(
-                      color: grey3,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 200,
-                            child: Swiper(
-                                autoplay: true,
-                                itemCount: _list1.length,
-                                itemBuilder: (context, index) {
-                                  return Image.asset(
-                                    'assets/${_list1[index].image}',
-                                    fit: BoxFit.fill,
-                                    width: 1.sw,
-                                  );
-                                }),
-                          ),
-                          Align(
-                              alignment: Alignment.topRight,
-                              child: Image.asset('assets/new 1.png')),
-                          SizedBox(
-                            width: 0.96.sw,
-                            child: Container(
-                              color: white6,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  mytext(
-                                    data: 'sports shoes, sneakers...',
-                                    fontSize: 18,
-                                  ),
-                                  mytext(
-                                    data: 'up to 40% off',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                                ],
-                              ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 200,
+                          child: Swiper(
+                              autoplay: true,
+                              itemCount: _list1.length,
+                              itemBuilder: (context, index) {
+                                return Image.asset(
+                                  'assets/${_list1[index].image}',
+                                  fit: BoxFit.fill,
+                                  width: 1.sw,
+                                );
+                              }),
+                        ),
+                        Align(
+                            alignment: Alignment.topRight,
+                            child: Image.asset('assets/new 1.png')),
+                        SizedBox(
+                          width: 0.96.sw,
+                          child: Container(
+                            color: white,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                mytext(
+                                  data: 'sports shoes, sneakers...',
+                                  fontSize: 18,
+                                ),
+                                mytext(
+                                  data: 'up to 40% off',
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         mytext(
                           data: 'Favourite To All!',
-                          color: orange,
+                          color: red6,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -306,17 +303,17 @@ class _FashionState extends State<Fashion> {
                             () {},
                             mytext(
                               data: 'View All',
-                              color: black2,
+                              color: black6,
                               fontSize: 18,
                             ),
                             myicon(
                               null,
-                              black2,
+                              black6,
                               Icons.arrow_forward_ios_outlined,
                             ),
                             ButtonStyle(
                                 backgroundColor:
-                                    MaterialStateProperty.all(commoncolor)))
+                                    MaterialStateProperty.all(commonback)))
                       ],
                     ),
                     SizedBox(
@@ -334,7 +331,7 @@ class _FashionState extends State<Fashion> {
                           itemBuilder: (context, index) {
                             return Container(
                               padding: const EdgeInsets.all(20),
-                              color: white7,
+                              color: white,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -347,7 +344,7 @@ class _FashionState extends State<Fashion> {
                                   ),
                                   mytext(
                                     data: _offerforyouList[index].name,
-                                    color: grey2,
+                                    color: grey,
                                     fontSize: 15,
                                   ),
                                   mytext(
@@ -378,7 +375,7 @@ class _FashionState extends State<Fashion> {
                           bottom: 30,
                           child: mytext(
                             data: 'Little Girls Dresses',
-                            color: white6,
+                            color: white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           )),
