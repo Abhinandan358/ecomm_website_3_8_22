@@ -132,20 +132,6 @@ class _CartState extends State<Cart> {
                                                   data:
                                                       _MycartList[index].pname,
                                                 ),
-                                                // SizedBox(
-                                                //   width: 0.85.sw,
-                                                //   child: ElevatedButton(
-                                                //       onPressed: () {},
-                                                //       style: ButtonStyle(
-                                                //           backgroundColor:
-                                                //               MaterialStateProperty
-                                                //                   .all(white2)),
-                                                //       child: mytext(
-                                                //         data:
-                                                //             'More About Product',
-                                                //         color: blue,
-                                                //       )),
-                                                // )
                                               ],
                                             ),
                                           );
@@ -317,7 +303,9 @@ class _CartState extends State<Cart> {
                                                 commonback))),
                                 iconbtntext(
                                     () {},
-                                    myicon( color: black6, icon: Icons.delete_outline),
+                                    myicon(
+                                        color: black6,
+                                        icon: Icons.delete_outline),
                                     mytext(
                                       data: 'Remove',
                                       color: black6,
@@ -329,7 +317,8 @@ class _CartState extends State<Cart> {
                                                 commonback))),
                                 iconbtntext(
                                     () {},
-                                    myicon(color:  black6,
+                                    myicon(
+                                        color: black6,
                                         icon: Icons.shopping_bag_outlined),
                                     mytext(
                                       data: 'Buy Now',
