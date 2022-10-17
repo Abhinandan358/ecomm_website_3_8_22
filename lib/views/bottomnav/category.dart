@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/details.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
@@ -77,7 +78,9 @@ class _CategoryState extends State<Category> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               iconbtntext(
-                  () {},
+                  () {
+                    Get.to(()=>DashBoardPage());
+                  },
                   myicon(
                     
                     color: black6,

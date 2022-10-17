@@ -64,11 +64,10 @@ class _FashionState extends State<Fashion> {
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   child: mytextformfield(
                       keyboardType: TextInputType.multiline,
-                      decoration: InputDecoration(
-                          contentPadding:
+                       contentPadding:
                               const EdgeInsets.symmetric(vertical: 10.0),
                           isDense: true,
-                          fillColor: red6,
+                          fillColor: appbarSearch,
                           filled: true,
                           suffixIcon: myiconbutton(
                             onPressed: () {},
@@ -77,7 +76,8 @@ class _FashionState extends State<Fashion> {
                               color: grey,
                               size: 25,
                             ),
-                          ))),
+                          )
+                      ),
                 ),
                 myiconbutton(
                     onPressed: () {},

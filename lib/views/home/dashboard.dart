@@ -80,18 +80,16 @@ class _DashBoardPageState extends State<DashBoardPage>
               Container(
                 width: 0.37.sw,
                 margin: const EdgeInsets.symmetric(vertical: 10),
-                child:  mytextformfield(
-                      keyboardType: TextInputType.multiline,
-                      decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.symmetric(vertical: 10.0),
-                          isDense: true,
-                          fillColor: red6,
-                          filled: true,
-                          suffixIcon: myiconbutton(
-                            onPressed: () {},
-                            icon: myicon(icon: Icons.shopping_cart,size: 30,color: red6),
-                          ))),
+                child: mytextformfield(
+                    keyboardType: TextInputType.multiline,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
+                    isDense: true,
+                    fillColor: appbarSearch,
+                    filled: true,
+                    suffixIcon: myiconbutton(
+                      onPressed: () {},
+                      icon: myicon(icon: Icons.search, size: 20, color: black6),
+                    )),
               ),
               myiconbutton(
                   onPressed: () {},
