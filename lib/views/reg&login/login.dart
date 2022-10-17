@@ -96,9 +96,6 @@ class _LoginState extends State<Login> {
                               fillColor: white,
                               filled: true,
                               border: InputBorder.none,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15),
                             )),
@@ -147,9 +144,6 @@ class _LoginState extends State<Login> {
                             fillColor: white,
                             filled: true,
                             border: InputBorder.none,
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.purple),
-                            ),
                             contentPadding: EdgeInsets.only(
                                 left: 15, bottom: 25, top: 11, right: 15),
                           ),
@@ -208,10 +202,11 @@ class _LoginState extends State<Login> {
                           height: 0.02.sh,
                         ),
                         InkWell(
-                          onTap: (){
-                            Get.to(()=>ForgotPass());
-                          },
-                          child: mytext(data: 'Forgot Password?', color: blue)),
+                            onTap: () {
+                              Get.to(() => ForgotPass());
+                            },
+                            child:
+                                mytext(data: 'Forgot Password?', color: blue)),
                         CheckboxListTile(
                           checkColor: white,
                           activeColor: blue,

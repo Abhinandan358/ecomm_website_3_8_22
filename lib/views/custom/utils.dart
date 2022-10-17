@@ -172,7 +172,7 @@ TextFormField mytextformfield({
           borderSide: BorderSide(color: Colors.purple, width: 3),
         ),
         contentPadding: contentPadding,
-        border: const OutlineInputBorder()),
+        border: InputBorder.none),
     keyboardType: keyboardType,
     style: TextStyle(
         fontSize: fontSize,

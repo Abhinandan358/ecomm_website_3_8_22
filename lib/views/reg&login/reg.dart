@@ -63,7 +63,7 @@ class _RegState extends State<Reg> {
               child: Column(
                 children: [
                   Container(
-                    height: 1270,
+                    height: 1280,
                     color: logins,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -100,9 +100,7 @@ class _RegState extends State<Reg> {
                                 fillColor: white,
                                 filled: true,
                                 border: InputBorder.none,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.purple),
-                                ),
+                               
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
@@ -149,9 +147,6 @@ class _RegState extends State<Reg> {
                                 fillColor: white,
                                 filled: true,
                                 border: InputBorder.none,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.purple),
-                                ),
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
@@ -185,9 +180,7 @@ class _RegState extends State<Reg> {
                                 fillColor: white,
                                 filled: true,
                                 border: InputBorder.none,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.purple),
-                                ),
+                               
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
@@ -221,9 +214,7 @@ class _RegState extends State<Reg> {
                                 fillColor: white,
                                 filled: true,
                                 border: InputBorder.none,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.purple),
-                                ),
+                                
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15),
                               )),
@@ -273,9 +264,7 @@ class _RegState extends State<Reg> {
                               fillColor: white,
                               filled: true,
                               border: InputBorder.none,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
+                              
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 11, right: 15),
                             ),
@@ -320,9 +309,7 @@ class _RegState extends State<Reg> {
                               border: InputBorder.none,
                               fillColor: white,
                               filled: true,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
+                             
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15),
                             ),
@@ -362,9 +349,7 @@ class _RegState extends State<Reg> {
                               border: InputBorder.none,
                               fillColor: white,
                               filled: true,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
+                             
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15),
                             ),

@@ -76,9 +76,6 @@ class _ForgotPassState extends State<ForgotPass> {
                               fillColor: white,
                               filled: true,
                               border: InputBorder.none,
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.purple),
-                              ),
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15)),
                         ),
