@@ -75,7 +75,6 @@ class _ForgotPassState extends State<ForgotPass> {
                           decoration: const InputDecoration(
                               fillColor: white,
                               filled: true,
-                              border: InputBorder.none,
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15)),
                         ),

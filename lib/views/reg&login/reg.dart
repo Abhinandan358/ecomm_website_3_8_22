@@ -99,8 +99,6 @@ class _RegState extends State<Reg> {
                             decoration: const InputDecoration(
                                 fillColor: white,
                                 filled: true,
-                                border: InputBorder.none,
-                               
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
@@ -146,7 +144,6 @@ class _RegState extends State<Reg> {
                             decoration: const InputDecoration(
                                 fillColor: white,
                                 filled: true,
-                                border: InputBorder.none,
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
@@ -179,8 +176,6 @@ class _RegState extends State<Reg> {
                             decoration: const InputDecoration(
                                 fillColor: white,
                                 filled: true,
-                                border: InputBorder.none,
-                               
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
@@ -213,8 +208,6 @@ class _RegState extends State<Reg> {
                               decoration: InputDecoration(
                                 fillColor: white,
                                 filled: true,
-                                border: InputBorder.none,
-                                
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15),
                               )),
@@ -263,8 +256,6 @@ class _RegState extends State<Reg> {
                             decoration: InputDecoration(
                               fillColor: white,
                               filled: true,
-                              border: InputBorder.none,
-                              
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 11, right: 15),
                             ),
@@ -306,10 +297,8 @@ class _RegState extends State<Reg> {
                             labelText: 'Confirm Password',
                             labelStyle: TextStyle(color: grey),
                             decoration: InputDecoration(
-                              border: InputBorder.none,
                               fillColor: white,
                               filled: true,
-                             
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15),
                             ),
@@ -346,10 +335,8 @@ class _RegState extends State<Reg> {
                             labelStyle: TextStyle(color: grey),
                             decoration: const InputDecoration(
                               counterText: "",
-                              border: InputBorder.none,
                               fillColor: white,
                               filled: true,
-                             
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15),
                             ),

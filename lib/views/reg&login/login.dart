@@ -95,7 +95,6 @@ class _LoginState extends State<Login> {
                             decoration: const InputDecoration(
                               fillColor: white,
                               filled: true,
-                              border: InputBorder.none,
                               contentPadding: EdgeInsets.only(
                                   left: 15, bottom: 25, top: 15, right: 15),
                             )),
@@ -143,7 +142,6 @@ class _LoginState extends State<Login> {
                           decoration: InputDecoration(
                             fillColor: white,
                             filled: true,
-                            border: InputBorder.none,
                             contentPadding: EdgeInsets.only(
                                 left: 15, bottom: 25, top: 11, right: 15),
                           ),
