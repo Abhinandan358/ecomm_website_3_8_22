@@ -90,11 +90,7 @@ class _DashBoardPageState extends State<DashBoardPage>
                           filled: true,
                           suffixIcon: myiconbutton(
                             onPressed: () {},
-                            icon: myicon(
-                              icon: Icons.search,
-                              color: grey,
-                              size: 25,
-                            ),
+                            icon: myicon(icon: Icons.shopping_cart,size: 30,color: red6),
                           ))),
               ),
               myiconbutton(

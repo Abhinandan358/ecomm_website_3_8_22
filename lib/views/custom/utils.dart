@@ -92,7 +92,7 @@ IconButton myiconbutton({
   return IconButton(onPressed: onPressed, icon: icon);
 }
 
-Widget myicon({double? size, Color? color, IconData? icon}) {
+Icon myicon({double? size, Color? color, required IconData? icon,}) {
   return Icon(
     icon,
     size: size,
