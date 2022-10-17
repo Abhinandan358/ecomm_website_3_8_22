@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +15,6 @@ class OfferZone extends StatefulWidget {
 
 class _OfferZoneState extends State<OfferZone> {
   int count = 0;
-  final StreamController<int> _streamController = StreamController();
   File? image;
   Future pickImageCamera() async {
     final image = await ImagePicker().pickImage(source: ImageSource.camera);

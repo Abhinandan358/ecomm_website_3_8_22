@@ -9,7 +9,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import '../bottomnav/help.dart';
 import '../bottomnav/profile.dart';
 
@@ -25,7 +24,6 @@ class _DashBoardPageState extends State<DashBoardPage>
   int count = 0;
   bool switchList = true;
   late TabController tabController;
-  final StreamController<int> _streamController = StreamController();
   //--------------------------Image Pickeer start--------------------------
   File? image;
   Future pickImageCamera() async {
@@ -82,24 +80,22 @@ class _DashBoardPageState extends State<DashBoardPage>
               Container(
                 width: 0.37.sw,
                 margin: const EdgeInsets.symmetric(vertical: 10),
-                child: TextFormField(
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding:
-                          const EdgeInsets.symmetric(vertical: 10.0),
-                      isDense: true,
-                      fillColor: appbarSearch,
-                      filled: true,
-                      suffixIcon: myiconbutton(
-                        onPressed: () {},
-                        icon: myicon(
-                          icon: Icons.search,
-                          color: grey,
-                          size: 25,
-                        ),
-                      )),
-                ),
+                child:  mytextformfield(
+                      keyboardType: TextInputType.multiline,
+                      decoration: InputDecoration(
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 10.0),
+                          isDense: true,
+                          fillColor: red6,
+                          filled: true,
+                          suffixIcon: myiconbutton(
+                            onPressed: () {},
+                            icon: myicon(
+                              icon: Icons.search,
+                              color: grey,
+                              size: 25,
+                            ),
+                          ))),
               ),
               myiconbutton(
                   onPressed: () {},

@@ -1,11 +1,8 @@
-import 'dart:async';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:ecommerce_website_logo3_8_22/views/bottomnav/cart.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class Fashion extends StatefulWidget {
   const Fashion({Key? key}) : super(key: key);
@@ -16,7 +13,6 @@ class Fashion extends StatefulWidget {
 
 class _FashionState extends State<Fashion> {
   bool switchList = true;
-  final StreamController<int> _streamController = StreamController();
   static final List<FashionModel> _list = [
     FashionModel('assets/1.png', 'Men'),
     FashionModel('assets/2.png', 'Women'),
