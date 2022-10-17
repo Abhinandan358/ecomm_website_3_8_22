@@ -68,21 +68,9 @@ class _RegState extends State<Reg> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           const SizedBox(height: 20),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'FIRST NAME',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             controller: fnameCtrl,
                             autovalidateMode:
@@ -96,38 +84,19 @@ class _RegState extends State<Reg> {
                             hintText: 'First Name',
                             labelText: 'First Name',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             decoration: const InputDecoration(
                                 fillColor: white,
                                 filled: true,
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                text: 'MIDDLE NAME',
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ))),
                           mytextformfield(
                             hintText: 'Middle Name',
                             labelText: 'Middle Name',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'LAST NAME',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             controller: lnameCtrl,
                             autovalidateMode:
@@ -141,29 +110,18 @@ class _RegState extends State<Reg> {
                             hintText: 'Last Name',
                             labelText: 'Last Name',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             decoration: const InputDecoration(
                                 fillColor: white,
                                 filled: true,
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'COMPANY NAME',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             hintText: 'Company Name',
                             labelText: 'Company Name',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             controller: companyCtrl,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -179,19 +137,6 @@ class _RegState extends State<Reg> {
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'EMAIL ADDRESS',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -205,25 +150,13 @@ class _RegState extends State<Reg> {
                               hintText: 'Write Email',
                               labelText: 'Email',
                               labelStyle: TextStyle(color: grey),
+                              fillColor: white,
                               decoration: InputDecoration(
                                 fillColor: white,
                                 filled: true,
                                 contentPadding: EdgeInsets.only(
                                     left: 15, bottom: 25, top: 15, right: 15),
                               )),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'PASSWORD',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -249,6 +182,7 @@ class _RegState extends State<Reg> {
                             hintText: 'Write Password',
                             labelText: 'Password',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             decoration: InputDecoration(
                               fillColor: white,
                               filled: true,
@@ -256,19 +190,6 @@ class _RegState extends State<Reg> {
                                   left: 15, bottom: 25, top: 11, right: 15),
                             ),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'CONFIRM PASSWORD',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             controller: cpassCtrl,
                             autovalidateMode:
@@ -292,6 +213,7 @@ class _RegState extends State<Reg> {
                             hintText: 'Confirm Password',
                             labelText: 'Confirm Password',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             decoration: InputDecoration(
                               fillColor: white,
                               filled: true,
@@ -299,19 +221,6 @@ class _RegState extends State<Reg> {
                                   left: 15, bottom: 25, top: 15, right: 15),
                             ),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'CONTACT',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             controller: phoneCtrl,
                             keyboardType: TextInputType.phone,
@@ -329,6 +238,7 @@ class _RegState extends State<Reg> {
                             hintText: 'Contact Number',
                             labelText: 'Contact Number',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             decoration: const InputDecoration(
                               counterText: "",
                               fillColor: white,
@@ -337,36 +247,17 @@ class _RegState extends State<Reg> {
                                   left: 15, bottom: 25, top: 15, right: 15),
                             ),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                text: 'ALTERNATE CONTACT',
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ))),
                           mytextformfield(
                             hintText: 'Alternate Contact',
                             labelText: 'Alternate Number',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'ADDRESS',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             hintText: 'Address',
                             labelText: 'Address',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             controller: addressCtrl,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -377,19 +268,6 @@ class _RegState extends State<Reg> {
                               return null;
                             },
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'COUNTRY',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           Container(
                             height: 0.07.sh,
                             decoration: BoxDecoration(
@@ -431,23 +309,11 @@ class _RegState extends State<Reg> {
                                   });
                                 }),
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'STATE',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                             hintText: 'City',
                             labelText: 'City',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             controller: stateCtrl,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -458,23 +324,11 @@ class _RegState extends State<Reg> {
                               return null;
                             },
                           ),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'ZIP CODE',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           mytextformfield(
                               hintText: 'Zip Code',
                               labelText: 'Zip Code',
                               labelStyle: TextStyle(color: grey),
+                              fillColor: white,
                               controller: zipCtrl,
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -484,19 +338,6 @@ class _RegState extends State<Reg> {
                                 }
                                 return null;
                               }),
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                  text: mytextspan(
-                                      text: 'REGISTER AS',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      children: [
-                                    mytextspan(
-                                        text: '*',
-                                        color: red6,
-                                        fontWeight: FontWeight.bold)
-                                  ]))),
                           Container(
                             height: 0.07.sh,
                             decoration: BoxDecoration(

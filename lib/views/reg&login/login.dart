@@ -92,6 +92,7 @@ class _LoginState extends State<Login> {
                             hintText: 'Write Email',
                             labelText: 'Email',
                             labelStyle: TextStyle(color: grey),
+                            fillColor: white,
                             decoration: const InputDecoration(
                               fillColor: white,
                               filled: true,
@@ -117,6 +118,7 @@ class _LoginState extends State<Login> {
                           controller: passCtrl,
                           labelText: 'Password',
                           labelStyle: TextStyle(color: grey),
+                          fillColor: white,
                           validator: ((value) {
                             if (value!.isEmpty) {
                               return "give your password";
@@ -130,8 +132,7 @@ class _LoginState extends State<Login> {
                               });
                             },
                             icon: myicon(
-                               
-                               icon:  _obsecureText
+                                icon: _obsecureText
                                     ? Icons.visibility
                                     : Icons.visibility_off),
                           ),

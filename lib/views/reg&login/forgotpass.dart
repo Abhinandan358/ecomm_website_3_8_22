@@ -71,6 +71,7 @@ class _ForgotPassState extends State<ForgotPass> {
                           },
                           hintText: 'Email',
                           labelText: 'Email',
+                          fillColor: white,
                           labelStyle: TextStyle(color: grey),
                           decoration: const InputDecoration(
                               fillColor: white,

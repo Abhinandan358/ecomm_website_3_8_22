@@ -1,0 +1,13 @@
+ Align(
+                              alignment: Alignment.topLeft,
+                              child: RichText(
+                                  text: mytextspan(
+                                      text: 'FIRST NAME',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      children: [
+                                    mytextspan(
+                                        text: '*',
+                                        color: red6,
+                                        fontWeight: FontWeight.bold)
+                                  ]))),
