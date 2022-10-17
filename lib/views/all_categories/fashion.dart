@@ -114,95 +114,92 @@ class _FashionState extends State<Fashion> {
                 height: 0.96.sh,
                 child: Drawer(
                   backgroundColor: commonback,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        DrawerHeader(
-                          decoration: const BoxDecoration(
-                            color: Color.fromRGBO(245, 245, 245, 1),
-                          ),
-                          child: ListTile(
-                            leading: SizedBox(
-                              height: 70,
-                              width: 70,
-                              child: ClipOval(
-                                child: Image.network(
-                                  'https://media.istockphoto.com/photos/headshot-portrait-of-smiling-male-employee-in-office-picture-id1309328823?b=1&k=20&m=1309328823&s=170667a&w=0&h=a-f8vR5TDFnkMY5poQXfQhDSnK1iImIfgVTVpFZi_KU=',
-                                  height: 70,
-                                  fit: BoxFit.cover,
-                                ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DrawerHeader(
+                        decoration: const BoxDecoration(
+                          color: Color.fromRGBO(245, 245, 245, 1),
+                        ),
+                        child: ListTile(
+                          leading: SizedBox(
+                            height: 70,
+                            width: 70,
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://media.istockphoto.com/photos/headshot-portrait-of-smiling-male-employee-in-office-picture-id1309328823?b=1&k=20&m=1309328823&s=170667a&w=0&h=a-f8vR5TDFnkMY5poQXfQhDSnK1iImIfgVTVpFZi_KU=',
+                                height: 70,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            title: const Text(
-                              'Jenny Wilson',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'abcdef@gmail.com',
-                                  style: TextStyle(fontSize: 14),
-                                ),
-                                Text('+ 000 000 0000',
-                                    style: TextStyle(fontSize: 18))
-                              ],
-                            ),
+                          ),
+                          title: const Text(
+                            'Jenny Wilson',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'abcdef@gmail.com',
+                                style: TextStyle(fontSize: 14),
+                              ),
+                              Text('+ 000 000 0000',
+                                  style: TextStyle(fontSize: 18))
+                            ],
                           ),
                         ),
-                        const Text(
-                          'My Profile',
+                      ),
+                      const Text(
+                        'My Profile',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      const Divider(
+                        color: red6,
+                      ),
+                      const Text('My Account',
                           style: TextStyle(
-                              fontSize: 22, fontWeight: FontWeight.bold),
-                        ),
-                        const Divider(
-                          color: red6,
-                        ),
-                        const Text('My Account',
-                            style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.bold)),
-                        const Divider(
-                          color: red6,
-                        ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Notifications',
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                child: SizedBox(
-                                  height: 54,
-                                  width: 54,
-                                  child: CupertinoSwitch(
-                                      activeColor: blue,
-                                      value: switchList,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          switchList = value;
-                                        });
-                                      }),
-                                ),
-                              )
-                            ]),
-                        Divider(
-                          color: red6,
-                        ),
-                        Text('Terms & Conditions',
-                            style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.bold)),
-                        Divider(
-                          color: red6,
-                        ),
-                        Text('Privacy Policy',
-                            style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.bold)),
-                      ],
-                    ),
+                              fontSize: 22, fontWeight: FontWeight.bold)),
+                      const Divider(
+                        color: red6,
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Notifications',
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold)),
+                            SizedBox(
+                              child: SizedBox(
+                                height: 54,
+                                width: 54,
+                                child: CupertinoSwitch(
+                                    activeColor: blue,
+                                    value: switchList,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                        switchList = value;
+                                      });
+                                    }),
+                              ),
+                            )
+                          ]),
+                      Divider(
+                        color: red6,
+                      ),
+                      Text('Terms & Conditions',
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold)),
+                      Divider(
+                        color: red6,
+                      ),
+                      Text('Privacy Policy',
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold)),
+                    ],
                   ),
                 ))),
         body: SingleChildScrollView(

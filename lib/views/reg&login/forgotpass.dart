@@ -22,46 +22,57 @@ class _ForgotPassState extends State<ForgotPass> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commonback,
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: black6),
-        elevation: 0,
-        backgroundColor: commonback,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(150.0),
+        child: AppBar(
+          iconTheme: const IconThemeData(color: black6),
+          flexibleSpace: Padding(
+            padding: const EdgeInsets.only(top: 70),
+            child: Column(
+              children: [
+                mytext(
+                  data: 'Forgot Password',
+                  fontSize: 30,
+                  color: red6,
+                  fontWeight: FontWeight.bold,
+                ),
+                mytext(
+                    data:
+                        ' Don\'t worry we will handle this situation, please put your registered email ID to continue ',
+                    fontSize: 17,
+                    textAlign: TextAlign.center),
+              ],
+            ),
+          ),
+          elevation: 0,
+          backgroundColor: commonback,
+        ),
       ),
       body: Form(
           key: formkey,
           child: SingleChildScrollView(
             child: Column(
               children: [
-                mytext(
-                  data: 'Forgot Password',
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-                mytext(
-                    data:
-                        ' Don\'t worry we will handle this situation, please put your registered email ID to continue ',
-                    fontSize: 18,
-                    textAlign: TextAlign.center),
-                SizedBox(
-                  height: 50,
-                ),
                 Container(
                   height: 0.76.sh,
                   decoration: BoxDecoration(color: logins),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 15, left: 20, right: 20 ),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                        mytextformfield(
                           controller: emailCtrl,
-                          validator: ((value) {
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) {
                             if (value!.isEmpty) {
-                              return "Please provide only your registered emailid";
+                              return "Please provide your Email";
                             }
                             return null;
-                          }),
-                          decoration: InputDecoration(
+                          },
+                          hintText: 'Email',
+                          labelText: 'Email',
+                          labelStyle: TextStyle(color: grey),
+                          decoration: const InputDecoration(
                               fillColor: white,
                               filled: true,
                               border: InputBorder.none,
@@ -69,22 +80,18 @@ class _ForgotPassState extends State<ForgotPass> {
                                 borderSide: BorderSide(color: Colors.purple),
                               ),
                               contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 25, top: 15, right: 15),
-                              hintText: 'Write Email'),
+                                  left: 15, bottom: 25, top: 15, right: 15)),
                         ),
                         SizedBox(
                           height: 20,
                         ),
-                        // custombtn(() {
-                        //   if (formkey.currentState!.validate()) {
-                        //     postData(emailCtrl.text);
-                        //   }
-                        // }, 'SEND OTP'),
-                        custombtn(onPressed: (){
-                            if (formkey.currentState!.validate()) {
-                            postData(emailCtrl.text);
-                          }
-                        }, btntxt: 'SEND OTP')
+                        custombtn(
+                            onPressed: () {
+                              if (formkey.currentState!.validate()) {
+                                postData(emailCtrl.text);
+                              }
+                            },
+                            btntxt: 'SEND OTP')
                       ],
                     ),
                   ),

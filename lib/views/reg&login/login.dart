@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
+import 'package:ecommerce_website_logo3_8_22/views/reg&login/forgotpass.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +34,7 @@ class _LoginState extends State<Login> {
         child: AppBar(
           iconTheme: const IconThemeData(color: black6),
           flexibleSpace: Padding(
-            padding: const EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.only(top: 60),
             child: Column(
               children: [
                 mytext(
@@ -206,7 +207,11 @@ class _LoginState extends State<Login> {
                         SizedBox(
                           height: 0.02.sh,
                         ),
-                        mytext(data: 'Forgot Password?', color: blue),
+                        InkWell(
+                          onTap: (){
+                            Get.to(()=>ForgotPass());
+                          },
+                          child: mytext(data: 'Forgot Password?', color: blue)),
                         CheckboxListTile(
                           checkColor: white,
                           activeColor: blue,
