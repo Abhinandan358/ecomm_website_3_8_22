@@ -1,8 +1,10 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Fashion extends StatefulWidget {
   const Fashion({Key? key}) : super(key: key);
@@ -64,20 +66,19 @@ class _FashionState extends State<Fashion> {
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   child: mytextformfield(
                       keyboardType: TextInputType.multiline,
-                       contentPadding:
-                              const EdgeInsets.symmetric(vertical: 10.0),
-                          isDense: true,
-                          fillColor: appbarSearch,
-                          filled: true,
-                          suffixIcon: myiconbutton(
-                            onPressed: () {},
-                            icon: myicon(
-                              icon: Icons.search,
-                              color: grey,
-                              size: 25,
-                            ),
-                          )
-                      ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 10.0),
+                      isDense: true,
+                      fillColor: appbarSearch,
+                      filled: true,
+                      suffixIcon: myiconbutton(
+                        onPressed: () {},
+                        icon: myicon(
+                          icon: Icons.search,
+                          color: grey,
+                          size: 25,
+                        ),
+                      )),
                 ),
                 myiconbutton(
                     onPressed: () {},
@@ -185,8 +186,9 @@ class _FashionState extends State<Fashion> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    iconbtntext(
-                        () {},
+                    iconbtntext(() {
+                      Get.to(() => DashBoardPage());
+                    },
                         myicon(
                           color: black6,
                           icon: Icons.arrow_back,
