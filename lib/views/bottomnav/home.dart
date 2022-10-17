@@ -210,7 +210,7 @@ class _HomeState extends State<Home> {
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
-                        myicon(null, black6, Icons.arrow_forward),
+                        myicon(color: black6, icon: Icons.arrow_forward),
                         ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(commonback))),
@@ -265,16 +265,17 @@ class _HomeState extends State<Home> {
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            child: myicon(null, null,
-                                                Icons.shopping_cart)),
+                                            child: myicon(
+                                                icon: Icons.shopping_cart)),
                                         Container(
                                             decoration: BoxDecoration(
                                               color: white,
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            child: myicon(null, null,
-                                                Icons.visibility_outlined)),
+                                            child: myicon(
+                                                icon:
+                                                    Icons.visibility_outlined)),
                                       ],
                                     ),
                                   )
@@ -349,9 +350,8 @@ class _HomeState extends State<Home> {
                                                     BorderRadius.circular(20),
                                                 color: grey),
                                             child: myicon(
-                                              null,
-                                              null,
-                                              Icons.favorite_border_outlined,
+                                              icon: Icons
+                                                  .favorite_border_outlined,
                                             )),
                                       ],
                                     ),

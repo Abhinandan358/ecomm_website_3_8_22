@@ -235,21 +235,17 @@ class _RegState extends State<Reg> {
                               }
                               return null;
                             }),
-                            suffixIcon: myiconbutton(() {
-                              setState(() {
-                                _obsecureText = !_obsecureText;
-                              });
-                            },
-                                myicon(
-                                    null,
-                                    null,
-                                    _obsecureText
-                                        ? Icons.visibility
-                                        : Icons.visibility_off),
-                                null,
-                                null,
-                                null,
-                                null),
+                            suffixIcon: myiconbutton(
+                              onPressed: () {
+                                setState(() {
+                                  _obsecureText = !_obsecureText;
+                                });
+                              },
+                              icon: myicon(
+                                  icon: _obsecureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                            ),
                             hintText: 'Write Password',
                             labelText: 'Password',
                             labelStyle: TextStyle(color: grey),

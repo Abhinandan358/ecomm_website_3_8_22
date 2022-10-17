@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -46,28 +45,30 @@ class _CartState extends State<Cart> {
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
-                      trailing: myiconbutton(() {
-                        showMenu(
-                          context: context,
-                          position: const RelativeRect.fromLTRB(
-                              50.0, 100.0, 20.0, 0.0),
-                          items: [
-                            const PopupMenuItem<String>(
-                                value: '1',
-                                child: Text(
-                                  'Edit',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                )),
-                            const PopupMenuItem<String>(
-                                value: '2',
-                                child: Text('Remove',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
-                          ],
-                          elevation: 8.0,
-                        );
-                      }, myicon(null, null, Icons.more_vert), null, null, null,
-                          null),
+                      trailing: myiconbutton(
+                          onPressed: () {
+                            showMenu(
+                              context: context,
+                              position: const RelativeRect.fromLTRB(
+                                  50.0, 100.0, 20.0, 0.0),
+                              items: [
+                                const PopupMenuItem<String>(
+                                    value: '1',
+                                    child: Text(
+                                      'Edit',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                const PopupMenuItem<String>(
+                                    value: '2',
+                                    child: Text('Remove',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold))),
+                              ],
+                              elevation: 8.0,
+                            );
+                          },
+                          icon: myicon(icon: Icons.more_vert)),
                     ),
                     ListTile(
                       leading: mytext(
@@ -114,15 +115,13 @@ class _CartState extends State<Cart> {
                                                 Align(
                                                     alignment:
                                                         Alignment.bottomRight,
-                                                    child: myiconbutton(() {
-                                                      Get.back();
-                                                    },
-                                                        myicon(null, null,
-                                                            Icons.close),
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null)),
+                                                    child: myiconbutton(
+                                                      onPressed: () {
+                                                        Get.back();
+                                                      },
+                                                      icon: myicon(
+                                                          icon: Icons.close),
+                                                    )),
                                                 Image.asset(
                                                   _MycartList[index].img,
                                                   height: 0.35.sh,
@@ -158,8 +157,8 @@ class _CartState extends State<Cart> {
                                 ),
                                 DropdownButton(
                                     isDense: true,
-                                    icon: myicon(
-                                        null, null, Icons.keyboard_arrow_down),
+                                    icon:
+                                        myicon(icon: Icons.keyboard_arrow_down),
                                     isExpanded: false,
                                     value: dropdownValue,
                                     hint: mytext(
@@ -266,9 +265,8 @@ class _CartState extends State<Cart> {
                                   itemPadding: const EdgeInsets.symmetric(
                                       horizontal: 4.0),
                                   itemBuilder: (context, _) => myicon(
-                                    null,
-                                    green,
-                                    Icons.star,
+                                    color: green,
+                                    icon: Icons.star,
                                   ),
                                   onRatingUpdate: (rating) {
                                     // ignore: avoid_print
@@ -305,9 +303,8 @@ class _CartState extends State<Cart> {
                                 iconbtntext(
                                     () {},
                                     myicon(
-                                      null,
-                                      black6,
-                                      Icons.download_sharp,
+                                      color: black6,
+                                      icon: Icons.download_sharp,
                                     ),
                                     mytext(
                                       data: 'Save Later',
@@ -320,7 +317,7 @@ class _CartState extends State<Cart> {
                                                 commonback))),
                                 iconbtntext(
                                     () {},
-                                    myicon(null, black6, Icons.delete_outline),
+                                    myicon( color: black6, icon: Icons.delete_outline),
                                     mytext(
                                       data: 'Remove',
                                       color: black6,
@@ -332,8 +329,8 @@ class _CartState extends State<Cart> {
                                                 commonback))),
                                 iconbtntext(
                                     () {},
-                                    myicon(null, black6,
-                                        Icons.shopping_bag_outlined),
+                                    myicon(color:  black6,
+                                        icon: Icons.shopping_bag_outlined),
                                     mytext(
                                       data: 'Buy Now',
                                       color: black6,

@@ -81,18 +81,18 @@ Text mytext({
   );
 }
 
-IconButton myiconbutton(
-  Function()? onPressed,
-  Widget icon,
+IconButton myiconbutton({
+  required Function()? onPressed,
+  required Widget icon,
   double? iconSize,
   Color? color,
   ButtonStyle? style,
   bool? isSelected,
-) {
+}) {
   return IconButton(onPressed: onPressed, icon: icon);
 }
 
-Widget myicon(double? size, Color? color, IconData? icon) {
+Widget myicon({double? size, Color? color, IconData? icon}) {
   return Icon(
     icon,
     size: size,
@@ -150,6 +150,8 @@ TextFormField mytextformfield({
   double? letterSpacing,
   double? wordSpacing,
   TextStyle? labelStyle,
+  bool? filled,
+  Color? fillColor,
 }) {
   return TextFormField(
     maxLength: maxLength,
@@ -158,7 +160,7 @@ TextFormField mytextformfield({
     initialValue: initialValue,
     focusNode: focusNode,
     decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: fillColor,
         filled: true,
         hintText: hintText,
         labelText: labelText,
@@ -225,4 +227,39 @@ TextSpan mytextspan({
           fontStyle: fontStyle,
           letterSpacing: letterSpacing,
           wordSpacing: wordSpacing));
+}
+
+//appbar---------------------------
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Color? backgroundColor;
+  final Widget? title;
+  final Widget? leading;
+  final Widget? flexibleSpace;
+  final List<Widget>? actions;
+  final IconThemeData? iconTheme;
+  const CustomAppBar({
+    Key? key,
+    this.title,
+    this.backgroundColor,
+    this.flexibleSpace,
+    this.actions,
+    this.leading,
+    this.iconTheme,
+  }) : super(key: key);
+  @override
+  Size get preferredSize => const Size.fromHeight(42);
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      titleSpacing: 0,
+      title: title,
+      leading: leading,
+      backgroundColor: backgroundColor,
+      centerTitle: true,
+      flexibleSpace: flexibleSpace,
+      iconTheme: iconTheme,
+      actions: actions,
+    );
+  }
 }

@@ -123,21 +123,18 @@ class _LoginState extends State<Login> {
                             }
                             return null;
                           }),
-                          suffixIcon: myiconbutton(() {
-                            setState(() {
-                              _obsecureText = !_obsecureText;
-                            });
-                          },
-                              myicon(
-                                  null,
-                                  null,
-                                  _obsecureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
-                              null,
-                              null,
-                              null,
-                              null),
+                          suffixIcon: myiconbutton(
+                            onPressed: () {
+                              setState(() {
+                                _obsecureText = !_obsecureText;
+                              });
+                            },
+                            icon: myicon(
+                               
+                               icon:  _obsecureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                          ),
                           hintText: 'Write Password',
                           decoration: InputDecoration(
                             fillColor: white,
@@ -203,8 +200,10 @@ class _LoginState extends State<Login> {
                             onTap: () {
                               Get.to(() => ForgotPass());
                             },
-                            child:
-                                mytext(data: 'Forgot Password?', color: blue)),
+                            child: mytext(
+                                data: 'Forgot Password?',
+                                color: blue,
+                                fontWeight: FontWeight.bold)),
                         CheckboxListTile(
                           checkColor: white,
                           activeColor: blue,

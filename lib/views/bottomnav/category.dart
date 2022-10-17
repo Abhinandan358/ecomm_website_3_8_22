@@ -79,9 +79,9 @@ class _CategoryState extends State<Category> {
               iconbtntext(
                   () {},
                   myicon(
-                    null,
-                    black6,
-                    Icons.arrow_back,
+                    
+                    color: black6,
+                    icon: Icons.arrow_back,
                   ),
                   mytext(
                     data: 'All Categories',

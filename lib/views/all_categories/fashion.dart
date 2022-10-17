@@ -50,64 +50,43 @@ class _FashionState extends State<Fashion> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: commonback,
-        appBar: AppBar(
-          iconTheme: const IconThemeData(color: black6),
-          backgroundColor: appbar,
-          title: mytext(
-            data: 'Logo',
-            color: custombtncolr1,
-          ),
-          actions: [
-            Container(
-              width: 0.37.sw,
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              child: TextFormField(
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
-                    isDense: true,
-                    fillColor: white,
-                    filled: true,
-                    suffixIcon: myiconbutton(
-                        () {},
-                        const Icon(
-                          Icons.search,
-                          color: grey,
-                          size: 25,
-                        ),
-                        null,
-                        null,
-                        null,
-                        null)),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60.0),
+          child: CustomAppBar(
+              title: Align(
+                alignment: Alignment.topLeft,
+                child: mytext(
+                  data: 'Logo',
+                  color: custombtncolr1,
+                ),
               ),
-            ),
-            Stack(
-              children: [
-                myiconbutton(() {
-                  Get.to(() => const Cart());
-                }, myicon(null, null, Icons.shopping_cart_outlined), null, null,
-                    null, null),
-                StreamBuilder<int>(
-                    stream: _streamController.stream,
-                    builder: ((context, snapshot) {
-                      if (snapshot.hasData) {
-                        return mytext(
-                          data: '${snapshot.data}',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        );
-                      } else {
-                        return mytext(
-                          data: '0',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        );
-                      }
-                    })),
-              ],
-            )
-          ],
+              backgroundColor: appbar,
+              iconTheme: const IconThemeData(color: black6),
+              actions: [
+                Container(
+                  width: 0.37.sw,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  child: mytextformfield(
+                      keyboardType: TextInputType.multiline,
+                      decoration: InputDecoration(
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 10.0),
+                          isDense: true,
+                          fillColor: red6,
+                          filled: true,
+                          suffixIcon: myiconbutton(
+                            onPressed: () {},
+                            icon: myicon(
+                              icon: Icons.search,
+                              color: grey,
+                              size: 25,
+                            ),
+                          ))),
+                ),
+                myiconbutton(
+                    onPressed: () {},
+                    icon: myicon(icon: Icons.shopping_cart_outlined))
+              ]),
         ),
         drawer: SafeArea(
             child: SizedBox(
@@ -170,8 +149,7 @@ class _FashionState extends State<Fashion> {
                           children: [
                             Text('Notifications',
                                 style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold)),
+                                    fontSize: 22, fontWeight: FontWeight.bold)),
                             SizedBox(
                               child: SizedBox(
                                 height: 54,
@@ -214,9 +192,8 @@ class _FashionState extends State<Fashion> {
                     iconbtntext(
                         () {},
                         myicon(
-                          null,
-                          black6,
-                          Icons.arrow_back,
+                          color: black6,
+                          icon: Icons.arrow_back,
                         ),
                         mytext(
                           data: 'Fashion',
@@ -304,9 +281,8 @@ class _FashionState extends State<Fashion> {
                               fontSize: 18,
                             ),
                             myicon(
-                              null,
-                              black6,
-                              Icons.arrow_forward_ios_outlined,
+                              color: black6,
+                              icon: Icons.arrow_forward_ios_outlined,
                             ),
                             ButtonStyle(
                                 backgroundColor:

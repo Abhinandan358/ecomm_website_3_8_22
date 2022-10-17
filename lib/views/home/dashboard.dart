@@ -68,65 +68,43 @@ class _DashBoardPageState extends State<DashBoardPage>
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
-        child: AppBar(
-          iconTheme: const IconThemeData(color: black6),
-          backgroundColor: appbar,
-          title: mytext(
-            data: 'Logo',
-            color: custombtncolr1,
-          ),
-          actions: [
-            Container(
-              width: 0.37.sw,
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              child: TextFormField(
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
-                    isDense: true,
-                    fillColor: appbarSearch,
-                    filled: true,
-                    suffixIcon: myiconbutton(
-                        () {},
-                        const Icon(
-                          Icons.search,
+        child: CustomAppBar(
+            title: Align(
+              alignment: Alignment.topLeft,
+              child: mytext(
+                data: 'Logo',
+                color: custombtncolr1,
+              ),
+            ),
+            backgroundColor: appbar,
+            iconTheme: const IconThemeData(color: black6),
+            actions: [
+              Container(
+                width: 0.37.sw,
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                child: TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 10.0),
+                      isDense: true,
+                      fillColor: appbarSearch,
+                      filled: true,
+                      suffixIcon: myiconbutton(
+                        onPressed: () {},
+                        icon: myicon(
+                          icon: Icons.search,
                           color: grey,
                           size: 25,
                         ),
-                        null,
-                        null,
-                        null,
-                        null)),
+                      )),
+                ),
               ),
-            ),
-            Stack(
-              children: [
-                myiconbutton(() {
-                  Get.to(() => const Cart());
-                }, myicon(null, null, Icons.shopping_cart_outlined), null, null,
-                    null, null),
-                StreamBuilder<int>(
-                    stream: _streamController.stream,
-                    builder: ((context, snapshot) {
-                      if (snapshot.hasData) {
-                        return mytext(
-                          data: '${snapshot.data}',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        );
-                      } else {
-                        return mytext(
-                          data: '0',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        );
-                      }
-                    })),
-              ],
-            )
-          ],
-        ),
+              myiconbutton(
+                  onPressed: () {},
+                  icon: myicon(icon: Icons.shopping_cart_outlined))
+            ]),
       ),
       drawer: SafeArea(
         child: SizedBox(
@@ -164,23 +142,21 @@ class _DashBoardPageState extends State<DashBoardPage>
                             'abcdef@gmail.com',
                             style: TextStyle(fontSize: 14),
                           ),
-                          Text('+ 000 000 0000',
-                              style: TextStyle(fontSize: 18))
+                          Text('+ 000 000 0000', style: TextStyle(fontSize: 18))
                         ],
                       ),
                     ),
                   ),
                   Text(
                     'My Profile',
-                    style:
-                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   Divider(
                     color: orange,
                   ),
                   Text('My Account',
-                      style: TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold)),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                   Divider(
                     color: orange,
                   ),
@@ -209,14 +185,14 @@ class _DashBoardPageState extends State<DashBoardPage>
                     color: orange,
                   ),
                   Text('Terms & Conditions',
-                      style: TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold)),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                   Divider(
                     color: orange,
                   ),
                   Text('Privacy Policy',
-                      style: TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold)),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                 ],
               ),
             )),
@@ -228,7 +204,7 @@ class _DashBoardPageState extends State<DashBoardPage>
               onTap: (index) {
                 setState(() {});
               },
-              indicator:  UnderlineTabIndicator(
+              indicator: UnderlineTabIndicator(
                   insets: EdgeInsets.fromLTRB(5, 55, 5, 55),
                   borderSide: BorderSide(color: custombtncolr1, width: 3)),
               labelColor: red6,

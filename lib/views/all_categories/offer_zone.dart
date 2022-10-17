@@ -69,59 +69,41 @@ class _OfferZoneState extends State<OfferZone> {
     return Scaffold(
       backgroundColor: commonback,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60.0),
-        child: AppBar(
-          iconTheme: const IconThemeData(color: black6),
-          backgroundColor: appbar,
-          title:
-              mytext(data:'Logo', color: custombtncolr1,),
-          actions: [
-            Container(
-              width: 0.37.sw,
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              child: TextFormField(
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
-                    isDense: true,
-                    hintText: '',
-                    fillColor: appbarSearch,
-                    filled: true,
-                    suffixIcon: myiconbutton(
-                        () {},
-                        const Icon(
-                          Icons.search,
-                          color: grey,
-                        ),
-                        25,
-                        null,
-                        null,
-                        null)),
+          preferredSize: const Size.fromHeight(60.0),
+          child: CustomAppBar(
+              title: Align(
+                alignment: Alignment.topLeft,
+                child: mytext(
+                  data: 'Logo',
+                  color: custombtncolr1,
+                ),
               ),
-            ),
-            Stack(
-              children: [
-                myiconbutton(() {
-                  Get.to(() => const Cart());
-                }, const Icon(Icons.shopping_cart_outlined), null, null, null,
-                    null),
-                StreamBuilder<int>(
-                    stream: _streamController.stream,
-                    builder: ((context, snapshot) {
-                      if (snapshot.hasData) {
-                        return mytext(data:'${snapshot.data}', fontSize:  20,
-                            fontWeight: FontWeight.bold,);
-                      } else {
-                        return mytext(data:'0', fontSize:  20, fontWeight: FontWeight.bold,
-                           );
-                      }
-                    })),
-              ],
-            )
-          ],
+              backgroundColor: appbar,
+              iconTheme: const IconThemeData(color: black6),
+              actions: [
+                Container(
+                  width: 0.37.sw,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  child: mytextformfield(
+                      keyboardType: TextInputType.multiline,
+                      decoration: InputDecoration(
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 10.0),
+                          isDense: true,
+                          fillColor: red6,
+                          filled: true,
+                          suffixIcon: myiconbutton(
+                            onPressed: () {},
+                            icon:  myicon( icon: Icons.search,
+                              color: grey,
+                              size: 25, ),
+                          ))),
+                ),
+                myiconbutton(
+                    onPressed: () {},
+                    icon: myicon(icon: Icons.shopping_cart_outlined))
+              ]),
         ),
-      ),
       drawer: const Drawer(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -135,16 +117,23 @@ class _OfferZoneState extends State<OfferZone> {
                 Get.back();
               },
                   myicon(
-                    null,
-                    black6,
-                    Icons.arrow_back,
+                    color: black6,
+                    icon: Icons.arrow_back,
                   ),
-                  mytext(data:'Offer Zone', color: black6, fontSize:  20, fontWeight: FontWeight.bold, 
-                      ),
+                  mytext(
+                    data: 'Offer Zone',
+                    color: black6,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                   ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(commonback))),
-              mytext(data:'Grab Before It’s Gone', color: orange,  fontSize: 20, fontWeight: FontWeight.bold,
-                 ),
+              mytext(
+                data: 'Grab Before It’s Gone',
+                color: orange,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
               SizedBox(
                 child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -184,13 +173,12 @@ class _OfferZoneState extends State<OfferZone> {
                                             color: orange,
                                             borderRadius:
                                                 BorderRadius.circular(5)),
-                                        child: mytext(data:
-                                            _offerList[index].off,
-                                            color: white,
-                                           
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.bold,
-                                           ),
+                                        child: mytext(
+                                          data: _offerList[index].off,
+                                          color: white,
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   )
@@ -210,8 +198,12 @@ class _OfferZoneState extends State<OfferZone> {
                       );
                     }),
               ),
-              mytext(data:'Under Budget Best Products', color: orange, fontSize:  20,
-                 fontWeight:  FontWeight.bold,),
+              mytext(
+                data: 'Under Budget Best Products',
+                color: orange,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
               SizedBox(
                 height: 0.2.sh,
                 child: ListView.builder(
@@ -235,10 +227,15 @@ class _OfferZoneState extends State<OfferZone> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              mytext(data:_budgetList[index].under,fontSize:  18,
-                                  ),
-                              mytext(data:_budgetList[index].price,fontSize: 22,
-                                  fontWeight: FontWeight.bold, ),
+                              mytext(
+                                data: _budgetList[index].under,
+                                fontSize: 18,
+                              ),
+                              mytext(
+                                data: _budgetList[index].price,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ],
                           ),
                         ),
@@ -248,19 +245,26 @@ class _OfferZoneState extends State<OfferZone> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  mytext(data:'Offers For You',color:  orange, fontSize:  20, fontWeight: FontWeight.bold,
-                      ),
+                  mytext(
+                    data: 'Offers For You',
+                    color: orange,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                   iconbtntext(
                       () {},
-                      mytext(data:'View All', color: black6, fontSize:  18, 
-                          ),
-                      myicon(
-                        null,
-                        black6,
-                        Icons.arrow_forward_ios_outlined,
+                      mytext(
+                        data: 'View All',
+                        color: black6,
+                        fontSize: 18,
                       ),
-                      ButtonStyle(backgroundColor: MaterialStateProperty.all(commonback))
-                      )
+                      myicon(
+                        color: black6,
+                        icon: Icons.arrow_forward_ios_outlined,
+                      ),
+                      ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(commonback)))
                 ],
               ),
               SizedBox(
@@ -288,10 +292,16 @@ class _OfferZoneState extends State<OfferZone> {
                               width: 0.29.sw,
                               fit: BoxFit.fill,
                             ),
-                            mytext(data:_offerforyouList[index].name, color: grey, 
-                               fontSize:  15, ),
-                            mytext(data:_offerforyouList[index].uptooff, color: green, 
-                                fontSize: 17, )
+                            mytext(
+                              data: _offerforyouList[index].name,
+                              color: grey,
+                              fontSize: 15,
+                            ),
+                            mytext(
+                              data: _offerforyouList[index].uptooff,
+                              color: green,
+                              fontSize: 17,
+                            )
                           ],
                         ),
                       );
