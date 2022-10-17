@@ -16,8 +16,8 @@ const Color orange1 = Color.fromRGBO(250, 226, 212, 1);
 const Color red6 = Colors.red;
 const Color black6 = Colors.black;
 const Color white = Color.fromARGB(220, 255, 249, 249);
-const Color blue = Color.fromRGBO(43,75,253,1);
-const Color login = Color.fromRGBO(255, 224, 205, 1);
+const Color blue = Color.fromRGBO(43, 75, 253, 1);
+const Color logins = Color.fromRGBO(255, 224, 205, 1);
 const Color loginsignup = Color.fromRGBO(249, 193, 161, 1);
 const Color slightOrange1 = Color.fromARGB(255, 250, 202, 139);
 const Color custombtncolr1 = Color.fromRGBO(184, 67, 2, 1);
@@ -26,13 +26,17 @@ const Color blacktransparnt = Color.fromARGB(255, 49, 49, 49);
 
 //buttons-----
 
-SizedBox custombtn({required Function()? onPressed, required btntxt,MaterialStateProperty<Color?>? overlayColor,}) {
+SizedBox custombtn({
+  required Function()? onPressed,
+  required btntxt,
+  MaterialStateProperty<Color?>? overlayColor,
+}) {
   return SizedBox(
       height: 0.07.sh,
       width: 1.sw,
       child: ElevatedButton(
           style: ButtonStyle(
-            overlayColor: overlayColor,
+              overlayColor: overlayColor,
               backgroundColor: MaterialStateProperty.all(custombtncolr1),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -145,6 +149,7 @@ TextFormField mytextformfield({
   FontStyle? fontStyle,
   double? letterSpacing,
   double? wordSpacing,
+  TextStyle? labelStyle,
 }) {
   return TextFormField(
     maxLength: maxLength,
@@ -157,6 +162,7 @@ TextFormField mytextformfield({
         filled: true,
         hintText: hintText,
         labelText: labelText,
+        labelStyle: labelStyle,
         isDense: isDense,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
@@ -186,7 +192,6 @@ TextFormField mytextformfield({
     obscureText: obscureText,
   );
 }
-
 
 //--------------rich text-------------------
 

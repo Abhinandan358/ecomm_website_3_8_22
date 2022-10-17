@@ -47,7 +47,7 @@ class _ForgotPassState extends State<ForgotPass> {
                 ),
                 Container(
                   height: 0.76.sh,
-                  decoration: BoxDecoration(color: login),
+                  decoration: BoxDecoration(color: logins),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 15, left: 20, right: 20 ),
                     child: Column(

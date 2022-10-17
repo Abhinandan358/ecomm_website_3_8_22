@@ -28,37 +28,42 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commonback,
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: black6),
-        elevation: 0,
-        backgroundColor: commonback,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(150.0),
+        child: AppBar(
+          iconTheme: const IconThemeData(color: black6),
+          flexibleSpace: Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: Column(
+              children: [
+                mytext(
+                    data: 'Login',
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: red6),
+                mytext(
+                    data: 'Welcome Back To your Account',
+                    fontSize: 20,
+                    color: black6),
+              ],
+            ),
+          ),
+          elevation: 0,
+          backgroundColor: commonback,
+        ),
       ),
       body: Form(
           key: formkey,
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: mytext(
-                        data: 'Login',
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: red6)),
-                         Align(
-                            alignment: Alignment.topLeft,
-                            child: mytext(
-                                data: 'Welcome Back To your Account',
-                                fontSize: 20,
-                                color: black6)),
                 Container(
                   height: 0.9.sh,
-                  color: red6,
+                  color: logins,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                       
                         const SizedBox(height: 20),
                         Align(
                             alignment: Alignment.topLeft,
@@ -74,7 +79,8 @@ class _LoginState extends State<Login> {
                                       fontWeight: FontWeight.bold)
                                 ]))),
                         mytextformfield(
-                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
                             controller: emailCtrl,
                             validator: ((value) {
                               if (value!.isEmpty) {
@@ -83,6 +89,8 @@ class _LoginState extends State<Login> {
                               return null;
                             }),
                             hintText: 'Write Email',
+                            labelText: 'Email',
+                            labelStyle: TextStyle(color: grey),
                             decoration: const InputDecoration(
                               fillColor: white,
                               filled: true,
@@ -110,6 +118,8 @@ class _LoginState extends State<Login> {
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           obscureText: _obsecureText,
                           controller: passCtrl,
+                          labelText: 'Password',
+                          labelStyle: TextStyle(color: grey),
                           validator: ((value) {
                             if (value!.isEmpty) {
                               return "give your password";
@@ -169,7 +179,8 @@ class _LoginState extends State<Login> {
                                     borderSide: BorderSide.none)),
                             items: [
                               DropdownMenuItem(
-                                  value: 'vendor', child: mytext(data: 'Vendor')),
+                                  value: 'vendor',
+                                  child: mytext(data: 'Vendor')),
                               DropdownMenuItem(
                                   value: 'buyer', child: mytext(data: 'Buyer')),
                             ],
@@ -197,7 +208,8 @@ class _LoginState extends State<Login> {
                         ),
                         mytext(data: 'Forgot Password?', color: blue),
                         CheckboxListTile(
-                          checkColor: blue,
+                          checkColor: white,
+                          activeColor: blue,
                           contentPadding: EdgeInsets.symmetric(horizontal: 85),
                           value: checkbox,
                           onChanged: (val) {
@@ -232,7 +244,7 @@ class _LoginState extends State<Login> {
                                                 BorderRadius.circular(5),
                                             side: BorderSide(color: black6))),
                                     backgroundColor:
-                                        MaterialStateProperty.all(login)),
+                                        MaterialStateProperty.all(logins)),
                                 black6)
                           ],
                         ),
