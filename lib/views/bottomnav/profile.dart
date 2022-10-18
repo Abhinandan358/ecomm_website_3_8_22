@@ -1,9 +1,14 @@
+import 'dart:async';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/fetch_size_api.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
+import 'package:ecommerce_website_logo3_8_22/views/bottomnav/updateprofile.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+String ? finalName;
+String ? finalDes;
+String ? finalAbout;
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -12,7 +17,31 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
   @override
+  void initState() {
+    getValidationData().whenComplete(() async{
+      // ignore: unnecessary_null_comparison
+      Timer(const Duration(seconds: 2), () => Get.to(finalName==null ? const Profile():const UpadateProfile()));
+    });
+    super.initState();
+    
+  }
+
+  Future getValidationData() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    var obtainedName = sharedPreferences.getString('name');
+    // var obtainedDes = sharedPreferences.getString('des');
+    // var obtainedAbout = sharedPreferences.getString('about');
+    setState(() {
+      finalName = obtainedName;
+      // finalDes = obtainedDes;
+      // finalAbout = obtainedAbout;
+    });
+    print(finalName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,10 +95,20 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            mytext(data:'Abhinandan Mandal',  fontSize: 25, fontWeight: FontWeight.bold, ),
-               
-            mytext(data:'Flutter Software Engineer', color: grey,  fontSize: 25, ),
-            mytext(data:'Follow Me',  fontSize: 20, ),
+            mytext(
+              data: 'abhi$finalName',
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            mytext(
+              data: 'Flutter Software Engineer',
+              color: grey,
+              fontSize: 25,
+            ),
+            mytext(
+              data: 'Follow Me',
+              fontSize: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -115,19 +154,31 @@ class _ProfileState extends State<Profile> {
                   },
                   child: Column(
                     children: [
-                      mytext(data:'40',  fontSize: 25, ),
-                      mytext(data:
-                          'Projects',  fontSize: 22, ),
+                      mytext(
+                        data: '40',
+                        fontSize: 25,
+                      ),
+                      mytext(
+                        data: 'Projects',
+                        fontSize: 22,
+                      ),
                     ],
                   ),
                 ),
                 InkWell(
-                  onTap: () {Get.to(()=>const FetchSizeApi());},
+                  onTap: () {
+                    Get.to(() => const FetchSizeApi());
+                  },
                   child: Column(
                     children: [
-                      mytext(data:'529',  fontSize: 25, ),
-                      mytext(data:
-                          'Following', fontSize:  22, ),
+                      mytext(
+                        data: '529',
+                        fontSize: 25,
+                      ),
+                      mytext(
+                        data: 'Following',
+                        fontSize: 22,
+                      ),
                     ],
                   ),
                 ),
@@ -135,22 +186,35 @@ class _ProfileState extends State<Profile> {
                   onTap: () {},
                   child: Column(
                     children: [
-                      mytext(data:'5834',fontSize: 25, ),
-                      mytext(data:
-                          'Followers', fontSize: 22, ),
+                      mytext(
+                        data: '5834',
+                        fontSize: 25,
+                      ),
+                      mytext(
+                        data: 'Followers',
+                        fontSize: 22,
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
             const Divider(thickness: 2),
-            mytext(data:'About', fontSize:  20, ),
-            mytext(data:
-                'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
-                color: grey,
-              
-                fontSize: 20,
-                ),
+            mytext(
+              data: 'About',
+              fontSize: 20,
+            ),
+            mytext(
+              data:
+                  'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017',
+              color: grey,
+              fontSize: 20,
+            ),
+            custombtn(
+                onPressed: () {
+                  Get.to(() => UpadateProfile());
+                },
+                btntxt: 'Update Profile')
           ],
         ),
       ),
