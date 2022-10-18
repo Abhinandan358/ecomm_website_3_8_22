@@ -1,14 +1,13 @@
-import 'dart:async';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/fetch_size_api.dart';
 import 'package:ecommerce_website_logo3_8_22/views/bottomnav/home.dart';
-import 'package:ecommerce_website_logo3_8_22/views/bottomnav/updateprofile.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-String ? finalName;
-String ? finalDes;
-String ? finalAbout;
+
+String? finalName;
+String? finalDes;
+String? finalAbout;
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -17,30 +16,29 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
   @override
-  void initState() {
-    getValidationData().whenComplete(() async{
-      // ignore: unnecessary_null_comparison
-      Timer(const Duration(seconds: 2), () => Get.to(finalName==null ? const Profile():const UpadateProfile()));
-    });
-    super.initState();
-    
-  }
+  // void initState() {
+  //   getValidationData().whenComplete(() async{
+  //     // ignore: unnecessary_null_comparison
+  //     Timer(const Duration(seconds: 2), () => Get.to(finalName==null ? const Profile():const UpadateProfile()));
+  //   });
+  //   super.initState();
 
-  Future getValidationData() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-    var obtainedName = sharedPreferences.getString('name');
-    // var obtainedDes = sharedPreferences.getString('des');
-    // var obtainedAbout = sharedPreferences.getString('about');
-    setState(() {
-      finalName = obtainedName;
-      // finalDes = obtainedDes;
-      // finalAbout = obtainedAbout;
-    });
-    print(finalName);
-  }
+  // }
+
+  // Future getValidationData() async {
+  //   final SharedPreferences sharedPreferences =
+  //       await SharedPreferences.getInstance();
+  //   var obtainedName = sharedPreferences.getString('name');
+  //   // var obtainedDes = sharedPreferences.getString('des');
+  //   // var obtainedAbout = sharedPreferences.getString('about');
+  //   setState(() {
+  //     finalName = obtainedName;
+  //     // finalDes = obtainedDes;
+  //     // finalAbout = obtainedAbout;
+  //   });
+  //   print(finalName);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +94,7 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             mytext(
-              data: 'abhi$finalName',
+              data: 'Abhinandan Mandal',
               fontSize: 25,
               fontWeight: FontWeight.bold,
             ),
@@ -212,7 +210,7 @@ class _ProfileState extends State<Profile> {
             ),
             custombtn(
                 onPressed: () {
-                  Get.to(() => UpadateProfile());
+                  // Get.to(() => UpadateProfile());
                 },
                 btntxt: 'Update Profile')
           ],
