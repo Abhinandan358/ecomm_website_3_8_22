@@ -168,8 +168,9 @@ class _HelpState extends State<Help> {
               itemCount: _countryList1.length,
               itemBuilder: (context,index){
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(_countryList1[index].Country)
+                  Text(_countryList1[index].Country,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),)
                 ],
               );
             });

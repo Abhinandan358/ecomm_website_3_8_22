@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:ecommerce_website_logo3_8_22/controller/fetch_country_controller.dart';
+import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
@@ -19,6 +20,9 @@ class Reg extends StatefulWidget {
 }
 
 class _RegState extends State<Reg> {
+  List<CountryData> _countryList1 = [];
+  late Future<List<CountryData>> _future;
+  List<CountryModel> countryList1 = [];
   var formkey = GlobalKey<FormState>();
   String? dropdown;
   String? dropdown1;
@@ -46,6 +50,8 @@ class _RegState extends State<Reg> {
     super.initState();
     getPost();
   }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -518,9 +524,9 @@ class _RegState extends State<Reg> {
           backgroundColor: red6,
           textColor: Colors.white,
           fontSize: 16.0);
-      Get.to(() => const DashBoardPage());
     }
   }
+
   void getPost() async {
     await _countryController.getPost();
     setState(() {});
