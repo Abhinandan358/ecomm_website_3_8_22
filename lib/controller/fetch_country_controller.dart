@@ -11,7 +11,6 @@ class FetchCountryController extends GetxController {
     String url = 'https://demo42.gowebbi.in/api/MasterApi/FetchCountry';
     var result = await get(Uri.parse(url));
     if (result.statusCode == 200) {
-       List<String> items = [];
       var response = CountryModel.formJson(jsonDecode(result.body));
       if (response.status == 'success') {
         FetchCountryList = response.dataList;
@@ -24,22 +23,4 @@ class FetchCountryController extends GetxController {
     }
     return [];
   }
-
-  
-  // Future<List<CountryData>> getPost() async {
-  //   var baseUrl = "https://demo42.gowebbi.in/api/MasterApi/FetchCountry/";
-
-  //   var result = await get(Uri.parse(baseUrl));
-
-  //   if (result.statusCode == 200) {
-  //     List<String> items = [];
-  //     var response = CountryModel.formJson(jsonDecode(result.body));
-  //     if (response.status == 'success') {
-  //       FetchCompanyList = response.dataList;
-  //     }
-  //   } else {
-  //     print('Api error ${result.statusCode}');
-  //   }
-  //   return items;
-  // }
 }

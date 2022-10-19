@@ -305,35 +305,10 @@ class _RegState extends State<Reg> {
                                     child: Container()),
                                 icon: const SizedBox.shrink(),
                                 hint: mytext(data: 'SELECT'),
-                                items: 
-                                  // for(int i = 0; i<_countryController.FetchCountryList.length;i++){
-
-                                  // }
-                                  _countryController.FetchCountryList.map((e) => DropdownMenuItem(child:Text(e.Country),value: e.Country)).toList()
-
-                                  // [
-                                  // DropdownMenuItem(
-                                  //     value: 'INDIA',
-                                  //     child: mytext(data: 'INDIA')),
-                                  // DropdownMenuItem(
-                                  //     value: 'AUSTRALIA',
-                                  //     child: mytext(data: 'AUSTRALIA')),
-                                  // DropdownMenuItem(
-                                  //     value: 'ENGLAND',
-                                  //     child: mytext(data: 'ENGLAND')),
-                                  // DropdownMenuItem(
-                                  //     value: 'WEST INDIES',
-                                  //     child: mytext(data: 'WEST INDIES')),
-                                  // DropdownMenuItem(
-                                  //     value: 'RUSSIA',
-                                  //     child: mytext(data: 'RUSSIA')),
-                                  // DropdownMenuItem(
-                                  //     value: 'NEPAL',
-                                  //     child: mytext(data: 'NEPAL')),
-                                  // DropdownMenuItem(
-                                  //     value: 'BHUTAN',
-                                  //     child: mytext(data: 'BHUTAN')),]
-                                ,
+                                items: _countryController.FetchCountryList.map(
+                                    (e) => DropdownMenuItem(
+                                        child: Text(e.Country),
+                                        value: e.Country)).toList(),
                                 onChanged: (value) {
                                   setState(() {
                                     dropdown1 = value as String;
@@ -414,12 +389,13 @@ class _RegState extends State<Reg> {
                                         contactCtrl.text,
                                         altcontactCtrl.text,
                                         addressCtrl.text,
-                                        countryCtrl.text,
+                                        dropdown1,
                                         stateCtrl.text,
                                         cityCtrl.text,
                                         zipCtrl.text,
                                         usertypeCtrl.text);
                                   }
+                                  print(dropdown1);
                                 },
                                 btntxt: 'SIGN UP',
                                 overlayColor:
@@ -499,7 +475,7 @@ class _RegState extends State<Reg> {
       "Contact": contactCtrl.text,
       "AltContact": altcontactCtrl.text,
       "Address": addressCtrl.text,
-      "Country": countryCtrl.text,
+      "Country": _countryController,
       "State": stateCtrl.text,
       "City": cityCtrl.text,
       "ZipCode": zipCtrl.text,
