@@ -346,3 +346,27 @@ class SubTaxcategorylist {
         "Value": value,
       };
 }
+
+// --------------------- Country Model ------------------------
+
+class CountryModel {
+  final String status, msg;
+  final List<CountryData> dataList;
+
+  CountryModel(this.status, this.msg, this.dataList);
+  factory CountryModel.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['data'];
+    return CountryModel(myjson['status'], myjson['msg'],
+        List<CountryData>.from(list.map((e) => CountryData.formJson(e))));
+  }
+}
+
+class CountryData {
+  final int id;
+  final String Country;
+
+  CountryData(this.id, this.Country);
+  factory CountryData.formJson(Map<String, dynamic> myjson) {
+    return CountryData(myjson['id'], myjson['Country']);
+  }
+}

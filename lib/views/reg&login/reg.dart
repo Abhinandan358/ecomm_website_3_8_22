@@ -1,9 +1,14 @@
 // ignore_for_file: non_constant_identifier_names
+import 'dart:convert';
+
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
+import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 
 class Reg extends StatefulWidget {
   const Reg({Key? key}) : super(key: key);
@@ -19,15 +24,20 @@ class _RegState extends State<Reg> {
   bool _obsecureText = true;
   bool _cobsecureText = true;
   TextEditingController fnameCtrl = TextEditingController();
+  TextEditingController mnameCtrl = TextEditingController();
   TextEditingController lnameCtrl = TextEditingController();
-  TextEditingController companyCtrl = TextEditingController();
+  TextEditingController usernameCtrl = TextEditingController();
   TextEditingController emailCtrl = TextEditingController();
-  TextEditingController phoneCtrl = TextEditingController();
   TextEditingController passCtrl = TextEditingController();
   TextEditingController cpassCtrl = TextEditingController();
+  TextEditingController contactCtrl = TextEditingController();
+  TextEditingController altcontactCtrl = TextEditingController();
   TextEditingController addressCtrl = TextEditingController();
+  TextEditingController countryCtrl = TextEditingController();
   TextEditingController stateCtrl = TextEditingController();
+  TextEditingController cityCtrl = TextEditingController();
   TextEditingController zipCtrl = TextEditingController();
+  TextEditingController usertypeCtrl = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -92,6 +102,7 @@ class _RegState extends State<Reg> {
                                     left: 15, bottom: 25, top: 15, right: 15)),
                           ),
                           mytextformfield(
+                            controller: mnameCtrl,
                             hintText: 'Middle Name',
                             labelText: 'Middle Name',
                             labelStyle: TextStyle(color: grey),
@@ -122,7 +133,7 @@ class _RegState extends State<Reg> {
                             labelText: 'Company Name',
                             labelStyle: TextStyle(color: grey),
                             fillColor: white,
-                            controller: companyCtrl,
+                            controller: usernameCtrl,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             validator: (value) {
@@ -222,7 +233,7 @@ class _RegState extends State<Reg> {
                             ),
                           ),
                           mytextformfield(
-                            controller: phoneCtrl,
+                            controller: contactCtrl,
                             keyboardType: TextInputType.phone,
                             maxLength: 10,
                             autovalidateMode:
@@ -248,6 +259,7 @@ class _RegState extends State<Reg> {
                             ),
                           ),
                           mytextformfield(
+                            controller: altcontactCtrl,
                             hintText: 'Alternate Contact',
                             labelText: 'Alternate Number',
                             labelStyle: TextStyle(color: grey),
@@ -370,7 +382,26 @@ class _RegState extends State<Reg> {
                           Align(
                             alignment: Alignment.topLeft,
                             child: custombtn(
-                                onPressed: () {},
+                                onPressed: () {
+                                  if (formkey.currentState!.validate()) {
+                                    postData(
+                                        fnameCtrl.text,
+                                        mnameCtrl.text,
+                                        lnameCtrl.text,
+                                        usernameCtrl.text,
+                                        emailCtrl.text,
+                                        passCtrl.text,
+                                        cpassCtrl.text,
+                                        contactCtrl.text,
+                                        altcontactCtrl.text,
+                                        addressCtrl.text,
+                                        countryCtrl.text,
+                                        stateCtrl.text,
+                                        cityCtrl.text,
+                                        zipCtrl.text,
+                                        usertypeCtrl.text);
+                                  }
+                                },
                                 btntxt: 'SIGN UP',
                                 overlayColor:
                                     MaterialStateProperty.resolveWith<Color>(
@@ -420,42 +451,67 @@ class _RegState extends State<Reg> {
       ),
     );
   }
+
+  postData(
+      String FirstName1,
+      MiddleName1,
+      LastName1,
+      UserName1,
+      Email1,
+      Password1,
+      ConfirmPassword1,
+      Contact1,
+      AltContact1,
+      Address1,
+      Country,
+      State1,
+      City1,
+      ZipCode1,
+      UserType1) async {
+    String url = 'https://demo42.gowebbi.in/api/RegistrationApi/UserRegister';
+    Map<String, dynamic> param = {
+      "FirstName": fnameCtrl.text,
+      "MiddleName": mnameCtrl.text,
+      "LastName": lnameCtrl.text,
+      "UserName": usernameCtrl.text,
+      "Email": emailCtrl.text,
+      "Password": passCtrl.text,
+      "ConfirmPassword": cpassCtrl.text,
+      "Contact": contactCtrl.text,
+      "AltContact": altcontactCtrl.text,
+      "Address": addressCtrl.text,
+      "Country": countryCtrl.text,
+      "State": stateCtrl.text,
+      "City": cityCtrl.text,
+      "ZipCode": zipCtrl.text,
+      "UserType": usertypeCtrl.text
+    };
+    var result = await post(Uri.parse(url), body: param);
+    var data = jsonDecode(result.body);
+    if (result.statusCode == 200) {
+      // ignore: avoid_print
+      print(result.body);
+    }
+    if (data['status'] == 'success') {
+      Fluttertoast.showToast(
+          msg: "Login Succesfull",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: red6,
+          textColor: Colors.white,
+          fontSize: 16.0);
+      Get.to(() => const DashBoardPage());
+    } else {
+      Fluttertoast.showToast(
+          msg: data['msg'],
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: red6,
+          textColor: Colors.white,
+          fontSize: 16.0);
+      Get.to(() => const DashBoardPage());
+    }
+  }
 }
-//   postData(String Name1, Email1, PhoneNo1, Password1, ConfirmPassword1) async {
-//     String url = 'https://demo50.gowebbi.us/api/RegisterApi/UserRegister';
-//     Map<String, dynamic> param = {
-//       "Name": nameCtrl.text,
-//       "Email": emailCtrl.text,
-//       "PhoneNo": phoneCtrl.text,
-//       "Password": passCtrl.text,
-//       "ConfirmPassword": cpassCtrl.text
-//     };
-//     var result = await post(Uri.parse(url), body: param);
-//     var data = jsonDecode(result.body);
-//     if (result.statusCode == 200) {
-//       // ignore: avoid_print
-//       print(result.body);
-//     }
-//     if (data['status'] == 'success') {
-//       Fluttertoast.showToast(
-//           msg: "Login Succesfull",
-//           toastLength: Toast.LENGTH_SHORT,
-//           gravity: ToastGravity.CENTER,
-//           timeInSecForIosWeb: 1,
-//           backgroundColor: red6,
-//           textColor: Colors.white,
-//           fontSize: 16.0);
-//       Get.to(() => const DashBoardPage());
-//     } else {
-//       Fluttertoast.showToast(
-//           msg: data['msg'],
-//           toastLength: Toast.LENGTH_SHORT,
-//           gravity: ToastGravity.CENTER,
-//           timeInSecForIosWeb: 1,
-//           backgroundColor: red6,
-//           textColor: Colors.white,
-//           fontSize: 16.0);
-//       Get.to(() => const DashBoardPage());
-//     }
-//   }
-// }

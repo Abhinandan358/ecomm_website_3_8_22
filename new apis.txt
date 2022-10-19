@@ -7,3 +7,4 @@ https://demo42.gowebbi.in/api/MasterApi/FetchCountry
 https://demo42.gowebbi.in/api/MasterApi/CountryAginstState
 
 https://demo42.gowebbi.in/api/RegistrationApi/UserRegister
+(FirstName, MiddleName, LastName, UserName(i.e--company name) , Email, Password, ConfirmPassword, Contact, AltContact, Address, Country, State, City, ZipCode, UserType)
