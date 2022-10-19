@@ -5,7 +5,7 @@ import 'package:http/http.dart';
 
 class FetchCountryController extends GetxController {
   // ignore: non_constant_identifier_names
-  List<CountryData> FetchCompanyList = [];
+  List<CountryData> FetchCountryList = [];
 
   Future<List<CountryData>> getPost() async {
     String url = 'https://demo42.gowebbi.in/api/MasterApi/FetchCountry';
@@ -14,7 +14,7 @@ class FetchCountryController extends GetxController {
        List<String> items = [];
       var response = CountryModel.formJson(jsonDecode(result.body));
       if (response.status == 'success') {
-        FetchCompanyList = response.dataList;
+        FetchCountryList = response.dataList;
       }
       // ignore: avoid_print
       print(result.body);

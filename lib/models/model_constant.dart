@@ -370,3 +370,27 @@ class CountryData {
     return CountryData(myjson['id'], myjson['Country']);
   }
 }
+
+//------------------------ FetchCategory Model ------------------
+
+class FetchCategoryApiModel1 {
+  final String status,msg;
+  final List<CategoryData1> dataList;
+
+  FetchCategoryApiModel1(this.status, this.msg, this.dataList);
+  factory FetchCategoryApiModel1.formJson(Map<String,dynamic> myjson){
+    List list = myjson['data'];
+    return FetchCategoryApiModel1(myjson['status'], myjson['msg'], List<CategoryData1>.from(list.map((e) => CategoryData1.formJson(e))));
+  }
+}
+
+class CategoryData1{
+  final int id;
+  final String Name;
+  final bool IsActive;
+
+  CategoryData1(this.id, this.Name, this.IsActive);
+  factory CategoryData1.formJson(Map<String,dynamic> myjson){
+    return CategoryData1(myjson['id'], myjson['Name'], myjson['IsActive']);
+  }
+}

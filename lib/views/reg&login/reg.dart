@@ -305,7 +305,11 @@ class _RegState extends State<Reg> {
                                     child: Container()),
                                 icon: const SizedBox.shrink(),
                                 hint: mytext(data: 'SELECT'),
-                                items: [
+                                items: 
+                                  // for(int i = 0; i<_countryController.FetchCountryList.length;i++){
+
+                                  // }
+                                  [
                                   DropdownMenuItem(
                                       value: 'INDIA',
                                       child: mytext(data: 'INDIA')),
@@ -326,8 +330,8 @@ class _RegState extends State<Reg> {
                                       child: mytext(data: 'NEPAL')),
                                   DropdownMenuItem(
                                       value: 'BHUTAN',
-                                      child: mytext(data: 'BHUTAN')),
-                                ],
+                                      child: mytext(data: 'BHUTAN')),]
+                                ,
                                 onChanged: (value) {
                                   setState(() {
                                     dropdown1 = value as String;
