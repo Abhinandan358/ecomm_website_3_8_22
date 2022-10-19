@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
 
+import 'package:ecommerce_website_logo3_8_22/controller/fetch_country_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:ecommerce_website_logo3_8_22/views/reg&login/login.dart';
@@ -38,7 +39,13 @@ class _RegState extends State<Reg> {
   TextEditingController cityCtrl = TextEditingController();
   TextEditingController zipCtrl = TextEditingController();
   TextEditingController usertypeCtrl = TextEditingController();
+
+  final FetchCountryController _countryController = Get.find();
   @override
+  void initState() {
+    super.initState();
+    getPost();
+  }
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -513,5 +520,9 @@ class _RegState extends State<Reg> {
           fontSize: 16.0);
       Get.to(() => const DashBoardPage());
     }
+  }
+  void getPost() async {
+    await _countryController.getPost();
+    setState(() {});
   }
 }
