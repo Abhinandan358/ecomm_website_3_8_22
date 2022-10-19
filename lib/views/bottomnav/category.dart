@@ -100,7 +100,7 @@ class _CategoryState extends State<Category> {
               );
             });
           }
-          else if(snapshot.hasData){
+          else if(snapshot.hasError){
             return Text('data');
           }else{
             return Text('error');

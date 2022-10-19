@@ -309,28 +309,30 @@ class _RegState extends State<Reg> {
                                   // for(int i = 0; i<_countryController.FetchCountryList.length;i++){
 
                                   // }
-                                  [
-                                  DropdownMenuItem(
-                                      value: 'INDIA',
-                                      child: mytext(data: 'INDIA')),
-                                  DropdownMenuItem(
-                                      value: 'AUSTRALIA',
-                                      child: mytext(data: 'AUSTRALIA')),
-                                  DropdownMenuItem(
-                                      value: 'ENGLAND',
-                                      child: mytext(data: 'ENGLAND')),
-                                  DropdownMenuItem(
-                                      value: 'WEST INDIES',
-                                      child: mytext(data: 'WEST INDIES')),
-                                  DropdownMenuItem(
-                                      value: 'RUSSIA',
-                                      child: mytext(data: 'RUSSIA')),
-                                  DropdownMenuItem(
-                                      value: 'NEPAL',
-                                      child: mytext(data: 'NEPAL')),
-                                  DropdownMenuItem(
-                                      value: 'BHUTAN',
-                                      child: mytext(data: 'BHUTAN')),]
+                                  _countryController.FetchCountryList.map((e) => DropdownMenuItem(child:Text(e.Country),value: e.Country)).toList()
+
+                                  // [
+                                  // DropdownMenuItem(
+                                  //     value: 'INDIA',
+                                  //     child: mytext(data: 'INDIA')),
+                                  // DropdownMenuItem(
+                                  //     value: 'AUSTRALIA',
+                                  //     child: mytext(data: 'AUSTRALIA')),
+                                  // DropdownMenuItem(
+                                  //     value: 'ENGLAND',
+                                  //     child: mytext(data: 'ENGLAND')),
+                                  // DropdownMenuItem(
+                                  //     value: 'WEST INDIES',
+                                  //     child: mytext(data: 'WEST INDIES')),
+                                  // DropdownMenuItem(
+                                  //     value: 'RUSSIA',
+                                  //     child: mytext(data: 'RUSSIA')),
+                                  // DropdownMenuItem(
+                                  //     value: 'NEPAL',
+                                  //     child: mytext(data: 'NEPAL')),
+                                  // DropdownMenuItem(
+                                  //     value: 'BHUTAN',
+                                  //     child: mytext(data: 'BHUTAN')),]
                                 ,
                                 onChanged: (value) {
                                   setState(() {
