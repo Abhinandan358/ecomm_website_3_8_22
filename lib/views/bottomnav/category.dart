@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'dart:convert';
+import 'package:ecommerce_website_logo3_8_22/controller/fetch_category_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
 import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
@@ -20,13 +21,13 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-  List<CategoryData1> _categoryList1 = [];
+   List<CategoryData1> _categotyList1 = [];
   late Future<List<CategoryData1>> _future;
-  //List<CategoryList> categoryList1 = [];
+  final FetchCategoryController _categoryController = Get.find();
   @override
   void initState() {
     super.initState();
-    _future = _getPost();
+    getPost();
     // _getData();
   }
 
@@ -55,7 +56,7 @@ class _CategoryState extends State<Category> {
   //     if (response.status == 'success') {
   //       _categoryList1 = response.dataList;
   //     }
-     
+
   //     print(result.body);
   //   } else {
   //     // ignore: avoid_print
@@ -63,49 +64,38 @@ class _CategoryState extends State<Category> {
   //   }
   //   return [];
   // }
- Future<List<CategoryData1>> _getPost() async {
-    String url = 'https://demo42.gowebbi.in/api/MasterApi/FetchCategory';
-    var result = await get(Uri.parse(url));
-    if (result.statusCode == 200) {
-      var response = FetchCategoryApiModel1.formJson(jsonDecode(result.body));
-      if (response.status == 'success') {
-        _categoryList1 = response.dataList;
-      }
-      // ignore: avoid_print
-      print(result.body);
-    } else {
-      // ignore: avoid_print
-      print('Api error ${result.statusCode}');
-    }
-    return [];
-  }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: commonback,
-      body: FutureBuilder<List<CategoryData1>>(
-        future: _future,
-        builder: (context,snapshot){
-          if(snapshot.hasData){
-            return ListView.builder(
-              itemCount: _categoryList1.length,
-              itemBuilder: (context,index){
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(_categoryList1[index].Name,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),)
-                ],
-              );
-            });
-          }
-          else if(snapshot.hasError){
-            return Text('data');
-          }else{
-            return Text('error');
-          }
-        }),
+      body: FutureBuilder<List<CategoryData1>>(builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return ListView.builder(
+              itemCount: _categotyList1.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      _categotyList1[index].Name,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                    )
+                  ],
+                );
+              });
+        } else if (snapshot.hasError) {
+          return Text('data');
+        } else {
+          return Text('error');
+        }
+      }),
     );
+  }
+
+  void getPost() async {
+    await _categoryController.getPost();
+    setState(() {});
   }
 }

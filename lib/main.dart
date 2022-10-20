@@ -1,3 +1,4 @@
+import 'package:ecommerce_website_logo3_8_22/controller/fetch_category_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/controller/fetch_company_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/controller/fetch_country_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/views/Splashscreen/splash_scrn.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
             initialBinding: BindingsBuilder(() {
               Get.put(FetchCompanyController());
               Get.put(FetchCountryController());
+              Get.put(FetchCategoryController());
             }));
       },
       child: const SplashScreen(),
