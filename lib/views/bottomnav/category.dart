@@ -21,8 +21,6 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-   List<CategoryData1> _categotyList1 = [];
-  late Future<List<CategoryData1>> _future;
   final FetchCategoryController _categoryController = Get.find();
   @override
   void initState() {
@@ -48,50 +46,26 @@ class _CategoryState extends State<Category> {
   //   }
   // }
 //////////////////////////////////////////////////22222222222222222222
-  // Future<List<CategoryData1>> _getPost() async {
-  //   String url = 'https://demo42.gowebbi.in/api/MasterApi/FetchCategory';
-  //   var result = await get(Uri.parse(url));
-  //   if (result.statusCode == 200) {
-  //     var response = FetchCategoryApiModel1.formJson(jsonDecode(result.body));
-  //     if (response.status == 'success') {
-  //       _categoryList1 = response.dataList;
-  //     }
-
-  //     print(result.body);
-  //   } else {
-  //     // ignore: avoid_print
-  //     print('Api error ${result.statusCode}');
-  //   }
-  //   return [];
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: commonback,
-      body: FutureBuilder<List<CategoryData1>>(builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return ListView.builder(
-              itemCount: _categotyList1.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      _categotyList1[index].Name,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                    )
-                  ],
-                );
-              });
-        } else if (snapshot.hasError) {
-          return Text('data');
-        } else {
-          return Text('error');
-        }
-      }),
-    );
+        backgroundColor: commonback,
+        body: ListView.builder(
+            itemCount: _categoryController.fetchCategoryList.length,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _categoryController.fetchCategoryList[index].Id.toString(),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                  ),
+                  Text(_categoryController.fetchCategoryList[index].Name,style: TextStyle(fontSize: 20)),
+                  //Image.network(_categoryController.fetchCategoryList[index].ImgUrl.toString())
+                ],
+              );
+            }));
   }
 
   void getPost() async {

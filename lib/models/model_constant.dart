@@ -375,22 +375,22 @@ class CountryData {
 
 class FetchCategoryApiModel1 {
   final String status,msg;
-  final List<CategoryData1> dataList;
+  final List<FetchCategoryData> dataList;
 
   FetchCategoryApiModel1(this.status, this.msg, this.dataList);
   factory FetchCategoryApiModel1.formJson(Map<String,dynamic> myjson){
     List list = myjson['data'];
-    return FetchCategoryApiModel1(myjson['status'], myjson['msg'], List<CategoryData1>.from(list.map((e) => CategoryData1.formJson(e))));
+    return FetchCategoryApiModel1(myjson['status'], myjson['msg'],List<FetchCategoryData>.from(list.map((e) => FetchCategoryData.formJson(e))));
   }
 }
 
-class CategoryData1{
-  final int id;
+class FetchCategoryData{
+  final int Id;
   final String Name;
-  final bool IsActive;
+  final String? ImgUrl;
 
-  CategoryData1(this.id, this.Name, this.IsActive);
-  factory CategoryData1.formJson(Map<String,dynamic> myjson){
-    return CategoryData1(myjson['id'], myjson['Name'], myjson['IsActive']);
+  FetchCategoryData(this.Id, this.Name, this.ImgUrl);
+  factory FetchCategoryData.formJson(Map<String,dynamic> myjson){
+    return FetchCategoryData(myjson['Id'], myjson['Name'], myjson['ImgUrl']);
   }
 }

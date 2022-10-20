@@ -5,13 +5,15 @@ import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 class FetchCategoryController extends GetxController {
+ List<FetchCategoryData> fetchCategoryList = [];
 
-  Future<List<CategoryData1>> getPost() async {
+  Future<List<FetchCategoryData>> getPost() async {
     String url = 'https://demo42.gowebbi.in/api/MasterApi/FetchCategory';
     var result = await get(Uri.parse(url));
     if (result.statusCode == 200) {
       var response = FetchCategoryApiModel1.formJson(jsonDecode(result.body));
       if (response.status == 'success') {
+        fetchCategoryList = response.dataList;
       }
       // ignore: avoid_print
       print(result.body);
