@@ -25,7 +25,7 @@ class _DetailsPageState extends State<DetailsPage> {
           children: [
             CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text(widget.item.subcategorylist[index].subId,
+                child: Text(widget.item.subcategorylist[index].subName,
                     style: const TextStyle(color: Colors.white))),
            
           ],

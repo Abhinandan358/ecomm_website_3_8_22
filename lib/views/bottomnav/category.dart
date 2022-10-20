@@ -38,6 +38,7 @@ class _CategoryState extends State<Category> {
     //List<FetchCategoryData> categoryList1 = [];
     if (result.statusCode == 200) {
       var response = Welcome.fromJson(jsonDecode(result.body));
+      print('object');
       _subcategoryList = response.categoryList;
       // ignore: avoid_print
       setState(() {});
@@ -54,25 +55,32 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: commonback,
-        body: ListView.builder(
-            itemCount: _categoryController.fetchCategoryList.length,
-            itemBuilder: (context, index) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _categoryController.fetchCategoryList[index].Id.toString(),
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                  ),
-                  InkWell(
-                    onTap: (){
-                      Get.to(()=>DetailsPage(item: _subcategoryList[index]));
-                    },
-                    child: Text(_categoryController.fetchCategoryList[index].Name,style: TextStyle(fontSize: 20))),
-                  //Image.network(_categoryController.fetchCategoryList[index].ImgUrl.toString())
-                ],
-              );
-            }));
+        body: GridView.builder(
+          itemCount: _categoryController.fetchCategoryList.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 0.7,
+              ),itemBuilder: ((context, index) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onTap: (){
+                        Get.to(()=>DetailsPage(item:  _subcategoryList[index]));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(20),
+                        color: white,
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: red6,
+                          child: Text(_categoryController.fetchCategoryList[index].Id.toString(),style: TextStyle(color: black6),)),
+                      ),
+                    ),
+                    Text(_categoryController.fetchCategoryList[index].Name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                  ],
+                );
+              })));
   }
 
   void getPost() async {

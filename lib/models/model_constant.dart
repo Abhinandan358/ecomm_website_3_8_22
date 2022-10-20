@@ -353,6 +353,18 @@ class FetchCategoryData {
 
 //Category Against Sub Category new api -------------------------
 
+// To parse this JSON data, do
+//
+//     final welcome = welcomeFromJson(jsonString);
+
+
+
+// To parse this JSON data, do
+//
+//     final welcome = welcomeFromJson(jsonString);
+
+
+
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 
 String welcomeToJson(Welcome data) => json.encode(data.toJson());
@@ -438,7 +450,7 @@ final isActiveValues = EnumValues({
 
 class EnumValues<T> {
     Map<String, T> map;
-    late Map<T, String> reverseMap;
+   late Map<T, String> reverseMap;
 
     EnumValues(this.map);
 
