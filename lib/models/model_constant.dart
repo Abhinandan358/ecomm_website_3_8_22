@@ -1,31 +1,10 @@
 //------------------1.CategoryModel--------------------------------
 
-// ignore_for_file: non_constant_identifier_names
-
-class CategoryApiModel {
-  final String status, msg;
-  final List<CategoryData> dataList;
-
-  CategoryApiModel(this.status, this.msg, this.dataList);
-
-  factory CategoryApiModel.formJson(Map<String, dynamic> myjson) {
-    List list = myjson['data'];
-    return CategoryApiModel(myjson['status'], myjson['msg'],
-        List<CategoryData>.from(list.map((e) => CategoryData.formJson(e))));
-  }
-}
-
-class CategoryData {
-  final int Cat_Id;
-  final String Cat_Name, ImgUrl;
-
-  CategoryData(this.Cat_Id, this.Cat_Name, this.ImgUrl);
-  factory CategoryData.formJson(Map<String, dynamic> myjson) {
-    return CategoryData(myjson['Cat_Id'], myjson['Cat_Name'], myjson['ImgUrl']);
-  }
-}
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
 //------------------2.CategoryColor Model --------------------
+
+import 'dart:convert';
 
 class CategoryColorModel {
   final String status, msg;
@@ -54,73 +33,73 @@ class CategoryColorData {
 
 //---------------------3.CategoryAginstSubcategory Model--------------------
 
-class Welcome {
-  Welcome({
-    required this.categoryList,
-  });
+// class Welcome {
+//   Welcome({
+//     required this.categoryList,
+//   });
 
-  List<CategoryList> categoryList;
+//   List<CategoryList> categoryList;
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
-        categoryList: List<CategoryList>.from(
-            json["CategoryList"].map((x) => CategoryList.fromJson(x))),
-      );
+//   factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+//         categoryList: List<CategoryList>.from(
+//             json["CategoryList"].map((x) => CategoryList.fromJson(x))),
+//       );
 
-  Map<String, dynamic> toJson() => {
-        "CategoryList": List<dynamic>.from(categoryList.map((x) => x.toJson())),
-      };
-}
+//   Map<String, dynamic> toJson() => {
+//         "CategoryList": List<dynamic>.from(categoryList.map((x) => x.toJson())),
+//       };
+// }
 
-class CategoryList {
-  CategoryList({
-    required this.catId,
-    required this.catName,
-    required this.subcategorylist,
-  });
+// class CategoryList {
+//   CategoryList({
+//     required this.catId,
+//     required this.catName,
+//     required this.subcategorylist,
+//   });
 
-  String catId;
-  String catName;
-  List<Subcategorylist> subcategorylist;
+//   String catId;
+//   String catName;
+//   List<Subcategorylist> subcategorylist;
 
-  factory CategoryList.fromJson(Map<String, dynamic> json) => CategoryList(
-        catId: json["Cat_Id"],
-        catName: json["Cat_Name"],
-        subcategorylist: List<Subcategorylist>.from(
-            json["subcategorylist"].map((x) => Subcategorylist.fromJson(x))),
-      );
+//   factory CategoryList.fromJson(Map<String, dynamic> json) => CategoryList(
+//         catId: json["Cat_Id"],
+//         catName: json["Cat_Name"],
+//         subcategorylist: List<Subcategorylist>.from(
+//             json["subcategorylist"].map((x) => Subcategorylist.fromJson(x))),
+//       );
 
-  Map<String, dynamic> toJson() => {
-        "Cat_Id": catId,
-        "Cat_Name": catName,
-        "subcategorylist":
-            List<dynamic>.from(subcategorylist.map((x) => x.toJson())),
-      };
-}
+//   Map<String, dynamic> toJson() => {
+//         "Cat_Id": catId,
+//         "Cat_Name": catName,
+//         "subcategorylist":
+//             List<dynamic>.from(subcategorylist.map((x) => x.toJson())),
+//       };
+// }
 
-class Subcategorylist {
-  Subcategorylist({
-    required this.subId,
-    required this.subName,
-    required this.isActive,
-  });
+// class Subcategorylist {
+//   Subcategorylist({
+//     required this.subId,
+//     required this.subName,
+//     required this.isActive,
+//   });
 
-  String subId;
-  String subName;
-  String isActive;
+//   String subId;
+//   String subName;
+//   String isActive;
 
-  factory Subcategorylist.fromJson(Map<String, dynamic> json) =>
-      Subcategorylist(
-        subId: json["Sub_Id"],
-        subName: json["SubName"],
-        isActive: json["IsActive"],
-      );
+//   factory Subcategorylist.fromJson(Map<String, dynamic> json) =>
+//       Subcategorylist(
+//         subId: json["Sub_Id"],
+//         subName: json["SubName"],
+//         isActive: json["IsActive"],
+//       );
 
-  Map<String, dynamic> toJson() => {
-        "Sub_Id": subId,
-        "SubName": subName,
-        "IsActive": isActive,
-      };
-}
+//   Map<String, dynamic> toJson() => {
+//         "Sub_Id": subId,
+//         "SubName": subName,
+//         "IsActive": isActive,
+//       };
+// }
 
 //-----------------------4.FetchCompany -----------------------------------
 
@@ -149,33 +128,6 @@ class FetchCompanyData {
   }
 }
 
-//---------------------------------4.FetchSize--------------------------------
-
-// class FetchSizeApi {
-//   final String status, msg;
-//   final List<FetchSizeData> FetchSizeDatalist;
-
-//   FetchSizeApi(this.status, this.msg, this.FetchSizeDatalist);
-//   factory FetchSizeApi.fromJson(Map<String, dynamic> myjson) {
-//     List list = myjson['data'];
-//     return FetchSizeApi(
-//         myjson['status'],
-//         myjson['msg'],
-//         List<FetchSizeData>.from(
-//             list.map((e) => FetchCompanyData.formJson(e))));
-//   }
-// }
-
-// class FetchSizeData {
-//   final int Size_Id;
-//   final String Size_Name;
-
-//   FetchSizeData(this.Size_Id, this.Size_Name);
-
-//   factory FetchSizeData.fromJson(Map<String, dynamic> myjson) {
-//     return FetchSizeData(myjson['Size_Id'], myjson['Size_Name']);
-//   }
-// }
 
 class FetchSizeApi {
   final String status, msg;
@@ -347,7 +299,7 @@ class SubTaxcategorylist {
       };
 }
 
-// --------------------- Country Model ------------------------
+// --------------------- Country Model new api  ------------------------
 
 class CountryModel {
   final String status, msg;
@@ -371,26 +323,129 @@ class CountryData {
   }
 }
 
-//------------------------ FetchCategory Model ------------------
+//------------------------ FetchCategory Model new api------------------
 
 class FetchCategoryApiModel1 {
-  final String status,msg;
+  final String status, msg;
   final List<FetchCategoryData> dataList;
 
   FetchCategoryApiModel1(this.status, this.msg, this.dataList);
-  factory FetchCategoryApiModel1.formJson(Map<String,dynamic> myjson){
+  factory FetchCategoryApiModel1.formJson(Map<String, dynamic> myjson) {
     List list = myjson['data'];
-    return FetchCategoryApiModel1(myjson['status'], myjson['msg'],List<FetchCategoryData>.from(list.map((e) => FetchCategoryData.formJson(e))));
+    return FetchCategoryApiModel1(
+        myjson['status'],
+        myjson['msg'],
+        List<FetchCategoryData>.from(
+            list.map((e) => FetchCategoryData.formJson(e))));
   }
 }
 
-class FetchCategoryData{
+class FetchCategoryData {
   final int Id;
   final String Name;
   final String? ImgUrl;
 
   FetchCategoryData(this.Id, this.Name, this.ImgUrl);
-  factory FetchCategoryData.formJson(Map<String,dynamic> myjson){
+  factory FetchCategoryData.formJson(Map<String, dynamic> myjson) {
     return FetchCategoryData(myjson['Id'], myjson['Name'], myjson['ImgUrl']);
   }
+}
+
+//Category Against Sub Category new api -------------------------
+
+Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+
+String welcomeToJson(Welcome data) => json.encode(data.toJson());
+
+class Welcome {
+    Welcome({
+        required this.categoryList,
+    });
+
+    List<CategoryList> categoryList;
+
+    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+        categoryList: List<CategoryList>.from(json["CategoryList"].map((x) => CategoryList.fromJson(x))),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "CategoryList": List<dynamic>.from(categoryList.map((x) => x.toJson())),
+    };
+}
+
+class CategoryList {
+    CategoryList({
+        required this.catId,
+        required this.catName,
+        required this.subcategorylist,
+    });
+
+    String catId;
+    String catName;
+    List<Subcategorylist> subcategorylist;
+
+    factory CategoryList.fromJson(Map<String, dynamic> json) => CategoryList(
+        catId: json["Cat_Id"],
+        catName: json["Cat_Name"],
+        subcategorylist: List<Subcategorylist>.from(json["subcategorylist"].map((x) => Subcategorylist.fromJson(x))),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "Cat_Id": catId,
+        "Cat_Name": catName,
+        "subcategorylist": List<dynamic>.from(subcategorylist.map((x) => x.toJson())),
+    };
+}
+
+class Subcategorylist {
+    Subcategorylist({
+        required this.subId,
+        required this.subName,
+        required this.imgUrl,
+        required this.isActive,
+        required this.spacial,
+    });
+
+    String subId;
+    String subName;
+    String imgUrl;
+    IsActive isActive;
+    IsActive spacial;
+
+    factory Subcategorylist.fromJson(Map<String, dynamic> json) => Subcategorylist(
+        subId: json["Sub_Id"],
+        subName: json["SubName"],
+        imgUrl: json["ImgUrl"],
+        isActive: json["IsActive"],
+        spacial: json["Spacial"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "Sub_Id": subId,
+        "SubName": subName,
+        "ImgUrl": imgUrl,
+        "IsActive": isActiveValues.reverse[isActive],
+        "Spacial": isActiveValues.reverse[spacial],
+    };
+}
+
+enum IsActive { TRUE, FALSE }
+
+final isActiveValues = EnumValues({
+    "False": IsActive.FALSE,
+    "True": IsActive.TRUE
+});
+
+class EnumValues<T> {
+    Map<String, T> map;
+    late Map<T, String> reverseMap;
+
+    EnumValues(this.map);
+
+    Map<T, String> get reverse {
+        if (reverseMap == null) {
+            reverseMap = map.map((k, v) => new MapEntry(v, k));
+        }
+        return reverseMap;
+    }
 }
