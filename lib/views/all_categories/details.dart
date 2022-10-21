@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../controller/fetch_category_controller.dart';
 
 class DetailsPage extends StatefulWidget {
-  final CategoryList item;
+  final CategoryAgainstSubcategory item;
   const DetailsPage({Key? key, required this.item}) : super(key: key);
 
   @override
@@ -19,13 +19,13 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ListView.builder(
-      itemCount: widget.item.subcategorylist.length,
+      itemCount: widget.item.subcategoryList.length,
       itemBuilder: ((context, index) {
         return Column(
           children: [
             CircleAvatar(
                 backgroundColor: Colors.red,
-                child: Text(widget.item.subcategorylist[index].subName,
+                child: Text(widget.item.subcategoryList[index].SubName,
                     style: const TextStyle(color: Colors.white))),
            
           ],

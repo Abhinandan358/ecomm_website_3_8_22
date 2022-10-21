@@ -23,7 +23,7 @@ class Category extends StatefulWidget {
 
 class _CategoryState extends State<Category> {
   final FetchCategoryController _categoryController = Get.find();
-  List<CategoryList> _subcategoryList = [];
+  List<CategoryAgainstSubcategory> _subcategoryList = [];
   @override
   void initState() {
     super.initState();
@@ -37,9 +37,11 @@ class _CategoryState extends State<Category> {
     var result = await get(Uri.parse(url));
     //List<FetchCategoryData> categoryList1 = [];
     if (result.statusCode == 200) {
-      var response = Welcome.fromJson(jsonDecode(result.body));
+      print(result.statusCode);
       print('object');
-      _subcategoryList = response.categoryList;
+      var response = Subcategory.formJson(jsonDecode(result.body));
+      
+      _subcategoryList = response.subcategoryList1;
       // ignore: avoid_print
       setState(() {});
       // ignore: avoid_print

@@ -353,111 +353,39 @@ class FetchCategoryData {
 
 //Category Against Sub Category new api -------------------------
 
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
+class Subcategory{
+  List<CategoryAgainstSubcategory> subcategoryList1=[];
+  Subcategory(this.subcategoryList1);
+  factory Subcategory.formJson(Map<String,dynamic> myjson){
+    List list1 = myjson['CategoryList'];
+    return Subcategory(List<CategoryAgainstSubcategory>.from(list1.map((e)=>CategoryAgainstSubcategory.formJson(e))));
+  }
+}
 
+class CategoryAgainstSubcategory {
+  final String Cat_Id;
+  final String Cat_Name;
+  List<CategoryAgainstSubcategoryData> subcategoryList = [];
 
-
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
-
-
-
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
-
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
-
-class Welcome {
-    Welcome({
-        required this.categoryList,
-    });
-
-    List<CategoryList> categoryList;
-
-    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
-        categoryList: List<CategoryList>.from(json["CategoryList"].map((x) => CategoryList.fromJson(x))),
+  CategoryAgainstSubcategory(this.Cat_Id, this.Cat_Name,this.subcategoryList);
+  factory CategoryAgainstSubcategory.formJson(Map<String,dynamic> myjson){
+     List list = myjson['subcategorylist'];
+    return CategoryAgainstSubcategory(myjson['Cat_Id'], myjson['Cat_Name'],
+    List<CategoryAgainstSubcategoryData>.from(list.map((e) => CategoryAgainstSubcategoryData.formJson(e)))
     );
-
-    Map<String, dynamic> toJson() => {
-        "CategoryList": List<dynamic>.from(categoryList.map((x) => x.toJson())),
-    };
+  }
 }
 
-class CategoryList {
-    CategoryList({
-        required this.catId,
-        required this.catName,
-        required this.subcategorylist,
-    });
+class CategoryAgainstSubcategoryData{
+  final String Sub_Id;
+  final String SubName;
+  final String? ImgUrl;
+  final String IsActive,Spacial;
 
-    String catId;
-    String catName;
-    List<Subcategorylist> subcategorylist;
-
-    factory CategoryList.fromJson(Map<String, dynamic> json) => CategoryList(
-        catId: json["Cat_Id"],
-        catName: json["Cat_Name"],
-        subcategorylist: List<Subcategorylist>.from(json["subcategorylist"].map((x) => Subcategorylist.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "Cat_Id": catId,
-        "Cat_Name": catName,
-        "subcategorylist": List<dynamic>.from(subcategorylist.map((x) => x.toJson())),
-    };
+  CategoryAgainstSubcategoryData(this.Sub_Id, this.SubName, this.ImgUrl, this.IsActive, this.Spacial);
+  factory CategoryAgainstSubcategoryData.formJson(Map<String,dynamic> myjson){
+    return CategoryAgainstSubcategoryData(myjson['Sub_Id'], myjson['SubName'], myjson['ImgUrl'], myjson['IsActive'], myjson['Spacial']);
+  }
 }
 
-class Subcategorylist {
-    Subcategorylist({
-        required this.subId,
-        required this.subName,
-        required this.imgUrl,
-        required this.isActive,
-        required this.spacial,
-    });
 
-    String subId;
-    String subName;
-    String imgUrl;
-    IsActive isActive;
-    IsActive spacial;
-
-    factory Subcategorylist.fromJson(Map<String, dynamic> json) => Subcategorylist(
-        subId: json["Sub_Id"],
-        subName: json["SubName"],
-        imgUrl: json["ImgUrl"],
-        isActive: json["IsActive"],
-        spacial: json["Spacial"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "Sub_Id": subId,
-        "SubName": subName,
-        "ImgUrl": imgUrl,
-        "IsActive": isActiveValues.reverse[isActive],
-        "Spacial": isActiveValues.reverse[spacial],
-    };
-}
-
-enum IsActive { TRUE, FALSE }
-
-final isActiveValues = EnumValues({
-    "False": IsActive.FALSE,
-    "True": IsActive.TRUE
-});
-
-class EnumValues<T> {
-    Map<String, T> map;
-   late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-        if (reverseMap == null) {
-            reverseMap = map.map((k, v) => new MapEntry(v, k));
-        }
-        return reverseMap;
-    }
-}
