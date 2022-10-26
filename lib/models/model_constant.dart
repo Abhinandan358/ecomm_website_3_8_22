@@ -4,7 +4,6 @@
 
 //------------------2.CategoryColor Model --------------------
 
-import 'dart:convert';
 
 class CategoryColorModel {
   final String status, msg;
@@ -127,7 +126,6 @@ class FetchCompanyData {
     return FetchCompanyData(myjson['Company_Id'], myjson['Company_Name']);
   }
 }
-
 
 class FetchSizeApi {
   final String status, msg;
@@ -353,12 +351,13 @@ class FetchCategoryData {
 
 //Category Against Sub Category new api -------------------------
 
-class Subcategory{
-  List<CategoryAgainstSubcategory> subcategoryList1=[];
+class Subcategory {
+  List<CategoryAgainstSubcategory> subcategoryList1 = [];
   Subcategory(this.subcategoryList1);
-  factory Subcategory.formJson(Map<String,dynamic> myjson){
+  factory Subcategory.formJson(Map<String, dynamic> myjson) {
     List list1 = myjson['CategoryList'];
-    return Subcategory(List<CategoryAgainstSubcategory>.from(list1.map((e)=>CategoryAgainstSubcategory.formJson(e))));
+    return Subcategory(List<CategoryAgainstSubcategory>.from(
+        list1.map((e) => CategoryAgainstSubcategory.formJson(e))));
   }
 }
 
@@ -367,25 +366,61 @@ class CategoryAgainstSubcategory {
   final String Cat_Name;
   List<CategoryAgainstSubcategoryData> subcategoryList = [];
 
-  CategoryAgainstSubcategory(this.Cat_Id, this.Cat_Name,this.subcategoryList);
-  factory CategoryAgainstSubcategory.formJson(Map<String,dynamic> myjson){
-     List list = myjson['subcategorylist'];
-    return CategoryAgainstSubcategory(myjson['Cat_Id'], myjson['Cat_Name'],
-    List<CategoryAgainstSubcategoryData>.from(list.map((e) => CategoryAgainstSubcategoryData.formJson(e)))
-    );
+  CategoryAgainstSubcategory(this.Cat_Id, this.Cat_Name, this.subcategoryList);
+  factory CategoryAgainstSubcategory.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['subcategorylist'];
+    return CategoryAgainstSubcategory(
+        myjson['Cat_Id'],
+        myjson['Cat_Name'],
+        List<CategoryAgainstSubcategoryData>.from(
+            list.map((e) => CategoryAgainstSubcategoryData.formJson(e))));
   }
 }
 
-class CategoryAgainstSubcategoryData{
+class CategoryAgainstSubcategoryData {
   final String Sub_Id;
   final String SubName;
   final String? ImgUrl;
-  final String IsActive,Spacial;
+  final String IsActive, Spacial;
 
-  CategoryAgainstSubcategoryData(this.Sub_Id, this.SubName, this.ImgUrl, this.IsActive, this.Spacial);
-  factory CategoryAgainstSubcategoryData.formJson(Map<String,dynamic> myjson){
-    return CategoryAgainstSubcategoryData(myjson['Sub_Id'], myjson['SubName'], myjson['ImgUrl'], myjson['IsActive'], myjson['Spacial']);
+  CategoryAgainstSubcategoryData(
+      this.Sub_Id, this.SubName, this.ImgUrl, this.IsActive, this.Spacial);
+  factory CategoryAgainstSubcategoryData.formJson(Map<String, dynamic> myjson) {
+    return CategoryAgainstSubcategoryData(myjson['Sub_Id'], myjson['SubName'],
+        myjson['ImgUrl'], myjson['IsActive'], myjson['Spacial']);
   }
 }
 
+// CountryAginstState ---------------------------------
+class CountryStates {
+  List<CountryAginstState> subcategorystateList1 = [];
+  CountryStates(this.subcategorystateList1);
+  factory CountryStates.formJson(Map<String, dynamic> myjson) {
+    List list1 = myjson['CountryList'];
+    return CountryStates(List<CountryAginstState>.from(
+        list1.map((e) => CountryAginstState.formJson(e))));
+  }
+}
 
+class CountryAginstState {
+  final String Country_Id, Country_Name;
+  List<CountryAginstStateData> countrystatelist = [];
+  CountryAginstState(this.Country_Id, this.Country_Name, this.countrystatelist);
+  factory CountryAginstState.formJson(Map<String, dynamic> myjson) {
+    List list = myjson['Statelist'];
+    return CountryAginstState(
+        myjson['Country_Id'],
+        myjson['Country_Name'],
+        List<CountryAginstStateData>.from(
+            list.map((e) => CountryAginstStateData.formJson(e))));
+  }
+}
+
+class CountryAginstStateData {
+  final String State_Id, State_Name;
+
+  CountryAginstStateData(this.State_Id, this.State_Name);
+  factory CountryAginstStateData.formJson(Map<String, dynamic> myjson) {
+    return CountryAginstStateData(myjson['State_Id'], myjson['State_Name']);
+  }
+}

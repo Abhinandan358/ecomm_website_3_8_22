@@ -20,8 +20,6 @@ class Reg extends StatefulWidget {
 }
 
 class _RegState extends State<Reg> {
-  List<CountryData> _countryList1 = [];
-  late Future<List<CountryData>> _future;
   List<CountryModel> countryList1 = [];
   var formkey = GlobalKey<FormState>();
   String? dropdown;
@@ -43,14 +41,32 @@ class _RegState extends State<Reg> {
   TextEditingController cityCtrl = TextEditingController();
   TextEditingController zipCtrl = TextEditingController();
   TextEditingController usertypeCtrl = TextEditingController();
-
+  List<CountryAginstState> _subcategoryStateList = [];
   final FetchCountryController _countryController = Get.find();
   @override
   void initState() {
     super.initState();
     getPost();
+    _getData();
   }
-
+  _getData() async {
+    String url =
+        'https://demo42.gowebbi.in/api/MasterApi/CountryAginstState';
+    var result = await get(Uri.parse(url));
+    //List<FetchCategoryData> categoryList1 = [];
+    if (result.statusCode == 200) {
+      var response = CountryStates.formJson(jsonDecode(result.body));
+      
+      _subcategoryStateList = response.subcategorystateList1;
+      // ignore: avoid_print
+      setState(() {});
+      // ignore: avoid_print
+      print(result.body);
+    } else {
+      // ignore: avoid_print
+      print('Api error ${result.statusCode}');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -307,8 +323,31 @@ class _RegState extends State<Reg> {
                                 hint: mytext(data: 'SELECT'),
                                 items: _countryController.FetchCountryList.map(
                                     (e) => DropdownMenuItem(
-                                        child: Text(e.Country),
-                                        value: e.Country)).toList(),
+                                        value: e.Country,
+                                        child: Text(e.Country))).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    dropdown1 = value as String;
+                                  });
+                                }),
+                          ),
+                          //---------------State--------------
+                          Container(
+                            height: 0.07.sh,
+                            decoration: BoxDecoration(
+                                color: white, border: Border.all()),
+                            child: DropdownButton(
+                                value: dropdown1,
+                                isExpanded: true,
+                                focusColor: white,
+                                underline: DropdownButtonHideUnderline(
+                                    child: Container()),
+                                icon: const SizedBox.shrink(),
+                                hint: mytext(data: 'State'),
+                                items: _subcategoryStateList.map(
+                                    (e) => DropdownMenuItem(
+                                        value: e.Country_Name,
+                                        child: Text(e.Country_Name))).toList(),
                                 onChanged: (value) {
                                   setState(() {
                                     dropdown1 = value as String;
@@ -395,7 +434,6 @@ class _RegState extends State<Reg> {
                                         zipCtrl.text,
                                         usertypeCtrl.text);
                                   }
-                                  print(dropdown1);
                                 },
                                 btntxt: 'SIGN UP',
                                 overlayColor:
@@ -513,4 +551,8 @@ class _RegState extends State<Reg> {
     await _countryController.getPost();
     setState(() {});
   }
+  //  void getPost1() async {
+  //   await FetchCountryStateController.getPost1();
+  //   setState(() {});
+  // }
 }

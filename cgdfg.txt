@@ -1,0 +1,18 @@
+: customButtonIcon(
+              icon: Icons.share,
+              buttonText: 'Share QR code',
+              onPressed: () async{
+                const weburl = 'abcd.com';
+                final uri = Uri.parse(dummyData!);
+                // if(nameController.value.text.isNotEmpty){
+                //   await Share.share('${nameController.text} $weburl');
+                // }
+                final res = await http.get(uri);
+                final bytes = res.bodyBytes;
+                final temp = await getTemporaryDirectory();
+                final path = '${temp.path}/image.jpg';
+                File(path).writeAsBytesSync(bytes);
+                await Share.shareFiles([path]);
+                setState(() {});
+              },
+            ),

@@ -3,15 +3,10 @@
 import 'dart:convert';
 import 'package:ecommerce_website_logo3_8_22/controller/fetch_category_controller.dart';
 import 'package:ecommerce_website_logo3_8_22/views/all_categories/details.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/fashion.dart';
-import 'package:ecommerce_website_logo3_8_22/views/all_categories/offer_zone.dart';
-import 'package:ecommerce_website_logo3_8_22/views/home/dashboard.dart';
 import 'package:get/get.dart';
-import 'package:loading_indicator/loading_indicator.dart';
 import 'package:ecommerce_website_logo3_8_22/models/model_constant.dart';
 import 'package:ecommerce_website_logo3_8_22/views/custom/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart';
 
 class Category extends StatefulWidget {
@@ -37,8 +32,6 @@ class _CategoryState extends State<Category> {
     var result = await get(Uri.parse(url));
     //List<FetchCategoryData> categoryList1 = [];
     if (result.statusCode == 200) {
-      print(result.statusCode);
-      print('object');
       var response = Subcategory.formJson(jsonDecode(result.body));
       
       _subcategoryList = response.subcategoryList1;

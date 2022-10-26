@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
               Get.put(FetchCompanyController());
               Get.put(FetchCountryController());
               Get.put(FetchCategoryController());
+              // Get.put(FetchCountryStateController());
             }));
       },
       child: const SplashScreen(),
