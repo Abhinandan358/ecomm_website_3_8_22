@@ -407,12 +407,12 @@ class CountryAginstState {
   List<CountryAginstStateData> countrystatelist = [];
   CountryAginstState(this.Country_Id, this.Country_Name, this.countrystatelist);
   factory CountryAginstState.formJson(Map<String, dynamic> myjson) {
-    List list = myjson['Statelist'];
+    List list4 = myjson['Statelist'];
     return CountryAginstState(
         myjson['Country_Id'],
         myjson['Country_Name'],
         List<CountryAginstStateData>.from(
-            list.map((e) => CountryAginstStateData.formJson(e))));
+            list4.map((e) => CountryAginstStateData.formJson(e))));
   }
 }
 

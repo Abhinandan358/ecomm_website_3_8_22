@@ -24,6 +24,7 @@ class _RegState extends State<Reg> {
   var formkey = GlobalKey<FormState>();
   String? dropdown;
   String? dropdown1;
+  String? dropdown2;
   bool _obsecureText = true;
   bool _cobsecureText = true;
   TextEditingController fnameCtrl = TextEditingController();
@@ -41,7 +42,7 @@ class _RegState extends State<Reg> {
   TextEditingController cityCtrl = TextEditingController();
   TextEditingController zipCtrl = TextEditingController();
   TextEditingController usertypeCtrl = TextEditingController();
-  List<CountryAginstState> _subcategoryStateList = [];
+  List<CountryAginstStateData> _subcategoryStateList = [];
   final FetchCountryController _countryController = Get.find();
   @override
   void initState() {
@@ -49,15 +50,15 @@ class _RegState extends State<Reg> {
     getPost();
     _getData();
   }
+
   _getData() async {
-    String url =
-        'https://demo42.gowebbi.in/api/MasterApi/CountryAginstState';
+    String url = 'https://demo42.gowebbi.in/api/MasterApi/CountryAginstState';
     var result = await get(Uri.parse(url));
-    //List<FetchCategoryData> categoryList1 = [];
+    print('object');
     if (result.statusCode == 200) {
-      var response = CountryStates.formJson(jsonDecode(result.body));
-      
-      _subcategoryStateList = response.subcategorystateList1;
+      var response = CountryAginstState.formJson(jsonDecode(result.body));
+
+      _subcategoryStateList = response.countrystatelist;
       // ignore: avoid_print
       setState(() {});
       // ignore: avoid_print
@@ -67,6 +68,7 @@ class _RegState extends State<Reg> {
       print('Api error ${result.statusCode}');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -309,6 +311,7 @@ class _RegState extends State<Reg> {
                               return null;
                             },
                           ),
+                          //-----------------------Country--------
                           Container(
                             height: 0.07.sh,
                             decoration: BoxDecoration(
@@ -337,23 +340,25 @@ class _RegState extends State<Reg> {
                             decoration: BoxDecoration(
                                 color: white, border: Border.all()),
                             child: DropdownButton(
-                                value: dropdown1,
+                                value: dropdown2,
                                 isExpanded: true,
                                 focusColor: white,
                                 underline: DropdownButtonHideUnderline(
                                     child: Container()),
                                 icon: const SizedBox.shrink(),
                                 hint: mytext(data: 'State'),
-                                items: _subcategoryStateList.map(
-                                    (e) => DropdownMenuItem(
-                                        value: e.Country_Name,
-                                        child: Text(e.Country_Name))).toList(),
+                                items: _subcategoryStateList
+                                    .map((e) => DropdownMenuItem(
+                                        value: e.State_Id,
+                                        child: Text(e.State_Name)))
+                                    .toList(),
                                 onChanged: (value) {
                                   setState(() {
-                                    dropdown1 = value as String;
+                                    dropdown2 = value as String;
                                   });
                                 }),
                           ),
+                          //------------------------------------------------
                           mytextformfield(
                             hintText: 'City',
                             labelText: 'City',
@@ -428,11 +433,11 @@ class _RegState extends State<Reg> {
                                         contactCtrl.text,
                                         altcontactCtrl.text,
                                         addressCtrl.text,
-                                        dropdown1,
-                                        stateCtrl.text,
+                                        dropdown1.toString(),
+                                        dropdown2.toString(),
                                         cityCtrl.text,
                                         zipCtrl.text,
-                                        usertypeCtrl.text);
+                                        dropdown.toString());
                                   }
                                 },
                                 btntxt: 'SIGN UP',
@@ -513,11 +518,11 @@ class _RegState extends State<Reg> {
       "Contact": contactCtrl.text,
       "AltContact": altcontactCtrl.text,
       "Address": addressCtrl.text,
-      "Country": _countryController,
-      "State": stateCtrl.text,
+      "Country": dropdown1,
+      "State": dropdown2,
       "City": cityCtrl.text,
       "ZipCode": zipCtrl.text,
-      "UserType": usertypeCtrl.text
+      "UserType": dropdown.toString()
     };
     var result = await post(Uri.parse(url), body: param);
     var data = jsonDecode(result.body);
